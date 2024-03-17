@@ -15,6 +15,16 @@ public class PlayerMovement : MonoBehaviour
     private GameObject _nearestEnemy;
     private GameManager _gameManager;
     public GameObject _currentEnemy;
+    public GameObject _bullet;
+    [Header("Standard Gun")] 
+    public float _standardMaxTimer;
+    private float _standardCurrentTimer;
+    public Transform _standardSpawner;
+    [Header("Shotgub Gun")] 
+    public float _shotgunMaxTimer;
+    private float _shotgunCurrentTimer;
+    public Transform _shotgunSpawner;
+
     void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -36,8 +46,21 @@ public class PlayerMovement : MonoBehaviour
             GetNearestEnemy();
             _top.LookAt(_currentEnemy.transform.position);
         }
+        StandardGun();
     }
 
+    private void StandardGun()
+    {
+        if(_standardMaxTimer > _standardCurrentTimer)
+        {
+            _standardCurrentTimer += Time.deltaTime; 
+            return;
+        }
+
+        GameObject _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
+        _bullet.transform.rotation = _standardSpawner.transform.rotation;
+        _standardCurrentTimer = 0;
+    }
     private void GetNearestEnemy()
     {
         float lowestDist = Mathf.Infinity;

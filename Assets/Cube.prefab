@@ -125,7 +125,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -147,6 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 0}
   _player: {fileID: 0}
+  _lights:
+  - {fileID: 5948374643651083488}
+  - {fileID: 3975288496130691578}
 --- !u!1 &3975288496130691578
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +161,7 @@ GameObject:
   - component: {fileID: 6714853305724107163}
   - component: {fileID: 6462732598071650563}
   m_Layer: 0
-  m_Name: Red (1)
+  m_Name: Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 3975288496130691578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.248, y: 0.518, z: 0}
+  m_LocalPosition: {x: 0.248, y: 0.56599987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -190,7 +193,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0, g: 0.2998104, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 4.29
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -266,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 5948374643651083488}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.283, y: 0.518, z: 0}
+  m_LocalPosition: {x: -0.283, y: 0.566, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -283,7 +286,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 4.29
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
