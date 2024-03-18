@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,6 @@ public class CameraController : MonoBehaviour
     public Vector3 _offset;
     public float _speed;
     public Transform _target;
-    
     void Update()
     {
         var _desiredPosition = _target.position + _offset;

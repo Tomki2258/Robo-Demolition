@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private GameManager _gameManager;
     public GameObject _currentEnemy;
     public GameObject _bullet;
+    public int _attackRange;
     [Header("Standard Gun")] 
     public float _standardMaxTimer;
     private float _standardCurrentTimer;
@@ -41,12 +42,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_gameManager._spawnedEnemies.Count > 0)
+        if(_gameManager._spawnedEnemies.Count <= 0)
         {
-            GetNearestEnemy();
-            _top.LookAt(_currentEnemy.transform.position);
+            return;
         }
-        StandardGun();
+        
+        GetNearestEnemy();
+        _top.LookAt(_currentEnemy.transform.position);
+        
+        float _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
+        if (_enemyDist < _attackRange)
+        {
+            StandardGun();
+        }
     }
 
     private void StandardGun()
@@ -58,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         GameObject _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
-        _bullet.transform.rotation = _standardSpawner.transform.rotation;
+        _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
         _standardCurrentTimer = 0;
     }
     private void GetNearestEnemy()
