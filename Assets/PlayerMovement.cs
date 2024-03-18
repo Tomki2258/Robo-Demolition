@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _currentEnemy;
     public GameObject _bullet;
     public int _attackRange;
+    public int _damage;
     [Header("Standard Gun")] 
     public float _standardMaxTimer;
     private float _standardCurrentTimer;
@@ -25,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
     public float _shotgunMaxTimer;
     private float _shotgunCurrentTimer;
     public Transform _shotgunSpawner;
+    [Header("Player Stats")] 
+    public int _health;
+    public int _xp;
+    public int _level;
+    
 
     void Start()
     {

@@ -16,10 +16,18 @@ public class GameManager : MonoBehaviour
     public List<GameObject> _spawnedEnemies;
     private int _enemiesCount;
     private bool _gameLaunched = true;
+    public float _powerUpSpawnTimeMax;
+    private float _powerUpSpawnTimeCurrent;
+    public List<Transform> _powerUpSpawnPoints;
+    public GameObject _powerUps;
     private void Start()
     {
         _spawnsCount = _spawnPoints.Count;
         _player = FindAnyObjectByType<PlayerMovement>();
+        foreach (Transform _obj in _spawnPoints)
+        {
+            _obj.name = "Enemy Spawn Point";
+        }
     }
 
     void Update()
