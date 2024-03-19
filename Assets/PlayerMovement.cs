@@ -56,12 +56,13 @@ public class PlayerMovement : MonoBehaviour
         }
         
         GetNearestEnemy();
-        _top.LookAt(_currentEnemy.transform.position);
-        
+        Vector3 _direction = _currentEnemy.transform.position - transform.position;
+        _direction.Normalize();
+        _top.rotation = Quaternion.Slerp(_top.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
         float _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         if (_enemyDist < _attackRange)
         {
-            //StandardGun();
+            StandardGun();
             ShotgunGun();
         }
     }
@@ -126,5 +127,9 @@ public class PlayerMovement : MonoBehaviour
         _health -= _value;
         if (_health <= 0) ;
         //Die();
+    }
+    private void Die()
+    {
+        Debug.Log("Player died !");
     }
 }

@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     {
         _gameManager.RemoveEnemy(gameObject);
         //GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-        _cameraShake.DoShake(0.001f, 1);
+        //_cameraShake.DoShake(0.001f, 1);
         _player._xp += _xpReward;
         //Destroy(_explosion,5);
         Destroy(gameObject);

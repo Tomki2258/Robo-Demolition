@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,8 +20,9 @@ public class GameManager : MonoBehaviour
     public float _powerUpSpawnTimeMax;
     private float _powerUpSpawnTimeCurrent;
     public List<Transform> _powerUpSpawnPoints;
+    private List<GameObject> _spawnedPowerUps; 
     public GameObject _powerUps;
-    private void Start()
+    private void Awake()
     {
         _spawnsCount = _spawnPoints.Count;
         _player = FindAnyObjectByType<PlayerMovement>();
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
         {
             _obj.name = "Enemy Spawn Point";
         }
+        SpawnPowerUp();
     }
 
     void Update()
@@ -57,6 +60,17 @@ public class GameManager : MonoBehaviour
         _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
         _spawnTimeMax -= _spawnTimeMax*0.001f;
+    }
+    private void SpawnPowerUp()
+    {
+        int _point = Random.Range(0, _spawnsCount);
+        float _distance = Vector3.Distance(_spawnPoints[_point].position, _player.transform.position);
+        if(_distance < _spawnOffset) return;
+        
+        // Spawn enemy
+        int _powerUpIndex = Random.Range(0, _enemiesCount);
+        GameObject _currentPowerUp = Instantiate(_enemies[_powerUpIndex], _spawnPoints[_point].position, Quaternion.identity);
+        _spawnedPowerUps.Add(_currentPowerUp);
     }
     public void RemoveEnemy(GameObject _enemy)
     {
