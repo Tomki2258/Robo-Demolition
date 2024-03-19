@@ -26,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
     public float _shotgunMaxTimer;
     private float _shotgunCurrentTimer;
     public Transform _shotgunSpawner;
+    [Header("Circle Gun")]               
+    public float _circleGunMaxTimer;         
+    private float _circleGunCurrentTimer;   
+    public int _shotsAmount;
+    public Transform _circleGunSpawner;
     [Header("Player Stats")] 
     public int _maxHealth;
     public int _health;
@@ -64,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StandardGun();
             ShotgunGun();
+            CircleGun();
         }
     }
 
@@ -92,6 +98,25 @@ public class PlayerMovement : MonoBehaviour
             GameObject _currentBullet = Instantiate(_bullet, _shotgunSpawner.GetChild(i).position, _shotgunSpawner.GetChild(i).rotation);
         }
         _shotgunCurrentTimer = 0;
+    }
+
+    private void CircleGun()
+    {
+        if(_circleGunMaxTimer > _circleGunCurrentTimer)       
+        {                                                 
+            _circleGunCurrentTimer += Time.deltaTime;       
+            return;                                       
+        }
+        Debug.Log("Circle Gun !");
+        float _rotateValue = 360 / _shotsAmount;
+
+        for (int i = 0; i < _shotsAmount; i++)
+        {
+            GameObject _currentBullet = Instantiate(_bullet, _circleGunSpawner.GetChild(0).position, _circleGunSpawner.rotation);
+            _circleGunSpawner.Rotate(0, _rotateValue, 0);
+        }
+
+        _circleGunCurrentTimer = 0;
     }
     private void GetNearestEnemy()
     {
