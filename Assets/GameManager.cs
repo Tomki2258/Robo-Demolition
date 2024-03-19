@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private int _spawnsCount;
     public float _spawnTimeMax;
     private float _spawnTimeCurrent;
-    private PlayerMovement _player;
+    public PlayerMovement _player;
     public float _spawnOffset;
     public List<GameObject> _enemies;
     public List<GameObject> _spawnedEnemies;

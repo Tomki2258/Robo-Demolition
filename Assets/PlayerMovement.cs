@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private float _shotgunCurrentTimer;
     public Transform _shotgunSpawner;
     [Header("Player Stats")] 
+    public int _maxHealth;
     public int _health;
     public int _xp;
     public int _level;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _joystick = FindObjectOfType<VariableJoystick>();
         _gameManager = FindAnyObjectByType<GameManager>();
+        _health = _maxHealth;
         EnableJoystickInput();
     }
 
@@ -59,7 +61,8 @@ public class PlayerMovement : MonoBehaviour
         float _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         if (_enemyDist < _attackRange)
         {
-            StandardGun();
+            //StandardGun();
+            ShotgunGun();
         }
     }
 
@@ -74,6 +77,20 @@ public class PlayerMovement : MonoBehaviour
         GameObject _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
         _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
         _standardCurrentTimer = 0;
+    }
+    private void ShotgunGun()
+    {
+        if(_shotgunMaxTimer > _shotgunCurrentTimer)
+        {
+            _shotgunCurrentTimer += Time.deltaTime; 
+            return;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject _currentBullet = Instantiate(_bullet, _shotgunSpawner.GetChild(i).position, _shotgunSpawner.GetChild(i).rotation);
+        }
+        _shotgunCurrentTimer = 0;
     }
     private void GetNearestEnemy()
     {
@@ -103,5 +120,11 @@ public class PlayerMovement : MonoBehaviour
             _rotationSpeed * Time.deltaTime,
             0f);
         _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
+    }
+    public void CheckHealth(int _value)
+    {
+        _health -= _value;
+        if (_health <= 0) ;
+        //Die();
     }
 }

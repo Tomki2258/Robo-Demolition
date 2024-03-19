@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private NavMeshAgent _agent;
+    public NavMeshAgent _agent;
     public GameManager _gameManager;
     public PlayerMovement _player;
     public List<GameObject> _lights;
@@ -15,42 +15,11 @@ public class Enemy : MonoBehaviour
     private int health = 10;
     public GameObject _explosionPrefab;
     private CameraShake _cameraShake;
-    public State _currentState;
     public int _attackRange;
     public int _incomingRange;
     public int _xpReward;
-    public enum State
-    {
-        Incoming,
-        Attacking
-    }
-    void Start()
-    {
-        _agent = GetComponent<NavMeshAgent>();
-        _cameraShake = FindAnyObjectByType<CameraShake>();
-        _currentState = State.Incoming;
-    }
-
-    private void FixedUpdate()
-    {
-        //SwitchLight();
-        
-        float _distance = Vector3.Distance(transform.position, _player.transform.position);
-        if (_currentState == State.Incoming)
-        {
-            if (_distance < _attackRange)
-                _currentState = State.Attacking;
-            _agent.SetDestination(_player.transform.position);
-            _agent.isStopped = false;
-        }
-        else if (_currentState == State.Attacking)
-        {
-            if(_distance > _incomingRange)
-                _currentState = State.Incoming;
-            _agent.isStopped = true;
-        }
-    }
-
+    public GameObject _bullet;
+    public int _bulletDamage;
     public void CheckHealth(int _value)
     {
         health -= _value;
@@ -59,12 +28,11 @@ public class Enemy : MonoBehaviour
     }
     private void Die()
     {
-        Debug.Log("Enemy died");
         _gameManager.RemoveEnemy(gameObject);
-        GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        //GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         _cameraShake.DoShake(0.001f, 1);
         _player._xp += _xpReward;
-        Destroy(_explosion,5);
+        //Destroy(_explosion,5);
         Destroy(gameObject);
     }
 
