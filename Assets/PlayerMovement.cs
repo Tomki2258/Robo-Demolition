@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void StandardGun()
     {
+        if (_standardMaxTimer == 0) return;
         if (_standardMaxTimer > _standardCurrentTimer)
         {
             _standardCurrentTimer += Time.deltaTime;
@@ -137,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ShpereAttack()
     {
+        if (_sphereAttackMaxTimer == 0) return;
         if (_standardMaxTimer > _standardCurrentTimer)
         {
             _standardCurrentTimer += Time.deltaTime;
@@ -149,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ShotgunGun()
     {
+        if(_shotgunMaxTimer == 0) return;
         if (_shotgunMaxTimer > _shotgunCurrentTimer)
         {
             _shotgunCurrentTimer += Time.deltaTime;
@@ -166,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CircleGun()
     {
+        if(_circleGunMaxTimer == 0) return;
         if (_circleGunMaxTimer > _circleGunCurrentTimer)
         {
             _circleGunCurrentTimer += Time.deltaTime;
