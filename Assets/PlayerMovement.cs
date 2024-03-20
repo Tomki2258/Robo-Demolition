@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform _circleGunSpawner;
     [Header("Sphere Attack")]
     public float _sphereAttackMaxTimer;
+    public GameObject _sphereAttackPrefab;
+    public float _sphereAttackCurrentTimer;
     // ide się wylać, skończ to na obiektówece 
     [Header("Player Stats")] public int _maxHealth;
     
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
             //ShotgunGun();
             //CircleGun();
         }
+        ShpereAttack();
         HpRegeneration();
         XpManagment();
     }
@@ -139,15 +142,14 @@ public class PlayerMovement : MonoBehaviour
     private void ShpereAttack()
     {
         if (_sphereAttackMaxTimer == 0) return;
-        if (_standardMaxTimer > _standardCurrentTimer)
+        if (_sphereAttackCurrentTimer < _sphereAttackMaxTimer)
         {
-            _standardCurrentTimer += Time.deltaTime;
+            _sphereAttackCurrentTimer += Time.deltaTime;
             return;
         }
 
-        var _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
-        _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
-        _standardCurrentTimer = 0;
+        var _currentSphere = Instantiate(_sphereAttackPrefab, transform.position, Quaternion.identity);
+        _sphereAttackCurrentTimer = 0;
     }
     private void ShotgunGun()
     {

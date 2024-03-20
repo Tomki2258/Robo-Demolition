@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         _spawnsCount = _spawnPoints.Count;
         _player = FindAnyObjectByType<PlayerMovement>();
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
-        SpawnPowerUp();
     }
 
     private void Update()
