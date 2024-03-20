@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a136d5a7c5762f52dbc4ce9d78ebf287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 15, z: -5}
+  _offset: {x: 0, y: 20, z: -5}
   _speed: 3
   _target: {fileID: 1899919605}
 --- !u!114 &963194230
@@ -2666,7 +2666,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   _spawnOffset: 0
   _enemies:
-  - {fileID: 2364406345628423798, guid: 0016d2a4dad9847d5a3d82a57ff121ce, type: 3}
+  - {fileID: 5931495445033531497, guid: c8ac0ed6cc93d4c0cbee5c665280acab, type: 3}
   _spawnedEnemies: []
   _powerUpSpawnTimeMax: 0
   _powerUpSpawnPoints:
@@ -2864,10 +2864,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4505381483444305314, guid: 3e99924e07387aca59c7a70ad684d011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4643203288062025043, guid: 3e99924e07387aca59c7a70ad684d011,
         type: 3}
       propertyPath: m_Name
       value: PowerUP
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643203288062025043, guid: 3e99924e07387aca59c7a70ad684d011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5132413724765544016, guid: 3e99924e07387aca59c7a70ad684d011,
         type: 3}

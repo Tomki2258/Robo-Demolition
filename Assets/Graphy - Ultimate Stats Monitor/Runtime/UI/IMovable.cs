@@ -18,11 +18,11 @@ namespace Tayx.Graphy.UI
     public interface IMovable
     {
         /// <summary>
-        /// Sets the position of the module.
+        ///     Sets the position of the module.
         /// </summary>
         /// <param name="newModulePosition">
-        /// The new position of the module.
+        ///     The new position of the module.
         /// </param>
-        void SetPosition( GraphyManager.ModulePosition newModulePosition, Vector2 offset );
+        void SetPosition(GraphyManager.ModulePosition newModulePosition, Vector2 offset);
     }
 }

@@ -5,19 +5,23 @@ namespace Graphy.Runtime.UI
     [RequireComponent(typeof(RectTransform))]
     public sealed class G_SafeArea : MonoBehaviour
     {
-        [SerializeField] private bool m_conformX = true;  // Conform to screen safe area on X-axis (default true, disable to ignore)
-        [SerializeField] private bool m_conformY = true;  // Conform to screen safe area on Y-axis (default true, disable to ignore)
-        
+        [SerializeField]
+        private bool m_conformX = true; // Conform to screen safe area on X-axis (default true, disable to ignore)
+
+        [SerializeField]
+        private bool m_conformY = true; // Conform to screen safe area on Y-axis (default true, disable to ignore)
+
+        private Rect m_lastSafeArea = new(0, 0, 0, 0);
+
         private RectTransform m_rectTransform;
-        private Rect m_lastSafeArea = new Rect (0, 0, 0, 0);
-        
+
 #if UNITY_EDITOR
         private DrivenRectTransformTracker m_rectTransformTracker;
 #endif
 
         private void Awake()
         {
-            m_rectTransform = GetComponent<RectTransform> ();
+            m_rectTransform = GetComponent<RectTransform>();
 
             Refresh();
         }
@@ -26,7 +30,7 @@ namespace Graphy.Runtime.UI
         {
             Refresh();
         }
-        
+
 #if UNITY_EDITOR
         private void OnDisable()
         {
@@ -49,11 +53,11 @@ namespace Graphy.Runtime.UI
                 | DrivenTransformProperties.Pivot
             );
 #endif
-            
-            Rect safeArea = Screen.safeArea;
+
+            var safeArea = Screen.safeArea;
 
             if (safeArea != m_lastSafeArea)
-                ApplySafeArea (safeArea);
+                ApplySafeArea(safeArea);
         }
 
         private void ApplySafeArea(Rect r)
@@ -75,8 +79,8 @@ namespace Graphy.Runtime.UI
             }
 
             // Convert safe area rectangle from absolute pixels to normalised anchor coordinates
-            Vector2 anchorMin = r.position;
-            Vector2 anchorMax = r.position + r.size;
+            var anchorMin = r.position;
+            var anchorMax = r.position + r.size;
             anchorMin.x /= Screen.width;
             anchorMin.y /= Screen.height;
             anchorMax.x /= Screen.width;

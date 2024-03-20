@@ -20,12 +20,12 @@ namespace Tayx.Graphy.Graph
         #region Methods -> Protected
 
         /// <summary>
-        /// Updates the graph/s.
+        ///     Updates the graph/s.
         /// </summary>
         protected abstract void UpdateGraph();
 
         /// <summary>
-        /// Creates the points for the graph/s.
+        ///     Creates the points for the graph/s.
         /// </summary>
         protected abstract void CreatePoints();
 

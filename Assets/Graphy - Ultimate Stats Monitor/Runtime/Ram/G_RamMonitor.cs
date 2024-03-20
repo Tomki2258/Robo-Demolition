@@ -18,14 +18,6 @@ namespace Tayx.Graphy.Ram
 {
     public class G_RamMonitor : MonoBehaviour
     {
-        #region Properties -> Public
-
-        public float AllocatedRam { get; private set; }
-        public float ReservedRam { get; private set; }
-        public float MonoRam { get; private set; }
-
-        #endregion
-
         #region Methods -> Unity Callbacks
 
         private void Update()
@@ -34,6 +26,14 @@ namespace Tayx.Graphy.Ram
             ReservedRam = Profiler.GetTotalReservedMemoryLong() / 1048576f;
             MonoRam = Profiler.GetMonoUsedSizeLong() / 1048576f;
         }
+
+        #endregion
+
+        #region Properties -> Public
+
+        public float AllocatedRam { get; private set; }
+        public float ReservedRam { get; private set; }
+        public float MonoRam { get; private set; }
 
         #endregion
     }
