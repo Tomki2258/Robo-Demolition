@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        var _desiredPosition = _target.position + _offset;
+        var _desiredPosition = _target.position + (_offset * _target.localScale.x);
         var _smoothedPosition = Vector3.Lerp(transform.position, _desiredPosition, _speed * Time.deltaTime);
         transform.position = _smoothedPosition;
     }

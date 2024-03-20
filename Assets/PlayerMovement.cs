@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -23,12 +24,17 @@ public class PlayerMovement : MonoBehaviour
 
     public int _shotsAmount;
     public Transform _circleGunSpawner;
-
+    [Header("Sphere Attack")]
+    public float _sphereAttackMaxTimer;
+    // ide się wylać, skończ to na obiektówece 
     [Header("Player Stats")] public int _maxHealth;
-
-    public int _health;
+    
+    public float _health;
+    private int _hpRegenTime = 1;
+    private float _hpRegenTimer;
     public int _xp;
     public int _level;
+    public int _xpToNextLevel = 100;
     private float _circleGunCurrentTimer;
     private CharacterController _controller;
     private GameManager _gameManager;
@@ -37,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject _nearestEnemy;
     private float _shotgunCurrentTimer;
     private float _standardCurrentTimer;
-
+    
 
     private void Start()
     {
@@ -74,12 +80,43 @@ public class PlayerMovement : MonoBehaviour
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         if (_enemyDist < _attackRange)
         {
-            StandardGun();
-            ShotgunGun();
-            CircleGun();
+            //StandardGun();
+            //ShotgunGun();
+            //CircleGun();
         }
+        HpRegeneration();
+        XpManagment();
     }
 
+    private void XpManagment()
+    {
+        if(_xp >= _xpToNextLevel)
+        {
+            _level++;
+            _xp = 0;
+            _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.5f);
+
+            Vector3 _scale = transform.localScale;
+            _scale += new Vector3(0.1f, 0.1f, 0.1f);
+            transform.localScale = _scale;
+            
+            _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
+            _health += Convert.ToInt16(_maxHealth * 0.15f);
+        }
+    }
+    private void HpRegeneration()
+    {
+        if (_hpRegenTimer < _hpRegenTime)
+        {
+            _hpRegenTimer += Time.deltaTime;
+            return;
+        }
+        
+        if(_health >= _maxHealth) return;
+        
+        _hpRegenTimer = 0;
+        _health += _maxHealth * 0.01f;
+    }
     private void EnableJoystickInput()
     {
         _isJoystick = true;
@@ -98,7 +135,18 @@ public class PlayerMovement : MonoBehaviour
         _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
         _standardCurrentTimer = 0;
     }
+    private void ShpereAttack()
+    {
+        if (_standardMaxTimer > _standardCurrentTimer)
+        {
+            _standardCurrentTimer += Time.deltaTime;
+            return;
+        }
 
+        var _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
+        _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
+        _standardCurrentTimer = 0;
+    }
     private void ShotgunGun()
     {
         if (_shotgunMaxTimer > _shotgunCurrentTimer)

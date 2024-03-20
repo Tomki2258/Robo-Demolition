@@ -60,12 +60,11 @@ public class GameManager : MonoBehaviour
     private void SpawnPowerUp()
     {
         var _point = Random.Range(0, _spawnsCount);
-        var _distance = Vector3.Distance(_spawnPoints[_point].position, _player.transform.position);
+        var _distance = Vector3.Distance(_powerUpSpawnPoints[_point].position, _player.transform.position);
         if (_distance < _spawnOffset) return;
 
-        // Spawn enemy
-        var _powerUpIndex = Random.Range(0, _enemiesCount);
-        var _currentPowerUp = Instantiate(_powerUps, _spawnPoints[_point].position, Quaternion.identity);
+        //var _powerUpIndex = Random.Range(0, _enemiesCount);
+        var _currentPowerUp = Instantiate(_powerUps, _powerUpSpawnPoints[_point].position, Quaternion.identity);
         _spawnedPowerUps.Add(_currentPowerUp);
     }
 
