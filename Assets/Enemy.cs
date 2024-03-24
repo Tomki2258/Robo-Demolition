@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,28 +12,17 @@ public class Enemy : MonoBehaviour
     public int _xpReward;
     public GameObject _bullet;
     public int _bulletDamage;
-    private CameraShake _cameraShake;
-    private float _lightsTimer;
-    private readonly float _lightsTimerMax = 1;
-    private int health = 10;
+    public int health;
     public float _attackDelayMax;
     public float _attackDelayCurrent;
-    public void SetUp()
-    {
-        _agent = GetComponent<NavMeshAgent>();
-        if (_player == null) Destroy(gameObject);
-    }
-    public void CheckHealth(int _value)
-    {
-        health -= _value;
-        if (health <= 0)
-            Destroy(gameObject);
-    }
+    public bool _stunned;
+    private readonly float _lightsTimerMax = 1;
+    private CameraShake _cameraShake;
+    private float _lightsTimer;
+    private float _oldSpeed;
+    private readonly int _stunTime = 5;
+    private float _stunTimer;
 
-    public float PlayerDistance()
-    {
-        return Vector3.Distance(transform.position, _player.transform.position);
-    }
     private void OnDestroy()
     {
         _gameManager.RemoveEnemy(gameObject);
@@ -43,7 +31,48 @@ public class Enemy : MonoBehaviour
         _player._xp += _xpReward;
         //Destroy(_explosion,5);
     }
-    
+
+    public void SetUp()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _oldSpeed = _agent.speed;
+    }
+
+    public bool CheckHealth(int _value)
+    {
+        health -= _value;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            return false;
+        }
+
+        return true;
+    }
+
+    public float PlayerDistance()
+    {
+        return Vector3.Distance(transform.position, _player.transform.position);
+    }
+
+    public void CheckStunned()
+    {
+        if (_stunTimer > _stunTime)
+        {
+            _stunned = false;
+            _stunTimer = 0;
+        }
+        else
+        {
+            _stunTimer += Time.deltaTime;
+        }
+
+        if (_stunned)
+            _agent.speed = 0;
+        else
+            _agent.speed = _oldSpeed;
+    }
+
     public void Attack(Transform _bulletSpawn)
     {
         _bulletSpawn.LookAt(_player.transform.position);

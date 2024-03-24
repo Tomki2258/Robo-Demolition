@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _spawnsCount = _spawnPoints.Count;
+        _enemiesCount = _enemies.Count;
         _player = FindAnyObjectByType<PlayerMovement>();
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
     }

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _bullet;
     public int _attackRange;
     public int _damage;
-
+    private CameraController _cameraController;
     [Header("Standard Gun")] public float _standardMaxTimer;
 
     public Transform _standardSpawner;
@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     public float _sphereAttackMaxTimer;
     public GameObject _sphereAttackPrefab;
     public float _sphereAttackCurrentTimer;
-    // ide się wylać, skończ to na obiektówece 
     [Header("Player Stats")] public int _maxHealth;
     
     public float _health;
@@ -45,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject _nearestEnemy;
     private float _shotgunCurrentTimer;
     private float _standardCurrentTimer;
-    
+    public bool _died = false;
 
     private void Start()
     {
@@ -53,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
         _joystick = FindObjectOfType<VariableJoystick>();
         _gameManager = FindAnyObjectByType<GameManager>();
         _health = _maxHealth;
-        EnableJoystickInput();
+        _cameraController = FindObjectOfType<CameraController>();
+        DoJoystickInput(true);
     }
 
     private void Update()
@@ -73,24 +73,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_gameManager._spawnedEnemies.Count <= 0) return;
+        if (_died) return;
+        
+        if(_currentEnemy != null)
+            MoveTurret();
 
+        if(_health <= 0)
+            Die();
+        
+        if (_gameManager._spawnedEnemies.Count <= 0) return;
         GetNearestEnemy();
+        HpRegeneration();
+        XpManagment();
+    }
+
+    private void MoveTurret()   
+    {
         var _direction = _currentEnemy.transform.position - transform.position;
         _direction.Normalize();
         _top.rotation = Quaternion.Slerp(_top.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         if (_enemyDist < _attackRange)
         {
-            //StandardGun();
-            //ShotgunGun();
-            //CircleGun();
+            StandardGun();
+            ShotgunGun();
+            CircleGun();
+            ShpereAttack();
         }
-        ShpereAttack();
-        HpRegeneration();
-        XpManagment();
     }
-
     private void XpManagment()
     {
         if(_xp >= _xpToNextLevel)
@@ -120,10 +130,10 @@ public class PlayerMovement : MonoBehaviour
         _hpRegenTimer = 0;
         _health += _maxHealth * 0.01f;
     }
-    private void EnableJoystickInput()
+    private void DoJoystickInput(bool _mode)
     {
-        _isJoystick = true;
-        _inputCanvas.gameObject.SetActive(true);
+        _isJoystick = _mode;
+        _inputCanvas.gameObject.SetActive(_mode);
     }
 
     private void StandardGun()
@@ -149,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         var _currentSphere = Instantiate(_sphereAttackPrefab, transform.position, Quaternion.identity);
+        _currentSphere.GetComponent<SphereAttack>()._player = this;
         _sphereAttackCurrentTimer = 0;
     }
     private void ShotgunGun()
@@ -215,6 +226,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player died !");
+        DoJoystickInput(false);
+        _died = true;
+        _cameraController._offset.y -= 5;
     }
 }
