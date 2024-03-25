@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform _top;
     public GameObject _currentEnemy;
     public GameObject _bullet;
-    public int _attackRange;
+    public float _attackRange;
     public int _damage;
     private CameraController _cameraController;
     [Header("Standard Gun")] public float _standardMaxTimer;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private float _shotgunCurrentTimer;
     private float _standardCurrentTimer;
     public bool _died = false;
-
+    private UIManager _uiManager;
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         _gameManager = FindAnyObjectByType<GameManager>();
         _health = _maxHealth;
         _cameraController = FindObjectOfType<CameraController>();
+        _uiManager = FindAnyObjectByType<UIManager>();
         DoJoystickInput(true);
     }
 
@@ -93,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         _direction.Normalize();
         _top.rotation = Quaternion.Slerp(_top.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
-        if (_enemyDist < _attackRange)
+        if (_enemyDist < _attackRange * transform.localScale.x)
         {
             StandardGun();
             ShotgunGun();
@@ -112,9 +113,10 @@ public class PlayerMovement : MonoBehaviour
             Vector3 _scale = transform.localScale;
             _scale += new Vector3(0.1f, 0.1f, 0.1f);
             transform.localScale = _scale;
-            
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
+            
+            _uiManager.DoLevelUpCanvas();
         }
     }
     private void HpRegeneration()

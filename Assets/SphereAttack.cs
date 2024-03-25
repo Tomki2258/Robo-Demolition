@@ -33,7 +33,7 @@ public class SphereAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.GetComponent<Enemy>()._stunned = true;
-            Debug.LogWarning($"{other.name} is stunned !");
+            //Debug.LogWarning($"{other.name} is stunned !");
         }
     }
 }
