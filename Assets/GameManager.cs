@@ -20,12 +20,15 @@ public class GameManager : MonoBehaviour
     private int _spawnsCount;
     private float _spawnTimeCurrent;
 
+    private bool _paused;
+    public GameObject _pausedUI;
     private void Awake()
     {
         _spawnsCount = _spawnPoints.Count;
         _enemiesCount = _enemies.Count;
         _player = FindAnyObjectByType<PlayerMovement>();
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
+        _pausedUI.SetActive(false);
     }
 
     private void Update()
@@ -71,5 +74,20 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemy(GameObject _enemy)
     {
         _spawnedEnemies.Remove(_enemy);
+    }
+
+    public void PauseGame()
+    {
+        _paused = !_paused;
+        if (_paused)
+        {
+            Time.timeScale = 0;
+            _pausedUI.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            _pausedUI.SetActive(false);
+        }
     }
 }

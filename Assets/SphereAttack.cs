@@ -9,6 +9,8 @@ public class SphereAttack : MonoBehaviour
     public float _speed;
     void Start()
     {
+        if(_player._died) Destroy(gameObject);
+        
         _playerScale = _player.transform.localScale.x;
         _maxScale *= _playerScale;
     }

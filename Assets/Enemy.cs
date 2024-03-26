@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public int _xpReward;
     public GameObject _bullet;
     public int _bulletDamage;
-    public int health;
+    public float health;
     public float _attackDelayMax;
     public float _attackDelayCurrent;
     public bool _stunned;
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         _oldSpeed = _agent.speed;
     }
 
-    public bool CheckHealth(int _value)
+    public bool CheckHealth(float _value)
     {
         health -= _value;
         if (health <= 0)
