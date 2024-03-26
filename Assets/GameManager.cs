@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +24,10 @@ public class GameManager : MonoBehaviour
 
     private bool _paused;
     public GameObject _pausedUI;
+    public bool _qualityOn;
+    public Sprite _qualityOnSprite;
+    public Sprite _qualityOffSprite;
+    public Image _qualityImage;
     private void Awake()
     {
         _spawnsCount = _spawnPoints.Count;
@@ -29,11 +35,28 @@ public class GameManager : MonoBehaviour
         _player = FindAnyObjectByType<PlayerMovement>();
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
         _pausedUI.SetActive(false);
+        LoadQuality();
     }
 
-    private void Update()
+    private void LoadQuality()
     {
-        if (!_gameLaunched) return;
+        QualitySettings.vSyncCount = 1;
+        
+        bool _savedQuality = Convert.ToBoolean(PlayerPrefs.GetInt("SavedQuality")); 
+        if (_savedQuality)
+        {
+            QualitySettings.SetQualityLevel(4);
+            _qualityImage.sprite = _qualityOnSprite;
+        }
+        else
+        {
+            QualitySettings.SetQualityLevel(0);
+            _qualityImage.sprite = _qualityOffSprite;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (!_gameLaunched || _player._died) return;
 
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
@@ -45,6 +68,21 @@ public class GameManager : MonoBehaviour
         _spawnTimeCurrent = 0;
     }
 
+    public void SwitchQualitySettings()
+    {
+        _qualityOn = !_qualityOn;
+        if (_qualityOn)
+        {
+            QualitySettings.SetQualityLevel(4);
+            _qualityImage.sprite = _qualityOnSprite;
+        }
+        else
+        {
+            QualitySettings.SetQualityLevel(0);
+            _qualityImage.sprite = _qualityOffSprite;
+        }
+        PlayerPrefs.SetInt("SavedQuality",_qualityOn ? 1 : 0);
+    }
     private void SpawnEnemy()
     {
         var _point = Random.Range(0, _spawnsCount);
