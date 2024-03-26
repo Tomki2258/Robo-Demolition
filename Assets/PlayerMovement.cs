@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
     private float _standardCurrentTimer;
     public bool _died = false;
     private UIManager _uiManager;
+    public bool _shield;
+    public float _shieldTimer;
+    public float _shieldMaxTimer;
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -79,15 +82,31 @@ public class PlayerMovement : MonoBehaviour
         if(_currentEnemy != null)
             MoveTurret();
 
-        if(_health <= 0)
-            Die();
+        // if(_health <= 0)
+        //     Die();
         
         if (_gameManager._spawnedEnemies.Count <= 0) return;
         GetNearestEnemy();
         HpRegeneration();
         XpManagment();
+        ShieldManagment();
     }
 
+    private void ShieldManagment()
+    {
+        if(!_shield) return;
+
+        if (_shieldTimer < _shieldMaxTimer)
+        {
+            _shield = true;
+            _shieldTimer += Time.deltaTime;
+        }
+        else
+        {
+            _shieldTimer = 0;
+            _shield = false;
+        }
+    }
     private void MoveTurret()   
     {
         var _direction = _currentEnemy.transform.position - transform.position;
@@ -221,9 +240,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckHealth(int _value)
     {
+        if (_shield) return;
+        
         _health -= _value;
-        if (_health <= 0) ;
-        //Die();
+        if (_health <= 0)
+            Die();
     }
 
     private void Die()

@@ -14,7 +14,6 @@ namespace DefaultNamespace
     {
         public LevelUpPowerup(RewardType rewardType, string rewardName, string desctiption)
         {
-            Debug.LogWarning("Power up created");
             _rewardType = rewardType;
             _rewardName = rewardName;
             _desctiption = desctiption;
