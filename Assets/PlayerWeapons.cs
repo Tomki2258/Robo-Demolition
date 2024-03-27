@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,38 @@ public class PlayerWeapons : MonoBehaviour
     public float _sphereAttackCurrentTimer;
     private float _shotgunCurrentTimer;
     private float _standardCurrentTimer;
-    
+    [Header("Laser Gun")]
+    public float _laserMaxTimer;
+    public Transform _laserSpawner;
+    private float _laserCurrentTimer;
+    public LineRenderer _lineRenderer;
+    public float _laserCurrentDamage;
+    public float _laserMaxDamage;
+    public float _laserDamageMultiplier;
+    public float _laserBaseDamage;
+    public Transform _lastLaserEnemy;
+    [Header("Rocket Launcher")]
+    public GameObject _rocketPrefab;
+    public float _rocketMaxTimer;
+    public float _rocketCurrentTimer;
+    public Transform _rocketSpawner;
+    public void RocketLauncher()
+    {
+        if (_rocketMaxTimer == 0) return;
+        if (_rocketMaxTimer > _rocketCurrentTimer)
+        {
+            _rocketCurrentTimer += Time.deltaTime;
+            return;
+        }
+
+        var _currentRocket = Instantiate(_rocketPrefab, _rocketSpawner.position, _rocketSpawner.rotation);
+        _rocketCurrentTimer = 0;
+    }
+    private void Start()
+    {
+        _laserCurrentDamage = _laserBaseDamage;
+    }
+
     public void StandardGun()
     {
         if (_standardMaxTimer == 0) return;
@@ -89,5 +121,34 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         _circleGunCurrentTimer = 0;
+    }
+    public void DoLaser(Transform _enemy)
+    {
+        if(_laserMaxTimer == 0) return;
+        
+        _lineRenderer.SetPosition(0,_laserSpawner.position);
+        _lineRenderer.SetPosition(1,_enemy.position);
+        
+        if (_enemy != _lastLaserEnemy)
+        {
+            _laserCurrentDamage = _laserBaseDamage;
+        }
+        
+        if(_laserCurrentDamage < _laserMaxDamage)
+        {
+            _laserCurrentDamage += _laserDamageMultiplier * Time.deltaTime;
+        }
+        
+        if (_laserMaxTimer > _laserCurrentTimer)
+        {
+            _laserCurrentTimer += Time.deltaTime;
+        }
+        else
+        {
+            Enemy enemy = _enemy.GetComponent<Enemy>();
+            enemy.CheckHealth(_laserCurrentDamage);
+            _lastLaserEnemy = _enemy;
+            _laserCurrentTimer = 0;
+        }
     }
 }

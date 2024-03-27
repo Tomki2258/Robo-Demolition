@@ -15,4 +15,9 @@ public class LevelUpUI : MonoBehaviour
     {
         
     }
+
+    public void SetReward()
+    {
+        
+    }
 }

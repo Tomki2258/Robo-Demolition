@@ -107,14 +107,9 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun(); 
             _playerWeapons.ShpereAttack();
-            //_playerWeapons.RocketGun();
-            //_playerWeapons._laserEnabled = true;
+            _playerWeapons.RocketLauncher();
+            _playerWeapons.DoLaser(_currentEnemy.transform);
         }
-        else
-        {
-            //_playerWeapons._laserEnabled = false;
-        }
-        //_playerWeapons.DoLaser(_currentEnemy.transform);
     }
 
     private void XpManagment()
@@ -131,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
 
-            //_uiManager.DoLevelUpCanvas();
+            _uiManager.DoLevelUpCanvas();
         }
     }
 
