@@ -70,12 +70,12 @@ public class PlayerMovement : MonoBehaviour
 
         // if(_health <= 0)
         //     Die();
-
+        XpManagment();
+        HpRegeneration();
+        ShieldManagment();
+        
         if (_gameManager._spawnedEnemies.Count <= 0) return;
         GetNearestEnemy();
-        HpRegeneration();
-        XpManagment();
-        ShieldManagment();
     }
 
     private void ShieldManagment()
@@ -100,21 +100,21 @@ public class PlayerMovement : MonoBehaviour
         _direction.Normalize();
         _top.rotation = Quaternion.Slerp(_top.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
-
-        if (_enemyDist < _attackRange * transform.localScale.x)
+        float _tempAttackRange = _attackRange * transform.localScale.x;
+        if (_enemyDist < _tempAttackRange)
         {
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
-            _playerWeapons.CircleGun();
+            _playerWeapons.CircleGun(); 
             _playerWeapons.ShpereAttack();
-            _playerWeapons.RocketGun();
-            _playerWeapons._laserEnabled = true;
+            //_playerWeapons.RocketGun();
+            //_playerWeapons._laserEnabled = true;
         }
         else
         {
-            _playerWeapons._laserEnabled = false;
+            //_playerWeapons._laserEnabled = false;
         }
-        _playerWeapons.DoLaser(_currentEnemy.transform);
+        //_playerWeapons.DoLaser(_currentEnemy.transform);
     }
 
     private void XpManagment()
@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
 
-            _uiManager.DoLevelUpCanvas();
+            //_uiManager.DoLevelUpCanvas();
         }
     }
 

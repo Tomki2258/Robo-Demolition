@@ -2212,13 +2212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47427014aec5ae378900022b0cc83bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rewardLeft: {fileID: 1508787841}
-  _rewardRight: {fileID: 1328944049}
-  _healthMultiplier: 10
-  _speedMultiplier: 5
-  _damageMultiplier: 15
-  _regenerationMultiplier: 10
-  _reloadMultiplier: 8
 --- !u!95 &832140328
 Animator:
   serializedVersion: 7
@@ -3223,12 +3216,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357782543}
   m_CullTransparentMesh: 1
---- !u!4 &1366471421 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8689899157756321888, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
-    type: 3}
-  m_PrefabInstance: {fileID: 5336057214332085525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1370233846
 GameObject:
   m_ObjectHideFlags: 0
@@ -3830,12 +3817,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1882613313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1566127510 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5891006724376844434, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
-    type: 3}
-  m_PrefabInstance: {fileID: 5336057214332085525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1614069393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3972,18 +3953,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614069393}
   m_CullTransparentMesh: 1
---- !u!4 &1668300889 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2923216318990922012, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
-    type: 3}
-  m_PrefabInstance: {fileID: 5336057214332085525}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1681317796 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6222683104994150197, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
-    type: 3}
-  m_PrefabInstance: {fileID: 5336057214332085525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1683873444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4639,33 +4608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f974a6ff62d4a84beb313f6fa02d6bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _standardMaxTimer: 0
-  _standardSpawner: {fileID: 1668300889}
-  _shotgunMaxTimer: 0
-  _shotgunSpawner: {fileID: 1681317796}
-  _circleGunMaxTimer: 0
-  _shotsAmount: 10
-  _circleGunSpawner: {fileID: 1566127510}
-  _sphereAttackMaxTimer: 0
-  _sphereAttackPrefab: {fileID: 8330613042651242404, guid: 64ad20465da805575afc7390092f6e76,
-    type: 3}
-  _sphereAttackCurrentTimer: 0
-  _reloadMultipler: 1
-  _rocketPrefab: {fileID: 4224785774839928478, guid: 2bcefb17f77e715e8b3aafa096ad33ca,
-    type: 3}
-  _rocketGunMaxTimer: 0
-  _rocketGunTimer: 0
-  _rocketGunSpawner: {fileID: 1366471421}
-  _laserEnabled: 0
-  _laserSpawner: {fileID: 2104432424}
-  _lineRenderer: {fileID: 2104432425}
-  _baseLaserDamage: 1
-  _currentLaserDamage: 0
-  _maxLaserDamage: 10
-  _laserDamageMultiplier: 1
-  _laserTimerMax: 1
-  _laserTimerCurrent: 0
 --- !u!1 &1923622569
 GameObject:
   m_ObjectHideFlags: 0
