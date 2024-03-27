@@ -106,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
             _playerWeapons.ShpereAttack();
+            _playerWeapons.RocketGun();
         }
     }
 

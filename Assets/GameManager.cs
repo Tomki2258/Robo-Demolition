@@ -15,19 +15,20 @@ public class GameManager : MonoBehaviour
     public float _powerUpSpawnTimeMax;
     public List<Transform> _powerUpSpawnPoints;
     public GameObject _powerUps;
-    private int _enemiesCount;
-    private readonly bool _gameLaunched = true;
-    private float _powerUpSpawnTimeCurrent;
-    private List<GameObject> _spawnedPowerUps;
-    private int _spawnsCount;
-    private float _spawnTimeCurrent;
-
-    private bool _paused;
     public GameObject _pausedUI;
     public bool _qualityOn;
     public Sprite _qualityOnSprite;
     public Sprite _qualityOffSprite;
     public Image _qualityImage;
+    private readonly bool _gameLaunched = true;
+    private int _enemiesCount;
+
+    private bool _paused;
+    private float _powerUpSpawnTimeCurrent;
+    private List<GameObject> _spawnedPowerUps;
+    private int _spawnsCount;
+    private float _spawnTimeCurrent;
+
     private void Awake()
     {
         _spawnsCount = _spawnPoints.Count;
@@ -38,22 +39,6 @@ public class GameManager : MonoBehaviour
         LoadQuality();
     }
 
-    private void LoadQuality()
-    {
-        QualitySettings.vSyncCount = 1;
-        
-        bool _savedQuality = Convert.ToBoolean(PlayerPrefs.GetInt("SavedQuality")); 
-        if (_savedQuality)
-        {
-            QualitySettings.SetQualityLevel(4);
-            _qualityImage.sprite = _qualityOnSprite;
-        }
-        else
-        {
-            QualitySettings.SetQualityLevel(0);
-            _qualityImage.sprite = _qualityOffSprite;
-        }
-    }
     private void FixedUpdate()
     {
         if (!_gameLaunched || _player._died) return;
@@ -66,6 +51,23 @@ public class GameManager : MonoBehaviour
 
         SpawnEnemy();
         _spawnTimeCurrent = 0;
+    }
+
+    private void LoadQuality()
+    {
+        QualitySettings.vSyncCount = 1;
+
+        var _savedQuality = Convert.ToBoolean(PlayerPrefs.GetInt("SavedQuality"));
+        if (_savedQuality)
+        {
+            QualitySettings.SetQualityLevel(4);
+            _qualityImage.sprite = _qualityOnSprite;
+        }
+        else
+        {
+            QualitySettings.SetQualityLevel(0);
+            _qualityImage.sprite = _qualityOffSprite;
+        }
     }
 
     public void SwitchQualitySettings()
@@ -81,8 +83,10 @@ public class GameManager : MonoBehaviour
             QualitySettings.SetQualityLevel(0);
             _qualityImage.sprite = _qualityOffSprite;
         }
-        PlayerPrefs.SetInt("SavedQuality",_qualityOn ? 1 : 0);
+
+        PlayerPrefs.SetInt("SavedQuality", _qualityOn ? 1 : 0);
     }
+
     private void SpawnEnemy()
     {
         var _point = Random.Range(0, _spawnsCount);

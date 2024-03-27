@@ -1,29 +1,28 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TankEnemy : Enemy
 {
     public Transform _shootingPoint;
-    void Start()
+
+    private void Start()
     {
-        base.SetUp();
+        SetUp();
     }
 
     private void FixedUpdate()
     {
-        if(_player._died) return;
+        if (_player._died) return;
         _agent.SetDestination(_player.transform.position);
         Attacking();
         CheckStunned();
     }
+
     public void Attacking()
     {
-        if(_stunned) return;
+        if (_stunned) return;
 
-        var _distance = base.PlayerDistance();
-        if(_distance > _attackRange) return;
+        var _distance = PlayerDistance();
+        if (_distance > _attackRange) return;
         Debug.Log("Attacking !");
         if (_attackDelayCurrent > _attackDelayMax)
         {
@@ -36,5 +35,4 @@ public class TankEnemy : Enemy
             _attackDelayCurrent += Time.deltaTime;
         }
     }
-    
 }
