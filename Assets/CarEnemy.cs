@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public enum State
 {
@@ -13,19 +11,19 @@ public class CarEnemy : Enemy
 {
     public State _currentState;
     public List<Transform> _shootingPoints;
-    private int _shootingPointIndex;
     public List<GameObject> _lights;
+    private int _shootingPointIndex;
 
     private void Start()
     {
-        base.SetUp();
+        SetUp();
     }
 
     private void FixedUpdate()
     {
         //SwitchLight();
 
-        var _distance = base.PlayerDistance();
+        var _distance = PlayerDistance();
         if (_currentState == State.Incoming)
         {
             if (_distance < _attackRange)
@@ -40,8 +38,10 @@ public class CarEnemy : Enemy
             _agent.isStopped = true;
             Attacking();
         }
+
         CheckStunned();
     }
+
     /*
     private void SwitchLight()
     {
@@ -59,8 +59,8 @@ public class CarEnemy : Enemy
     */
     public void Attacking()
     {
-        if(_stunned || _player._died) return;
-        
+        if (_stunned || _player._died) return;
+
         if (_attackDelayCurrent > _attackDelayMax)
         {
             _attackDelayCurrent = 0;

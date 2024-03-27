@@ -16,7 +16,7 @@ public class PowerUP : MonoBehaviour
 
     private void Start()
     {
-        var _randomType = Random.Range(0, PowerUpType.GetNames(typeof(PowerUpType)).Length);
+        var _randomType = Random.Range(0, Enum.GetNames(typeof(PowerUpType)).Length);
         switch (_randomType)
         {
             case 0:
@@ -31,11 +31,9 @@ public class PowerUP : MonoBehaviour
             case 2:
                 _powerUpType = PowerUpType.Shield;
                 break;
-            default:
-                break;
         }
 
-        
+
         //Tutaj będzie ustawianie textur etc na starcie
         switch (_powerUpType)
         {
@@ -46,7 +44,7 @@ public class PowerUP : MonoBehaviour
             case PowerUpType.Damage:
                 break;
             case PowerUpType.Shield:
-                Debug.LogWarning("Shield done");
+                //Debug.LogWarning("Shield done");
                 break;
         }
     }
@@ -63,9 +61,9 @@ public class PowerUP : MonoBehaviour
                     break;
                 case PowerUpType.Health:
                     _player._health += Convert.ToInt32(_player._health * 0.33f);
-                    _player._maxHealth += Convert.ToInt32(_player._maxHealth * 0.33f);
-                    
-                    if(_player._health > _player._maxHealth)
+                    //_player._maxHealth += Convert.ToInt32(_player._maxHealth * 0.33f);
+
+                    if (_player._health > _player._maxHealth)
                         _player._health = _player._maxHealth;
                     break;
                 case PowerUpType.Damage:

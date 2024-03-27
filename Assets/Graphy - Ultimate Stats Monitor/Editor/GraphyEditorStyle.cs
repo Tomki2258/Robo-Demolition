@@ -18,6 +18,12 @@ namespace Tayx.Graphy
 {
     internal static class GraphyEditorStyle
     {
+        #region Variables -> Private
+
+        private static string path;
+
+        #endregion
+
         #region Static Constructor
 
         static GraphyEditorStyle()
@@ -89,12 +95,6 @@ namespace Tayx.Graphy
             guiStyle.onActive.textColor = color;
             guiStyle.onFocused.textColor = color;
         }
-
-        #endregion
-
-        #region Variables -> Private
-
-        private static string path;
 
         #endregion
 
