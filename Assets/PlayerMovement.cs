@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         _uiManager = FindAnyObjectByType<UIManager>();
         DoJoystickInput(true);
         _playerWeapons = GetComponent<PlayerWeapons>();
+        
     }
 
     private void Update()
@@ -107,7 +108,13 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.CircleGun();
             _playerWeapons.ShpereAttack();
             _playerWeapons.RocketGun();
+            _playerWeapons._laserEnabled = true;
         }
+        else
+        {
+            _playerWeapons._laserEnabled = false;
+        }
+        _playerWeapons.DoLaser(_currentEnemy.transform);
     }
 
     private void XpManagment()
