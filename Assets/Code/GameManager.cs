@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public bool _gameLaunched;
+
     public List<Transform> _spawnPoints;
     public float _spawnTimeMax;
     public PlayerMovement _player;
@@ -20,7 +22,6 @@ public class GameManager : MonoBehaviour
     public Sprite _qualityOnSprite;
     public Sprite _qualityOffSprite;
     public Image _qualityImage;
-    private readonly bool _gameLaunched = true;
     private int _enemiesCount;
 
     private bool _paused;
@@ -41,7 +42,8 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_gameLaunched || _player._died) return;
+        if (!_gameLaunched) return;
+        if(!_player._died) return;
 
         if (_spawnTimeCurrent < _spawnTimeMax)
         {

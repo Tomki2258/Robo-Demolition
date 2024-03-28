@@ -54,24 +54,23 @@ public class LevelUpUI : MonoBehaviour
 
     private void ApplyPowerUp(PowerUpClass _currentPowerUp)
     {
-        Debug.LogWarning(_currentPowerUp.GetPowerUpType());
         switch (_currentPowerUp.GetPowerUpType())
         {
             case PowerUpsEnum.Health:
                 _player._maxHealth *= 1 + _hpMultipler;
-                Debug.LogWarning(PowerUpsEnum.Health);
+                //Debug.LogWarning(PowerUpsEnum.Health);
                 break;
             case PowerUpsEnum.Damage:
                 _player._playerWeapons._bulletDamage *= 1 + _damageMultipler;
-                Debug.LogWarning(PowerUpsEnum.Damage);
+                //Debug.LogWarning(PowerUpsEnum.Damage);
                 break;
             case PowerUpsEnum.Range:
                 _player._attackRange *= 1 + _rangeMultipler;
-                Debug.LogWarning(PowerUpsEnum.Range);
+                //Debug.LogWarning(PowerUpsEnum.Range);
                 break;
             case PowerUpsEnum.Regeneration:
                 _player._hpRegenMultipler *= 1 + _regenerationMultipler;
-                Debug.LogWarning(PowerUpsEnum.Regeneration);
+                //Debug.LogWarning(PowerUpsEnum.Regeneration);
                 break;
             case PowerUpsEnum.ReloadSped:
                 _player._playerWeapons._standardMaxTimer *= 1 - _reloadSpeed;
@@ -80,7 +79,7 @@ public class LevelUpUI : MonoBehaviour
                 _player._playerWeapons._circleGunMaxTimer *= 1 - _reloadSpeed;
                 _player._playerWeapons._sphereAttackMaxTimer *= 1 - _reloadSpeed;
                 _player._playerWeapons._shotgunMaxTimer *= 1 - _reloadSpeed;
-                Debug.LogWarning(PowerUpsEnum.ReloadSped);
+                //Debug.LogWarning(PowerUpsEnum.ReloadSped);
                 break;
         }
         _uiManager.DoLevelUpCanvas(false);

@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Canvas _inputCanvas;
+    public GameObject _inputCanvas;
     public float _speed;
     public float _rotationSpeed;
     public Transform _top;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public bool _shield;
     public float _shieldTimer;
     public float _shieldMaxTimer;
+    public GameObject _shieldEffect;
     public PlayerWeapons _playerWeapons;
     private CameraController _cameraController;
     private CharacterController _controller;
@@ -32,18 +34,19 @@ public class PlayerMovement : MonoBehaviour
     private VariableJoystick _joystick;
     private GameObject _nearestEnemy;
     private UIManager _uiManager;
+    [SerializeField] private List<int> _weaponsUnlockStages;
 
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
-        _joystick = FindObjectOfType<VariableJoystick>();
+        _joystick = FindFirstObjectByType<VariableJoystick>();
         _gameManager = FindAnyObjectByType<GameManager>();
         _health = _maxHealth;
-        _cameraController = FindObjectOfType<CameraController>();
+        _cameraController = FindFirstObjectByType<CameraController>();
         _uiManager = FindAnyObjectByType<UIManager>();
         DoJoystickInput(true);
         _playerWeapons = GetComponent<PlayerWeapons>();
-        
+        _shieldEffect.SetActive(false);
     }
 
     private void Update()
@@ -64,9 +67,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (_died) return;
-
-        if (_currentEnemy != null)
+        
+        if(_currentEnemy != null)
             MoveTurret();
+        else
+            _playerWeapons._laserSpawner.gameObject.SetActive(false);
 
         // if(_health <= 0)
         //     Die();
@@ -85,15 +90,43 @@ public class PlayerMovement : MonoBehaviour
         if (_shieldTimer < _shieldMaxTimer)
         {
             _shield = true;
+            _shieldEffect.SetActive(true);
             _shieldTimer += Time.deltaTime;
         }
         else
         {
             _shieldTimer = 0;
+            _shieldEffect.SetActive(false);
             _shield = false;
         }
     }
 
+    private void CheckForWeaponUnlock(int _currentLevel)
+    {
+        if (_weaponsUnlockStages.Contains(_currentLevel))
+        {
+            int _index = _weaponsUnlockStages.IndexOf(_currentLevel);
+        
+            switch (_index)
+            {
+                case 0:
+                    _playerWeapons._shotgunEnabled = true;
+                    break;
+                case 1:
+                    _playerWeapons._circleGunEnabled = true;
+                    break;
+                case 2:
+                    _playerWeapons._sphereAttackEnabled = true;
+                    break;
+                case 3:
+                    _playerWeapons._laserGunEnabled = true;
+                    break;
+                case 4:
+                    _playerWeapons._rocketLauncherEnabled = true;
+                    break;
+            }
+        }
+    }
     private void MoveTurret()
     {
         var _direction = _currentEnemy.transform.position - transform.position;
@@ -105,9 +138,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
-            _playerWeapons.CircleGun(); 
-            _playerWeapons.ShpereAttack();
-            _playerWeapons.RocketLauncher();
+            _playerWeapons.CircleGun();
+            _playerWeapons.ShpereAttack(); _playerWeapons.RocketLauncher(); 
+            _playerWeapons._laserSpawner.gameObject.SetActive(true);
             _playerWeapons.DoLaser(_currentEnemy.transform);
         }
     }
@@ -130,6 +163,8 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(transform.position.x,
                 transform.position.y + 0.05f,
                 transform.position.z);
+            DoJoystickInput(false);
+            CheckForWeaponUnlock(_level);
         }
     }
 
@@ -149,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
         _health += _maxHealth * _hpRegenMultipler;
     }
 
-    private void DoJoystickInput(bool _mode)
+    public void DoJoystickInput(bool _mode)
     {
         _isJoystick = _mode;
         _inputCanvas.gameObject.SetActive(_mode);

@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     public float _attackDelayMax;
     public float _attackDelayCurrent;
     public bool _stunned;
-    private readonly float _lightsTimerMax = 1;
     private readonly int _stunTime = 5;
     private CameraShake _cameraShake;
     private float _lightsTimer;

@@ -16,15 +16,19 @@ public class UIManager : MonoBehaviour
     public TMP_Text _xPProgressText;
     public Slider _xpSlider;
     private PlayerMovement _player;
-
+    public GameObject _mainUI;
+    private GameManager _gameManager;
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerMovement>();
         _levelUpCanvas.SetActive(false);
+        QualitySettings.vSyncCount = 1;
+        _gameManager = FindFirstObjectByType<GameManager>();
     }
 
     private void FixedUpdate()
     {
+        if(!_gameManager._gameLaunched) return;
         _hpText.text = $"{Math.Round(_player._health)}" +
                        "/" +
                        $"{_player._maxHealth}";
@@ -38,6 +42,15 @@ public class UIManager : MonoBehaviour
         _xPProgressText.text = $"{_player._xp}" +
                                "/" +
                                $"{_player._xpToNextLevel}";
+
+        if (_levelUpCanvas.activeSelf)
+        {
+            _mainUI.SetActive(false);
+        }
+        else
+        {
+            _mainUI.SetActive(true);
+        }
     }
 
     public void DoLevelUpCanvas(bool _sraka)
@@ -45,6 +58,8 @@ public class UIManager : MonoBehaviour
         _levelUpCanvas.SetActive(_sraka);
         if(_sraka)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
+        if(!_sraka)
+            _player.DoJoystickInput(true);
         Time.timeScale = !_sraka ? 1 : 0;
     }
 }

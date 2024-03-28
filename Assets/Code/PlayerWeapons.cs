@@ -10,23 +10,25 @@ public class PlayerWeapons : MonoBehaviour
     private float _circleGunCurrentTimer;
 
     [Header("Standard Gun")] public float _standardMaxTimer;
+    public float _standardCurrentTimer;
     public Transform _standardSpawner;
 
-    [Header("Shotgub Gun")] public float _shotgunMaxTimer;
+    [Header("Shotgub Gun")] public bool _shotgunEnabled;
+    public float _shotgunMaxTimer;
 
     public Transform _shotgunSpawner;
 
-    [Header("Circle Gun")] public float _circleGunMaxTimer;
+    [Header("Circle Gun")] public bool _circleGunEnabled;
+    public float _circleGunMaxTimer;
 
     public int _shotsAmount;
     public Transform _circleGunSpawner;
-    [Header("Sphere Attack")]
+    [Header("Sphere Attack")] public bool _sphereAttackEnabled;
     public float _sphereAttackMaxTimer; 
     public GameObject _sphereAttackPrefab;
     public float _sphereAttackCurrentTimer;
     private float _shotgunCurrentTimer;
-    private float _standardCurrentTimer;
-    [Header("Laser Gun")]
+    [Header("Laser Gun")] public bool _laserGunEnabled;
     public float _laserMaxTimer;
     public Transform _laserSpawner;
     private float _laserCurrentTimer;
@@ -37,27 +39,15 @@ public class PlayerWeapons : MonoBehaviour
     public float _laserBaseDamage;
     public Transform _lastLaserEnemy;
     [Header("Rocket Launcher")]
+    public bool _rocketLauncherEnabled;
     public GameObject _rocketPrefab;
     public float _rocketMaxTimer;
     public float _rocketCurrentTimer;
     public Transform _rocketSpawner;
-    public void RocketLauncher()
-    {
-        if (_rocketMaxTimer == 0) return;
-        if (_rocketMaxTimer > _rocketCurrentTimer)
-        {
-            _rocketCurrentTimer += Time.deltaTime;
-            return;
-        }
-
-        var _currentRocket = Instantiate(_rocketPrefab, _rocketSpawner.position, _rocketSpawner.rotation);
-        _rocketCurrentTimer = 0;
-    }
     private void Start()
     {
         _laserCurrentDamage = _laserBaseDamage;
     }
-
     public void StandardGun()
     {
         if (_standardMaxTimer == 0) return;
@@ -72,9 +62,21 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
         _standardCurrentTimer = 0;
     }
+    public void RocketLauncher()
+    {
+        if (!_rocketLauncherEnabled) return;
+        if (_rocketMaxTimer > _rocketCurrentTimer)
+        {
+            _rocketCurrentTimer += Time.deltaTime;
+            return;
+        }
+
+        var _currentRocket = Instantiate(_rocketPrefab, _rocketSpawner.position, _rocketSpawner.rotation);
+        _rocketCurrentTimer = 0;
+    }
     public void ShpereAttack()
     {
-        if (_sphereAttackMaxTimer == 0) return;
+        if (!_sphereAttackEnabled) return;
         if (_sphereAttackCurrentTimer < _sphereAttackMaxTimer)
         {
             _sphereAttackCurrentTimer += Time.deltaTime;
@@ -87,7 +89,7 @@ public class PlayerWeapons : MonoBehaviour
     }
     public void ShotgunGun()
     {
-        if(_shotgunMaxTimer == 0) return;
+        if(!_shotgunEnabled) return;
         if (_shotgunMaxTimer > _shotgunCurrentTimer)
         {
             _shotgunCurrentTimer += Time.deltaTime;
@@ -106,7 +108,7 @@ public class PlayerWeapons : MonoBehaviour
 
     public void CircleGun()
     {
-        if(_circleGunMaxTimer == 0) return;
+        if(!_circleGunEnabled) return;
         if (_circleGunMaxTimer > _circleGunCurrentTimer)
         {
             _circleGunCurrentTimer += Time.deltaTime;
@@ -128,7 +130,7 @@ public class PlayerWeapons : MonoBehaviour
     }
     public void DoLaser(Transform _enemy)
     {
-        if(_laserMaxTimer == 0) return;
+        if(!_laserGunEnabled) return;
         
         _lineRenderer.SetPosition(0,_laserSpawner.position);
         _lineRenderer.SetPosition(1,_enemy.position);
