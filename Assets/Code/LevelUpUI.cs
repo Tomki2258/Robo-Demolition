@@ -29,7 +29,7 @@ public class LevelUpUI : MonoBehaviour
         _player = FindAnyObjectByType<PlayerMovement>();
         //_powerUpsList.Add(new PowerUpClass(PowerUpsEnum.Health,$"Increase health by {_hpMultipler} %"));
         _powerUpsList.Add(new PowerUpClass(PowerUpsEnum.Damage,$"Increase damage by {_damageMultipler} %"));
-        _powerUpsList.Add(new PowerUpClass(PowerUpsEnum.Range,$"Increase ramge by {_rangeMultipler} %"));
+        _powerUpsList.Add(new PowerUpClass(PowerUpsEnum.Range,$"Increase range by {_rangeMultipler} %"));
         _powerUpsList.Add(new PowerUpClass(PowerUpsEnum.Regeneration,$"Increase regeneration by {_regenerationMultipler} %"));
         _powerUpsList.Add(new PowerUpClass(PowerUpsEnum.ReloadSped,$"Increase reload speed by {_reloadSpeed} %"));
 
@@ -96,7 +96,7 @@ public class LevelUpUI : MonoBehaviour
             _randomTwo = Random.Range(0, _powerUpsCount);
         }
         _rightPowerUp = _powerUpsList[_randomTwo];
-        Debug.LogWarning($"{_leftPowerUp.GetPowerUpType()} / {_rightPowerUp.GetPowerUpType()}");
+        //Debug.LogWarning($"{_leftPowerUp.GetPowerUpType()} / {_rightPowerUp.GetPowerUpType()}");
         
         //Set UI
         //_leftPowerUpUI.transform.GetChild(1).GetComponent<Image>().sprite =

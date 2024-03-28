@@ -1591,8 +1591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3474515913939376452, guid: 3d359d475b16251d18c439af9f3ae623,
-    type: 3}
+  m_Sprite: {fileID: -46253509169672506, guid: 08103e19a59b16c2d90d211f7572dff3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2168,8 +2167,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832140326}
-  - component: {fileID: 832140328}
   - component: {fileID: 832140329}
+  - component: {fileID: 832140330}
   m_Layer: 5
   m_Name: LevelUp
   m_TagString: Untagged
@@ -2200,28 +2199,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &832140328
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832140325}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a7d2b52fa0e9f0d5a41cfd8d0a4abfe, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &832140329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,12 +2212,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _powerUpsList: []
-  _randomPowerUps: []
   _hpMultipler: 10
   _damageMultipler: 10
   _rangeMultipler: 10
   _regenerationMultipler: 10
   _reloadSpeed: 10
+  _leftPowerUpUI: {fileID: 1508787841}
+  _rightPowerUpUI: {fileID: 1328944049}
+--- !u!95 &832140330
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832140325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0649a9e10c30e203cb64d9b9da8f0717, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &881748787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3011,9 +3011,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 832140329}
         m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
-        m_MethodName: UseLevelUpCanvas
+        m_MethodName: ChooseReward
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4737,9 +4737,9 @@ MonoBehaviour:
     type: 3}
   _pausedUI: {fileID: 969752194}
   _qualityOn: 0
-  _qualityOnSprite: {fileID: 3455971472200442319, guid: 10e1c807280f118a29fc0dde60fb0399,
+  _qualityOnSprite: {fileID: -46253509169672506, guid: 08103e19a59b16c2d90d211f7572dff3,
     type: 3}
-  _qualityOffSprite: {fileID: 3474515913939376452, guid: 3d359d475b16251d18c439af9f3ae623,
+  _qualityOffSprite: {fileID: 409332643574109363, guid: 963c8903b758165d7b9ba68c1e6c2702,
     type: 3}
   _qualityImage: {fileID: 544871581}
 --- !u!4 &1882613313
@@ -4784,6 +4784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
+  _bulletDamage: 5
   _standardMaxTimer: 0
   _standardSpawner: {fileID: 1668300889}
   _shotgunMaxTimer: 0
@@ -4921,9 +4922,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 832140329}
         m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
-        m_MethodName: UseLevelUpCanvas
+        m_MethodName: ChooseReward
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
