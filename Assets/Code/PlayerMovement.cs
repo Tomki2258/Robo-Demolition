@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
 
-            _uiManager.DoLevelUpCanvas();
+            _uiManager.DoLevelUpCanvas(true);
         }
     }
 

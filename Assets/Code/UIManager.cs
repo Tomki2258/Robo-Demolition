@@ -40,10 +40,11 @@ public class UIManager : MonoBehaviour
                                $"{_player._xpToNextLevel}";
     }
 
-    public void DoLevelUpCanvas()
+    public void DoLevelUpCanvas(bool _sraka)
     {
-        _levelUpCanvas.SetActive(true);
-        _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
-        Time.timeScale = 0;
+        _levelUpCanvas.SetActive(_sraka);
+        if(_sraka)
+            _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
+        Time.timeScale = !_sraka ? 1 : 0;
     }
 }

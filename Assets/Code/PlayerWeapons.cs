@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerWeapons : MonoBehaviour
 {
     public GameObject _bullet;
+    public float _bulletDamage;
     private float _circleGunCurrentTimer;
 
     [Header("Standard Gun")] public float _standardMaxTimer;
@@ -68,6 +69,7 @@ public class PlayerWeapons : MonoBehaviour
 
         var _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
         _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
+        _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
         _standardCurrentTimer = 0;
     }
     public void ShpereAttack()
@@ -96,6 +98,7 @@ public class PlayerWeapons : MonoBehaviour
         {
             var _currentBullet = Instantiate(_bullet, _shotgunSpawner.GetChild(i).position,
                 _shotgunSpawner.GetChild(i).rotation);
+            _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
         }
 
         _shotgunCurrentTimer = 0;
@@ -118,6 +121,7 @@ public class PlayerWeapons : MonoBehaviour
             var _currentBullet =
                 Instantiate(_bullet, _circleGunSpawner.GetChild(0).position, _circleGunSpawner.rotation);
             _circleGunSpawner.Rotate(0, _rotateValue, 0);
+            _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
         }
 
         _circleGunCurrentTimer = 0;

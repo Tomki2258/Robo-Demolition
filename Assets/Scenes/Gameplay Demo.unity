@@ -2235,8 +2235,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _powerUpsList: []
-  _leftPowerUp: {fileID: 0}
-  _rightPowerUp: {fileID: 0}
+  _randomPowerUps: []
+  _hpMultipler: 10
+  _damageMultipler: 10
+  _rangeMultipler: 10
+  _regenerationMultipler: 10
+  _reloadSpeed: 10
 --- !u!1 &881748787
 GameObject:
   m_ObjectHideFlags: 0
