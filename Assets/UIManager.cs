@@ -42,8 +42,8 @@ public class UIManager : MonoBehaviour
 
     public void DoLevelUpCanvas()
     {
-        //_levelUpCanvas.SetActive(true);
-        //_levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
-        //Time.timeScale = 0;
+        _levelUpCanvas.SetActive(true);
+        _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
+        Time.timeScale = 0;
     }
 }
