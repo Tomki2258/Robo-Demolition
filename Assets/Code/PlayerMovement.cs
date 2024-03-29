@@ -155,8 +155,11 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
             _playerWeapons.ShpereAttack(); _playerWeapons.RocketLauncher(); 
-            _playerWeapons._laserSpawner.gameObject.SetActive(true);
-            _playerWeapons.DoLaser(_currentEnemy.transform);
+            if(_playerWeapons._laserGunEnabled)
+            {
+                _playerWeapons._laserSpawner.gameObject.SetActive(true);
+                _playerWeapons.DoLaser(_currentEnemy.transform);
+            }
         }
     }
 

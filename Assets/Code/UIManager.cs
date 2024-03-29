@@ -100,7 +100,21 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(true);
         _mainUI.SetActive(false);
         TimeSpan _time = DateTime.Now - _startTime;
-        _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}";
+        if(_gameManager._killedEnemies > GetBestScore())
+        {
+            PlayerPrefs.SetInt("BestScore", _gameManager._killedEnemies);
+            _killedEnemiesText.text = $"New high score !\nKilled enemies: {_gameManager._killedEnemies}";
+        }
+        else
+        {
+            _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}";
+        }
         _timeText.text = $"Time: {_time.Minutes}:{_time.Seconds}";
+    }
+
+    private int GetBestScore()
+    {
+        int _best = PlayerPrefs.GetInt("BestScore");
+        return _best;
     }
 }

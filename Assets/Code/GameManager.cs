@@ -18,10 +18,6 @@ public class GameManager : MonoBehaviour
     public List<Transform> _powerUpSpawnPoints;
     public GameObject _powerUps;
     public GameObject _pausedUI;
-    public bool _qualityOn;
-    public Sprite _qualityOnSprite;
-    public Sprite _qualityOffSprite;
-    public Image _qualityImage;
     private int _enemiesCount;
 
     private bool _paused;
@@ -37,7 +33,6 @@ public class GameManager : MonoBehaviour
         _player = FindAnyObjectByType<PlayerMovement>();
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
         _pausedUI.SetActive(false);
-        LoadQuality();
     }
 
     private void FixedUpdate()
@@ -55,40 +50,8 @@ public class GameManager : MonoBehaviour
         _spawnTimeCurrent = 0;
     }
 
-    private void LoadQuality()
-    {
-        QualitySettings.vSyncCount = 1;
-
-        var _savedQuality = Convert.ToBoolean(PlayerPrefs.GetInt("SavedQuality"));
-        if (_savedQuality)
-        {
-            QualitySettings.SetQualityLevel(4);
-            _qualityImage.sprite = _qualityOnSprite;
-        }
-        else
-        {
-            QualitySettings.SetQualityLevel(0);
-            _qualityImage.sprite = _qualityOffSprite;
-        }
-    }
-
-    public void SwitchQualitySettings()
-    {
-        _qualityOn = !_qualityOn;
-        if (_qualityOn)
-        {
-            QualitySettings.SetQualityLevel(4);
-            _qualityImage.sprite = _qualityOnSprite;
-        }
-        else
-        {
-            QualitySettings.SetQualityLevel(0);
-            _qualityImage.sprite = _qualityOffSprite;
-        }
-
-        PlayerPrefs.SetInt("SavedQuality", _qualityOn ? 1 : 0);
-    }
-
+    
+    
     private void SpawnEnemy()
     {
         var _point = Random.Range(0, _spawnsCount);
@@ -133,5 +96,5 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             _pausedUI.SetActive(false);
         }
-    }
+    } 
 }
