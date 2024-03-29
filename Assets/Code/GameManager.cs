@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> _spawnedPowerUps;
     private int _spawnsCount;
     public float _spawnTimeCurrent;
-
+    public int _killedEnemies;
     private void Awake()
     {
         _spawnsCount = _spawnPoints.Count;

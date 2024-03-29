@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -20,6 +21,10 @@ public class UIManager : MonoBehaviour
     public GameObject _mainUI;
     private GameManager _gameManager;
     public GameObject _weaponUI;
+    public DateTime _startTime;
+    public GameObject _dieCanvas;
+    public TMP_Text _timeText;
+    public TMP_Text _killedEnemiesText;
     
     private void Awake()
     {
@@ -27,6 +32,8 @@ public class UIManager : MonoBehaviour
         _levelUpCanvas.SetActive(false);
         QualitySettings.vSyncCount = 1;
         _gameManager = FindFirstObjectByType<GameManager>();
+        
+        _startTime = DateTime.Now;
     }
 
     private void FixedUpdate()
@@ -54,6 +61,14 @@ public class UIManager : MonoBehaviour
         {
             _mainUI.SetActive(true);
         }
+
+        if (_player._died)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
     }
 
     public void UnlockWeaponUI(String _weaponTypeText,Sprite _weaponSprite)
@@ -78,5 +93,14 @@ public class UIManager : MonoBehaviour
         if(!_sraka)
             _player.DoJoystickInput(true);
         Time.timeScale = !_sraka ? 1 : 0;
+    }
+
+    public void EnableDieCanvas()
+    {
+        _dieCanvas.SetActive(true);
+        _mainUI.SetActive(false);
+        TimeSpan _time = DateTime.Now - _startTime;
+        _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}";
+        _timeText.text = $"Time: {_time.Minutes}:{_time.Seconds}";
     }
 }

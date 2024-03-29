@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,9 +14,11 @@ public enum PowerUpType
 public class PowerUP : MonoBehaviour
 {
     public PowerUpType _powerUpType;
-
+    [SerializeField] private List<Mesh> _meshes;
+    private MeshFilter _meshFilter;
     private void Start()
     {
+        _meshFilter = transform.GetChild(0).GetComponent<MeshFilter>();
         var _randomType = Random.Range(0, Enum.GetNames(typeof(PowerUpType)).Length);
         switch (_randomType)
         {
@@ -44,6 +47,7 @@ public class PowerUP : MonoBehaviour
             case PowerUpType.Damage:
                 break;
             case PowerUpType.Shield:
+                _meshFilter.mesh = _meshes[0];
                 //Debug.LogWarning("Shield done");
                 break;
         }

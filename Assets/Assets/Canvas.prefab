@@ -270,6 +270,8 @@ RectTransform:
   - {fileID: 7261503116951401150}
   - {fileID: 7779478486399590653}
   - {fileID: 349349423419325789}
+  - {fileID: 1506319932874637746}
+  - {fileID: 5355807330393158713}
   m_Father: {fileID: 5370180067063339293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -683,14 +685,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970085994949490050}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3695611319060184544}
   - {fileID: 5538022281295482460}
-  m_Father: {fileID: 5370180067063339293}
+  m_Father: {fileID: 8834843508601679993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2327,9 +2329,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4605742547229151438}
-  - {fileID: 1506319932874637746}
   - {fileID: 3923208279281166878}
-  - {fileID: 5355807330393158713}
   - {fileID: 8834843508601679993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2420,6 +2420,7 @@ MonoBehaviour:
   _xPProgressText: {fileID: 6494561376404312035}
   _xpSlider: {fileID: 770988481304248479}
   _mainUI: {fileID: 1204624018928791458}
+  _weaponUI: {fileID: 0}
 --- !u!1 &6006040102503318684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,7 +3016,7 @@ RectTransform:
   - {fileID: 5406076020610345266}
   - {fileID: 6020726770488229924}
   - {fileID: 7144016759318871312}
-  m_Father: {fileID: 5370180067063339293}
+  m_Father: {fileID: 8834843508601679993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

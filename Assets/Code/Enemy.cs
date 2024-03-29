@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         _gameManager.RemoveEnemy(gameObject);
+        _gameManager._killedEnemies++;
         //GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         //_cameraShake.DoShake(0.001f, 1);
         _player._xp += _xpReward;

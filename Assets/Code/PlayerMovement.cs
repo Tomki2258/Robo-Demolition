@@ -62,9 +62,8 @@ public class PlayerMovement : MonoBehaviour
             _rotationSpeed * Time.deltaTime,
             0f);
         _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
-        if(_currentEnemy != null)
-            MoveTurret();
-        else
+        if(_currentEnemy == null)
+            //MoveTurret();
             _playerWeapons._laserSpawner.gameObject.SetActive(false);
     }
 
@@ -79,7 +78,8 @@ public class PlayerMovement : MonoBehaviour
         ShieldManagment();
         
         if (_gameManager._spawnedEnemies.Count <= 0) return;
-        GetNearestEnemy();
+        MoveTurret();
+        Battle();
     }
 
     private void ShieldManagment()
@@ -140,9 +140,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MoveTurret()
     {
-        var _direction = _currentEnemy.transform.position - transform.position;
+        var _direction = GetNearestEnemy().transform.position - transform.position;
         _direction.Normalize();
         _top.rotation = Quaternion.Slerp(_top.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
+    }
+
+    private void Battle()
+    {
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         float _tempAttackRange = _attackRange * transform.localScale.x;
         if (_enemyDist < _tempAttackRange)
@@ -201,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
         _inputCanvas.gameObject.SetActive(_mode);
     }
 
-    private void GetNearestEnemy()
+    private Transform GetNearestEnemy()
     {
         var lowestDist = Mathf.Infinity;
         foreach (var _enemy in _gameManager._spawnedEnemies)
@@ -214,6 +218,8 @@ public class PlayerMovement : MonoBehaviour
                 _currentEnemy = _enemy;
             }
         }
+
+        return _currentEnemy.transform;
     }
 
     public void CheckHealth(float _value)
@@ -228,6 +234,7 @@ public class PlayerMovement : MonoBehaviour
     private void Die()
     {
         DoJoystickInput(false);
+        _uiManager.EnableDieCanvas();
         _died = true;
         _cameraController._offset.y -= 5;
     }
