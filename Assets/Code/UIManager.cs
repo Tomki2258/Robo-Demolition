@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,8 @@ public class UIManager : MonoBehaviour
     private PlayerMovement _player;
     public GameObject _mainUI;
     private GameManager _gameManager;
+    public GameObject _weaponUI;
+    
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerMovement>();
@@ -53,6 +56,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UnlockWeaponUI(String _weaponTypeText,Sprite _weaponSprite)
+    {
+        _weaponUI.SetActive(true);
+        Image _weaponImage = _weaponUI.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        TMP_Text _weaponText = _weaponUI.transform.GetChild(1).GetChild(1).GetComponent<TMP_Text>();
+
+        _weaponText.text = _weaponTypeText;
+        StartCoroutine(DisableObject(_weaponUI));
+    }
+    private IEnumerator DisableObject(GameObject _object)
+    {
+        yield return new WaitForSeconds(2);
+        _object.SetActive(false);
+    }
     public void DoLevelUpCanvas(bool _sraka)
     {
         _levelUpCanvas.SetActive(_sraka);

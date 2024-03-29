@@ -44,9 +44,16 @@ public class PlayerWeapons : MonoBehaviour
     public float _rocketMaxTimer;
     public float _rocketCurrentTimer;
     public Transform _rocketSpawner;
+    public List<GameObject> _weaponsModels;
+
     private void Start()
     {
         _laserCurrentDamage = _laserBaseDamage;
+
+        foreach (GameObject _weapon in _weaponsModels)
+        {
+            _weapon.SetActive(false);
+        }
     }
     public void StandardGun()
     {

@@ -62,16 +62,15 @@ public class PlayerMovement : MonoBehaviour
             _rotationSpeed * Time.deltaTime,
             0f);
         _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
+        if(_currentEnemy != null)
+            MoveTurret();
+        else
+            _playerWeapons._laserSpawner.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
     {
         if (_died) return;
-        
-        if(_currentEnemy != null)
-            MoveTurret();
-        else
-            _playerWeapons._laserSpawner.gameObject.SetActive(false);
 
         // if(_health <= 0)
         //     Die();
@@ -111,18 +110,30 @@ public class PlayerMovement : MonoBehaviour
             {
                 case 0:
                     _playerWeapons._shotgunEnabled = true;
+                    _playerWeapons._weaponsModels[0].SetActive(true);
+                    _uiManager.UnlockWeaponUI("Shotgun", null);
                     break;
                 case 1:
                     _playerWeapons._circleGunEnabled = true;
+                    _playerWeapons._weaponsModels[1].SetActive(true);
+                    _uiManager.UnlockWeaponUI("Circle gun", null);
+
                     break;
                 case 2:
                     _playerWeapons._sphereAttackEnabled = true;
+                    _playerWeapons._weaponsModels[2].SetActive(true);
+                    _uiManager.UnlockWeaponUI("Sphere bomb", null);
+
                     break;
                 case 3:
                     _playerWeapons._laserGunEnabled = true;
+                    _playerWeapons._weaponsModels[3].SetActive(true);
+                    _uiManager.UnlockWeaponUI("Laser", null);
                     break;
                 case 4:
                     _playerWeapons._rocketLauncherEnabled = true;
+                    _playerWeapons._weaponsModels[4].SetActive(true);
+                    _uiManager.UnlockWeaponUI("Rocket launcher", null);
                     break;
             }
         }

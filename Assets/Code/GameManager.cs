@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private float _powerUpSpawnTimeCurrent;
     private List<GameObject> _spawnedPowerUps;
     private int _spawnsCount;
-    private float _spawnTimeCurrent;
+    public float _spawnTimeCurrent;
 
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     private void FixedUpdate()
     {
         if (!_gameLaunched) return;
-        if(!_player._died) return;
+        //if(!_player._died) return;
 
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
