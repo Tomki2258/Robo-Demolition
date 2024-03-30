@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject _nearestEnemy;
     private UIManager _uiManager;
     [SerializeField] private List<int> _weaponsUnlockStages;
-
+    private Quaternion _startRotation;
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         DoJoystickInput(true);
         _playerWeapons = GetComponent<PlayerWeapons>();
         _shieldEffect.SetActive(false);
+        _startRotation = _top.rotation;
     }
 
     private void Update()
@@ -77,9 +78,11 @@ public class PlayerMovement : MonoBehaviour
         HpRegeneration();
         ShieldManagment();
         
-        if (_gameManager._spawnedEnemies.Count <= 0) return;
-        MoveTurret();
-        Battle();
+        if (_gameManager._spawnedEnemies.Count > 0)
+        {
+            MoveTurret(GetNearestEnemy().position);
+            Battle();
+        }
     }
 
     private void ShieldManagment()
@@ -138,9 +141,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    private void MoveTurret()
+    private void MoveTurret(Vector3 _target)
     {
-        var _direction = GetNearestEnemy().transform.position - transform.position;
+        var _direction = _target - transform.position;
         _direction.Normalize();
         _top.rotation = Quaternion.Slerp(_top.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
     }
