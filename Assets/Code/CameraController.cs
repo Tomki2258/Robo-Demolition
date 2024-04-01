@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -6,7 +7,22 @@ public class CameraController : MonoBehaviour
     public float _speed;
     public Transform _target;
     public float _rotationSpeed;
+    private GameManager _gameManager;
+    public GameObject _startCapsule;
+    private void Start()
+    {
+        _gameManager = FindFirstObjectByType<GameManager>();
 
+        if (_gameManager._gameLaunched)
+        {
+            _target = FindFirstObjectByType<PlayerMovement>().transform;
+        }
+        else
+        {
+            _target = _startCapsule.transform;
+        }
+    }
+    
     private void Update()
     {
         var _desiredPosition = _target.position + _offset * _target.localScale.x;

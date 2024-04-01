@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,7 +22,8 @@ public class Enemy : MonoBehaviour
     private float _lightsTimer;
     private float _oldSpeed;
     private float _stunTimer;
-
+    public Material _oryginalMaterial;
+    public Material _hitMaterial;
     private void OnDestroy()
     {
         _gameManager.RemoveEnemy(gameObject);
@@ -36,6 +38,7 @@ public class Enemy : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _oldSpeed = _agent.speed;
+        _oryginalMaterial = GetComponent<Renderer>().material;
     }
 
     public bool CheckHealth(float _value)
@@ -47,6 +50,7 @@ public class Enemy : MonoBehaviour
             return false;
         }
 
+        StartCoroutine(HitChangeMaterial());
         return true;
     }
 
@@ -82,5 +86,12 @@ public class Enemy : MonoBehaviour
         _bulletScript._enemyShoot = true;
         _bulletScript._bulletDamage = _bulletDamage;
         Destroy(_bulletInstance, 5);
+    }
+    private IEnumerator HitChangeMaterial()
+    {
+        var _renderer = GetComponent<Renderer>();
+        _renderer.material = _hitMaterial;
+        yield return new WaitForSeconds(0.05f);
+        _renderer.material = _oryginalMaterial;
     }
 }

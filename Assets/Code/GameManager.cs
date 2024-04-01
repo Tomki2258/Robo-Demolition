@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         _player = FindAnyObjectByType<PlayerMovement>();
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
         _pausedUI.SetActive(false);
+        if(!_gameLaunched) _player.DoJoystickInput(false);
     }
 
     private void FixedUpdate()
@@ -49,8 +50,6 @@ public class GameManager : MonoBehaviour
         SpawnEnemy();
         _spawnTimeCurrent = 0;
     }
-
-    
     
     private void SpawnEnemy()
     {

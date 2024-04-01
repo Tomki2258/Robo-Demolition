@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class UIManager : MonoBehaviour
     public GameObject _dieCanvas;
     public TMP_Text _timeText;
     public TMP_Text _killedEnemiesText;
-    
+    public GameObject _hpDifferenceText;
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerMovement>();
@@ -36,6 +37,28 @@ public class UIManager : MonoBehaviour
         _startTime = DateTime.Now;
     }
 
+    public void ShowHpDifference(float _value)
+    {
+        GameObject _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
+        _hpDifference.transform.parent = _mainUI.transform;
+        Vector3 _randomPosition = new Vector3(transform.position.x + Random.Range(-50,50),
+            transform.position.y + Random.Range(-50,50),
+            transform.position.z);
+        _hpDifference.transform.position = _randomPosition;
+        _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        TMP_Text _text = _hpDifference.GetComponent<TMP_Text>();
+        _text.text = _value.ToString();
+
+        if (_value > 0)
+        {
+            _text.color = Color.green;
+        }
+        else
+        {
+            _text.color = Color.red;
+        }
+        Destroy(_hpDifference, 1.1f);
+    }
     private void FixedUpdate()
     {
         if(!_gameManager._gameLaunched) return;
@@ -71,7 +94,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UnlockWeaponUI(String _weaponTypeText,Sprite _weaponSprite)
+    public void UnlockUI(String _weaponTypeText,Sprite _weaponSprite)
     {
         _weaponUI.SetActive(true);
         Image _weaponImage = _weaponUI.transform.GetChild(1).GetChild(0).GetComponent<Image>();

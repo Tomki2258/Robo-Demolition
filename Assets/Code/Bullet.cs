@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -5,7 +6,8 @@ public class Bullet : MonoBehaviour
     public float _bulletSpeed;
     public float _bulletDamage = 5;
     public bool _enemyShoot;
-
+    public Material _redMaterial;
+    private Material _lastEnemyMaterial;
     private void Start()
     {
         Destroy(gameObject, 5);
@@ -28,7 +30,9 @@ public class Bullet : MonoBehaviour
             else if (other.gameObject.CompareTag("Enemy"))
             {
                 var _enemy = other.GetComponent<Enemy>();
-                _enemy.CheckHealth(_bulletDamage);
+                if (_enemy.CheckHealth(_bulletDamage))
+                {
+                }
                 Destroy(gameObject);
             }
             else
@@ -45,6 +49,7 @@ public class Bullet : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("Enemy"))
             {
+                //StartCoroutine(HitChangeMaterial(other.gameObject));
             }
             else
             {

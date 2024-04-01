@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!_isJoystick) return;
+        if (!_isJoystick || !_gameManager._gameLaunched) return;
         var _moveDirection = new Vector3(_joystick.Direction.x, 0, _joystick.Direction.y);
         _controller.Move(_moveDirection * _speed * Time.deltaTime);
 
@@ -114,29 +114,29 @@ public class PlayerMovement : MonoBehaviour
                 case 0:
                     _playerWeapons._shotgunEnabled = true;
                     _playerWeapons._weaponsModels[0].SetActive(true);
-                    _uiManager.UnlockWeaponUI("Shotgun", null);
+                    _uiManager.UnlockUI("Shotgun", null);
                     break;
                 case 1:
                     _playerWeapons._circleGunEnabled = true;
                     _playerWeapons._weaponsModels[1].SetActive(true);
-                    _uiManager.UnlockWeaponUI("Circle gun", null);
+                    _uiManager.UnlockUI("Circle gun", null);
 
                     break;
                 case 2:
                     _playerWeapons._sphereAttackEnabled = true;
                     _playerWeapons._weaponsModels[2].SetActive(true);
-                    _uiManager.UnlockWeaponUI("Sphere bomb", null);
+                    _uiManager.UnlockUI("Sphere bomb", null);
 
                     break;
                 case 3:
                     _playerWeapons._laserGunEnabled = true;
                     _playerWeapons._weaponsModels[3].SetActive(true);
-                    _uiManager.UnlockWeaponUI("Laser", null);
+                    _uiManager.UnlockUI("Laser", null);
                     break;
                 case 4:
                     _playerWeapons._rocketLauncherEnabled = true;
                     _playerWeapons._weaponsModels[4].SetActive(true);
-                    _uiManager.UnlockWeaponUI("Rocket launcher", null);
+                    _uiManager.UnlockUI("Rocket launcher", null);
                     break;
             }
         }
@@ -200,9 +200,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (_health >= _maxHealth) return;
-
         _hpRegenTimer = 0;
-        _health += _maxHealth * _hpRegenMultipler;
+        float _regenValue = _maxHealth * _hpRegenMultipler;
+        _health += _regenValue;
+        _uiManager.ShowHpDifference(_regenValue);
     }
 
     public void DoJoystickInput(bool _mode)
@@ -231,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
     public void CheckHealth(float _value)
     {
         if (_shield) return;
-
+        _uiManager.ShowHpDifference(-_value);
         _health -= _value;
         if (_health <= 0)
             Die();
