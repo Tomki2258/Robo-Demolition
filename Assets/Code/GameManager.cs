@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private int _spawnsCount;
     public float _spawnTimeCurrent;
     public int _killedEnemies;
+    private InterstitialAd _interstitialAd;
     private void Awake()
     {
         _spawnsCount = _spawnPoints.Count;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
         _pausedUI.SetActive(false);
         if(!_gameLaunched) _player.DoJoystickInput(false);
+        _interstitialAd = FindFirstObjectByType<InterstitialAd>();
     }
 
     private void FixedUpdate()
@@ -95,5 +97,10 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             _pausedUI.SetActive(false);
         }
-    } 
+    }
+
+    public void DoAd()
+    {
+        _interstitialAd.ShowAd();
+    }
 }

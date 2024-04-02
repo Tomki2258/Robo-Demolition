@@ -244,5 +244,6 @@ public class PlayerMovement : MonoBehaviour
         _uiManager.EnableDieCanvas();
         _died = true;
         _cameraController._offset.y = 7;
+        _gameManager.DoAd();
     }
 }
