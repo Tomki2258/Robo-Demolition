@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_gameLaunched) return;
+        if (!_gameLaunched || _player._died) return;
         //if(!_player._died) return;
 
         if (_spawnTimeCurrent < _spawnTimeMax)

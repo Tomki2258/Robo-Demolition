@@ -231,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckHealth(float _value)
     {
-        if (_shield) return;
+        if (_shield || _died) return;
         _uiManager.ShowHpDifference(-_value);
         _health -= _value;
         if (_health <= 0)
@@ -243,6 +243,6 @@ public class PlayerMovement : MonoBehaviour
         DoJoystickInput(false);
         _uiManager.EnableDieCanvas();
         _died = true;
-        _cameraController._offset.y -= 5;
+        _cameraController._offset.y = 7;
     }
 }

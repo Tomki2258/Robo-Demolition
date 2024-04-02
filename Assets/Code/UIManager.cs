@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     public void ShowHpDifference(float _value)
     {
         GameObject _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
-        _hpDifference.transform.parent = _mainUI.transform;
+        _hpDifference.transform.SetParent(_mainUI.transform);
         Vector3 _randomPosition = new Vector3(transform.position.x + Random.Range(-50,50),
             transform.position.y + Random.Range(-50,50),
             transform.position.z);
@@ -87,6 +87,7 @@ public class UIManager : MonoBehaviour
 
         if (_player._died)
         {
+            _mainUI.SetActive(false);
             if (Input.GetMouseButtonDown(0))
             {
                 SceneManager.LoadScene(0);
@@ -130,7 +131,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}";
+            _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}\n" +
+                                      $"Best score: {GetBestScore()}";
         }
         _timeText.text = $"Time: {_time.Minutes}:{_time.Seconds}";
     }
