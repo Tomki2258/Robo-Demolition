@@ -24,16 +24,26 @@ public class Enemy : MonoBehaviour
     private float _stunTimer;
     public Material _oryginalMaterial;
     public Material _hitMaterial;
+    public bool _killedByManager;
+    public Material _blackMaterial;
     private void OnDestroy()
     {
         _gameManager.RemoveEnemy(gameObject);
-        _gameManager._killedEnemies++;
+        if(!_killedByManager)
+        {
+            _gameManager._killedEnemies++;
+            _player._xp += _xpReward;
+            DestroyClone();
+        }
         //GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         //_cameraShake.DoShake(0.001f, 1);
-        _player._xp += _xpReward;
         //Destroy(_explosion,5);
     }
 
+    private void DestroyClone()
+    {
+              
+    }
     public void SetUp()
     {
         _agent = GetComponent<NavMeshAgent>();

@@ -13,10 +13,13 @@ public class Rocket : MonoBehaviour
     public GameObject _explosionFX;
     public int _rocketDamage;
     public float _rocketRange;
+    public bool _isEnemy;
+    private PlayerMovement _player;
     void Start()
     {
         _gameManager = FindAnyObjectByType<GameManager>();
         _startTarget = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+        _player = FindFirstObjectByType<PlayerMovement>();
     }
 
     void FixedUpdate()
@@ -29,7 +32,12 @@ public class Rocket : MonoBehaviour
                 _starterDone = true;
             return;
         }
-        _enemy = GetNearestEnemy();
+
+        if (!_isEnemy)
+            _enemy = GetNearestEnemy();
+        else
+            _enemy = _player.transform;
+        
         if (_enemy == null)
         {
             return;
@@ -71,6 +79,7 @@ public class Rocket : MonoBehaviour
     private void OnDestroy()
     {
         var _explosion = Instantiate(_explosionFX, transform.position, Quaternion.identity);
+        DoDamage();
     }
 
     private void DoDamage()
@@ -78,6 +87,14 @@ public class Rocket : MonoBehaviour
         Collider[] _colliders = Physics.OverlapSphere(transform.position, _rocketRange);
         foreach (Collider _obj in _colliders)
         {
+            if (_enemy)
+            {
+                if (_obj.CompareTag("Player"))
+                {
+                    _player.CheckHealth(_rocketDamage);
+                    return;
+                }
+            }
             if (_obj.CompareTag("Enemy"))
             {
                 _obj.GetComponent<Enemy>().CheckHealth(_rocketDamage);

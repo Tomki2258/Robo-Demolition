@@ -188,5 +188,8 @@ MonoBehaviour:
   _attackDelayMax: 1
   _attackDelayCurrent: 0
   _stunned: 0
+  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
+  _killedByManager: 0
+  _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
   _shootingPoint: {fileID: 6097033507101572674}

@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private UIManager _uiManager;
     [SerializeField] private List<int> _weaponsUnlockStages;
     private Quaternion _startRotation;
+    private Animator _animator;
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         DoJoystickInput(true);
         _playerWeapons = GetComponent<PlayerWeapons>();
         _shieldEffect.SetActive(false);
+        _animator = GetComponent<Animator>();
         _startRotation = _top.rotation;
     }
 
@@ -244,6 +246,8 @@ public class PlayerMovement : MonoBehaviour
         _uiManager.EnableDieCanvas();
         _died = true;
         _cameraController._offset.y = 7;
+        _cameraController._speed /= 2;
+        _cameraController._rotationSpeed *= 1.5f;
         _gameManager.DoAd();
     }
 }

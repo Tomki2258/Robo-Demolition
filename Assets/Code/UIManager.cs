@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
         _levelUpCanvas.SetActive(false);
         QualitySettings.vSyncCount = 1;
         _gameManager = FindFirstObjectByType<GameManager>();
+        _dieCanvas.SetActive(false);
         
         _startTime = DateTime.Now;
     }
@@ -85,14 +86,14 @@ public class UIManager : MonoBehaviour
             _mainUI.SetActive(true);
         }
 
-        if (_player._died)
-        {
-            _mainUI.SetActive(false);
-            if (Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadScene(0);
-            }
-        }
+        // if (_player._died)
+        // {
+        //     _mainUI.SetActive(false);
+        //     if (Input.GetMouseButtonDown(0))
+        //     {
+        //         SceneManager.LoadScene(0);
+        //     }
+        // }
     }
 
     public void UnlockUI(String _weaponTypeText,Sprite _weaponSprite)
@@ -141,5 +142,20 @@ public class UIManager : MonoBehaviour
     {
         int _best = PlayerPrefs.GetInt("BestScore");
         return _best;
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void RetryAdRelaod()
+    {
+        foreach (GameObject _enemyObj in _gameManager._enemies)
+        {
+            Enemy _enemy = _enemyObj.GetComponent<Enemy>();
+            _enemy._killedByManager = true;
+            Destroy(_enemyObj);
+        }
     }
 }
