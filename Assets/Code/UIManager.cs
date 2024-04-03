@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text _xPProgressText;
     public Slider _xpSlider;
-    private PlayerMovement _player;
     public GameObject _mainUI;
     private GameManager _gameManager;
     public GameObject _weaponUI;
@@ -27,6 +26,8 @@ public class UIManager : MonoBehaviour
     public TMP_Text _timeText;
     public TMP_Text _killedEnemiesText;
     public GameObject _hpDifferenceText;
+    private PlayerMovement _player;
+
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerMovement>();

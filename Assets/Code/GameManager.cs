@@ -101,6 +101,10 @@ public class GameManager : MonoBehaviour
 
     public void DoAd()
     {
-        _interstitialAd.ShowAd();
+        int _random = Random.Range(0, 3);
+        if (_random == 0)
+        {
+            _interstitialAd.ShowAd();
+        }
     }
 }
