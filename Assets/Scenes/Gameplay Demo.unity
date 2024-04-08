@@ -3037,6 +3037,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7956090684129381361, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 95.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9205539869084797732, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3317,7 +3322,7 @@ PrefabInstance:
     - target: {fileID: 1321138972370222166, guid: 2c591999485150810929bd445c9086f8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1506319932874637746, guid: 2c591999485150810929bd445c9086f8,
         type: 3}

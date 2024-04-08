@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public int _killedEnemies;
     private InterstitialAd _interstitialAd;
     public GameSettings _gameSettings;
+    private UIManager _uiManager;
     private void Awake()
     {
         DestroyTrash();
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         if(!_gameLaunched) _player.DoJoystickInput(false);
         _interstitialAd = FindFirstObjectByType<InterstitialAd>();
         _gameSettings = FindFirstObjectByType<GameSettings>();
+        _uiManager = FindFirstObjectByType<UIManager>();
     }
 
     private void DestroyTrash()
@@ -104,11 +106,13 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             _pausedUI.SetActive(true);
+            _uiManager._mainUI.SetActive(false);
         }
         else
         {
             Time.timeScale = 1;
             _pausedUI.SetActive(false);
+            _uiManager._mainUI.SetActive(true);
         }
     }
 
