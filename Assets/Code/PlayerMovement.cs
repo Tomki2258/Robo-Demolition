@@ -166,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
                 _playerWeapons._laserSpawner.gameObject.SetActive(true);
                 _playerWeapons.DoLaser(_currentEnemy.transform);
             }
+            _playerWeapons._lineRenderer.enabled = false;
         }
     }
 

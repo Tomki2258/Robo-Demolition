@@ -49,7 +49,6 @@ public class PlayerWeapons : MonoBehaviour
     private void Start()
     {
         _laserCurrentDamage = _laserBaseDamage;
-
         foreach (GameObject _weapon in _weaponsModels)
         {
             _weapon.SetActive(false);
@@ -138,7 +137,7 @@ public class PlayerWeapons : MonoBehaviour
     public void DoLaser(Transform _enemy)
     {
         if(!_laserGunEnabled) return;
-        
+        _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0,_laserSpawner.position);
         _lineRenderer.SetPosition(1,_enemy.position);
         

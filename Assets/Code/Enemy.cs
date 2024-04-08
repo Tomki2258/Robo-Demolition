@@ -26,8 +26,10 @@ public class Enemy : MonoBehaviour
     public Material _hitMaterial;
     public bool _killedByManager;
     public Material _blackMaterial;
-    private void OnDestroy()
+
+    public void EnemyDie()
     {
+        DestroyClone();
         _gameManager.RemoveEnemy(gameObject);
         if(!_killedByManager)
         {
@@ -43,14 +45,20 @@ public class Enemy : MonoBehaviour
             //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
             Destroy(_explosion,5);
         }
+
         _cameraShake.DoShake(0.001f, 1);
+        
+        Destroy(gameObject);
     }
 
     public void DestroyClone()
     {
+        if(!_gameManager._gameSettings._qualityOn) return;
+        
         Mesh _mesh = new Mesh();
         MeshFilter _meshFilter = GetComponent<MeshFilter>();
         _mesh = _meshFilter.mesh;
+        
         
         GameObject _gameObject = new GameObject();
         _gameObject.AddComponent<MeshFilter>();
@@ -60,6 +68,10 @@ public class Enemy : MonoBehaviour
         _gameObject.transform.position = transform.position;
         _gameObject.isStatic = true;
         _gameObject.tag = "Trash";
+        int _x = Random.Range(0, 360);
+        int _y = Random.Range(0, 360);
+        _gameManager.transform.rotation 
+            = Quaternion.Euler(_x, _y, 0);
     }
     public void SetUp()
     {
@@ -74,8 +86,7 @@ public class Enemy : MonoBehaviour
         health -= _value;
         if (health <= 0)
         {
-            DestroyClone();
-            Destroy(gameObject);
+            EnemyDie();
             return false;
         }
 
