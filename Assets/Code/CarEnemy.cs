@@ -14,7 +14,7 @@ public class CarEnemy : Enemy
     public List<GameObject> _lights;
     private int _shootingPointIndex;
 
-    private void Start()
+    private void Awake()
     {
         SetUp();
     }

@@ -33,22 +33,40 @@ public class Enemy : MonoBehaviour
         {
             _gameManager._killedEnemies++;
             _player._xp += _xpReward;
+            _cameraShake.DoShake(.15f, .2f);
             DestroyClone();
         }
-        //GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-        //_cameraShake.DoShake(0.001f, 1);
-        //Destroy(_explosion,5);
+
+        if (_gameManager._gameSettings._qualityOn)
+        {
+            GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+            //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
+            Destroy(_explosion,5);
+        }
+        _cameraShake.DoShake(0.001f, 1);
     }
 
-    private void DestroyClone()
+    public void DestroyClone()
     {
-              
+        Mesh _mesh = new Mesh();
+        MeshFilter _meshFilter = GetComponent<MeshFilter>();
+        _mesh = _meshFilter.mesh;
+        
+        GameObject _gameObject = new GameObject();
+        _gameObject.AddComponent<MeshFilter>();
+        _gameObject.AddComponent<MeshRenderer>();
+        _gameObject.GetComponent<MeshFilter>().mesh = _mesh;
+        _gameObject.GetComponent<MeshRenderer>().material = _blackMaterial;
+        _gameObject.transform.position = transform.position;
+        _gameObject.isStatic = true;
+        _gameObject.tag = "Trash";
     }
     public void SetUp()
     {
         _agent = GetComponent<NavMeshAgent>();
         _oldSpeed = _agent.speed;
         _oryginalMaterial = GetComponent<Renderer>().material;
+        _cameraShake = FindFirstObjectByType<CameraShake>();
     }
 
     public bool CheckHealth(float _value)
@@ -56,6 +74,7 @@ public class Enemy : MonoBehaviour
         health -= _value;
         if (health <= 0)
         {
+            DestroyClone();
             Destroy(gameObject);
             return false;
         }

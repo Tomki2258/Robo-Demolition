@@ -48,6 +48,7 @@ public class GameSettings : MonoBehaviour
         {
             QualitySettings.SetQualityLevel(4);
             _qualityImage.sprite = _qualityOnSprite;
+            
         }
         else
         {

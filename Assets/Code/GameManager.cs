@@ -27,8 +27,11 @@ public class GameManager : MonoBehaviour
     public float _spawnTimeCurrent;
     public int _killedEnemies;
     private InterstitialAd _interstitialAd;
+    public GameSettings _gameSettings;
     private void Awake()
     {
+        DestroyTrash();
+        
         _spawnsCount = _spawnPoints.Count;
         _enemiesCount = _enemies.Count;
         _player = FindAnyObjectByType<PlayerMovement>();
@@ -36,8 +39,18 @@ public class GameManager : MonoBehaviour
         _pausedUI.SetActive(false);
         if(!_gameLaunched) _player.DoJoystickInput(false);
         _interstitialAd = FindFirstObjectByType<InterstitialAd>();
+        _gameSettings = FindFirstObjectByType<GameSettings>();
     }
 
+    private void DestroyTrash()
+    {
+        GameObject[] _trashArray;
+        _trashArray = GameObject.FindGameObjectsWithTag("Trash");
+        foreach (GameObject _trash in _trashArray) 
+        {
+            Destroy(_trash);
+        }
+    }
     private void FixedUpdate()
     {
         if (!_gameLaunched || _player._died) return;

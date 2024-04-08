@@ -105,7 +105,7 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _gameManager: {fileID: 0}
   _player: {fileID: 0}
-  _explosionPrefab: {fileID: 4607182329800618220, guid: 41a06038b3dc05560af39022a3816aff,
+  _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
   _attackRange: 7
   _incomingRange: 11
@@ -115,7 +115,7 @@ MonoBehaviour:
   health: 15
   _attackDelayMax: 0.75
   _attackDelayCurrent: 0
-  _stunned: 0
+  _stunned: 1
   _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0

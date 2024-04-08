@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         _shieldEffect.SetActive(false);
         _animator = GetComponent<Animator>();
         _startRotation = _top.rotation;
+        _animator.enabled = false;
     }
 
     private void Update()
@@ -248,6 +249,8 @@ public class PlayerMovement : MonoBehaviour
         _cameraController._offset.y = 7;
         _cameraController._speed /= 2;
         _cameraController._rotationSpeed *= 1.5f;
-        _gameManager.DoAd();
+        _animator.enabled = true;
+        _animator.SetTrigger("die");
+        //_gameManager.DoAd();
     }
 }
