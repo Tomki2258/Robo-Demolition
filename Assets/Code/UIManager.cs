@@ -138,7 +138,7 @@ public class UIManager : MonoBehaviour
         }
         _timeText.text = $"Time: {_time.Minutes}:{_time.Seconds}";
     }
-
+    
     private int GetBestScore()
     {
         int _best = PlayerPrefs.GetInt("BestScore");
@@ -147,16 +147,11 @@ public class UIManager : MonoBehaviour
 
     public void ReloadLevel()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(_gameManager.ReloadLevel());
     }
 
     public void RetryAdRelaod()
     {
-        foreach (GameObject _enemyObj in _gameManager._enemies)
-        {
-            Enemy _enemy = _enemyObj.GetComponent<Enemy>();
-            _enemy._killedByManager = true;
-            Destroy(_enemyObj);
-        }
+        _gameManager.AdReward();
     }
 }

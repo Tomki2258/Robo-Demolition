@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2003031916744454399}
   - component: {fileID: -8734701051252472421}
   m_Layer: 0
-  m_Name: Police Bus
+  m_Name: Polica Bus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,14 +108,14 @@ MonoBehaviour:
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
   _attackRange: 7
-  _incomingRange: 11
-  _xpReward: 15
+  _incomingRange: 12
+  _xpReward: 10
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 2
   health: 15
-  _attackDelayMax: 0.75
+  _attackDelayMax: 0.8
   _attackDelayCurrent: 0
-  _stunned: 1
+  _stunned: 0
   _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0

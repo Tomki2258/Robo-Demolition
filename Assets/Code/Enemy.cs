@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDie()
     {
-        DestroyClone();
         _gameManager.RemoveEnemy(gameObject);
         if(!_killedByManager)
         {
@@ -61,6 +60,7 @@ public class Enemy : MonoBehaviour
         
         
         GameObject _gameObject = new GameObject();
+        _gameObject.name = $"{transform.name} :trash clone";
         _gameObject.AddComponent<MeshFilter>();
         _gameObject.AddComponent<MeshRenderer>();
         _gameObject.GetComponent<MeshFilter>().mesh = _mesh;
@@ -68,10 +68,10 @@ public class Enemy : MonoBehaviour
         _gameObject.transform.position = transform.position;
         _gameObject.isStatic = true;
         _gameObject.tag = "Trash";
-        int _x = Random.Range(0, 360);
-        int _y = Random.Range(0, 360);
-        _gameManager.transform.rotation 
-            = Quaternion.Euler(_x, _y, 0);
+        // int _x = Random.Range(0, 360);
+        // int _y = Random.Range(0, 360);
+        // _gameObject.transform.rotation 
+        //     = Quaternion.Euler(_x, _gameObject.transform.rotation.y, 0);
     }
     public void SetUp()
     {

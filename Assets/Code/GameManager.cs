@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
     private InterstitialAd _interstitialAd;
     public GameSettings _gameSettings;
     private UIManager _uiManager;
+    public GameObject _explosion;
     private void Awake()
     {
         DestroyTrash();
@@ -55,7 +58,11 @@ public class GameManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!_gameLaunched || _player._died) return;
+        if (!_gameLaunched || _player._died)
+        {
+            Debug.Log("Player died");
+            return;
+        }
         //if(!_player._died) return;
 
         if (_spawnTimeCurrent < _spawnTimeMax)
@@ -76,7 +83,7 @@ public class GameManager : MonoBehaviour
 
         // Spawn enemy
         var _enemyIndex = Random.Range(0, _enemiesCount);
-        var _enemy = Instantiate(_enemies[_enemyIndex], _spawnPoints[_point].position, Quaternion.identity);
+        var _enemy = Instantiate(_enemies[_enemyIndex], _spawnPoints[0].position, Quaternion.identity);
         _spawnedEnemies.Add(_enemy);
         _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
@@ -123,5 +130,28 @@ public class GameManager : MonoBehaviour
         {
             _interstitialAd.ShowAd();
         }
+    }
+    public void AdReward()
+    {
+        Debug.LogWarning("Ad reward");
+        foreach (GameObject _enemy in _spawnedEnemies)
+        {
+            _enemy.GetComponent<Enemy>()._killedByManager = true;
+            Destroy(_enemy);
+        }
+        _spawnedEnemies.Clear();
+
+        _uiManager._dieCanvas.SetActive(false);
+        _uiManager._mainUI.SetActive(true);
+        
+        _player.Revive();
+    }
+
+    public IEnumerator ReloadLevel()
+    {
+        _uiManager._dieCanvas.SetActive(false);
+        GameObject _explosionn = Instantiate(_explosion,_player.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.loadedSceneCount);
     }
 }

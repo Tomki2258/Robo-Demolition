@@ -83,6 +83,10 @@ public class PlayerMovement : MonoBehaviour
         
         if (_gameManager._spawnedEnemies.Count > 0)
         {
+            Transform _nearestEnemy = GetNearestEnemy();
+            if(_nearestEnemy == null)
+                return;
+            
             MoveTurret(GetNearestEnemy().position);
             Battle();
         }
@@ -253,5 +257,17 @@ public class PlayerMovement : MonoBehaviour
         _animator.enabled = true;
         _animator.SetTrigger("die");
         //_gameManager.DoAd();
+    }
+
+    public void Revive()
+    {
+        _died = false;
+        DoJoystickInput(true);
+        _animator.SetTrigger("revive");
+        _health = _maxHealth / 2;
+        _uiManager.ShowHpDifference(_maxHealth / 2);
+        _cameraController._offset.y = 15;
+        _cameraController._speed *= 2;
+        _animator.enabled = false;
     }
 }

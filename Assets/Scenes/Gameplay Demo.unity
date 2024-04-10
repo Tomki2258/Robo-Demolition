@@ -140,6 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 90783480}
+  - component: {fileID: 90783481}
   m_Layer: 5
   m_Name: Die Canvas
   m_TagString: Untagged
@@ -167,6 +168,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &90783481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90783479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678461fbe7bcd40d2af05b6096e954f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 615669341}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &139056820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3005,12 @@ PrefabInstance:
       objectReference: {fileID: 969752194}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
+      propertyPath: _explosion
+      value: 
+      objectReference: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
+        type: 3}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
       propertyPath: _spawnOffset
       value: 5
       objectReference: {fileID: 0}
@@ -3009,8 +3031,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
+      propertyPath: '_enemies.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2364406345628423798, guid: 46ff41c3c097b457ba823c787a1d4ffd,
+        type: 3}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
       propertyPath: _spawnPoints.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -3036,6 +3064,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790800955410291504, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 39.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122765871990784546, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 41.4
       objectReference: {fileID: 0}
     - target: {fileID: 7956090684129381361, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -3212,6 +3250,11 @@ PrefabInstance:
       propertyPath: '_weaponsModels.Array.data[4]'
       value: 
       objectReference: {fileID: 1549270792}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _inputCanvas
