@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private List<int> _weaponsUnlockStages;
     private Quaternion _startRotation;
     private Animator _animator;
+    public Material _blackMaterial;
+    public CameraShake _cameraShake;
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -51,11 +53,16 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _startRotation = _top.rotation;
         _animator.enabled = false;
+        _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
     }
 
     private void Update()
     {
         if (!_isJoystick || !_gameManager._gameLaunched) return;
+        if (_joystick == null)
+        {
+            _joystick = FindFirstObjectByType<VariableJoystick>();
+        }
         var _moveDirection = new Vector3(_joystick.Direction.x, 0, _joystick.Direction.y);
         _controller.Move(_moveDirection * _speed * Time.deltaTime);
 
@@ -269,5 +276,19 @@ public class PlayerMovement : MonoBehaviour
         _cameraController._offset.y = 15;
         _cameraController._speed *= 2;
         _animator.enabled = false;
+    }
+
+    public void DiePlayerTexture()
+    {
+        _cameraShake.DoShake(.15f, .5f);
+        foreach (Transform _child in transform.GetComponentsInChildren<Transform>())
+        {
+            //Debug.LogWarning(_child.name);
+            if (_child.GetComponent<MeshRenderer>())
+            {
+                MeshRenderer _meshRenderer = _child.GetComponent<MeshRenderer>();
+                _meshRenderer.material = _blackMaterial;
+            }
+        }
     }
 }

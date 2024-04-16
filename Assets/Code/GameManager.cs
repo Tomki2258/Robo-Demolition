@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,8 +9,8 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public bool _gameStarted;
     public bool _gameLaunched;
-
     public List<Transform> _spawnPoints;
     public float _spawnTimeMax;
     public PlayerMovement _player;
@@ -32,10 +33,12 @@ public class GameManager : MonoBehaviour
     public GameSettings _gameSettings;
     private UIManager _uiManager;
     public GameObject _explosion;
+    public GameObject _spodek;
+    private CameraController _cameraController;
     private void Awake()
     {
         DestroyTrash();
-        
+        _spodek.SetActive(false);
         _spawnsCount = _spawnPoints.Count;
         _enemiesCount = _enemies.Count;
         _player = FindAnyObjectByType<PlayerMovement>();
@@ -45,6 +48,9 @@ public class GameManager : MonoBehaviour
         _interstitialAd = FindFirstObjectByType<InterstitialAd>();
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _uiManager = FindFirstObjectByType<UIManager>();
+        _cameraController = FindFirstObjectByType<CameraController>();
+        
+        if(_gameStarted && _gameLaunched) OverideStart();
     }
 
     private void DestroyTrash()
@@ -151,7 +157,34 @@ public class GameManager : MonoBehaviour
     {
         _uiManager._dieCanvas.SetActive(false);
         GameObject _explosionn = Instantiate(_explosion,_player.transform.position, Quaternion.identity);
+        _player.DiePlayerTexture();
         yield return new WaitForSeconds(3);
+        Destroy(_explosion);
         SceneManager.LoadScene(SceneManager.loadedSceneCount);
+    }
+
+    private IEnumerator MakeGame()
+    {
+        yield return new WaitForSeconds(5);
+        _spodek.SetActive(false);
+        _gameLaunched = true;
+        _cameraController.SwitchTarget(_player.transform);
+        _player.DoJoystickInput(true);
+        _uiManager.StartGame(true);
+    }
+    public void StartGame()
+    {
+        _spodek.SetActive(true);
+        _gameStarted = true;
+        StartCoroutine(MakeGame());
+    }
+
+    private void OverideStart()
+    {
+        Debug.LogWarning("Start Overided!");
+        _uiManager.StartGame(true);
+        _spodek.SetActive(false);
+        _gameStarted = true;
+        _gameLaunched = true;
     }
 }

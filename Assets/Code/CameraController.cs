@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         _gameManager = FindFirstObjectByType<GameManager>();
-
+        
         if (_gameManager._gameLaunched)
         {
             _target = FindFirstObjectByType<PlayerMovement>().transform;
@@ -22,8 +22,13 @@ public class CameraController : MonoBehaviour
             _target = _startCapsule.transform;
         }
     }
-    
+
     private void Update()
+    {
+        if(_gameManager._gameStarted) DoCamera();
+    }
+
+    private void DoCamera()
     {
         var _desiredPosition = _target.position + _offset * _target.localScale.x;
         var _smoothedPosition = Vector3.Lerp(transform.position, _desiredPosition, _speed * Time.deltaTime);
@@ -35,5 +40,10 @@ public class CameraController : MonoBehaviour
         transform.rotation
             = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection),
                 _rotationSpeed * Time.deltaTime);
+    }
+
+    public void SwitchTarget(Transform _target)
+    {
+        this._target = _target;
     }
 }

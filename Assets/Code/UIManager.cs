@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text _xPProgressText;
     public Slider _xpSlider;
     public GameObject _mainUI;
+    public GameObject _gameStartUI;
     private GameManager _gameManager;
     public GameObject _weaponUI;
     public DateTime _startTime;
@@ -37,6 +38,8 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(false);
         
         _startTime = DateTime.Now;
+        
+        StartGame(false);
     }
 
     public void ShowHpDifference(float _value)
@@ -153,5 +156,11 @@ public class UIManager : MonoBehaviour
     public void RetryAdRelaod()
     {
         _gameManager.AdReward();
+    }
+
+    public void StartGame(bool state)
+    {
+        _gameStartUI.SetActive(!state);
+        _mainUI.SetActive(state);
     }
 }
