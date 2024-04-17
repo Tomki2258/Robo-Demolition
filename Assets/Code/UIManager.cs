@@ -28,7 +28,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text _killedEnemiesText;
     public GameObject _hpDifferenceText;
     private PlayerMovement _player;
-
+    public GameObject _adRewardButton;
+    public GameObject _fpsCanvas;
+    public bool _enableFPS;
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerMovement>();
@@ -40,6 +42,9 @@ public class UIManager : MonoBehaviour
         _startTime = DateTime.Now;
         
         StartGame(false);
+        
+        if(_enableFPS) _fpsCanvas.SetActive(true);
+        else _fpsCanvas.SetActive(false);
     }
 
     public void ShowHpDifference(float _value)
@@ -140,6 +145,13 @@ public class UIManager : MonoBehaviour
                                       $"Best score: {GetBestScore()}";
         }
         _timeText.text = $"Time: {_time.Minutes}:{_time.Seconds}";
+        /*
+        if (_adRewardButton.GetComponent<Button>().interactable == false)
+        {
+            _adRewardButton.SetActive(false);
+        }
+        */
+        _mainUI.SetActive(false);
     }
     
     private int GetBestScore()

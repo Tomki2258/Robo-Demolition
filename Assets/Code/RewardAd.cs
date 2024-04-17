@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
- 
+
 public class RewardAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     [SerializeField] Button _showAdButton;
@@ -21,8 +21,22 @@ public class RewardAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
         // Disable the button until the ad is ready to show:
         _showAdButton.interactable = false;
         LoadAd();
+        DecideAd();
     }
- 
+
+    private void DecideAd()
+    {
+        int random = Random.Range(0, 4);
+        if (random != 0)
+        {
+            //_showAdButton.interactable = false;
+            Debug.LogWarning("Reward ad ON");
+        }
+        else
+        {
+            Debug.LogWarning("ad turned OFF");
+        }
+    }
     // Call this public method when you want to get an ad ready to show.
     public void LoadAd()
     {

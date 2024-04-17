@@ -15,11 +15,12 @@ public class CameraController : MonoBehaviour
         
         if (_gameManager._gameLaunched)
         {
-            _target = FindFirstObjectByType<PlayerMovement>().transform;
+            //_target = FindFirstObjectByType<PlayerMovement>().transform;
         }
         else
         {
             _target = _startCapsule.transform;
+            _offset.x = 5;
         }
     }
 
@@ -45,5 +46,10 @@ public class CameraController : MonoBehaviour
     public void SwitchTarget(Transform _target)
     {
         this._target = _target;
+
+        if (this._target.CompareTag("Player"))
+        {
+            _offset.x = 0;
+        }
     }
 }

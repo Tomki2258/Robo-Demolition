@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _uiManager = FindFirstObjectByType<UIManager>();
         _cameraController = FindFirstObjectByType<CameraController>();
-        
+        _player.gameObject.SetActive(false);
         if(_gameStarted && _gameLaunched) OverideStart();
     }
 
@@ -166,15 +166,18 @@ public class GameManager : MonoBehaviour
     private IEnumerator MakeGame()
     {
         yield return new WaitForSeconds(5);
-        _spodek.SetActive(false);
         _gameLaunched = true;
         _cameraController.SwitchTarget(_player.transform);
         _player.DoJoystickInput(true);
         _uiManager.StartGame(true);
+        _player.gameObject.SetActive(true);
+        _player.transform.position = _spodek.transform.position;
+        _spodek.SetActive(false);
     }
     public void StartGame()
     {
         _spodek.SetActive(true);
+        _uiManager._gameStartUI.SetActive(false);
         _gameStarted = true;
         StartCoroutine(MakeGame());
     }
@@ -182,9 +185,11 @@ public class GameManager : MonoBehaviour
     private void OverideStart()
     {
         Debug.LogWarning("Start Overided!");
+        _player.gameObject.SetActive(true);
         _uiManager.StartGame(true);
         _spodek.SetActive(false);
         _gameStarted = true;
         _gameLaunched = true;
+        return;
     }
 }
