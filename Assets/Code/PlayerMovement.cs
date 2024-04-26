@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float _speed;
     public float _rotationSpeed;
     public Transform _top;
+    public Transform _legs;
+    public Transform _hands;
     public GameObject _currentEnemy;
     public float _attackRange;
     public int _damage;
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerWeapons _playerWeapons;
     private CameraController _cameraController;
     private CharacterController _controller;
-    private GameManager _gameManager;
+    public GameManager _gameManager;
     private readonly int _hpRegenTime = 1;
     private float _hpRegenTimer;
     private bool _isJoystick;
@@ -39,11 +41,15 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     public Material _blackMaterial;
     public CameraShake _cameraShake;
+    private List<Vector3> _startPlayerPosition = new List<Vector3>();
+    private List<Quaternion> _startPlayerRotation = new List<Quaternion>();
     private void Start()
     {
+        _gameManager = FindAnyObjectByType<GameManager>();
+        Debug.Log("Sraka ");
+        
         _controller = GetComponent<CharacterController>();
         _joystick = FindFirstObjectByType<VariableJoystick>();
-        _gameManager = FindAnyObjectByType<GameManager>();
         _health = _maxHealth;
         _cameraController = FindFirstObjectByType<CameraController>();
         _uiManager = FindAnyObjectByType<UIManager>();
@@ -54,11 +60,21 @@ public class PlayerMovement : MonoBehaviour
         _startRotation = _top.rotation;
         _animator.enabled = false;
         _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
+        
+        _startPlayerPosition.Add(_top.localPosition);
+        _startPlayerPosition.Add(_legs.localPosition);
+        _startPlayerRotation.Add(_top.localRotation);
+        _startPlayerRotation.Add(_legs.localRotation);
+        _startPlayerRotation.Add(_hands.localRotation);
     }
 
     private void Update()
     {
-        if (!_isJoystick || !_gameManager._gameLaunched) return;
+        if (!_isJoystick || !_gameManager._gameLaunched)
+        {
+            if (_gameManager == null) _gameManager = FindAnyObjectByType<GameManager>();
+            return;
+        }
         if (_joystick == null)
         {
             _joystick = FindFirstObjectByType<VariableJoystick>();
@@ -264,10 +280,16 @@ public class PlayerMovement : MonoBehaviour
         _animator.enabled = true;
         _animator.SetTrigger("die");
         //_gameManager.DoAd();
-    }
+    } 
 
     public void Revive()
     {
+        _top.localPosition = _startPlayerPosition[0];
+        _top.localRotation = _startPlayerRotation[0];
+        _legs.localPosition = _startPlayerPosition[1];
+        _legs.localRotation = _startPlayerRotation[1];
+        _hands.localRotation = _startPlayerRotation[2];
+        
         _died = false;
         DoJoystickInput(true);
         _animator.SetTrigger("revive");
