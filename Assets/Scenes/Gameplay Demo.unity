@@ -915,6 +915,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5490313506010306266}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1744552824 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9208647941998939540, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+    type: 3}
+  m_PrefabInstance: {fileID: 5336057214332085525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1837460803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1485,6 +1491,11 @@ PrefabInstance:
       propertyPath: _legs
       value: 
       objectReference: {fileID: 1848108543}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _hands
+      value: 
+      objectReference: {fileID: 1744552824}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _maxHealth
