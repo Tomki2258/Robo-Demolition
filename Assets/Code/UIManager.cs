@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     public GameObject _adRewardButton;
     public GameObject _fpsCanvas;
     public bool _enableFPS;
+    private bool _startOverrided = false;
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerMovement>();
@@ -41,12 +42,21 @@ public class UIManager : MonoBehaviour
         
         _startTime = DateTime.Now;
         
-        StartGame(false);
         
         if(_enableFPS) _fpsCanvas.SetActive(true);
         else _fpsCanvas.SetActive(false);
     }
 
+    private void Start()
+    {
+        if(!_startOverrided) StartGame(false);
+        else StartGame(true);
+    }
+
+    public void DoOverideStart()
+    {
+        _startOverrided = true;
+    }
     public void ShowHpDifference(float _value)
     {
         GameObject _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
@@ -172,6 +182,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame(bool state)
     {
+        //Debug.LogWarning("to sie robi ?");
         _gameStartUI.SetActive(!state);
         _mainUI.SetActive(state);
     }

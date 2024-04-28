@@ -57,6 +57,7 @@ public class CameraController : MonoBehaviour
 
     public void SetOldOffset()
     {
+        Debug.LogWarning("Camera reset");
         _offset = _oldOffset;
     }
 }

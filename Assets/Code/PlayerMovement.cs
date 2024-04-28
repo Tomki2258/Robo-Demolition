@@ -284,21 +284,29 @@ public class PlayerMovement : MonoBehaviour
 
     public void Revive()
     {
-        _top.localPosition = _startPlayerPositions[0];
-        _top.localRotation = _startPlayerQuaterions[0];
-        _legs.localPosition = _startPlayerPositions[1];
-        _legs.localRotation = _startPlayerQuaterions[1];
-        _hands.localRotation = _startPlayerQuaterions[2];
+        try
+        {
+            _top.localPosition = _startPlayerPositions[0];
+            _top.localRotation = _startPlayerQuaterions[0];
+            _legs.localPosition = _startPlayerPositions[1];
+            _legs.localRotation = _startPlayerQuaterions[1];
+            _hands.localRotation = _startPlayerQuaterions[2];
         
-        _cameraController.SetOldOffset();
-        _died = false;
-        DoJoystickInput(true);
-        _animator.SetTrigger("revive");
-        _health = _maxHealth / 2;
-        _uiManager.ShowHpDifference(_maxHealth / 2);
-        _cameraController._offset.y = 15;
-        _cameraController._speed *= 2;
-        _animator.enabled = false;
+            _cameraController.SetOldOffset();
+            _died = false;
+            DoJoystickInput(true);
+            _animator.SetTrigger("revive");
+            _health = _maxHealth / 2;
+            _uiManager.ShowHpDifference(_maxHealth / 2);
+            _cameraController._offset.y = 15;
+            _cameraController._speed *= 2;
+            _animator.enabled = false;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Ten skrypt rzuca błędem:\n {e}");
+            throw;
+        }
     }
 
     public void DiePlayerTexture()

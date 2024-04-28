@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         _uiManager = FindFirstObjectByType<UIManager>();
         _cameraController = FindFirstObjectByType<CameraController>();
         _player.gameObject.SetActive(false);
+        
         if(_gameStarted && _gameLaunched) OverideStart();
     }
 
@@ -159,7 +160,7 @@ public class GameManager : MonoBehaviour
         GameObject _explosionn = Instantiate(_explosion,_player.transform.position, Quaternion.identity);
         _player.DiePlayerTexture();
         yield return new WaitForSeconds(3);
-        Destroy(_explosion);
+        Destroy(_explosionn);
         SceneManager.LoadScene(SceneManager.loadedSceneCount);
     }
 
@@ -185,9 +186,9 @@ public class GameManager : MonoBehaviour
     private void OverideStart()
     {
         Debug.LogWarning("Start Overided!");
+        _uiManager.DoOverideStart();
         _player.gameObject.SetActive(true);
         _player.enabled = true;
-        _uiManager.StartGame(true);
         _spodek.SetActive(false);
         _gameStarted = true;
         _gameLaunched = true;
