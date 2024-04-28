@@ -9,8 +9,10 @@ public class CameraController : MonoBehaviour
     public float _rotationSpeed;
     private GameManager _gameManager;
     public GameObject _startCapsule;
+    private Vector3 _oldOffset;
     private void Start()
     {
+        _oldOffset = _offset;
         _gameManager = FindFirstObjectByType<GameManager>();
         
         if (_gameManager._gameLaunched)
@@ -51,5 +53,10 @@ public class CameraController : MonoBehaviour
         {
             _offset.x = 0;
         }
+    }
+
+    public void SetOldOffset()
+    {
+        _offset = _oldOffset;
     }
 }

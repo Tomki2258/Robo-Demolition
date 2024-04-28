@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     public float _speed;
     public float _rotationSpeed;
     public Transform _top;
+    public Transform _legs;
+    public Transform _hands;
+    
     public GameObject _currentEnemy;
     public float _attackRange;
     public int _damage;
@@ -39,6 +43,18 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     public Material _blackMaterial;
     public CameraShake _cameraShake;
+    private List<Vector3> _startPlayerPositions = new List<Vector3>(3);
+    private List<Quaternion> _startPlayerQuaterions = new List<Quaternion>(2);
+
+    private void Awake()
+    {
+        _startPlayerPositions.Add(_top.localPosition);
+        _startPlayerQuaterions.Add(_top.localRotation);
+        _startPlayerPositions.Add(_legs.localPosition);
+        _startPlayerQuaterions.Add(_legs.localRotation);    
+        _startPlayerQuaterions.Add(_hands.localRotation);
+    }
+
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -268,6 +284,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Revive()
     {
+        _top.localPosition = _startPlayerPositions[0];
+        _top.localRotation = _startPlayerQuaterions[0];
+        _legs.localPosition = _startPlayerPositions[1];
+        _legs.localRotation = _startPlayerQuaterions[1];
+        _hands.localRotation = _startPlayerQuaterions[2];
+        
+        _cameraController.SetOldOffset();
         _died = false;
         DoJoystickInput(true);
         _animator.SetTrigger("revive");

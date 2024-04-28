@@ -186,6 +186,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.LogWarning("Start Overided!");
         _player.gameObject.SetActive(true);
+        _player.enabled = true;
         _uiManager.StartGame(true);
         _spodek.SetActive(false);
         _gameStarted = true;
