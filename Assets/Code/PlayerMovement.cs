@@ -201,6 +201,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_xp >= _xpToNextLevel)
         {
+            _uiManager.DoLevelUpCanvas(true);
+            transform.position = new Vector3(transform.position.x,
+                transform.position.y + 0.05f,
+                transform.position.z);
+            DoJoystickInput(false);
+            CheckForWeaponUnlock(_level);
+            
             _level++;
             _xp = 0;
             _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.5f);
@@ -210,13 +217,6 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = _scale;
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
-
-            _uiManager.DoLevelUpCanvas(true);
-            transform.position = new Vector3(transform.position.x,
-                transform.position.y + 0.05f,
-                transform.position.z);
-            DoJoystickInput(false);
-            CheckForWeaponUnlock(_level);
         }
     }
 

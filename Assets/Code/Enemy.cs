@@ -65,6 +65,7 @@ public class Enemy : MonoBehaviour
         _gameObject.AddComponent<MeshRenderer>();
         _gameObject.GetComponent<MeshFilter>().mesh = _mesh;
         _gameObject.GetComponent<MeshRenderer>().material = _blackMaterial;
+        _gameObject.AddComponent<Trash>();
         _gameObject.transform.position = transform.position;
         _gameObject.isStatic = true;
         _gameObject.tag = "Trash";
