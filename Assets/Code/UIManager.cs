@@ -98,11 +98,11 @@ public class UIManager : MonoBehaviour
 
         if (_levelUpCanvas.activeSelf)
         {
-            _mainUI.SetActive(false);
+            //_mainUI.SetActive(false);
         }
         else
         {
-            _mainUI.SetActive(true);
+            //_mainUI.SetActive(true);
         }
 
         // if (_player._died)
@@ -131,6 +131,7 @@ public class UIManager : MonoBehaviour
     }
     public void DoLevelUpCanvas(bool _sraka)
     {
+        _mainUI.SetActive(true);
         _levelUpCanvas.SetActive(_sraka);
         if(_sraka)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();

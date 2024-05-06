@@ -26,7 +26,18 @@ public class Enemy : MonoBehaviour
     public Material _hitMaterial;
     public bool _killedByManager;
     public Material _blackMaterial;
-
+    private GameObject _enemyModel;
+    
+    public void SetUp()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _oldSpeed = _agent.speed;
+        _oryginalMaterial = GetComponent<Renderer>().material;
+        _cameraShake = FindFirstObjectByType<CameraShake>();
+        _enemyModel = transform.GetChild(transform.childCount - 1).gameObject;
+        
+        if(_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
+    }
     public void EnemyDie()
     {
         _gameManager.RemoveEnemy(gameObject);
@@ -74,13 +85,6 @@ public class Enemy : MonoBehaviour
         // _gameObject.transform.rotation 
         //     = Quaternion.Euler(_x, _gameObject.transform.rotation.y, 0);
     }
-    public void SetUp()
-    {
-        _agent = GetComponent<NavMeshAgent>();
-        _oldSpeed = _agent.speed;
-        _oryginalMaterial = GetComponent<Renderer>().material;
-        _cameraShake = FindFirstObjectByType<CameraShake>();
-    }
 
     public bool CheckHealth(float _value)
     {
@@ -90,8 +94,15 @@ public class Enemy : MonoBehaviour
             EnemyDie();
             return false;
         }
-
-        StartCoroutine(HitChangeMaterial());
+        foreach (Transform _child in transform.GetComponentsInChildren<Transform>())
+        {
+            //Debug.LogWarning(_child.name);
+            if (_child.GetComponent<MeshRenderer>())
+            {
+                MeshRenderer _meshRenderer = _child.GetComponent<MeshRenderer>();
+                StartCoroutine(HitChangeMaterial(_meshRenderer));
+            }
+        }
         return true;
     }
 
@@ -128,11 +139,13 @@ public class Enemy : MonoBehaviour
         _bulletScript._bulletDamage = _bulletDamage;
         Destroy(_bulletInstance, 5);
     }
-    private IEnumerator HitChangeMaterial()
+    private IEnumerator HitChangeMaterial(Renderer _enemyPart)
     {
-        var _renderer = GetComponent<Renderer>();
+        Material _childOryginalMaterial;
+        var _renderer = _enemyPart;
+        _childOryginalMaterial = _renderer.material;
         _renderer.material = _hitMaterial;
         yield return new WaitForSeconds(0.05f);
-        _renderer.material = _oryginalMaterial;
+        _renderer.material = _childOryginalMaterial;
     }
 }

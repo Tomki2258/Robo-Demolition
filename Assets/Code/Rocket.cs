@@ -15,6 +15,7 @@ public class Rocket : MonoBehaviour
     public float _rocketRange;
     public bool _isEnemy;
     private PlayerMovement _player;
+    private Vector3 _lastKnownPosition;
     void Start()
     {
         _gameManager = FindAnyObjectByType<GameManager>();
@@ -37,15 +38,16 @@ public class Rocket : MonoBehaviour
             _enemy = GetNearestEnemy();
         else
             _enemy = _player.transform;
-        
-        if (_enemy == null)
+
+        if (_enemy != null)
         {
-            return;
+            _lastKnownPosition = _enemy.position;
         }
-        transform.position = Vector3.MoveTowards(transform.position, _enemy.position, _rocketSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _lastKnownPosition,
+            _rocketSpeed * Time.deltaTime);
         _rocketSpeed *= 1.01f;
-        RotateToTarget(_enemy.position);
-        if(GetDistance(_enemy.position) < 0.1f)
+        RotateToTarget(_lastKnownPosition);
+        if(GetDistance(_lastKnownPosition) < 0.1f)
             Destroy(gameObject);
     }
 
