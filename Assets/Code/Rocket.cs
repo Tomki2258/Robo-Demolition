@@ -48,7 +48,11 @@ public class Rocket : MonoBehaviour
         _rocketSpeed *= 1.01f;
         RotateToTarget(_lastKnownPosition);
         if(GetDistance(_lastKnownPosition) < 0.1f)
+        {
+            var _explosion = Instantiate(_explosionFX, transform.position, Quaternion.identity);
+            DoDamage();
             Destroy(gameObject);
+        }
     }
 
     private void RotateToTarget(Vector3 _target)
@@ -77,13 +81,6 @@ public class Rocket : MonoBehaviour
         }
         return _currentEnemy;
     }
-
-    private void OnDestroy()
-    {
-        var _explosion = Instantiate(_explosionFX, transform.position, Quaternion.identity);
-        DoDamage();
-    }
-
     private void DoDamage()
     {
         Collider[] _colliders = Physics.OverlapSphere(transform.position, _rocketRange);

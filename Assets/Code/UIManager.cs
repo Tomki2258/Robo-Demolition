@@ -131,7 +131,7 @@ public class UIManager : MonoBehaviour
     }
     public void DoLevelUpCanvas(bool _sraka)
     {
-        _mainUI.SetActive(true);
+        _mainUI.SetActive(!_sraka);
         _levelUpCanvas.SetActive(_sraka);
         if(_sraka)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();

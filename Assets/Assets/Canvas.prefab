@@ -732,7 +732,6 @@ RectTransform:
   - {fileID: 7779478486399590653}
   - {fileID: 349349423419325789}
   - {fileID: 1506319932874637746}
-  - {fileID: 5355807330393158713}
   m_Father: {fileID: 5370180067063339293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3468,6 +3467,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4605742547229151438}
+  - {fileID: 5355807330393158713}
   - {fileID: 3923208279281166878}
   - {fileID: 8834843508601679993}
   - {fileID: 6041479269618484314}
@@ -3569,6 +3569,9 @@ MonoBehaviour:
   _killedEnemiesText: {fileID: 6692424528902405447}
   _hpDifferenceText: {fileID: 8435063953962967477, guid: c8e2d9e432e85318289d85c273b7c72a,
     type: 3}
+  _adRewardButton: {fileID: 0}
+  _fpsCanvas: {fileID: 0}
+  _enableFPS: 0
 --- !u!1 &5947058054150355739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,7 +4439,7 @@ RectTransform:
   - {fileID: 5406076020610345266}
   - {fileID: 6020726770488229924}
   - {fileID: 7144016759318871312}
-  m_Father: {fileID: 8834843508601679993}
+  m_Father: {fileID: 5370180067063339293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

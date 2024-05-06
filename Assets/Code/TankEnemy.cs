@@ -3,7 +3,7 @@ using UnityEngine;
 public class TankEnemy : Enemy
 {
     public Transform _shootingPoint;
-
+    public Transform _topModel;
     private void Start()
     {
         SetUp();
@@ -15,6 +15,15 @@ public class TankEnemy : Enemy
         _agent.SetDestination(_player.transform.position);
         Attacking();
         CheckStunned();
+        
+        //_topModel.LookAt(_player.transform.position);
+        // Vector3 lookDirection = new Vector3(
+        //     _topModel.position.x
+        //     ,(_player.transform.position.y - _topModel.position.y)
+        //     ,_topModel.position.z);
+        // lookDirection.Normalize();
+        //
+        // _topModel.rotation = Quaternion.Slerp(_topModel.rotation, Quaternion.LookRotation(lookDirection), 1 * Time.deltaTime);
     }
 
     public void Attacking()
