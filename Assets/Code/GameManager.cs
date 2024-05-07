@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -167,12 +166,13 @@ public class GameManager : MonoBehaviour
     private IEnumerator MakeGame()
     {
         yield return new WaitForSeconds(5);
+        _player.transform.position = _spodek.transform.position;
         _gameLaunched = true;
         _cameraController.SwitchTarget(_player.transform);
         _player.DoJoystickInput(true);
         _uiManager.StartGame(true);
         _player.gameObject.SetActive(true);
-        _player.transform.position = _spodek.transform.position;
+        Debug.LogWarning("Game made lol");
         _spodek.SetActive(false);
     }
     public void StartGame()
