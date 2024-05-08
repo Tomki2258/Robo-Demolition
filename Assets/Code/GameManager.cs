@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject _powerUps;
     public GameObject _pausedUI;
     private int _enemiesCount;
-
+    private int _possibleEnemies;
     private bool _paused;
     private float _powerUpSpawnTimeCurrent;
     private List<GameObject> _spawnedPowerUps;
@@ -80,7 +80,17 @@ public class GameManager : MonoBehaviour
         SpawnEnemy();
         _spawnTimeCurrent = 0;
     }
-    
+
+    public void IncreaseEnemiesIndex()
+    {
+        int _possibleTemp = _possibleEnemies;
+        _possibleTemp++;
+
+        if (_possibleTemp < _enemiesCount)
+        {
+            _possibleEnemies++;
+        }
+    }
     private void SpawnEnemy()
     {
         var _point = Random.Range(0, _spawnsCount);
@@ -88,7 +98,7 @@ public class GameManager : MonoBehaviour
         if (_distance < _spawnOffset) return;
 
         // Spawn enemy
-        var _enemyIndex = Random.Range(0, _enemiesCount);
+        var _enemyIndex = Random.Range(0, _possibleEnemies + 1);
         var _enemy = Instantiate(_enemies[_enemyIndex], _spawnPoints[0].position, Quaternion.identity);
         _spawnedEnemies.Add(_enemy);
         _enemy.GetComponent<Enemy>()._gameManager = this;
@@ -152,7 +162,7 @@ public class GameManager : MonoBehaviour
         
         _player.Revive();
     }
-
+    
     public IEnumerator ReloadLevel()
     {
         _uiManager._dieCanvas.SetActive(false);
