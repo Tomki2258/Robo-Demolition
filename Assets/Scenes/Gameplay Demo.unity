@@ -815,6 +815,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5336057214332085525}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1251625524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4643739500931806319, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2002430879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1251625528
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251625524}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ab761d05302615348a9aed34ccd58dd7, type: 3}
 --- !u!1001 &1395938845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3574,6 +3602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643739500931806319, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
         type: 3}
+      propertyPath: m_TagString
+      value: Destroyable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643739500931806319, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -3776,6 +3809,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190403273624956680, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destroyable
       objectReference: {fileID: 0}
     - target: {fileID: 5190403273624956680, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
         type: 3}
@@ -5560,7 +5598,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4643739500931806319, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1251625528}
   m_SourcePrefab: {fileID: 100100000, guid: 2d60098f36497a0d8ad8c1f4554c3d7e, type: 3}
 --- !u!23 &2063495126 stripped
 MeshRenderer:

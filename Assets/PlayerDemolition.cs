@@ -10,23 +10,41 @@ public class PlayerDemolition : MonoBehaviour
     
     public void UpdatePlayerSize()
     {
-        _playerHeight = _playerRenderer.bounds.size.y;
+        _playerHeight = _playerRenderer.bounds.size.y * 2;
     }
+
+    private void FixedUpdate()
+    {
+        Collider[] _colliders = Physics.OverlapSphere(transform.position, 3);
+
+        foreach (Collider _col in _colliders)
+        {
+            if (_col.CompareTag("Destroyable"))
+            {
+                if (CheckDestroy(_col.gameObject))
+                {
+                    Destroy(_col.gameObject);
+                }
+            }
+        }
+    }
+
     private bool CheckDestroy(GameObject _object)
     {
         Renderer _objectRenderer = _object.GetComponent<Renderer>();
         float sizeY = _objectRenderer.bounds.size.y;
+        Debug.LogWarning($"Player heigjt {_playerHeight} / object {sizeY}");
         if (sizeY < _playerHeight) return true;
         return false;
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if(!other.CompareTag("Destroyable")) return;
-        
         if (CheckDestroy(other.gameObject))
         {
             Destroy(other.gameObject);
         }
     }
+    */
 }
