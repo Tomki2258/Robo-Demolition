@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _currentEnemy;
     public float _attackRange;
     public int _damage;
-
+    private PlayerDemolition _playerDemolition;
     [Header("Player Stats")] public float _maxHealth;
 
     public float _health;
@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         _startPlayerPositions.Add(_legs.localPosition);
         _startPlayerQuaterions.Add(_legs.localRotation);    
         _startPlayerQuaterions.Add(_hands.localRotation);
+        _playerDemolition = GetComponent<PlayerDemolition>();
+        _playerDemolition.UpdatePlayerSize();
     }
 
     private void Start()
@@ -222,6 +224,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 _gameManager.IncreaseEnemiesIndex();
             }
+            
+            _playerDemolition.UpdatePlayerSize();
         }
     }
 
