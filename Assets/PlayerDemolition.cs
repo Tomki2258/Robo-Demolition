@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerDemolition : MonoBehaviour
@@ -15,7 +16,7 @@ public class PlayerDemolition : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Collider[] _colliders = Physics.OverlapSphere(transform.position, 3);
+        Collider[] _colliders = Physics.OverlapSphere(transform.position, 3 * transform.localScale.x);
 
         foreach (Collider _col in _colliders)
         {
@@ -23,7 +24,9 @@ public class PlayerDemolition : MonoBehaviour
             {
                 if (CheckDestroy(_col.gameObject))
                 {
-                    Destroy(_col.gameObject);
+                    _col.tag = "Destroyed";
+                    _col.gameObject.isStatic = false;
+                    _col.GetComponent<Destroyable>().DoCollapse();
                 }
             }
         }
@@ -37,14 +40,4 @@ public class PlayerDemolition : MonoBehaviour
         if (sizeY < _playerHeight) return true;
         return false;
     }
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if(!other.CompareTag("Destroyable")) return;
-        if (CheckDestroy(other.gameObject))
-        {
-            Destroy(other.gameObject);
-        }
-    }
-    */
 }
