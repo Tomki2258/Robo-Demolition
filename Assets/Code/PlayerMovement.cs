@@ -257,6 +257,7 @@ public class PlayerMovement : MonoBehaviour
         var lowestDist = Mathf.Infinity;
         foreach (var _enemy in _gameManager._spawnedEnemies)
         {
+            if(_enemy == null) continue;
             var dist = Vector3.Distance(_enemy.transform.position, transform.position);
 
             if (dist < lowestDist)
