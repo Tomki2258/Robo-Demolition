@@ -36,7 +36,7 @@ public class PlayerDemolition : MonoBehaviour
     {
         Renderer _objectRenderer = _object.GetComponent<Renderer>();
         float sizeY = _objectRenderer.bounds.size.y;
-        Debug.LogWarning($"Player heigjt {_playerHeight} / object {sizeY}");
+        //Debug.LogWarning($"Player heigjt {_playerHeight} / object {sizeY}");
         if (sizeY < _playerHeight) return true;
         return false;
     }

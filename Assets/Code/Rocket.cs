@@ -36,8 +36,10 @@ public class Rocket : MonoBehaviour
 
         if (!_isEnemy)
             _enemy = GetNearestEnemy();
+        /*
         else
             _enemy = _player.transform;
+            */
 
         if (_enemy != null)
         {
@@ -87,7 +89,8 @@ public class Rocket : MonoBehaviour
         foreach (Collider _obj in _colliders)
         {
             if (_enemy)
-            {
+            {   
+                Destroy(_enemy.gameObject);
                 if (_obj.CompareTag("Player"))
                 {
                     _player.CheckHealth(_rocketDamage);
