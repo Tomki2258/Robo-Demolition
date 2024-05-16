@@ -137,10 +137,8 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 1.0.2
-  preloadedAssets:
-  - {fileID: 11400000, guid: ae5eb1f3ca258baca99a162e2b4c6cd3, type: 2}
-  - {fileID: 4738939650704620654, guid: 7ee6a0bd8f8e5494db3b609fb556587a, type: 2}
+  bundleVersion: 1.1.1
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -161,14 +159,15 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   androidMinAspectRatio: 1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.tamus.RoboDemolition
   buildNumber:
     Bratwurst: 0
     Standalone: 0
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -262,7 +261,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /home/tomekr/Dokumenty/tamus.keystore
+  AndroidKeystoreName: C:/Users/Administrator/Documents/GitHub/tamus.keystore
   AndroidKeyaliasName: tamusdevelop@gmail.com
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidEnableArm64MTE: 0

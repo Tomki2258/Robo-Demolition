@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         if (_distance < _spawnOffset) return;
 
         // Spawn enemy
-        var _enemyIndex = Random.Range(0, _possibleEnemies + 1);
+        var _enemyIndex = Random.Range(0, _enemies.Count);
         var _enemy = Instantiate(_enemies[_enemyIndex], _spawnPoints[0].position, Quaternion.identity);
         _spawnedEnemies.Add(_enemy);
         _enemy.GetComponent<Enemy>()._gameManager = this;

@@ -219,12 +219,12 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = _scale;
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
-
+            /*
             if (_level % 3 == 0)
             {
                 _gameManager.IncreaseEnemiesIndex();
             }
-            
+            */
             _playerDemolition.UpdatePlayerSize();
         }
     }
