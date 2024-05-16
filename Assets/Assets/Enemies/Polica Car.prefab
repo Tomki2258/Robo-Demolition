@@ -108,11 +108,11 @@ MonoBehaviour:
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
-  _attackRange: 6
-  _incomingRange: 10
+  _attackRange: 7
+  _incomingRange: 12
   _xpReward: 5
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _bulletDamage: 1
+  _bulletDamage: 5
   health: 10
   _attackDelayMax: 1
   _attackDelayCurrent: 0

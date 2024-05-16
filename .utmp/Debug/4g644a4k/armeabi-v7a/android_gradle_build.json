@@ -1,0 +1,47 @@
+{
+  "buildFiles": [
+    "/home/tomekr/Dokumenty/GitHub/Robo-Demolition/Library/PramData/AndroidApplicationController/Cache/com.tamus.RoboDemolition/gradle-project/unityLibrary/src/main/cpp/CMakeLists.txt",
+    "/home/tomekr/Dokumenty/GitHub/Robo-Demolition/Library/PramData/AndroidApplicationController/Cache/com.tamus.RoboDemolition/gradle-project/unityLibrary/src/main/cpp/FramePacing/CMakeLists.txt",
+    "/home/tomekr/Dokumenty/GitHub/Robo-Demolition/Library/PramData/AndroidApplicationController/Cache/com.tamus.RoboDemolition/gradle-project/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/tomekr/Unity/Hub/Editor/2023.2.13f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/tomekr/Dokumenty/GitHub/Robo-Demolition/.utmp/Debug/4g644a4k/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/tomekr/Unity/Hub/Editor/2023.2.13f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/tomekr/Dokumenty/GitHub/Robo-Demolition/.utmp/Debug/4g644a4k/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "game::@d02bb112ea9f9c2ed29f": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "game",
+      "output": "/home/tomekr/Dokumenty/GitHub/Robo-Demolition/Library/PramData/AndroidApplicationController/Cache/com.tamus.RoboDemolition/gradle-project/unityLibrary/build/intermediates/cxx/Debug/4g644a4k/obj/armeabi-v7a/libgame.so",
+      "runtimeFiles": []
+    },
+    "swappywrapper::@7e25bd1f32ce224db4e9": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "swappywrapper",
+      "output": "/home/tomekr/Dokumenty/GitHub/Robo-Demolition/Library/PramData/AndroidApplicationController/Cache/com.tamus.RoboDemolition/gradle-project/unityLibrary/build/intermediates/cxx/Debug/4g644a4k/obj/armeabi-v7a/libswappywrapper.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/home/tomekr/Unity/Hub/Editor/2023.2.13f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/home/tomekr/Unity/Hub/Editor/2023.2.13f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

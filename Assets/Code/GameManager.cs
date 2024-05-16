@@ -99,7 +99,10 @@ public class GameManager : MonoBehaviour
 
         // Spawn enemy
         var _enemyIndex = Random.Range(0, _enemies.Count);
-        var _enemy = Instantiate(_enemies[_enemyIndex], _spawnPoints[0].position, Quaternion.identity);
+        Vector3 _randomSpawnVector = new Vector3(_spawnPoints[_point].position.x + Random.Range(-3, 3),
+            _spawnPoints[_point].position.y,
+            _spawnPoints[_point].position.z + Random.Range(-3, 3));
+        var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
         _spawnedEnemies.Add(_enemy);
         _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;

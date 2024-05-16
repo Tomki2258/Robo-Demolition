@@ -18,26 +18,32 @@ public class RocketEnemy : Enemy
     private void FixedUpdate()
     {
         if (_player._died) return;
-        if (_attackDelayCurrent > _attackDelayMax)
-        {
-            GameObject _currentRocketTarget = Instantiate(_rocketTargetPrefab,
-                _player.transform.position,
-                Quaternion.identity);
-            
-            
-            _attackDelayCurrent = 0;
+        
+        _agent.SetDestination(_player.transform.position);
 
-            GameObject _currentRocket = Instantiate(_rocketPrefab, 
-                _shootTransform.position, 
-                Quaternion.identity);
-            Rocket _currentRocketComponent = _currentRocket.GetComponent<Rocket>();
-            _currentRocketComponent._isEnemy = true;
-            _currentRocketComponent._enemy = _currentRocketTarget.transform;
-            //shoot
-        }
-        else
+        if (Vector3.Distance(transform.position, _player.transform.position) < _attackRange)
         {
-            _attackDelayCurrent += Time.deltaTime;
+            if (_attackDelayCurrent > _attackDelayMax)
+            {
+                GameObject _currentRocketTarget = Instantiate(_rocketTargetPrefab,
+                    _player.transform.position,
+                    Quaternion.identity);
+            
+            
+                _attackDelayCurrent = 0;
+
+                GameObject _currentRocket = Instantiate(_rocketPrefab, 
+                    _shootTransform.position, 
+                    Quaternion.identity);
+                Rocket _currentRocketComponent = _currentRocket.GetComponent<Rocket>();
+                _currentRocketComponent._isEnemy = true;
+                _currentRocketComponent._enemy = _currentRocketTarget.transform;
+                //shoot
+            }
+            else
+            {
+                _attackDelayCurrent += Time.deltaTime;
+            }   
         }
         CheckStunned();
     }

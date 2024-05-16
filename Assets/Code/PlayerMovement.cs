@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -46,6 +48,14 @@ public class PlayerMovement : MonoBehaviour
     private List<Vector3> _startPlayerPositions = new List<Vector3>(3);
     private List<Quaternion> _startPlayerQuaterions = new List<Quaternion>(2);
 
+    [Header("Hp UI")] public Slider _hpSlider;
+
+    [SerializeField] public TMP_Text _hpText;
+
+    [Header("XP UI")] public TMP_Text _xpText;
+
+    public TMP_Text _xPProgressText;
+    public Slider _xpSlider;
     private void Awake()
     {
         _startPlayerPositions.Add(_top.localPosition);
@@ -95,7 +105,22 @@ public class PlayerMovement : MonoBehaviour
             //MoveTurret();
             _playerWeapons._laserSpawner.gameObject.SetActive(false);
     }
+    private void SetUiValues()
+    {
+        _hpText.text = $"{Math.Round(_health)}" +
+                       "/" +
+                       $"{_maxHealth}";
+        _hpSlider.value = _health;
+        _hpSlider.maxValue = _maxHealth;
 
+        _xpText.text = $"{_level}";
+
+        _xpSlider.value = _xp;
+        _xpSlider.maxValue = _xpToNextLevel;
+        _xPProgressText.text = $"{_xp}" +
+                               "/" +
+                               $"{_xpToNextLevel}";
+    }
     private void FixedUpdate()
     {
         if (_died) return;
@@ -105,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
         XpManagment();
         HpRegeneration();
         ShieldManagment();
+       SetUiValues();
         
         if (_gameManager._spawnedEnemies.Count > 0)
         {
@@ -195,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
                 _playerWeapons._laserSpawner.gameObject.SetActive(true);
                 _playerWeapons.DoLaser(_currentEnemy.transform);
             }
-            _playerWeapons._lineRenderer.enabled = false;
+            //_playerWeapons._lineRenderer.enabled = false;
         }
     }
 

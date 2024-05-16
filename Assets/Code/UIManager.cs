@@ -79,23 +79,10 @@ public class UIManager : MonoBehaviour
         }
         Destroy(_hpDifference, 1.1f);
     }
-    private void FixedUpdate()
+    
+    public void Update()
     {
-        if(!_gameManager._gameLaunched) return;
-        _hpText.text = $"{Math.Round(_player._health)}" +
-                       "/" +
-                       $"{_player._maxHealth}";
-        _hpSlider.value = _player._health;
-        _hpSlider.maxValue = _player._maxHealth;
-
-        _xpText.text = $"{_player._level}";
-
-        _xpSlider.value = _player._xp;
-        _xpSlider.maxValue = _player._xpToNextLevel;
-        _xPProgressText.text = $"{_player._xp}" +
-                               "/" +
-                               $"{_player._xpToNextLevel}";
-
+        //if(!_gameManager._gameLaunched) return;
         if (_levelUpCanvas.activeSelf)
         {
             //_mainUI.SetActive(false);
