@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     private CameraController _cameraController;
     private void Awake()
     {
+        QualitySettings.vSyncCount = 1;
+        
         DestroyTrash();
         _spodek.SetActive(false);
         _spawnsCount = _spawnPoints.Count;
