@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     public bool _killedByManager;
     public Material _blackMaterial;
     private GameObject _enemyModel;
-    
+    public Mesh _dieMesh;
     public void SetUp()
     {
         _agent = GetComponent<NavMeshAgent>();

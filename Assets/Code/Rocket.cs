@@ -16,8 +16,11 @@ public class Rocket : MonoBehaviour
     public bool _isEnemy;
     private PlayerMovement _player;
     private Vector3 _lastKnownPosition;
+    private GameObject _currentFX;
+    private CameraShake _cameraShake;
     void Start()
     {
+        _cameraShake = FindAnyObjectByType<CameraShake>();
         _gameManager = FindAnyObjectByType<GameManager>();
         _startTarget = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
         _player = FindFirstObjectByType<PlayerMovement>();
@@ -51,7 +54,7 @@ public class Rocket : MonoBehaviour
         RotateToTarget(_lastKnownPosition);
         if(GetDistance(_lastKnownPosition) < 0.1f)
         {
-            var _explosion = Instantiate(_explosionFX, transform.position, Quaternion.identity);
+            _currentFX = Instantiate(_explosionFX, transform.position, Quaternion.identity);
             DoDamage();
             Destroy(gameObject);
         }
@@ -86,6 +89,8 @@ public class Rocket : MonoBehaviour
     }
     private void DoDamage()
     {
+        _cameraShake.DoShake(0.001f, 0.5f);
+        
         Collider[] _colliders = Physics.OverlapSphere(transform.position, _rocketRange);
         foreach (Collider _obj in _colliders)
         {
@@ -100,7 +105,10 @@ public class Rocket : MonoBehaviour
             }
             if (_obj.CompareTag("Enemy"))
             {
-                _obj.GetComponent<Enemy>().CheckHealth(_rocketDamage);
+                if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
+                {
+                    _explosionFX.GetComponent<AudioSource>().enabled = false;
+                }
             }
         }
     }

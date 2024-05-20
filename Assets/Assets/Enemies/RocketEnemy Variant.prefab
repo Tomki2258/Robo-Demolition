@@ -82,6 +82,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 254387567753227750, guid: c8ac0ed6cc93d4c0cbee5c665280acab,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3375736946908475589, guid: c8ac0ed6cc93d4c0cbee5c665280acab,
         type: 3}
       propertyPath: m_Enabled
@@ -203,6 +208,7 @@ MonoBehaviour:
   _hitMaterial: {fileID: 0}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
+  _dieMesh: {fileID: 0}
   _rocketPrefab: {fileID: 6731008745918168869, guid: e7cd881819f4a39f094452f00141ea38,
     type: 3}
   _rocketTargetPrefab: {fileID: 8707792461134015577, guid: cd3f59d7bb5f403839ab1b36139e6c91,

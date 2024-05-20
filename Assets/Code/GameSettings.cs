@@ -15,6 +15,9 @@ public class GameSettings : MonoBehaviour
     public Sprite _audioOnSprite;
     public Sprite _audioOffSprite;
     public Image _audioImage;
+    [Header("Settings")] 
+    public String _twitterURL;
+    public String _facebookURL;
     private void Start()
     {
         var _savedQuality = Convert.ToBoolean(PlayerPrefs.GetInt("SavedQuality"));
@@ -83,5 +86,17 @@ public class GameSettings : MonoBehaviour
             _audioImage.sprite = _audioOffSprite;
         }
         PlayerPrefs.SetInt("SavedAudio", _audioListener.enabled ? 1 : 0);
+    }
+
+    public void LaunchURL(int _URLindex)
+    {
+        switch (_URLindex)
+        {
+            case 0:
+                Application.OpenURL(_twitterURL);
+                break;
+            default:
+                break;
+        }
     }
 }

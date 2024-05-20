@@ -12,7 +12,7 @@ public class PlayerWeapons : MonoBehaviour
     [Header("Standard Gun")] public float _standardMaxTimer;
     public float _standardCurrentTimer;
     public Transform _standardSpawner;
-
+    public AudioSource _standardAudioSource;
     [Header("Shotgub Gun")] public bool _shotgunEnabled;
     public float _shotgunMaxTimer;
 
@@ -45,7 +45,6 @@ public class PlayerWeapons : MonoBehaviour
     public float _rocketCurrentTimer;
     public Transform _rocketSpawner;
     public List<GameObject> _weaponsModels;
-
     private void Start()
     {
         _laserCurrentDamage = _laserBaseDamage;
@@ -66,6 +65,7 @@ public class PlayerWeapons : MonoBehaviour
         var _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
         _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
+        _standardAudioSource.Play();
         _standardCurrentTimer = 0;
     }
     public void RocketLauncher()

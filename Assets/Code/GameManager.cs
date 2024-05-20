@@ -37,19 +37,21 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         QualitySettings.vSyncCount = 1;
-        
+        _player = FindAnyObjectByType<PlayerMovement>();
+        _cameraController = FindFirstObjectByType<CameraController>();
+
+        _player.transform.GetComponent<AudioListener>().enabled = false;
+        _cameraController.gameObject.GetComponent<AudioListener>().enabled = true;
         DestroyTrash();
         _spodek.SetActive(false);
         _spawnsCount = _spawnPoints.Count;
         _enemiesCount = _enemies.Count;
-        _player = FindAnyObjectByType<PlayerMovement>();
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
         _pausedUI.SetActive(false);
         if(!_gameLaunched) _player.DoJoystickInput(false);
         _interstitialAd = FindFirstObjectByType<InterstitialAd>();
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _uiManager = FindFirstObjectByType<UIManager>();
-        _cameraController = FindFirstObjectByType<CameraController>();
         _player.gameObject.SetActive(false);
         
         if(_gameStarted && _gameLaunched) OverideStart();
@@ -105,10 +107,13 @@ public class GameManager : MonoBehaviour
             _spawnPoints[_point].position.y,
             _spawnPoints[_point].position.z + Random.Range(-3, 3));
         var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
+        _spawnTimeMax -= _spawnTimeMax * 0.001f;
+        
+        if(_enemy.GetComponent<BombardEnemy>()) return;
+        
         _spawnedEnemies.Add(_enemy);
         _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
-        _spawnTimeMax -= _spawnTimeMax * 0.001f;
     }
 
     private void SpawnPowerUp()
@@ -132,12 +137,14 @@ public class GameManager : MonoBehaviour
         _paused = !_paused;
         if (_paused)
         {
+            _player.DoJoystickInput(false);
             Time.timeScale = 0;
             _pausedUI.SetActive(true);
             _uiManager._mainUI.SetActive(false);
         }
         else
         {
+            _player.DoJoystickInput(true);
             Time.timeScale = 1;
             _pausedUI.SetActive(false);
             _uiManager._mainUI.SetActive(true);
@@ -181,6 +188,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator MakeGame()
     {
         yield return new WaitForSeconds(5);
+        _player.transform.GetComponent<AudioListener>().enabled = true;
+        _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
+        
         _player.transform.position = _spodek.transform.position;
         _gameLaunched = true;
         _cameraController.SwitchTarget(_player.transform);
@@ -207,6 +217,8 @@ public class GameManager : MonoBehaviour
         _spodek.SetActive(false);
         _gameStarted = true;
         _gameLaunched = true;
+        _player.transform.GetComponent<AudioListener>().enabled = true;
+        _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
         return;
     }
 }

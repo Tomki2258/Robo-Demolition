@@ -56,8 +56,10 @@ public class PlayerMovement : MonoBehaviour
 
     public TMP_Text _xPProgressText;
     public Slider _xpSlider;
+    private Quaternion _idleQuaterion;
     private void Awake()
     {
+        _idleQuaterion = new Quaternion(0, 0, 0, 0);
         _startPlayerPositions.Add(_top.localPosition);
         _startPlayerQuaterions.Add(_top.localRotation);
         _startPlayerPositions.Add(_legs.localPosition);
@@ -130,15 +132,22 @@ public class PlayerMovement : MonoBehaviour
         XpManagment();
         HpRegeneration();
         ShieldManagment();
-       SetUiValues();
+        SetUiValues();
         
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             Transform _nearestEnemy = GetNearestEnemy();
             if(_nearestEnemy == null)
                 return;
-            
-            MoveTurret(GetNearestEnemy().position);
+
+            if (Vector3.Distance(transform.position, _nearestEnemy.position) < 20)
+            {
+                MoveTurret(GetNearestEnemy().position);
+            }
+            else
+            {
+                _top.rotation = Quaternion.Slerp(_top.rotation, _idleQuaterion, 10 * Time.deltaTime);
+            }
             Battle();
         }
     }

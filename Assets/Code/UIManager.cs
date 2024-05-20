@@ -27,14 +27,15 @@ public class UIManager : MonoBehaviour
     public TMP_Text _timeText;
     public TMP_Text _killedEnemiesText;
     public GameObject _hpDifferenceText;
-    private PlayerMovement _player;
+    public PlayerMovement _player;
     public GameObject _adRewardButton;
     public GameObject _fpsCanvas;
     public bool _enableFPS;
     private bool _startOverrided = false;
+    public GameObject _settingsUI;
     private void Awake()
     {
-        _player = FindAnyObjectByType<PlayerMovement>();
+        _settingsUI.SetActive(false);
         _levelUpCanvas.SetActive(false);
         QualitySettings.vSyncCount = 1;
         _gameManager = FindFirstObjectByType<GameManager>();
@@ -61,8 +62,8 @@ public class UIManager : MonoBehaviour
     {
         GameObject _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
         _hpDifference.transform.SetParent(_mainUI.transform);
-        Vector3 _randomPosition = new Vector3(transform.position.x + Random.Range(-50,50),
-            transform.position.y + Random.Range(-50,50),
+        Vector3 _randomPosition = new Vector3(transform.position.x  + Random.Range(100,200),
+            transform.position.y  + Random.Range(100,200),
             transform.position.z);
         _hpDifference.transform.position = _randomPosition;
         _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
@@ -131,6 +132,7 @@ public class UIManager : MonoBehaviour
     {
         _dieCanvas.SetActive(true);
         _mainUI.SetActive(false);
+        _player.DoJoystickInput(false);
         TimeSpan _time = DateTime.Now - _startTime;
         if(_gameManager._killedEnemies > GetBestScore())
         {
@@ -173,5 +175,19 @@ public class UIManager : MonoBehaviour
         //Debug.LogWarning("to sie robi ?");
         _gameStartUI.SetActive(!state);
         _mainUI.SetActive(state);
+    }
+
+    public void SetStatsUI()
+    {
+        // NOT IMPLEMENTED YET
+    }
+
+    public void EnableSettingsUI(bool _mode)
+    {
+        _player.DoJoystickInput(!_mode);
+        _mainUI.SetActive(!_mode);
+        _settingsUI.SetActive(_mode);
+        if (_mode) Time.timeScale = 0;
+        else Time.timeScale = 1;
     }
 }
