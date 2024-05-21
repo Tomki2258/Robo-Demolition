@@ -34,9 +34,19 @@ public class GameManager : MonoBehaviour
     public GameObject _explosion;
     public GameObject _spodek;
     private CameraController _cameraController;
+    [Header("Capture areas")]
+    public GameObject _currentCaptureArea;
+    public GameObject _captureAreaPrefab;
+    private GameObject[] _bombSpawns;
+    public float _currentCaptureWaitTime;
+    public int _maxCaptureWaitTime;
+
     private void Awake()
     {
+        _bombSpawns = GameObject.FindGameObjectsWithTag("bombersSpawner");
+        
         QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
         _player = FindAnyObjectByType<PlayerMovement>();
         _cameraController = FindFirstObjectByType<CameraController>();
 
@@ -75,6 +85,8 @@ public class GameManager : MonoBehaviour
         }
         //if(!_player._died) return;
 
+        DoCaptureAreas();
+        
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
             _spawnTimeCurrent += Time.deltaTime;
@@ -85,6 +97,29 @@ public class GameManager : MonoBehaviour
         _spawnTimeCurrent = 0;
     }
 
+    private void DoCaptureAreas()
+    {
+        if (_currentCaptureArea == null)
+        {
+            if (_currentCaptureWaitTime > _maxCaptureWaitTime)
+            {
+                int _randomSpawn = Random.Range(0, _bombSpawns.Length);
+                Vector3 _targetVector = new Vector3(_bombSpawns[_randomSpawn].transform.position.x,
+                    _bombSpawns[_randomSpawn].transform.position.y + 0.5f,
+                    _bombSpawns[_randomSpawn].transform.position.z + 6);
+                    
+                _currentCaptureArea = Instantiate(_captureAreaPrefab, _targetVector, Quaternion.identity);
+            }
+            else
+            {
+                _currentCaptureWaitTime += Time.deltaTime;
+            }
+        }
+        else
+        {
+            
+        }
+    }
     public void IncreaseEnemiesIndex()
     {
         int _possibleTemp = _possibleEnemies;
@@ -208,6 +243,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(MakeGame());
     }
 
+    public void GetCaptureAreaReward()
+    {
+        _player._health = _player._maxHealth;
+        _player._xp += _player._xpToNextLevel / 2;
+    }
     private void OverideStart()
     {
         Debug.LogWarning("Start Overided!");

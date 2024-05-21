@@ -33,8 +33,10 @@ public class UIManager : MonoBehaviour
     public bool _enableFPS;
     private bool _startOverrided = false;
     public GameObject _settingsUI;
+    public Image _captureAreaImage;
     private void Awake()
     {
+        _captureAreaImage.enabled = false;
         _settingsUI.SetActive(false);
         _levelUpCanvas.SetActive(false);
         QualitySettings.vSyncCount = 1;

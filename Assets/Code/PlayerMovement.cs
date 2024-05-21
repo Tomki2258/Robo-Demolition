@@ -137,8 +137,6 @@ public class PlayerMovement : MonoBehaviour
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             Transform _nearestEnemy = GetNearestEnemy();
-            if(_nearestEnemy == null)
-                return;
 
             if (Vector3.Distance(transform.position, _nearestEnemy.position) < 20)
             {
@@ -148,6 +146,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 _top.rotation = Quaternion.Slerp(_top.rotation, _idleQuaterion, 10 * Time.deltaTime);
             }
+            if(_nearestEnemy == null)
+                return;
             Battle();
         }
     }
@@ -225,12 +225,10 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
             _playerWeapons.ShpereAttack(); _playerWeapons.RocketLauncher(); 
-            if(_playerWeapons._laserGunEnabled)
-            {
-                _playerWeapons._laserSpawner.gameObject.SetActive(true);
-                _playerWeapons.DoLaser(_currentEnemy.transform);
-            }
-            //_playerWeapons._lineRenderer.enabled = false;
+            _playerWeapons.DoLaser(_currentEnemy.transform);
+        }
+        else
+        {
         }
     }
 

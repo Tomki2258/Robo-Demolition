@@ -58,6 +58,9 @@ public class BombardEnemy : MonoBehaviour
 
         int _randomSpawn = Random.Range(0, _bombSpawns.Length);
         _targetSpawn = _bombSpawns[_randomSpawn].transform;
+        
+        if(_targetSpawn.GetComponent<Intersection>()._inUse) return;
+        
         _planes.transform.position = _targetSpawn.position + _planesOffset;
         for (int i = 0; i < _bombLenght; i++)
         {
@@ -69,6 +72,8 @@ public class BombardEnemy : MonoBehaviour
             _target.transform.localScale *= 5;
             _targetsPrefabs.Add(_target);
         }
+
+        _targetSpawn.GetComponent<Intersection>()._inUse = true;
         StartCoroutine(DoAirstrike());
     }
 
@@ -79,7 +84,7 @@ public class BombardEnemy : MonoBehaviour
         _audioSource.Play();
         yield return new WaitForSeconds(3);
         _planes.SetActive(true);
-        
+        _targetSpawn.GetComponent<Intersection>()._inUse = false;
         for (int i = 0; i < _bombLenght; i++)
         {
             Vector3 _spawnVector = new Vector3(
