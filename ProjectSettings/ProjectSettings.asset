@@ -138,9 +138,7 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1.7
-  preloadedAssets:
-  - {fileID: 11400000, guid: ae5eb1f3ca258baca99a162e2b4c6cd3, type: 2}
-  - {fileID: 4738939650704620654, guid: 7ee6a0bd8f8e5494db3b609fb556587a, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -263,8 +261,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{dedicated}: Dokumenty/tamus.keystore'
-  AndroidKeyaliasName: tamusdevelop@gmail.com
+  AndroidKeystoreName: '{dedicated}: Documents/user.keystore'
+  AndroidKeyaliasName: nwm
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidEnableArm64MTE: 0
   AndroidBuildApkPerCpuArchitecture: 0
