@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerWeapons : MonoBehaviour
 {
+    public float _damageMultipler;
+    
     public GameObject _bullet;
     public float _bulletDamage;
     private float _circleGunCurrentTimer;
@@ -64,7 +66,7 @@ public class PlayerWeapons : MonoBehaviour
 
         var _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
         _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
-        _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
+        _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage * _damageMultipler;
         _standardAudioSource.Play();
         _standardCurrentTimer = 0;
     }
@@ -78,6 +80,8 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         var _currentRocket = Instantiate(_rocketPrefab, _rocketSpawner.position, _rocketSpawner.rotation);
+        Rocket _rocket = _currentRocket.GetComponent<Rocket>();
+        _rocket._rocketDamage *= _damageMultipler;
         _rocketCurrentTimer = 0;
     }
     public void ShpereAttack()
@@ -106,7 +110,7 @@ public class PlayerWeapons : MonoBehaviour
         {
             var _currentBullet = Instantiate(_bullet, _shotgunSpawner.GetChild(i).position,
                 _shotgunSpawner.GetChild(i).rotation);
-            _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
+            _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage * _damageMultipler;
         }
 
         _shotgunCurrentTimer = 0;
@@ -129,7 +133,7 @@ public class PlayerWeapons : MonoBehaviour
             var _currentBullet =
                 Instantiate(_bullet, _circleGunSpawner.GetChild(0).position, _circleGunSpawner.rotation);
             _circleGunSpawner.Rotate(0, _rotateValue, 0);
-            _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage;
+            _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage * _damageMultipler;
         }
 
         _circleGunCurrentTimer = 0;
@@ -148,7 +152,7 @@ public class PlayerWeapons : MonoBehaviour
         
         if(_laserCurrentDamage < _laserMaxDamage)
         {
-            _laserCurrentDamage += _laserDamageMultiplier * Time.deltaTime;
+            _laserCurrentDamage += (_laserDamageMultiplier * Time.deltaTime) * _damageMultipler;
         }
         
         if (_laserMaxTimer > _laserCurrentTimer)

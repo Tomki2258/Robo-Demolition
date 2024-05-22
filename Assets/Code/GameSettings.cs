@@ -18,6 +18,12 @@ public class GameSettings : MonoBehaviour
     [Header("Settings")] 
     public String _twitterURL;
     public String _facebookURL;
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private void Start()
     {
         var _savedQuality = Convert.ToBoolean(PlayerPrefs.GetInt("SavedQuality"));
@@ -41,6 +47,7 @@ public class GameSettings : MonoBehaviour
             _qualityImage.sprite = _qualityOffSprite;
         }
         PlayerPrefs.SetInt("SavedQuality", _high ? 1 : 0);
+        Application.targetFrameRate = 60;
     }
     
     public void SwitchQualitySettings()

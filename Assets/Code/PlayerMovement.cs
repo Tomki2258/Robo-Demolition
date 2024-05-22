@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                _top.rotation = Quaternion.Slerp(_top.rotation, _idleQuaterion, 10 * Time.deltaTime);
+                MoveTurret(transform.GetChild(transform.childCount - 1).position);
             }
             if(_nearestEnemy == null)
                 return;

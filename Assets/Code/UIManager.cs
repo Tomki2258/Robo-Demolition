@@ -123,6 +123,8 @@ public class UIManager : MonoBehaviour
     {
         _mainUI.SetActive(!_sraka);
         _levelUpCanvas.SetActive(_sraka);
+        
+        
         if(_sraka)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
         if(!_sraka)
@@ -177,11 +179,6 @@ public class UIManager : MonoBehaviour
         //Debug.LogWarning("to sie robi ?");
         _gameStartUI.SetActive(!state);
         _mainUI.SetActive(state);
-    }
-
-    public void SetStatsUI()
-    {
-        // NOT IMPLEMENTED YET
     }
 
     public void EnableSettingsUI(bool _mode)

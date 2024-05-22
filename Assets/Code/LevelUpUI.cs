@@ -23,6 +23,9 @@ public class LevelUpUI : MonoBehaviour
 
     public GameObject _leftPowerUpUI;
     public GameObject _rightPowerUpUI;
+    public StatsCanvas _statsCanvas;
+    
+
     private void Awake()
     {
         _uiManager = FindAnyObjectByType<UIManager>();
@@ -86,6 +89,8 @@ public class LevelUpUI : MonoBehaviour
     }
     public void SetReward()
     {
+        _statsCanvas.SetStatsCanvas();
+        
         int _randomOne = Random.Range(0, _powerUpsCount);
         _leftPowerUp = _powerUpsList[_randomOne];
         

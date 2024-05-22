@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject _explosion;
     public GameObject _spodek;
     private CameraController _cameraController;
+    public GameObject _continueCanvas;
     [Header("Capture areas")]
     public GameObject _currentCaptureArea;
     public GameObject _captureAreaPrefab;
@@ -45,8 +46,6 @@ public class GameManager : MonoBehaviour
     {
         _bombSpawns = GameObject.FindGameObjectsWithTag("bombersSpawner");
         
-        QualitySettings.vSyncCount = 1;
-        Application.targetFrameRate = 60;
         _player = FindAnyObjectByType<PlayerMovement>();
         _cameraController = FindFirstObjectByType<CameraController>();
 
@@ -167,6 +166,13 @@ public class GameManager : MonoBehaviour
         _spawnedEnemies.Remove(_enemy);
     }
 
+    public void EnableContinueCanvas(bool _mode)
+    {
+        Time.timeScale = _mode ? 0: 1;
+        _continueCanvas.SetActive(_mode);
+        _pausedUI.SetActive(false);
+        _uiManager._mainUI.SetActive(!_mode);
+    }
     public void PauseGame()
     {
         _paused = !_paused;
@@ -208,6 +214,7 @@ public class GameManager : MonoBehaviour
         _uiManager._mainUI.SetActive(true);
         
         _player.Revive();
+        EnableContinueCanvas(true);
     }
     
     public IEnumerator ReloadLevel()

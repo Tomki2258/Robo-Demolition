@@ -11,7 +11,7 @@ public class Rocket : MonoBehaviour
     private Vector3 _startTarget;
     private bool _starterDone;
     public GameObject _explosionFX;
-    public int _rocketDamage;
+    public float _rocketDamage;
     public float _rocketRange;
     public bool _isEnemy;
     private PlayerMovement _player;
