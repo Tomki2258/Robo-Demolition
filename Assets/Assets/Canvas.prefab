@@ -3569,9 +3569,11 @@ MonoBehaviour:
   _killedEnemiesText: {fileID: 6692424528902405447}
   _hpDifferenceText: {fileID: 8435063953962967477, guid: c8e2d9e432e85318289d85c273b7c72a,
     type: 3}
+  _player: {fileID: 0}
   _adRewardButton: {fileID: 0}
   _fpsCanvas: {fileID: 0}
   _enableFPS: 0
+  _settingsUI: {fileID: 0}
 --- !u!1 &5947058054150355739
 GameObject:
   m_ObjectHideFlags: 0
