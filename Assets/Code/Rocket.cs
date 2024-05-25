@@ -107,7 +107,7 @@ public class Rocket : MonoBehaviour
             {
                 if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
                 {
-                    _explosionFX.GetComponent<AudioSource>().enabled = false;
+                    //_explosionFX.GetComponent<AudioSource>().enabled = false;
                 }
             }
         }

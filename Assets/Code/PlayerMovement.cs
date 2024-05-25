@@ -219,6 +219,7 @@ public class PlayerMovement : MonoBehaviour
     {
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         float _tempAttackRange = _attackRange * transform.localScale.x;
+        
         if (_enemyDist < _tempAttackRange)
         {
             _playerWeapons.StandardGun();
@@ -226,9 +227,6 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.CircleGun();
             _playerWeapons.ShpereAttack(); _playerWeapons.RocketLauncher(); 
             _playerWeapons.DoLaser(_currentEnemy.transform);
-        }
-        else
-        {
         }
     }
 
