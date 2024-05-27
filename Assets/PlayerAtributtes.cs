@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class PlayerAtributtes : MonoBehaviour
 {
+    [Header("Bullet Types")] 
+    public GameObject _currentBulletType;
+    public GameObject _standardBullet;
+    public GameObject _explosiveBullet;
     [Header("Bullet dodge")] 
     public float _dodgeChange;
 
     [Header("Bullet Reflection")] public float _bulletReflection;
+
+    public void SwitchBulletType(int _typeIndex)
+    {
+        switch (_typeIndex)
+        {
+            case 0:
+                _currentBulletType = _standardBullet;
+                break;
+            case 1:
+                _currentBulletType = _explosiveBullet;
+                break;
+            
+        }
+    }
     public bool BulletReflection()
     {
         int _randomValue = Random.Range(0, 100);
