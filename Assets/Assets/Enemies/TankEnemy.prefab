@@ -62,8 +62,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.549072, y: 0.46, z: -3.9086287}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6097033507101572674}
   - {fileID: 8011795114684399719}
@@ -194,6 +194,7 @@ MonoBehaviour:
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
+  _dieMesh: {fileID: 0}
   _shootingPoint: {fileID: 6097033507101572674}
   _topModel: {fileID: 0}
 --- !u!1001 &7540473043316123532

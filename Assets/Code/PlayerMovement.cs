@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text _xPProgressText;
     public Slider _xpSlider;
     private Quaternion _idleQuaterion;
+    private PlayerAtributtes _playerAtributtes;
     private void Awake()
     {
         _idleQuaterion = new Quaternion(0, 0, 0, 0);
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        _playerAtributtes = GetComponent<PlayerAtributtes>();
         _controller = GetComponent<CharacterController>();
         _joystick = FindFirstObjectByType<VariableJoystick>();
         _gameManager = FindAnyObjectByType<GameManager>();
@@ -225,6 +227,8 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
+            _playerWeapons.MachineGun();
+            _playerWeapons.Sniper();
             _playerWeapons.ShpereAttack(); _playerWeapons.RocketLauncher(); 
             _playerWeapons.DoLaser(_currentEnemy.transform);
         }
@@ -304,6 +308,14 @@ public class PlayerMovement : MonoBehaviour
     public void CheckHealth(float _value)
     {
         if (_shield || _died) return;
+        
+        if(_playerAtributtes.BulletDodge()) return;
+
+        if (_playerAtributtes.BulletReflection())
+        {
+            //NOT IMPLEMENTED YET
+        }
+        
         _uiManager.ShowHpDifference(-_value);
         _health -= _value;
         if (_health <= 0)

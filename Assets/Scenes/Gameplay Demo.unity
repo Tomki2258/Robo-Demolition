@@ -6853,6 +6853,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1505601650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2923216318990922012, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+    type: 3}
+  m_PrefabInstance: {fileID: 5336057214332085525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517323395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 403060768635502069, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
@@ -8761,6 +8767,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192795899}
   m_Enabled: 1
+--- !u!114 &1899919624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192795899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c445925ab84e0d917bcdde3c0b566b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dodgeChange: 0
+  _bulletReflection: 0
 --- !u!1 &1908560956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8060335440835624549, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
@@ -18894,7 +18914,22 @@ PrefabInstance:
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _standardMaxTimer
-      value: 0.75
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _machineGunEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _machineGunSpawner
+      value: 
+      objectReference: {fileID: 1505601650}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _machineGunMaxTimer
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
@@ -18904,6 +18939,11 @@ PrefabInstance:
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _standardAudioSource
+      value: 
+      objectReference: {fileID: 1505601649}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _machineGunAudioSource
       value: 
       objectReference: {fileID: 1505601649}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
@@ -19108,6 +19148,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 527812796}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6524360049494093422, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1899919624}
     - targetCorrespondingSourceObject: {fileID: 6524360049494093422, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       insertIndex: -1
