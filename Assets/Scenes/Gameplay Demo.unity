@@ -1796,6 +1796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c445925ab84e0d917bcdde3c0b566b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentBulletType: {fileID: 0}
+  _standardBullet: {fileID: 0}
+  _explosiveBullet: {fileID: 0}
   _dodgeChange: 0
   _bulletReflection: 0
 --- !u!1 &1943248723 stripped
@@ -3813,8 +3816,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
+      propertyPath: _sniperGunDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
       propertyPath: _circleGunEnabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _machineGunDamage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}

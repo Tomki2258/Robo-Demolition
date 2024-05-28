@@ -8,19 +8,20 @@ public class PlayerWeapons : MonoBehaviour
     public float _damageMultipler;
     
     public GameObject _bullet;
-    public float _bulletDamage;
     private float _circleGunCurrentTimer;
 
     [Header("Standard Gun")] public float _standardMaxTimer;
+    public float _bulletDamage;
     public float _standardCurrentTimer;
     public Transform _standardSpawner;
     public AudioSource _standardAudioSource;
     [Header("Sniper Gun")] public bool _sniperGunEnabled;
+    public float _sniperGunDamage;
     public float _sniperMaxTimer;
     public float _sniperCurrentTimer;
     public Transform _sniperSpawner;
     public AudioSource _sniperAudioSource;
-    [Header("Machine Gun")] 
+    [Header("Machine Gun")] public float _machineGunDamage;
     public bool _machineGunEnabled;
     public float _machineGunMaxTimer;
     public float _machineGunCurrentTimer;
@@ -51,7 +52,7 @@ public class PlayerWeapons : MonoBehaviour
     public float _laserDamageMultiplier;
     public float _laserBaseDamage;
     public Transform _lastLaserEnemy;
-    [Header("Rocket Launcher")]
+    [Header("Rocket Launcher")] public float _rocketDamage;
     public bool _rocketLauncherEnabled;
     public GameObject _rocketPrefab;
     public float _rocketMaxTimer;
@@ -93,6 +94,7 @@ public class PlayerWeapons : MonoBehaviour
         var _currentBullet = Instantiate(_bullet, _machineGunSpawner.transform.position, Quaternion.identity);
         _currentBullet.transform.rotation = _machineGunSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage * _damageMultipler;
+        _currentBullet.GetComponent<Bullet>()._bulletDamage = _machineGunDamage;
         _machineGunAudioSource.Play();
         _machineGunCurrentTimer = 0;
     }
@@ -107,7 +109,7 @@ public class PlayerWeapons : MonoBehaviour
 
         var _currentBullet = Instantiate(_bullet, _sniperSpawner.transform.position, Quaternion.identity);
         Bullet _bulletScript = _currentBullet.GetComponent<Bullet>();
-        _bulletScript._bulletDamage = 20;
+        _bulletScript._bulletDamage = _sniperGunDamage;
         _bulletScript._bulletSpeed = 50;
         _currentBullet.transform.rotation = _sniperSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage * _damageMultipler;
