@@ -24,10 +24,11 @@ public class LevelUpUI : MonoBehaviour
     public GameObject _leftPowerUpUI;
     public GameObject _rightPowerUpUI;
     public StatsCanvas _statsCanvas;
-    
 
+    private WeaponUnlock _weaponUnlock;
     private void Awake()
     {
+        _weaponUnlock = GetComponent<WeaponUnlock>();
         _uiManager = FindAnyObjectByType<UIManager>();
         _player = FindAnyObjectByType<PlayerMovement>();
         //_powerUpsList.Add(new PowerUpClass(PowerUpsEnum.Health,$"Increase health by {_hpMultipler} %"));
@@ -85,7 +86,15 @@ public class LevelUpUI : MonoBehaviour
                 //Debug.LogWarning(PowerUpsEnum.ReloadSped);
                 break;
         }
-        _uiManager.DoLevelUpCanvas(false);
+
+        if (_weaponUnlock.CheckForWeaponUnlock())
+        {
+
+        }
+        else
+        {
+            _uiManager.DoLevelUpCanvas(false);
+        }
     }
     public void SetReward()
     {

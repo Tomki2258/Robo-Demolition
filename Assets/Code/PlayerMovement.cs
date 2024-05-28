@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private VariableJoystick _joystick;
     private GameObject _nearestEnemy;
     private UIManager _uiManager;
-    [SerializeField] private List<int> _weaponsUnlockStages;
+    public List<int> _weaponsUnlockStages;
     private Quaternion _startRotation;
     private Animator _animator;
     public Material _blackMaterial;
@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text _xPProgressText;
     public Slider _xpSlider;
     private Quaternion _idleQuaterion;
+    private PlayerAtributtes _playerAtributtes;
     private void Awake()
     {
         _idleQuaterion = new Quaternion(0, 0, 0, 0);
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        _playerAtributtes = GetComponent<PlayerAtributtes>();
         _controller = GetComponent<CharacterController>();
         _joystick = FindFirstObjectByType<VariableJoystick>();
         _gameManager = FindAnyObjectByType<GameManager>();
@@ -170,44 +172,44 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void CheckForWeaponUnlock(int _currentLevel)
-    {
-        if (_weaponsUnlockStages.Contains(_currentLevel))
-        {
-            int _index = _weaponsUnlockStages.IndexOf(_currentLevel);
-        
-            switch (_index)
-            {
-                case 0:
-                    _playerWeapons._shotgunEnabled = true;
-                    _playerWeapons._weaponsModels[0].SetActive(true);
-                    _uiManager.UnlockUI("Shotgun", null);
-                    break;
-                case 1:
-                    _playerWeapons._circleGunEnabled = true;
-                    _playerWeapons._weaponsModels[1].SetActive(true);
-                    _uiManager.UnlockUI("Circle gun", null);
-
-                    break;
-                case 2:
-                    _playerWeapons._sphereAttackEnabled = true;
-                    _playerWeapons._weaponsModels[2].SetActive(true);
-                    _uiManager.UnlockUI("Sphere bomb", null);
-
-                    break;
-                case 3:
-                    _playerWeapons._laserGunEnabled = true;
-                    _playerWeapons._weaponsModels[3].SetActive(true);
-                    _uiManager.UnlockUI("Laser", null);
-                    break;
-                case 4:
-                    _playerWeapons._rocketLauncherEnabled = true;
-                    _playerWeapons._weaponsModels[4].SetActive(true);
-                    _uiManager.UnlockUI("Rocket launcher", null);
-                    break;
-            }
-        }
-    }
+    // private void CheckForWeaponUnlock(int _currentLevel)
+    // {
+    //     if (_weaponsUnlockStages.Contains(_currentLevel))
+    //     {
+    //         int _index = _weaponsUnlockStages.IndexOf(_currentLevel);
+    //     
+    //         switch (_index)
+    //         {
+    //             case 0:
+    //                 _playerWeapons._shotgunEnabled = true;
+    //                 _playerWeapons._weaponsModels[0].SetActive(true);
+    //                 _uiManager.UnlockUI("Shotgun", null);
+    //                 break;
+    //             case 1:
+    //                 _playerWeapons._circleGunEnabled = true;
+    //                 _playerWeapons._weaponsModels[1].SetActive(true);
+    //                 _uiManager.UnlockUI("Circle gun", null);
+    //
+    //                 break;
+    //             case 2:
+    //                 _playerWeapons._sphereAttackEnabled = true;
+    //                 _playerWeapons._weaponsModels[2].SetActive(true);
+    //                 _uiManager.UnlockUI("Sphere bomb", null);
+    //
+    //                 break;
+    //             case 3:
+    //                 _playerWeapons._laserGunEnabled = true;
+    //                 _playerWeapons._weaponsModels[3].SetActive(true);
+    //                 _uiManager.UnlockUI("Laser", null);
+    //                 break;
+    //             case 4:
+    //                 _playerWeapons._rocketLauncherEnabled = true;
+    //                 _playerWeapons._weaponsModels[4].SetActive(true);
+    //                 _uiManager.UnlockUI("Rocket launcher", null);
+    //                 break;
+    //         }
+    //     }
+    // }
     private void MoveTurret(Vector3 _target)
     {
         var _direction = _target - transform.position;
@@ -219,16 +221,16 @@ public class PlayerMovement : MonoBehaviour
     {
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         float _tempAttackRange = _attackRange * transform.localScale.x;
+        
         if (_enemyDist < _tempAttackRange)
         {
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
+            _playerWeapons.MachineGun();
+            _playerWeapons.Sniper();
             _playerWeapons.ShpereAttack(); _playerWeapons.RocketLauncher(); 
             _playerWeapons.DoLaser(_currentEnemy.transform);
-        }
-        else
-        {
         }
     }
 
@@ -241,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.position.y + 0.05f,
                 transform.position.z);
             DoJoystickInput(false);
-            CheckForWeaponUnlock(_level);
+            //CheckForWeaponUnlock(_level);
             
             _level++;
             _xp = 0;
@@ -252,12 +254,12 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = _scale;
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
-            /*
+            
             if (_level % 3 == 0)
             {
                 _gameManager.IncreaseEnemiesIndex();
             }
-            */
+            
             _playerDemolition.UpdatePlayerSize();
         }
     }
@@ -306,6 +308,14 @@ public class PlayerMovement : MonoBehaviour
     public void CheckHealth(float _value)
     {
         if (_shield || _died) return;
+        
+        if(_playerAtributtes.BulletDodge()) return;
+
+        if (_playerAtributtes.BulletReflection())
+        {
+            //NOT IMPLEMENTED YET
+        }
+        
         _uiManager.ShowHpDifference(-_value);
         _health -= _value;
         if (_health <= 0)

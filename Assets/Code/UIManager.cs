@@ -147,8 +147,9 @@ public class UIManager : MonoBehaviour
         {
             _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}\n" +
                                       $"Best score: {GetBestScore()}";
-        }
-        _timeText.text = $"Time: {_time.Minutes}:{_time.Seconds}";
+        }        
+        string formattedTime = $"{_time.Minutes:D2} minutes:{_time.Seconds:D2} seconds";
+        _timeText.text = $"Playtime: {formattedTime}";
         /*
         if (_adRewardButton.GetComponent<Button>().interactable == false)
         {

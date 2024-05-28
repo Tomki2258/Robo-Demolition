@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
                 var _enemy = other.GetComponent<Enemy>();
                 if (_enemy.CheckHealth(_bulletDamage))
                 {
+                    
                 }
                 Destroy(gameObject);
             }

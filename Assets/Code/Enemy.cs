@@ -88,6 +88,7 @@ public class Enemy : MonoBehaviour
 
     public bool CheckHealth(float _value)
     {
+        Debug.LogWarning("Enemy hit");
         health -= _value;
         if (health <= 0)
         {

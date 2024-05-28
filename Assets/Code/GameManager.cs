@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
         if (_distance < _spawnOffset) return;
 
         // Spawn enemy
-        var _enemyIndex = Random.Range(0, _enemies.Count);
+        var _enemyIndex = Random.Range(0, _possibleEnemies);
         Vector3 _randomSpawnVector = new Vector3(_spawnPoints[_point].position.x + Random.Range(-3, 3),
             _spawnPoints[_point].position.y,
             _spawnPoints[_point].position.z + Random.Range(-3, 3));
