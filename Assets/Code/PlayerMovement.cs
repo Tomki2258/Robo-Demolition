@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private VariableJoystick _joystick;
     private GameObject _nearestEnemy;
     private UIManager _uiManager;
-    [SerializeField] private List<int> _weaponsUnlockStages;
+    public List<int> _weaponsUnlockStages;
     private Quaternion _startRotation;
     private Animator _animator;
     public Material _blackMaterial;
@@ -172,44 +172,44 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void CheckForWeaponUnlock(int _currentLevel)
-    {
-        if (_weaponsUnlockStages.Contains(_currentLevel))
-        {
-            int _index = _weaponsUnlockStages.IndexOf(_currentLevel);
-        
-            switch (_index)
-            {
-                case 0:
-                    _playerWeapons._shotgunEnabled = true;
-                    _playerWeapons._weaponsModels[0].SetActive(true);
-                    _uiManager.UnlockUI("Shotgun", null);
-                    break;
-                case 1:
-                    _playerWeapons._circleGunEnabled = true;
-                    _playerWeapons._weaponsModels[1].SetActive(true);
-                    _uiManager.UnlockUI("Circle gun", null);
-
-                    break;
-                case 2:
-                    _playerWeapons._sphereAttackEnabled = true;
-                    _playerWeapons._weaponsModels[2].SetActive(true);
-                    _uiManager.UnlockUI("Sphere bomb", null);
-
-                    break;
-                case 3:
-                    _playerWeapons._laserGunEnabled = true;
-                    _playerWeapons._weaponsModels[3].SetActive(true);
-                    _uiManager.UnlockUI("Laser", null);
-                    break;
-                case 4:
-                    _playerWeapons._rocketLauncherEnabled = true;
-                    _playerWeapons._weaponsModels[4].SetActive(true);
-                    _uiManager.UnlockUI("Rocket launcher", null);
-                    break;
-            }
-        }
-    }
+    // private void CheckForWeaponUnlock(int _currentLevel)
+    // {
+    //     if (_weaponsUnlockStages.Contains(_currentLevel))
+    //     {
+    //         int _index = _weaponsUnlockStages.IndexOf(_currentLevel);
+    //     
+    //         switch (_index)
+    //         {
+    //             case 0:
+    //                 _playerWeapons._shotgunEnabled = true;
+    //                 _playerWeapons._weaponsModels[0].SetActive(true);
+    //                 _uiManager.UnlockUI("Shotgun", null);
+    //                 break;
+    //             case 1:
+    //                 _playerWeapons._circleGunEnabled = true;
+    //                 _playerWeapons._weaponsModels[1].SetActive(true);
+    //                 _uiManager.UnlockUI("Circle gun", null);
+    //
+    //                 break;
+    //             case 2:
+    //                 _playerWeapons._sphereAttackEnabled = true;
+    //                 _playerWeapons._weaponsModels[2].SetActive(true);
+    //                 _uiManager.UnlockUI("Sphere bomb", null);
+    //
+    //                 break;
+    //             case 3:
+    //                 _playerWeapons._laserGunEnabled = true;
+    //                 _playerWeapons._weaponsModels[3].SetActive(true);
+    //                 _uiManager.UnlockUI("Laser", null);
+    //                 break;
+    //             case 4:
+    //                 _playerWeapons._rocketLauncherEnabled = true;
+    //                 _playerWeapons._weaponsModels[4].SetActive(true);
+    //                 _uiManager.UnlockUI("Rocket launcher", null);
+    //                 break;
+    //         }
+    //     }
+    // }
     private void MoveTurret(Vector3 _target)
     {
         var _direction = _target - transform.position;
@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.position.y + 0.05f,
                 transform.position.z);
             DoJoystickInput(false);
-            CheckForWeaponUnlock(_level);
+            //CheckForWeaponUnlock(_level);
             
             _level++;
             _xp = 0;
