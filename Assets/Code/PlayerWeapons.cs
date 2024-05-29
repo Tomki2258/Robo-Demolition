@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
+using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerWeapons : MonoBehaviour
 {
     public float _damageMultipler;
-    
+    public List<WeaponClass> _weaponsInUse;
     public GameObject _bullet;
     private float _circleGunCurrentTimer;
 
@@ -67,6 +69,7 @@ public class PlayerWeapons : MonoBehaviour
             _weapon.SetActive(false);
         }
     }
+    
     public void StandardGun()
     {
         if (_standardMaxTimer == 0) return;
@@ -84,7 +87,7 @@ public class PlayerWeapons : MonoBehaviour
     }
     public void MachineGun()
     {
-        if (_machineGunMaxTimer == 0) return;
+        if (!_machineGunEnabled) return;
         if (_machineGunMaxTimer > _machineGunCurrentTimer)
         {
             _machineGunCurrentTimer += Time.deltaTime;
