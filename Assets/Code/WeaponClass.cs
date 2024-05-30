@@ -17,7 +17,7 @@ namespace DefaultNamespace
     {
         [SerializeField] private string _name;
         [SerializeField] private string _description;
-        [SerializeField] WeaponTypes _type;
+        [SerializeField] private WeaponTypes _type;
         [SerializeField] private Sprite _sprite;
         [SerializeField] private bool _isUnlocked;
         [SerializeField] private bool _isInUse;

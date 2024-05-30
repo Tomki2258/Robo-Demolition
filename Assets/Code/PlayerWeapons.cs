@@ -12,7 +12,9 @@ public class PlayerWeapons : MonoBehaviour
     public GameObject _bullet;
     private float _circleGunCurrentTimer;
 
-    [Header("Standard Gun")] public float _standardMaxTimer;
+    [Header("Standard Gun")] 
+    public bool _standardGunEnabled;
+    public float _standardMaxTimer;
     public float _bulletDamage;
     public float _standardCurrentTimer;
     public Transform _standardSpawner;
@@ -72,7 +74,7 @@ public class PlayerWeapons : MonoBehaviour
     
     public void StandardGun()
     {
-        if (_standardMaxTimer == 0) return;
+        if (!_standardGunEnabled) return;
         if (_standardMaxTimer > _standardCurrentTimer)
         {
             _standardCurrentTimer += Time.deltaTime;
@@ -215,5 +217,26 @@ public class PlayerWeapons : MonoBehaviour
             _lastLaserEnemy = _enemy;
             _laserCurrentTimer = 0;
         }
+    }
+    public void ModyfyDamage(float _value)
+    {
+        Debug.LogWarning(_value);
+        _bulletDamage *= 1 + _value;
+        _sniperGunDamage *= 1 + _value;
+        _machineGunDamage *= 1 + _value;
+        _rocketDamage *= 1 + _value;
+        _laserBaseDamage *= 1 + _value;
+    }
+    public void ModyfyReloadSpeed(float _value)
+    {
+        Debug.LogWarning(_value);
+        _standardMaxTimer *= 1 - _value;
+        _sniperMaxTimer *= 1 - _value;
+        _machineGunMaxTimer *= 1 - _value;
+        _rocketMaxTimer *= 1 - _value;
+        _laserMaxTimer *= 1 - _value;
+        _circleGunMaxTimer *= 1 - _value;
+        _sphereAttackMaxTimer *= 1 - _value;
+        _shotgunMaxTimer *= 1 - _value;
     }
 }
