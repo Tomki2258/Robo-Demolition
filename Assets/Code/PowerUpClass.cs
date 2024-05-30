@@ -1,15 +1,14 @@
 using UnityEngine;
-
+public enum PowerUpsEnum
+{
+    Health,
+    Regeneration,
+    Damage,
+    ReloadSped,
+    Range
+}
 namespace DefaultNamespace
 {
-    public enum PowerUpsEnum
-    {
-        Health,
-        Regeneration,
-        Damage,
-        ReloadSped,
-        Range
-    }
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PowerUPScriptableObject", order = 1)]
     public class PowerUpClass : ScriptableObject
     {
