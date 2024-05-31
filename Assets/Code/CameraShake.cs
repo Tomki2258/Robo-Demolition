@@ -5,9 +5,11 @@ using Random = UnityEngine.Random;
 
 public class CameraShake : MonoBehaviour
 {
+    private IEnumerator _cameraEnumerator;
     public void DoShake(float duration, float magnitude)
     {
-        StartCoroutine(Shake(duration, magnitude));
+        _cameraEnumerator = Shake(duration, magnitude);
+        StartCoroutine(_cameraEnumerator);
     }
 
     public IEnumerator Shake(float duration, float magnitude)
@@ -23,5 +25,10 @@ public class CameraShake : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void CancelShake()
+    {
+        StopCoroutine(_cameraEnumerator);
     }
 }

@@ -243,6 +243,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.position.y + 0.05f,
                 transform.position.z);
             DoJoystickInput(false);
+            _cameraShake.CancelShake();
             //CheckForWeaponUnlock(_level);
             
             _level++;
