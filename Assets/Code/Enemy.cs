@@ -48,16 +48,17 @@ public class Enemy : MonoBehaviour
             _cameraShake.DoShake(.15f, .2f);
             DestroyClone();
         }
-
+        /*
         if (_gameManager._gameSettings._qualityOn)
         {
             GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
             Destroy(_explosion,5);
         }
-
-        _cameraShake.DoShake(0.001f, 1);
-        
+        */
+        GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
+        Destroy(_explosion,5);
         Destroy(gameObject);
     }
 
@@ -68,24 +69,26 @@ public class Enemy : MonoBehaviour
         Mesh _mesh = new Mesh();
         MeshFilter _meshFilter = GetComponent<MeshFilter>();
         _mesh = _meshFilter.mesh;
-        
-        
-        GameObject _gameObject = new GameObject();
-        _gameObject.name = $"{transform.name} :trash clone";
-        _gameObject.AddComponent<MeshFilter>();
-        _gameObject.AddComponent<MeshRenderer>();
-        _gameObject.GetComponent<MeshFilter>().mesh = _mesh;
-        _gameObject.GetComponent<MeshRenderer>().material = _blackMaterial;
-        _gameObject.AddComponent<Trash>();
-        _gameObject.transform.position = transform.position;
-        _gameObject.isStatic = true;
-        _gameObject.tag = "Trash";
-        // int _x = Random.Range(0, 360);
-        // int _y = Random.Range(0, 360);
-        // _gameObject.transform.rotation 
-        //     = Quaternion.Euler(_x, _gameObject.transform.rotation.y, 0);
+        GameObject _trash = Instantiate(_enemyModel,transform.position, transform.rotation);
+        ChangeMeshColors(_trash.transform,0);
+        _trash.name = $"{transform.name} :trash clone";
+        _trash.AddComponent<Trash>();
+        _trash.isStatic = true;
+        _trash.tag = "Trash";
     }
 
+    private void ChangeMeshColors(Transform _parent,float _waitTime)
+    {
+        foreach (Transform _child in _parent.GetComponentsInChildren<Transform>())
+        {
+            //Debug.LogWarning(_child.name);
+            if (_child.GetComponent<MeshRenderer>())
+            {
+                MeshRenderer _meshRenderer = _child.GetComponent<MeshRenderer>();
+                StartCoroutine(HitChangeMaterial(_meshRenderer,_waitTime));
+            }
+        }
+    }
     public bool CheckHealth(float _value)
     {
         Debug.LogWarning("Enemy hit");
@@ -95,15 +98,9 @@ public class Enemy : MonoBehaviour
             EnemyDie();
             return false;
         }
-        foreach (Transform _child in transform.GetComponentsInChildren<Transform>())
-        {
-            //Debug.LogWarning(_child.name);
-            if (_child.GetComponent<MeshRenderer>())
-            {
-                MeshRenderer _meshRenderer = _child.GetComponent<MeshRenderer>();
-                StartCoroutine(HitChangeMaterial(_meshRenderer));
-            }
-        }
+        
+        ChangeMeshColors(transform,0.05f);
+        
         return true;
     }
 
@@ -140,13 +137,21 @@ public class Enemy : MonoBehaviour
         _bulletScript._bulletDamage = _bulletDamage;
         Destroy(_bulletInstance, 5);
     }
-    private IEnumerator HitChangeMaterial(Renderer _enemyPart)
+
+    private IEnumerator HitChangeMaterial(Renderer _enemyPart, float _waitTime)
     {
         Material _childOryginalMaterial;
         var _renderer = _enemyPart;
         _childOryginalMaterial = _renderer.material;
-        _renderer.material = _hitMaterial;
-        yield return new WaitForSeconds(0.05f);
+        if (_waitTime == 0)
+        {
+            _renderer.material = _blackMaterial;
+        }
+        else
+        {
+            _renderer.material = _hitMaterial;
+        }
+        yield return new WaitForSeconds(_waitTime);
         _renderer.material = _childOryginalMaterial;
     }
 }
