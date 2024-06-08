@@ -56,5 +56,9 @@ namespace DefaultNamespace
         {
             _isInUse = _inUse;
         }
+        public void SetUnlocked(bool _unlocked)
+        {
+            _isUnlocked = _unlocked;
+        }
     }
 }

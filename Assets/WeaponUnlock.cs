@@ -31,6 +31,11 @@ public class WeaponUnlock : MonoBehaviour
         _weaponUnlockStages = _playerMovement._weaponsUnlockStages;
         _animator = GetComponent<Animator>();
         _uiManager = FindAnyObjectByType<UIManager>();
+
+        foreach (WeaponClass weapon in _weaponsAtStage)
+        {
+            weapon.SetUnlocked(false);
+        }
     }
 
     public bool CheckForWeaponUnlock()
