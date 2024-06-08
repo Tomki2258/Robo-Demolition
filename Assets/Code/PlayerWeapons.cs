@@ -112,7 +112,11 @@ public class PlayerWeapons : MonoBehaviour
     }
     public void MachineGun()
     {
-        if (!_machineGunClass.CheckForUse()) return;
+        if (!_machineGunClass.CheckForUse())
+        {
+            Debug.LogWarning("Machine gun not unlocked !");
+            return;
+        }
         if (_machineGunMaxTimer > _machineGunCurrentTimer)
         {
             _machineGunCurrentTimer += Time.deltaTime;

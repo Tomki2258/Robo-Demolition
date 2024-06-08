@@ -13,6 +13,11 @@ public class EquipmentCanvas : MonoBehaviour
     public List<WeaponPanel> _weaponPlaces;
     public List<WeaponPanel> _clickedButtons = new List<WeaponPanel>(2);
 
+    private void Start()
+    {
+        _playerWeapons._weaponsInUse[0].SetInUse(true);
+    }
+
     public void CheckForWeaponPanels()
     {
         foreach (WeaponPanel _weaponPanel in _weaponPanels)
