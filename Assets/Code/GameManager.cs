@@ -41,11 +41,11 @@ public class GameManager : MonoBehaviour
     private GameObject[] _bombSpawns;
     public float _currentCaptureWaitTime;
     public int _maxCaptureWaitTime;
-
+    public WeaponUnlock _weaponUnlock;
     private void Awake()
     {
         _bombSpawns = GameObject.FindGameObjectsWithTag("bombersSpawner");
-        
+        _weaponUnlock.PrepareWeapons();
         _player = FindAnyObjectByType<PlayerMovement>();
         _cameraController = FindFirstObjectByType<CameraController>();
 

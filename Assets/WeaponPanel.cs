@@ -9,13 +9,12 @@ using Image = UnityEngine.UI.Image;
 public class WeaponPanel : MonoBehaviour
 {
     public WeaponClass _weaponClass;
-    private Image _weaponImage;
+    [SerializeField] private Image _weaponImage;
     public Sprite _weaponSprite;
     public Sprite _lockedSprite;
     public bool _isUnlocked;
     void Start()
     {
-        _weaponImage = transform.GetChild(0).GetComponent<Image>();
         _weaponImage.sprite = _weaponSprite; //comment
     }
 

@@ -34,8 +34,10 @@ public class UIManager : MonoBehaviour
     private bool _startOverrided = false;
     public GameObject _settingsUI;
     public Image _captureAreaImage;
+    public GameObject _eqCanvas;
     private void Awake()
     {
+        _eqCanvas.SetActive(false);
         _captureAreaImage.enabled = false;
         _settingsUI.SetActive(false);
         _levelUpCanvas.SetActive(false);
@@ -50,6 +52,17 @@ public class UIManager : MonoBehaviour
         else _fpsCanvas.SetActive(false);
     }
 
+    public void EnableEqCanvas(bool _mode)
+    {
+        _mainUI.SetActive(!_mode);
+        Time.timeScale = _mode ? 0 : 1;
+        _eqCanvas.SetActive(_mode);
+        if (_mode)
+        {
+            EquipmentCanvas _eqCanvasScript = _eqCanvas.GetComponent<EquipmentCanvas>();
+            _eqCanvasScript.CheckForWeaponPanels();
+        }
+    }
     private void Start()
     {
         if(!_startOverrided) StartGame(false);
