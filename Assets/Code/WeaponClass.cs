@@ -61,5 +61,10 @@ namespace DefaultNamespace
         {
             _isUnlocked = _unlocked;
         }
+
+        public bool CheckForUse()
+        {
+            return _isInUse;
+        }
     }
 }
