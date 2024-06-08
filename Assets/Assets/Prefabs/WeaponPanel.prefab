@@ -90,11 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbb3c413454fa85daf6c73a76bf33a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponClass: {fileID: 11400000, guid: 7f2b31fb22d5a4ee284003d5c6119934, type: 2}
+  _weaponClass: {fileID: 11400000, guid: 58adcd05c7a822d01baa7124110a6cb5, type: 2}
   _weaponImage: {fileID: 6830859314508833911}
   _weaponSprite: {fileID: 21300000, guid: 15637d8be3e2c0a14ada09f5614510e0, type: 3}
   _lockedSprite: {fileID: 21300000, guid: 9bdbfe6904cf6dc46a08b515299cd60b, type: 3}
   _isUnlocked: 0
+  _equipment: {fileID: 0}
 --- !u!1 &3660433378784524209
 GameObject:
   m_ObjectHideFlags: 0

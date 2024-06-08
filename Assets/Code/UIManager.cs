@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviour
         else
         {
             _eqCanvasScript.SetUsedWeapons();
+            _player._playerWeapons.SetWeaponsInUse();
         }
     }
     private void Start()

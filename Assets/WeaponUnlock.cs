@@ -37,6 +37,7 @@ public class WeaponUnlock : MonoBehaviour
         foreach (WeaponClass weapon in _weaponsAtStage)
         {
             weapon.SetUnlocked(false);
+            weapon.SetInUse(false);
         }
     }
 
@@ -108,6 +109,8 @@ public class WeaponUnlock : MonoBehaviour
         }
         _weaponUnlockUI.SetActive(false);
         _uiManager.DoLevelUpCanvas(false);
+        
+        _playerWeapons.SetWeaponsInUse();
     }
     private void SetWeaponsUI()
     {

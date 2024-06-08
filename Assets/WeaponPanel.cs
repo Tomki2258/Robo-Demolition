@@ -12,7 +12,7 @@ public class WeaponPanel : MonoBehaviour
     public Sprite _weaponSprite;
     public Sprite _lockedSprite;
     public bool _isUnlocked;
-    private EquipmentCanvas _equipment;
+    public EquipmentCanvas _equipment;
     private Button _button;
     void Start()
     {
@@ -21,7 +21,6 @@ public class WeaponPanel : MonoBehaviour
         {
             return;
         }
-        _equipment = FindFirstObjectByType<EquipmentCanvas>();
         UpdateVisuals();
         CheckForUnlock();
     }
@@ -72,7 +71,9 @@ public class WeaponPanel : MonoBehaviour
                 _equipment._clickedButtons.Add(this);
             
                 WeaponClass _tempClass = _equipment._clickedButtons[0]._weaponClass;
+                _tempClass.SetInUse(false);
                 _equipment._clickedButtons[0]._weaponClass = _equipment._clickedButtons[1]._weaponClass;
+                _equipment._clickedButtons[1]._weaponClass.SetInUse(true);
                 _equipment._clickedButtons[1]._weaponClass = _tempClass;
                 _equipment._clickedButtons[0].UpdateVisuals();
                 _equipment._clickedButtons[1].UpdateVisuals();

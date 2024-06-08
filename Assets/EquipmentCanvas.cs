@@ -21,10 +21,13 @@ public class EquipmentCanvas : MonoBehaviour
         }
         
         _weaponsInUse = _playerWeapons.GetWeapons();
-
-        foreach (WeaponClass _weaponClass in _weaponsInUse)
+        _weaponsInUse.RemoveAll(s => s == null);
+        Debug.LogWarning($"{_weaponsInUse.Count}");
+        
+        for (int  i = 0;  i < _weaponsInUse.Count; i++)
         {
-            _weaponPlaces[_weaponsInUse.IndexOf(_weaponClass)]._weaponClass = _weaponClass;
+            _weaponPlaces[i]._weaponClass = _weaponsInUse[i];
+            _weaponPlaces[i].UpdateVisuals();  
         }
     }
 

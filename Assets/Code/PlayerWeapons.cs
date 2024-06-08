@@ -74,7 +74,15 @@ public class PlayerWeapons : MonoBehaviour
             _weapon.SetActive(false);
         }
     }
-    
+
+    public void SetWeaponsInUse()
+    {
+        foreach (WeaponClass _weapon in _weaponsInUse)
+        {
+            Debug.LogWarning($"{_weapon.GetWeaponName()} is now in use !");
+            _weapon.SetInUse(true);
+        }
+    }
     public void StandardGun()
     {
         if (!_standardGunEnabled) return;
@@ -249,5 +257,6 @@ public class PlayerWeapons : MonoBehaviour
     public void SetUsedWeapons(List<WeaponClass> _weapons)
     {
         _weaponsInUse = _weapons;
+        _weaponsInUse.RemoveAll(s => s == null);
     }
 }
