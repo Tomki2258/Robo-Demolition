@@ -23,9 +23,10 @@ public class WeaponUnlock : MonoBehaviour
     [Header("Second Element UI")]
     public TMP_Text _secondWeaponName;
     public Image _secondWeaponImage;
-    
+    private EquipmentCanvas _equipmentCanvas;
     void Start()
     {
+        _equipmentCanvas = FindAnyObjectByType<EquipmentCanvas>();
         _playerMovement = FindFirstObjectByType<PlayerMovement>();
         _playerWeapons = _playerMovement._playerWeapons;
         _weaponUnlockStages = _playerMovement._weaponsUnlockStages;
@@ -64,34 +65,46 @@ public class WeaponUnlock : MonoBehaviour
 
     private void GetReward(WeaponClass _weaponType)
     {
-        _weaponType.UnlockWeapon();
-        _playerWeapons._weaponsInUse.Add(_weaponType);
+        WeaponClass _currentWeapon = null;
         switch (_weaponType.GetWeaponType())
         {
             case WeaponTypes.Shotgun:
-                _playerWeapons._shotgunEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.Shotgun);
                 break;
             case WeaponTypes.MachineGun:
-                _playerWeapons._machineGunEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.MachineGun);
                 break;
             case WeaponTypes.LaserGum:
-                _playerWeapons._laserGunEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.LaserGum);
                 break;
             case WeaponTypes.OrbitalGun:
-                _playerWeapons._rocketLauncherEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.OrbitalGun);
                 break;
             case WeaponTypes.SniperGun:
-                _playerWeapons._sniperGunEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.SniperGun);
                 break;
             case WeaponTypes.CircleGun:
-                _playerWeapons._circleGunEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.CircleGun);
                 break;
             case WeaponTypes.SphereAttack:
-                _playerWeapons._sphereAttackEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.SphereAttack);
                 break;
             case WeaponTypes.RocketLauncher:
-                _playerWeapons._rocketLauncherEnabled = true;
+                _currentWeapon = FindWeapon(WeaponTypes.RocketLauncher);
                 break;
+        }
+
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.UnlockWeapon();
+
+            int _weaponSlot = _equipmentCanvas.GetFreeWeaponSlot();
+            if(_weaponSlot != -1)
+            {
+                _playerWeapons._weaponsInUse.Add(_currentWeapon);
+                _equipmentCanvas._weaponPlaces[_weaponSlot]._weaponClass = _currentWeapon;
+                _equipmentCanvas._weaponPlaces[_weaponSlot].UpdateVisuals();
+            }
         }
         _weaponUnlockUI.SetActive(false);
         _uiManager.DoLevelUpCanvas(false);
@@ -109,5 +122,17 @@ public class WeaponUnlock : MonoBehaviour
         
         _secondWeaponName.text = _secondWeapon.GetWeaponName();
         _secondWeaponImage.sprite = _secondWeapon.GetWeaponSprite();
+    }
+
+    private WeaponClass FindWeapon(WeaponTypes _weaponType)
+    {
+        foreach (WeaponClass weapon in _weaponsAtStage)
+        {
+            if (weapon.GetWeaponType() == _weaponType)
+            {
+                return weapon;
+            }
+        }
+        return null;
     }
 }

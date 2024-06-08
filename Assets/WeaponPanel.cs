@@ -13,8 +13,10 @@ public class WeaponPanel : MonoBehaviour
     public Sprite _lockedSprite;
     public bool _isUnlocked;
     private EquipmentCanvas _equipment;
+    private Button _button;
     void Start()
     {
+        _button = transform.GetChild(1).GetComponent<Button>();
         if (_weaponClass == null)
         {
             return;
@@ -24,7 +26,7 @@ public class WeaponPanel : MonoBehaviour
         CheckForUnlock();
     }
 
-    private void UpdateVisuals()
+    public void UpdateVisuals()
     {
         if (_weaponClass == null)
         {
@@ -32,14 +34,7 @@ public class WeaponPanel : MonoBehaviour
         }
         _weaponSprite = _weaponClass.GetWeaponSprite();
         
-        if (_weaponClass.IsWeaponUnlocked())
-        {
-            _weaponImage.sprite = _weaponSprite;
-        }
-        else
-        {
-            _weaponImage.sprite = _lockedSprite;
-        }
+        CheckForUnlock();
     }
     public void CheckForUnlock()
     {
@@ -54,6 +49,7 @@ public class WeaponPanel : MonoBehaviour
         else
         {
             _weaponImage.sprite = _lockedSprite;
+            
         }
     }
     public void ChooseWeapon()
@@ -70,16 +66,17 @@ public class WeaponPanel : MonoBehaviour
             if(_equipment._weaponPlaces.Contains(this))
             {
                 Debug.LogWarning("wrong pick !");
-                return;
             }
+            else
+            {
+                _equipment._clickedButtons.Add(this);
             
-            _equipment._clickedButtons.Add(this);
-            
-            WeaponClass _tempClass = _equipment._clickedButtons[0]._weaponClass;
-            _equipment._clickedButtons[0]._weaponClass = _equipment._clickedButtons[1]._weaponClass;
-            _equipment._clickedButtons[1]._weaponClass = _tempClass;
-            _equipment._clickedButtons[0].UpdateVisuals();
-            _equipment._clickedButtons[1].UpdateVisuals();
+                WeaponClass _tempClass = _equipment._clickedButtons[0]._weaponClass;
+                _equipment._clickedButtons[0]._weaponClass = _equipment._clickedButtons[1]._weaponClass;
+                _equipment._clickedButtons[1]._weaponClass = _tempClass;
+                _equipment._clickedButtons[0].UpdateVisuals();
+                _equipment._clickedButtons[1].UpdateVisuals();
+            }
             _equipment._clickedButtons.Clear();
         }
     }

@@ -11,7 +11,9 @@ public class PlayerWeapons : MonoBehaviour
     public List<WeaponClass> _weaponsInUse;
     public GameObject _bullet;
     private float _circleGunCurrentTimer;
-
+    private EquipmentCanvas _equipmentCanvas;
+    
+    
     [Header("Standard Gun")] 
     public bool _standardGunEnabled;
     public float _standardMaxTimer;
@@ -65,6 +67,7 @@ public class PlayerWeapons : MonoBehaviour
     public List<GameObject> _weaponsModels;
     private void Start()
     {
+        _equipmentCanvas = FindFirstObjectByType<EquipmentCanvas>();
         _laserCurrentDamage = _laserBaseDamage;
         foreach (GameObject _weapon in _weaponsModels)
         {
