@@ -53,7 +53,8 @@ public class LevelUpUI : MonoBehaviour
         switch (_currentPowerUp.GetPowerUpType())
         {
             case PowerUpsEnum.Health:
-                _player._maxHealth *= 1 + _currentPowerUp.GetPlayerBonus();
+                float maxHealth = _player._maxHealth * (1 + _currentPowerUp.GetPlayerBonus());
+                _player._maxHealth =Mathf.Round(maxHealth);
                 //Debug.LogWarning(PowerUpsEnum.Health);
                 break;
             case PowerUpsEnum.Damage:

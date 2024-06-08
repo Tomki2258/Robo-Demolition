@@ -352,7 +352,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("revive");
             _health = _maxHealth / 2;
             _uiManager.ShowHpDifference(_maxHealth / 2);
-            _cameraController._offset.y = 15;
+            _cameraController._offset.y = 30;
             _cameraController._speed *= 2;
             _animator.enabled = false;
         }

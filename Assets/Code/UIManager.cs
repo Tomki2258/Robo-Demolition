@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
         _hpDifference.transform.position = _randomPosition;
         _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         TMP_Text _text = _hpDifference.GetComponent<TMP_Text>();
-        _text.text = _value.ToString();
+        _text.text = _value.ToString("0.00");
 
         if (_value > 0)
         {
