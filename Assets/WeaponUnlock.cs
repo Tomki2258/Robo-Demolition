@@ -89,6 +89,9 @@ public class WeaponUnlock : MonoBehaviour
             case WeaponTypes.SphereAttack:
                 _playerWeapons._sphereAttackEnabled = true;
                 break;
+            case WeaponTypes.RocketLauncher:
+                _playerWeapons._rocketLauncherEnabled = true;
+                break;
         }
         _weaponUnlockUI.SetActive(false);
         _uiManager.DoLevelUpCanvas(false);

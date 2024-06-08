@@ -57,10 +57,14 @@ public class UIManager : MonoBehaviour
         _mainUI.SetActive(!_mode);
         Time.timeScale = _mode ? 0 : 1;
         _eqCanvas.SetActive(_mode);
+        EquipmentCanvas _eqCanvasScript = FindFirstObjectByType<EquipmentCanvas>();
         if (_mode)
         {
-            EquipmentCanvas _eqCanvasScript = _eqCanvas.GetComponent<EquipmentCanvas>();
             _eqCanvasScript.CheckForWeaponPanels();
+        }
+        else
+        {
+            _eqCanvasScript.SetUsedWeapons();
         }
     }
     private void Start()

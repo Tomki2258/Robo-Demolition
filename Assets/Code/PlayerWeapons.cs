@@ -239,4 +239,12 @@ public class PlayerWeapons : MonoBehaviour
         _sphereAttackMaxTimer *= 1 - _value;
         _shotgunMaxTimer *= 1 - _value;
     }
+    public List<WeaponClass> GetWeapons()
+    {
+        return _weaponsInUse;
+    }
+    public void SetUsedWeapons(List<WeaponClass> _weapons)
+    {
+        _weaponsInUse = _weapons;
+    }
 }

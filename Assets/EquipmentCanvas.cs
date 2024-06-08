@@ -8,26 +8,35 @@ using UnityEngine;
 public class EquipmentCanvas : MonoBehaviour
 {
     public List<WeaponPanel> _weaponPanels;
-    private List<WeaponClass> _weaponsInUse;
-    private PlayerWeapons _playerWeapons;
+    public List<WeaponClass> _weaponsInUse;
+    public PlayerWeapons _playerWeapons;
     public List<WeaponPanel> _weaponPlaces;
-    private void Start()
-    {
-        _playerWeapons = FindFirstObjectByType<PlayerWeapons>();
-    }
+    private List<WeaponClass> _weaponClasses;
+    public List<WeaponPanel> _clickedButtons = new List<WeaponPanel>(2);
 
     public void CheckForWeaponPanels()
     {
-        _weaponsInUse = _playerWeapons._weaponsInUse;
+        foreach (WeaponPanel _weaponPanel in _weaponPanels)
+        {
+            _weaponPanel.CheckForUnlock();
+        }
+        
+        _weaponsInUse = _playerWeapons.GetWeapons();
 
         foreach (WeaponClass _weaponClass in _weaponsInUse)
         {
             _weaponPlaces[_weaponsInUse.IndexOf(_weaponClass)]._weaponClass = _weaponClass;
         }
-        
-        foreach (WeaponPanel weaponPanel in _weaponPanels)
+    }
+
+    public void SetUsedWeapons()
+    {
+        _weaponClasses.Clear();
+        Debug.LogWarning("Weapons set");
+        foreach (WeaponPanel _weaponPanel in _weaponPlaces)
         {
-            weaponPanel.CheckForUnlock();
+            _weaponClasses.Add(_weaponPanel._weaponClass);
         }
+        _playerWeapons.SetUsedWeapons(_weaponClasses);
     }
 }

@@ -5,6 +5,7 @@ public enum WeaponTypes
     MachineGun,
     Shotgun,
     LaserGum,
+    RocketLauncher,
     OrbitalGun,
     SniperGun,
     CircleGun,
