@@ -13,7 +13,7 @@ public class WeaponPanel : MonoBehaviour
     public Sprite _lockedSprite;
     public bool _isUnlocked;
     public EquipmentCanvas _equipment;
-    private Button _button;
+    [SerializeField] private Button _button;
     void Start()
     {
         _button = transform.GetChild(1).GetComponent<Button>();
@@ -44,11 +44,14 @@ public class WeaponPanel : MonoBehaviour
         if (_weaponClass.IsWeaponUnlocked())
         {
             _weaponImage.sprite = _weaponSprite;
+            _weaponImage.color = new Color32(255,255,225,255);
+            _button.interactable = true;
         }
         else
         {
             _weaponImage.sprite = _lockedSprite;
-            
+            _weaponImage.color = new Color32(255/2,255/2,225/2,255);
+            _button.interactable = false;
         }
     }
     public void ChooseWeapon()

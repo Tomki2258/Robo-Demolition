@@ -6673,6 +6673,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
+      propertyPath: _bullet
+      value: 
+      objectReference: {fileID: 6881128617358307309, guid: 5a3b4fe5ae1e432e9bdd029ffb9c48e3,
+        type: 3}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
       propertyPath: _laserGunClass
       value: 
       objectReference: {fileID: 11400000, guid: 58adcd05c7a822d01baa7124110a6cb5,
@@ -6682,6 +6688,11 @@ PrefabInstance:
       propertyPath: _rocketSpawner
       value: 
       objectReference: {fileID: 527812796}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _sniperSpawner
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _circleGunClass

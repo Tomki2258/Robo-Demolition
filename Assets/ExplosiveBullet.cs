@@ -1,24 +1,27 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class ExplosiveBullet : Bullet
 {
-    public float _bulletSpeed;
-    public float _bulletDamage = 5;
-    public bool _enemyShoot;
-    public Material _redMaterial;
-    private Material _lastEnemyMaterial;
-     private void Start()
+    [Header("Child spript")] public int _explosionRange;
+    public GameObject _explosionEffect;
+    private void DoDamage(Vector3 _otherPositon)
     {
-        Destroy(gameObject, 5);
+        Debug.LogWarning("Explosion bullet");
+        Collider[] _colliders = Physics.OverlapSphere(_otherPositon,_explosionRange);
+        
+        foreach (Collider _col in _colliders)
+        {
+            if (_col.GetComponent<Enemy>())
+            {
+                Enemy _enemy = _col.GetComponent<Enemy>();
+                _enemy.CheckHealth(_bulletDamage * 0.75f);
+            }
+        }
     }
-
-    private void Update()
-    {
-        transform.position += transform.TransformDirection(Vector3.forward * _bulletSpeed * Time.deltaTime);
-    }
-
-    public void HitFunction(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet")) return;
 
@@ -34,6 +37,7 @@ public class Bullet : MonoBehaviour
                 {
                     
                 }
+                DoDamage(other.transform.position);
                 Destroy(gameObject);
             }
             else
@@ -57,9 +61,5 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        HitFunction(other);
     }
 }

@@ -114,7 +114,7 @@ public class PlayerWeapons : MonoBehaviour
     {
         if (!_machineGunClass.CheckForUse())
         {
-            Debug.LogWarning("Machine gun not unlocked !");
+            //Debug.LogWarning("Machine gun not unlocked !");
             return;
         }
         if (_machineGunMaxTimer > _machineGunCurrentTimer)
