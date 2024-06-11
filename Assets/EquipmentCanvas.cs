@@ -35,7 +35,18 @@ public class EquipmentCanvas : MonoBehaviour
             _weaponPlaces[i].UpdateVisuals();  
         }
     }
+    public bool CheckForWeaponPanel(WeaponClass _weaponClass)
+    {
+        foreach (WeaponPanel _weaponPanel in _weaponPlaces)
+        {
+            if (_weaponPanel._weaponClass == _weaponClass)
+            {
+                return true;
+            }
+        }
 
+        return false;
+    }
     public void SetUsedWeapons()
     {
         List<WeaponClass> _weaponClasses = new List<WeaponClass>();

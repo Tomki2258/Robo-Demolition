@@ -42,8 +42,11 @@ public class GameManager : MonoBehaviour
     public float _currentCaptureWaitTime;
     public int _maxCaptureWaitTime;
     public WeaponUnlock _weaponUnlock;
+    public NotyficationBaner _notyficationBaner;
     private void Awake()
     {
+        _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
+        _notyficationBaner._notyficationBaner.SetActive(false);
         _bombSpawns = GameObject.FindGameObjectsWithTag("bombersSpawner");
         _weaponUnlock.PrepareWeapons();
         _player = FindAnyObjectByType<PlayerMovement>();

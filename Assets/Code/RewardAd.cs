@@ -30,11 +30,11 @@ public class RewardAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
         if (random != 0)
         {
             //_showAdButton.interactable = false;
-            Debug.LogWarning("Reward ad ON");
+            //Debug.LogWarning("Reward ad ON");
         }
         else
         {
-            Debug.LogWarning("ad turned OFF");
+            //Debug.LogWarning("ad turned OFF");
         }
     }
     // Call this public method when you want to get an ad ready to show.

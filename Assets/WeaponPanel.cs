@@ -14,8 +14,10 @@ public class WeaponPanel : MonoBehaviour
     public bool _isUnlocked;
     public EquipmentCanvas _equipment;
     [SerializeField] private Button _button;
+    private GameManager _gameManager;
     void Start()
     {
+        _gameManager = FindObjectOfType<GameManager>();
         _button = transform.GetChild(1).GetComponent<Button>();
         if (_weaponClass == null)
         {
@@ -70,9 +72,9 @@ public class WeaponPanel : MonoBehaviour
         }
         else
         {
-            if(_equipment._weaponPlaces.Contains(this) || !IsSameType(_equipment._clickedButtons[0]._weaponClass))
+            if(_equipment._weaponPlaces.Contains(this) || IsSameType(_equipment._clickedButtons[0]._weaponClass) || _equipment.CheckForWeaponPanel(this._weaponClass))
             {
-                Debug.LogWarning("wrong pick !");
+                _gameManager._notyficationBaner.ShotMessage("Error","You can't change weapon type !");
             }
             else
             {
