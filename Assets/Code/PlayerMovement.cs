@@ -139,8 +139,9 @@ public class PlayerMovement : MonoBehaviour
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             Transform _nearestEnemy = GetNearestEnemy();
+            float _tempAttackRange = _attackRange * transform.localScale.x + 2;
 
-            if (Vector3.Distance(transform.position, _nearestEnemy.position) < 20)
+            if (Vector3.Distance(transform.position, _nearestEnemy.position) < _tempAttackRange)
             {
                 MoveTurret(GetNearestEnemy().position);
             }

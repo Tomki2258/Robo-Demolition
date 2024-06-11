@@ -91,7 +91,7 @@ public class PlayerWeapons : MonoBehaviour
     {
         foreach (WeaponClass _weapon in _weaponsInUse)
         {
-            Debug.LogWarning($"{_weapon.GetWeaponName()} is now in use !");
+            //Debug.LogWarning($"{_weapon.GetWeaponName()} is now in use !");
             _weapon.SetInUse(true);
         }
     }
