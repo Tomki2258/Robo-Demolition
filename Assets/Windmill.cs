@@ -1,20 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Windmill : MonoBehaviour
 {
-    private Transform _wings;
-    private float _randomMultipler;
-    void Start()
+    [SerializeField] private List<GameObject> _windmills;
+    [SerializeField] private float _speed;
+    [SerializeField] private List<GameObject> _blades;
+
+    private void Start()
     {
-        _wings = transform.GetChild(0);
-        _randomMultipler = Random.Range(0, 360);
-        _wings.transform.Rotate(0,0,_randomMultipler);
+        foreach (GameObject windmill in _windmills)
+        {
+            int randomRotation = Random.Range(0, 360);
+            GameObject blade = windmill.transform.GetChild(0).gameObject;
+            _blades.Add(blade);
+            blade.transform.Rotate(Vector3.forward * randomRotation);
+        }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        _wings.transform.Rotate(0,0,90 * Time.deltaTime);
+        foreach (GameObject windmill in _blades)
+        {
+            windmill.transform.Rotate(Vector3.forward * (_speed * Time.deltaTime));
+        }
     }
 }
