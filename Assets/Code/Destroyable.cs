@@ -8,7 +8,6 @@ public class Destroyable : MonoBehaviour
     private Renderer _renderer;
     private float _height;
     private Vector3 _collapseVector;
-    private bool _canCollapse;
     public float _fallingSpeed;
     private void Start()
     {
@@ -21,26 +20,8 @@ public class Destroyable : MonoBehaviour
             transform.position.z);
     }
 
-    private void FixedUpdate()
+    public Vector3 GetCollabseVector()
     {
-        if(!_canCollapse) return;
-
-        if (Vector3.Distance(transform.position,_collapseVector) > 0.2f)
-        {
-            transform.position = Vector3.Lerp(
-                new Vector3(
-                     transform.position.x + Mathf.Sin(Time.time * 50 ) * 0.03f,
-                    transform.position.y,
-                    transform.position.z +  + Mathf.Sin(Time.time * 50 ) * 0.03f), _collapseVector, _fallingSpeed * Time.deltaTime);
-        }
-        else
-        {
-            
-        }
-    }
-
-    public void DoCollapse()
-    {
-        _canCollapse = true;
+        return _collapseVector;
     }
 }

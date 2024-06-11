@@ -145,7 +145,7 @@ public class PlayerWeapons : MonoBehaviour
         _bulletScript._bulletSpeed = 50;
         _currentBullet.transform.rotation = _sniperSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage * _damageMultipler;
-        _sniperAudioSource.Play();
+//        _sniperAudioSource.Play();
         _sniperCurrentTimer = 0;
     }
     public void RocketLauncher()

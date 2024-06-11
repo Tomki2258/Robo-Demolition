@@ -54,6 +54,11 @@ public class WeaponPanel : MonoBehaviour
             _button.interactable = false;
         }
     }
+
+    private bool IsSameType(WeaponClass _weaponClass)
+    {
+        return this._weaponClass.GetWeaponType() == _weaponClass.GetWeaponType();
+    }
     public void ChooseWeapon()
     {
         if (_equipment._clickedButtons.Count == 0)
@@ -65,7 +70,7 @@ public class WeaponPanel : MonoBehaviour
         }
         else
         {
-            if(_equipment._weaponPlaces.Contains(this))
+            if(_equipment._weaponPlaces.Contains(this) || !IsSameType(_equipment._clickedButtons[0]._weaponClass))
             {
                 Debug.LogWarning("wrong pick !");
             }

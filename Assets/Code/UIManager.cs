@@ -47,9 +47,10 @@ public class UIManager : MonoBehaviour
         
         _startTime = DateTime.Now;
         
-        
+        /*
         if(_enableFPS) _fpsCanvas.SetActive(true);
         else _fpsCanvas.SetActive(false);
+        */
     }
 
     public void EnableEqCanvas(bool _mode)
