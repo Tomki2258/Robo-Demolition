@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 
 public class EquipmentCanvas : MonoBehaviour
@@ -10,9 +11,8 @@ public class EquipmentCanvas : MonoBehaviour
     public List<WeaponPanel> _weaponPanels;
     public List<WeaponClass> _weaponsInUse;
     public PlayerWeapons _playerWeapons;
-    public List<WeaponPanel> _weaponPlaces;
-    public List<WeaponPanel> _clickedButtons = new List<WeaponPanel>(2);
-
+    public int _maxWeaponsInUse;
+    public TMP_Text _weaponAmountText;
     private void Start()
     {
         _playerWeapons._weaponsInUse[0].SetInUse(true);
@@ -27,47 +27,11 @@ public class EquipmentCanvas : MonoBehaviour
         
         _weaponsInUse = _playerWeapons.GetWeapons();
         _weaponsInUse.RemoveAll(s => s == null);
-        Debug.LogWarning($"{_weaponsInUse.Count}");
-        
-        for (int  i = 0;  i < _weaponsInUse.Count; i++)
-        {
-            _weaponPlaces[i]._weaponClass = _weaponsInUse[i];
-            _weaponPlaces[i].UpdateVisuals();  
-        }
-    }
-    public bool CheckForWeaponPanel(WeaponClass _weaponClass)
-    {
-        foreach (WeaponPanel _weaponPanel in _weaponPlaces)
-        {
-            if (_weaponPanel._weaponClass == _weaponClass)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-    public void SetUsedWeapons()
-    {
-        List<WeaponClass> _weaponClasses = new List<WeaponClass>();
-        Debug.LogWarning("Weapons set");
-        foreach (WeaponPanel _weaponPanel in _weaponPlaces)
-        {
-            _weaponClasses.Add(_weaponPanel._weaponClass);
-        }
-        _playerWeapons.SetUsedWeapons(_weaponClasses);
+        RefleshWeaponAmountInfo();
     }
 
-    public int GetFreeWeaponSlot()
+    public void RefleshWeaponAmountInfo()
     {
-        foreach (WeaponPanel _weaponPanel in _weaponPlaces)
-        {
-            if (_weaponPanel._weaponClass == null)
-            {
-                return _weaponPlaces.IndexOf(_weaponPanel);
-            }
-        }
-
-        return -1;
+        _weaponAmountText.text = $"{_weaponsInUse.Count}/{_maxWeaponsInUse}";
     }
 }

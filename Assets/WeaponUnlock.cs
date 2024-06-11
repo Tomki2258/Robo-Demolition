@@ -98,14 +98,6 @@ public class WeaponUnlock : MonoBehaviour
         if (_currentWeapon != null)
         {
             _currentWeapon.UnlockWeapon();
-
-            int _weaponSlot = _equipmentCanvas.GetFreeWeaponSlot();
-            if(_weaponSlot != -1)
-            {
-                _playerWeapons._weaponsInUse.Add(_currentWeapon);
-                _equipmentCanvas._weaponPlaces[_weaponSlot]._weaponClass = _currentWeapon;
-                _equipmentCanvas._weaponPlaces[_weaponSlot].UpdateVisuals();
-            }
         }
         _weaponUnlockUI.SetActive(false);
         _uiManager.DoLevelUpCanvas(false);

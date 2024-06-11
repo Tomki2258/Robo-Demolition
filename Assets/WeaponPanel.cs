@@ -25,6 +25,10 @@ public class WeaponPanel : MonoBehaviour
         }
         UpdateVisuals();
         CheckForUnlock();
+        if (!_weaponClass.CheckInUse())
+        {
+            _weaponImage.color = new Color32(255/2,255/2,225/2,255);
+        }
     }
 
     public void UpdateVisuals()
@@ -55,6 +59,15 @@ public class WeaponPanel : MonoBehaviour
             _weaponImage.color = new Color32(255/2,255/2,225/2,255);
             _button.interactable = false;
         }
+
+        if (!_weaponClass.CheckInUse())
+        {
+            _weaponImage.color = new Color32(255/2,255/2,225/2,255);
+        }
+        else
+        {
+            _weaponImage.color = new Color32(255,255,225,255);
+        }
     }
 
     private bool IsSameType(WeaponClass _weaponClass)
@@ -63,32 +76,27 @@ public class WeaponPanel : MonoBehaviour
     }
     public void ChooseWeapon()
     {
-        if (_equipment._clickedButtons.Count == 0)
-        {
-            if(_equipment._weaponPlaces.Contains(this))
-            {
-                _equipment._clickedButtons.Add(this);
-            }
-        }
-        else
-        {
-            if(_equipment._weaponPlaces.Contains(this) || IsSameType(_equipment._clickedButtons[0]._weaponClass) || _equipment.CheckForWeaponPanel(this._weaponClass))
-            {
-                _gameManager._notyficationBaner.ShotMessage("Error","You can't change weapon type !");
-            }
-            else
-            {
-                _equipment._clickedButtons.Add(this);
-            
-                WeaponClass _tempClass = _equipment._clickedButtons[0]._weaponClass;
-                _tempClass.SetInUse(false);
-                _equipment._clickedButtons[0]._weaponClass = _equipment._clickedButtons[1]._weaponClass;
-                _equipment._clickedButtons[1]._weaponClass.SetInUse(true);
-                _equipment._clickedButtons[1]._weaponClass = _tempClass;
-                _equipment._clickedButtons[0].UpdateVisuals();
-                _equipment._clickedButtons[1].UpdateVisuals();
-            }
-            _equipment._clickedButtons.Clear();
-        }
+       if (_weaponClass.CheckInUse())
+       {
+           if (_equipment._weaponsInUse.Count == 1)
+           {
+               _gameManager._notyficationBaner.ShotMessage("Error","You can't remove last weapon!");
+               return;
+           }
+           _equipment._weaponsInUse.Remove(_weaponClass);
+           _weaponImage.color = new Color32(255/2,255/2,225/2,255);
+       }
+       else
+       {
+           if(_equipment._weaponsInUse.Count == _equipment._maxWeaponsInUse)
+           { 
+               _gameManager._notyficationBaner.ShotMessage("Error","You reach weapons limit!");
+               return;
+           }
+           _equipment._weaponsInUse.Add(_weaponClass);
+           _weaponImage.color = new Color32(255,255,225,255);
+       }
+       _equipment.RefleshWeaponAmountInfo();
+       _weaponClass.SetInUse(!_weaponClass.CheckInUse());
     }
 }
