@@ -99,6 +99,12 @@ public class WeaponUnlock : MonoBehaviour
         {
             _currentWeapon.UnlockWeapon();
         }
+
+        if (_equipmentCanvas.HasFreeWeaponSlot())
+        {
+            _equipmentCanvas._weaponsInUse.Add(_currentWeapon);
+            _currentWeapon.SetInUse(true);
+        }
         _weaponUnlockUI.SetActive(false);
         _uiManager.DoLevelUpCanvas(false);
         

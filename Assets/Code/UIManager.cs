@@ -141,7 +141,7 @@ public class UIManager : MonoBehaviour
     {
         _mainUI.SetActive(!_sraka);
         _levelUpCanvas.SetActive(_sraka);
-        
+        _levelUpCanvas.SetActive(_sraka);
         
         if(_sraka)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();

@@ -34,4 +34,8 @@ public class EquipmentCanvas : MonoBehaviour
     {
         _weaponAmountText.text = $"{_weaponsInUse.Count}/{_maxWeaponsInUse}";
     }
+    public bool HasFreeWeaponSlot()
+    {
+        return _weaponsInUse.Count < _maxWeaponsInUse;
+    }
 }
