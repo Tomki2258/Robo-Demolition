@@ -38,7 +38,7 @@ public class GameSettings : MonoBehaviour
         _qualityOn = _high;
         if (_high)
         {
-            QualitySettings.SetQualityLevel(4);
+            QualitySettings.SetQualityLevel(2);
             _qualityImage.sprite = _qualityOnSprite;
         }
         else
