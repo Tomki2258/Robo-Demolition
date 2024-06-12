@@ -38,10 +38,12 @@ public class ExplosiveBullet : Bullet
                     
                 }
                 DoDamage(other.transform.position);
+                DoBulletEffect();
                 Destroy(gameObject);
             }
             else
             {
+                DoBulletEffect();
                 Destroy(gameObject);
             }
         }
@@ -58,8 +60,15 @@ public class ExplosiveBullet : Bullet
             }
             else
             {
+                DoBulletEffect();
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void DoBulletEffect()
+    {
+        GameObject _explosionn = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        Destroy(_explosionn,1);
     }
 }
