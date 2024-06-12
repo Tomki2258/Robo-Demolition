@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float _rotationSpeed;
     public Transform _top;
     public Transform _legs;
+    private Animator _legsAnimator;
     public Transform _hands;
     
     public GameObject _currentEnemy;
@@ -58,8 +59,10 @@ public class PlayerMovement : MonoBehaviour
     public Slider _xpSlider;
     private Quaternion _idleQuaterion;
     private PlayerAtributtes _playerAtributtes;
+    private bool _playerMoving = false;
     private void Awake()
     {
+        _legsAnimator = _legs.GetComponent<Animator>();
         _idleQuaterion = new Quaternion(0, 0, 0, 0);
         _startPlayerPositions.Add(_top.localPosition);
         _startPlayerQuaterions.Add(_top.localRotation);
@@ -88,6 +91,11 @@ public class PlayerMovement : MonoBehaviour
         _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
     }
 
+    public bool CheckPlayerMove(Vector3 _moveDirection)
+    {
+        if (_moveDirection.sqrMagnitude <= 0) return false;
+        return true;
+    }
     private void Update()
     {
         if (!_isJoystick || !_gameManager._gameLaunched) return;
@@ -98,16 +106,22 @@ public class PlayerMovement : MonoBehaviour
         var _moveDirection = new Vector3(_joystick.Direction.x, 0, _joystick.Direction.y);
         _controller.Move(_moveDirection * _speed * Time.deltaTime);
 
-        if (_moveDirection.sqrMagnitude <= 0) return;
-
-        var _targetRotation = Vector3.RotateTowards(_controller.transform.forward,
-            _moveDirection,
-            _rotationSpeed * Time.deltaTime,
-            0f);
-        _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
-        if(_currentEnemy == null)
-            //MoveTurret();
-            _playerWeapons._laserSpawner.gameObject.SetActive(false);
+        if (CheckPlayerMove(_moveDirection))
+        {
+            _legsAnimator.SetBool("Moving",true);
+            var _targetRotation = Vector3.RotateTowards(_controller.transform.forward,
+                _moveDirection,
+                _rotationSpeed * Time.deltaTime,
+                0f);
+            _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
+            if(_currentEnemy == null)
+                //MoveTurret();
+                _playerWeapons._laserSpawner.gameObject.SetActive(false);
+        }
+        else
+        {
+            _legsAnimator.SetBool("Moving",false);
+        }
     }
     private void SetUiValues()
     {
