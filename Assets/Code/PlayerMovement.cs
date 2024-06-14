@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     private Quaternion _idleQuaterion;
     private PlayerAtributtes _playerAtributtes;
     private bool _playerMoving = false;
+    public Animator _topAninmator;
     private void Awake()
     {
         _legsAnimator = _legs.GetComponent<Animator>();
@@ -108,7 +109,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (CheckPlayerMove(_moveDirection))
         {
+            _animator.SetBool("Moving",true);
             _legsAnimator.SetBool("Moving",true);
+            _topAninmator.SetBool("Moving",true);
             var _targetRotation = Vector3.RotateTowards(_controller.transform.forward,
                 _moveDirection,
                 _rotationSpeed * Time.deltaTime,
@@ -120,7 +123,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            _animator.SetBool("Moving", false);
             _legsAnimator.SetBool("Moving",false);
+            _topAninmator.SetBool("Moving", false);
         }
     }
     private void SetUiValues()
@@ -348,6 +353,9 @@ public class PlayerMovement : MonoBehaviour
         _cameraController._rotationSpeed *= 1.5f;
         _animator.enabled = true;
         _animator.SetTrigger("die");
+        _legsAnimator.SetBool("Moving",false);
+        _topAninmator.SetBool("Moving", false);
+        _topAninmator.enabled = false;
         //_gameManager.DoAd();
     }
 
