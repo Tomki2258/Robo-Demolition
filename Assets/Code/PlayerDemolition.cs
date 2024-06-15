@@ -11,7 +11,7 @@ public class PlayerDemolition : MonoBehaviour
     private List<GameObject> _destroyedObjects = new List<GameObject>();
     public void UpdatePlayerSize()
     {
-        _playerHeight = _playerRenderer.bounds.size.y * 3;
+        _playerHeight = _playerRenderer.bounds.size.y * 2 + 4;
     }
     
     private void OnTriggerEnter(Collider other)

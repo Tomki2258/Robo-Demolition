@@ -61,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAtributtes _playerAtributtes;
     private bool _playerMoving = false;
     public Animator _topAninmator;
+    private float _currentFootStepTimer;
+    public float _maxFootStepTimer;
+    public AudioSource _legsAudioSource;
     private void Awake()
     {
         _legsAnimator = _legs.GetComponent<Animator>();
@@ -120,9 +123,11 @@ public class PlayerMovement : MonoBehaviour
             if(_currentEnemy == null)
                 //MoveTurret();
                 _playerWeapons._laserSpawner.gameObject.SetActive(false);
+            StepsSoundController();
         }
         else
         {
+            _currentFootStepTimer = 0;
             _animator.SetBool("Moving", false);
             _legsAnimator.SetBool("Moving",false);
             _topAninmator.SetBool("Moving", false);
@@ -397,6 +402,19 @@ public class PlayerMovement : MonoBehaviour
                 MeshRenderer _meshRenderer = _child.GetComponent<MeshRenderer>();
                 _meshRenderer.material = _blackMaterial;
             }
+        }
+    }
+
+    private void StepsSoundController()
+    {
+        if (_currentFootStepTimer > _maxFootStepTimer)
+        {
+            _legsAudioSource.Play();
+            _currentFootStepTimer = 0;
+        }
+        else
+        {
+            _currentFootStepTimer += Time.deltaTime;
         }
     }
 }
