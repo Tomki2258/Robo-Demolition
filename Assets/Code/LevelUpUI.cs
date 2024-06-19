@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using TMPro;
@@ -10,18 +8,19 @@ using Random = UnityEngine.Random;
 public class LevelUpUI : MonoBehaviour
 {
     public List<PowerUpClass> _powerUpsList;
-    private int _powerUpsCount = 0;
-    private PowerUpClass _leftPowerUp;
-    private PowerUpClass _rightPowerUp;
-    private PlayerMovement _player;
     [Header("Power Up Values")] public float _hpMultipler;
-    private UIManager _uiManager;
 
     public GameObject _leftPowerUpUI;
     public GameObject _rightPowerUpUI;
     public StatsCanvas _statsCanvas;
+    private PowerUpClass _leftPowerUp;
+    private PlayerMovement _player;
+    private int _powerUpsCount;
+    private PowerUpClass _rightPowerUp;
+    private UIManager _uiManager;
 
     private WeaponUnlock _weaponUnlock;
+
     private void Awake()
     {
         _weaponUnlock = GetComponent<WeaponUnlock>();
@@ -45,6 +44,7 @@ public class LevelUpUI : MonoBehaviour
             ApplyPowerUp(_leftPowerUp);
             return;
         }
+
         ApplyPowerUp(_rightPowerUp);
     }
 
@@ -53,8 +53,8 @@ public class LevelUpUI : MonoBehaviour
         switch (_currentPowerUp.GetPowerUpType())
         {
             case PowerUpsEnum.Health:
-                float maxHealth = _player._maxHealth * (1 + _currentPowerUp.GetPlayerBonus());
-                _player._maxHealth =Mathf.Round(maxHealth);
+                var maxHealth = _player._maxHealth * (1 + _currentPowerUp.GetPlayerBonus());
+                _player._maxHealth = Mathf.Round(maxHealth);
                 //Debug.LogWarning(PowerUpsEnum.Health);
                 break;
             case PowerUpsEnum.Damage:
@@ -85,20 +85,18 @@ public class LevelUpUI : MonoBehaviour
             _weaponUnlock._weaponUnlockUI.SetActive(false);
         }
     }
+
     public void SetReward()
     {
         _statsCanvas.SetStatsCanvas();
-        
-        int _randomOne = Random.Range(0, _powerUpsCount);
+
+        var _randomOne = Random.Range(0, _powerUpsCount);
         _leftPowerUp = _powerUpsList[_randomOne];
-        
-        int _randomTwo = Random.Range(0, _powerUpsCount);
-        while (_randomTwo == _randomOne)
-        {
-            _randomTwo = Random.Range(0, _powerUpsCount);
-        }
+
+        var _randomTwo = Random.Range(0, _powerUpsCount);
+        while (_randomTwo == _randomOne) _randomTwo = Random.Range(0, _powerUpsCount);
         _rightPowerUp = _powerUpsList[_randomTwo];
-        
+
         //Set UI
         _leftPowerUpUI.transform.GetChild(1).GetComponent<Image>().sprite = _leftPowerUp.GetPowerUpSprite();
         _leftPowerUpUI.transform.GetChild(2).GetComponent<TMP_Text>().text = _leftPowerUp.GetPowerUpDescription();

@@ -8,41 +8,42 @@ using Random = UnityEngine.Random;
 public class BombardEnemy : MonoBehaviour
 {
     public GameObject[] _bombSpawns;
-    private Transform _targetSpawn;
     public GameObject _explosionPrefab;
     public int _bombLenght;
     public float _bombDelay;
     public GameObject _planes;
     public int _planesSpeed;
-    private int _directionX;
-    private bool _testX;
-    private int _directionY;
-    private bool _testY;
-    private bool _goVertical;
     public Vector3 _planesVector;
     public Vector3 _planesOffset;
     public GameObject _targetPrefab;
     public List<GameObject> _targetsPrefabs;
     public int _bombardDamage;
     private AudioSource _audioSource;
+    private int _directionX;
+    private int _directionY;
+    private bool _goVertical;
+    private Transform _targetSpawn;
+    private bool _testX;
+    private bool _testY;
+
     public void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        Destroy(gameObject,12);
+        Destroy(gameObject, 12);
         _bombSpawns = GameObject.FindGameObjectsWithTag("bombersSpawner");
-        _goVertical = Convert.ToBoolean(Random.Range(0,2));
-        int _randomSpawn = Random.Range(0, _bombSpawns.Length);
+        _goVertical = Convert.ToBoolean(Random.Range(0, 2));
+        var _randomSpawn = Random.Range(0, _bombSpawns.Length);
         _targetSpawn = _bombSpawns[_randomSpawn].transform;
-        
-        if(_targetSpawn.GetComponent<Intersection>()._inUse) return;
-        Intersection _intersection = _targetSpawn.GetComponent<Intersection>();
-        Vector2 _possibleVectors = _intersection._possibleVectors;
-        
+
+        if (_targetSpawn.GetComponent<Intersection>()._inUse) return;
+        var _intersection = _targetSpawn.GetComponent<Intersection>();
+        var _possibleVectors = _intersection._possibleVectors;
+
         if (_goVertical)
         {
             if (_possibleVectors.y == 0)
             {
-                _testY = Convert.ToBoolean(Random.Range(0,2));
+                _testY = Convert.ToBoolean(Random.Range(0, 2));
                 Debug.LogWarning(_testY);
                 _directionY = _testY ? 1 : -1;
                 _planesVector = new Vector3(0, 0, _directionY);
@@ -77,7 +78,7 @@ public class BombardEnemy : MonoBehaviour
         {
             if (_possibleVectors.x == 0)
             {
-                _testX = Convert.ToBoolean(Random.Range(0,2));
+                _testX = Convert.ToBoolean(Random.Range(0, 2));
                 Debug.LogWarning(_testX);
                 _directionX = _testX ? 1 : -1;
                 _planesVector = new Vector3(_directionX, 0, 0);
@@ -95,7 +96,7 @@ public class BombardEnemy : MonoBehaviour
                 _planesOffset = new Vector3(
                     -_planesOffset.x * _directionX
                     , _planesOffset.y
-                    , 0);  
+                    , 0);
             }
             else
             {
@@ -105,24 +106,30 @@ public class BombardEnemy : MonoBehaviour
                 _planesOffset = new Vector3(
                     -_planesOffset.x * _directionX
                     , _planesOffset.y
-                    , 0);  
+                    , 0);
             }
         }
-        
+
         _planes.transform.position = _targetSpawn.position + _planesOffset;
-        for (int i = 0; i < _bombLenght; i++)
+        for (var i = 0; i < _bombLenght; i++)
         {
-            Vector3 _spawnVector = new Vector3(
-                _targetSpawn.transform.position.x + ((20 * i) * _directionX),
+            var _spawnVector = new Vector3(
+                _targetSpawn.transform.position.x + 20 * i * _directionX,
                 _targetSpawn.transform.position.y + 0.5f,
-                _targetSpawn.transform.position.z + ((20 * i) * _directionY) + 6);
-            GameObject _target = Instantiate(_targetPrefab, _spawnVector, quaternion.identity);
+                _targetSpawn.transform.position.z + 20 * i * _directionY + 6);
+            var _target = Instantiate(_targetPrefab, _spawnVector, quaternion.identity);
             _target.transform.localScale *= 5;
             _targetsPrefabs.Add(_target);
         }
 
         _targetSpawn.GetComponent<Intersection>()._inUse = true;
         StartCoroutine(DoAirstrike());
+    }
+
+    private void FixedUpdate()
+    {
+        if (_planes.activeSelf)
+            transform.position += _planesVector * Time.deltaTime * _planesSpeed;
     }
 
     public IEnumerator DoAirstrike()
@@ -133,36 +140,29 @@ public class BombardEnemy : MonoBehaviour
         yield return new WaitForSeconds(3);
         _planes.SetActive(true);
         _targetSpawn.GetComponent<Intersection>()._inUse = false;
-        for (int i = 0; i < _bombLenght; i++)
+        for (var i = 0; i < _bombLenght; i++)
         {
-            Vector3 _spawnVector = new Vector3(
-                _targetSpawn.transform.position.x + ((20 * i) * _directionX),
+            var _spawnVector = new Vector3(
+                _targetSpawn.transform.position.x + 20 * i * _directionX,
                 _targetSpawn.transform.position.y,
-                _targetSpawn.transform.position.z + ((20 * i) * _directionY) + 2);
+                _targetSpawn.transform.position.z + 20 * i * _directionY + 2);
             StartCoroutine(SpawnExplosion(i, _spawnVector));
         }
     }
-    private void FixedUpdate()
-    {
-        if(_planes.activeSelf)
-            transform.position += _planesVector * Time.deltaTime * _planesSpeed;
-    }
 
-    public IEnumerator SpawnExplosion(float  _delay,Vector3 _vector)
+    public IEnumerator SpawnExplosion(float _delay, Vector3 _vector)
     {
         yield return new WaitForSeconds(_delay * _bombDelay);
         Destroy(_targetsPrefabs[Convert.ToInt16(_delay)]);
-        GameObject _explpsionInstance = Instantiate(_explosionPrefab, _vector, Quaternion.identity);
-        Destroy(_explpsionInstance,5);
-        Collider[] _colliders = Physics.OverlapSphere(_vector, 10);
-        foreach (Collider _obj in _colliders)
-        {
+        var _explpsionInstance = Instantiate(_explosionPrefab, _vector, Quaternion.identity);
+        Destroy(_explpsionInstance, 5);
+        var _colliders = Physics.OverlapSphere(_vector, 10);
+        foreach (var _obj in _colliders)
             if (_obj.CompareTag("Player"))
             {
-                PlayerMovement _player = _obj.GetComponent<PlayerMovement>();
+                var _player = _obj.GetComponent<PlayerMovement>();
                 _player.CheckHealth(_bombardDamage);
                 break;
             }
-        }
     }
 }

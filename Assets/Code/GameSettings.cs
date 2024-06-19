@@ -1,23 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class GameSettings : MonoBehaviour
 {
-    [Header("Graphics")]
-    public bool _qualityOn;
+    [Header("Graphics")] public bool _qualityOn;
+
     public Sprite _qualityOnSprite;
     public Sprite _qualityOffSprite;
     public Image _qualityImage;
-    [Header("Audio")]
-    public AudioListener _audioListener;
+
+    [Header("Audio")] public AudioListener _audioListener;
+
     public Sprite _audioOnSprite;
     public Sprite _audioOffSprite;
     public Image _audioImage;
-    [Header("Settings")] 
-    public String _twitterURL;
-    public String _facebookURL;
+
+    [Header("Settings")] public string _twitterURL;
+
+    public string _facebookURL;
 
     private void Awake()
     {
@@ -46,10 +47,11 @@ public class GameSettings : MonoBehaviour
             QualitySettings.SetQualityLevel(0);
             _qualityImage.sprite = _qualityOffSprite;
         }
+
         PlayerPrefs.SetInt("SavedQuality", _high ? 1 : 0);
         Application.targetFrameRate = 60;
     }
-    
+
     public void SwitchQualitySettings()
     {
         _qualityOn = !_qualityOn;
@@ -57,7 +59,6 @@ public class GameSettings : MonoBehaviour
         {
             QualitySettings.SetQualityLevel(4);
             _qualityImage.sprite = _qualityOnSprite;
-            
         }
         else
         {
@@ -67,19 +68,17 @@ public class GameSettings : MonoBehaviour
 
         PlayerPrefs.SetInt("SavedQuality", _qualityOn ? 1 : 0);
     }
+
     private void LoadAudio(bool _enabled)
-    { 
+    {
         _audioListener.enabled = _enabled;
         if (_enabled)
-        {
             _audioImage.sprite = _audioOnSprite;
-        }
         else
-        {
             _audioImage.sprite = _audioOffSprite;
-        }
         PlayerPrefs.SetInt("SavedAudio", _enabled ? 1 : 0);
     }
+
     public void SwitchAudioSettings()
     {
         if (_audioListener.enabled)
@@ -92,6 +91,7 @@ public class GameSettings : MonoBehaviour
             _audioListener.enabled = true;
             _audioImage.sprite = _audioOffSprite;
         }
+
         PlayerPrefs.SetInt("SavedAudio", _audioListener.enabled ? 1 : 0);
     }
 
@@ -101,8 +101,6 @@ public class GameSettings : MonoBehaviour
         {
             case 0:
                 Application.OpenURL(_twitterURL);
-                break;
-            default:
                 break;
         }
     }

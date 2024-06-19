@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -7,14 +6,15 @@ public class CameraController : MonoBehaviour
     public float _speed;
     public Transform _target;
     public float _rotationSpeed;
-    private GameManager _gameManager;
     public GameObject _startCapsule;
+    private GameManager _gameManager;
     private Vector3 _oldOffset;
+
     private void Start()
     {
         _oldOffset = _offset;
         _gameManager = FindFirstObjectByType<GameManager>();
-        
+
         if (_gameManager._gameLaunched)
         {
             //_target = FindFirstObjectByType<PlayerMovement>().transform;
@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if(_gameManager._gameStarted) DoCamera();
+        if (_gameManager._gameStarted) DoCamera();
     }
 
     private void DoCamera()
@@ -49,10 +49,7 @@ public class CameraController : MonoBehaviour
     {
         this._target = _target;
 
-        if (this._target.CompareTag("Player"))
-        {
-            _offset.x = 0;
-        }
+        if (this._target.CompareTag("Player")) _offset.x = 0;
     }
 
     public void SetOldOffset()

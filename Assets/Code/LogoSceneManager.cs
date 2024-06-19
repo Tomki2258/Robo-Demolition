@@ -1,12 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LogoSceneManager : MonoBehaviour
 {
     private int _index;
-    void Start()
+
+    private void Start()
     {
         _index = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(LoadGame());

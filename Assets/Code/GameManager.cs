@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -20,29 +18,31 @@ public class GameManager : MonoBehaviour
     public List<Transform> _powerUpSpawnPoints;
     public GameObject _powerUps;
     public GameObject _pausedUI;
-    private int _enemiesCount;
-    private int _possibleEnemies;
-    private bool _paused;
-    private float _powerUpSpawnTimeCurrent;
-    private List<GameObject> _spawnedPowerUps;
-    private int _spawnsCount;
     public float _spawnTimeCurrent;
     public int _killedEnemies;
-    private InterstitialAd _interstitialAd;
     public GameSettings _gameSettings;
-    private UIManager _uiManager;
     public GameObject _explosion;
     public GameObject _spodek;
-    private CameraController _cameraController;
     public GameObject _continueCanvas;
-    [Header("Capture areas")]
-    public GameObject _currentCaptureArea;
+
+    [Header("Capture areas")] public GameObject _currentCaptureArea;
+
     public GameObject _captureAreaPrefab;
-    private GameObject[] _bombSpawns;
     public float _currentCaptureWaitTime;
     public int _maxCaptureWaitTime;
     public WeaponUnlock _weaponUnlock;
     public NotyficationBaner _notyficationBaner;
+    private GameObject[] _bombSpawns;
+    private CameraController _cameraController;
+    private int _enemiesCount;
+    private InterstitialAd _interstitialAd;
+    private bool _paused;
+    private int _possibleEnemies;
+    private float _powerUpSpawnTimeCurrent;
+    private List<GameObject> _spawnedPowerUps;
+    private int _spawnsCount;
+    private UIManager _uiManager;
+
     private void Awake()
     {
         _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
@@ -60,24 +60,15 @@ public class GameManager : MonoBehaviour
         _enemiesCount = _enemies.Count;
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
         _pausedUI.SetActive(false);
-        if(!_gameLaunched) _player.DoJoystickInput(false);
+        if (!_gameLaunched) _player.DoJoystickInput(false);
         _interstitialAd = FindFirstObjectByType<InterstitialAd>();
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _uiManager = FindFirstObjectByType<UIManager>();
         _player.gameObject.SetActive(false);
-        
-        if(_gameStarted && _gameLaunched) OverideStart();
+
+        if (_gameStarted && _gameLaunched) OverideStart();
     }
 
-    private void DestroyTrash()
-    {
-        GameObject[] _trashArray;
-        _trashArray = GameObject.FindGameObjectsWithTag("Trash");
-        foreach (GameObject _trash in _trashArray) 
-        {
-            Destroy(_trash);
-        }
-    }
     private void FixedUpdate()
     {
         if (!_gameLaunched || _player._died)
@@ -88,7 +79,7 @@ public class GameManager : MonoBehaviour
         //if(!_player._died) return;
 
         DoCaptureAreas();
-        
+
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
             _spawnTimeCurrent += Time.deltaTime;
@@ -99,17 +90,24 @@ public class GameManager : MonoBehaviour
         _spawnTimeCurrent = 0;
     }
 
+    private void DestroyTrash()
+    {
+        GameObject[] _trashArray;
+        _trashArray = GameObject.FindGameObjectsWithTag("Trash");
+        foreach (var _trash in _trashArray) Destroy(_trash);
+    }
+
     private void DoCaptureAreas()
     {
         if (_currentCaptureArea == null)
         {
             if (_currentCaptureWaitTime > _maxCaptureWaitTime)
             {
-                int _randomSpawn = Random.Range(0, _bombSpawns.Length);
-                Vector3 _targetVector = new Vector3(_bombSpawns[_randomSpawn].transform.position.x,
+                var _randomSpawn = Random.Range(0, _bombSpawns.Length);
+                var _targetVector = new Vector3(_bombSpawns[_randomSpawn].transform.position.x,
                     _bombSpawns[_randomSpawn].transform.position.y + 0.5f,
                     _bombSpawns[_randomSpawn].transform.position.z + 6);
-                    
+
                 _currentCaptureArea = Instantiate(_captureAreaPrefab, _targetVector, Quaternion.identity);
             }
             else
@@ -117,21 +115,16 @@ public class GameManager : MonoBehaviour
                 _currentCaptureWaitTime += Time.deltaTime;
             }
         }
-        else
-        {
-            
-        }
     }
+
     public void IncreaseEnemiesIndex()
     {
-        int _possibleTemp = _possibleEnemies;
+        var _possibleTemp = _possibleEnemies;
         _possibleTemp++;
 
-        if (_possibleTemp < _enemiesCount)
-        {
-            _possibleEnemies++;
-        }
+        if (_possibleTemp < _enemiesCount) _possibleEnemies++;
     }
+
     private void SpawnEnemy()
     {
         var _point = Random.Range(0, _spawnsCount);
@@ -140,14 +133,14 @@ public class GameManager : MonoBehaviour
 
         // Spawn enemy
         var _enemyIndex = Random.Range(0, _possibleEnemies);
-        Vector3 _randomSpawnVector = new Vector3(_spawnPoints[_point].position.x + Random.Range(-3, 3),
+        var _randomSpawnVector = new Vector3(_spawnPoints[_point].position.x + Random.Range(-3, 3),
             _spawnPoints[_point].position.y,
             _spawnPoints[_point].position.z + Random.Range(-3, 3));
         var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
         _spawnTimeMax -= _spawnTimeMax * 0.001f;
-        
-        if(_enemy.GetComponent<BombardEnemy>()) return;
-        
+
+        if (_enemy.GetComponent<BombardEnemy>()) return;
+
         _spawnedEnemies.Add(_enemy);
         _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
@@ -171,11 +164,12 @@ public class GameManager : MonoBehaviour
 
     public void EnableContinueCanvas(bool _mode)
     {
-        Time.timeScale = _mode ? 0: 1;
+        Time.timeScale = _mode ? 0 : 1;
         _continueCanvas.SetActive(_mode);
         _pausedUI.SetActive(false);
         _uiManager._mainUI.SetActive(!_mode);
     }
+
     public void PauseGame()
     {
         _paused = !_paused;
@@ -197,33 +191,32 @@ public class GameManager : MonoBehaviour
 
     public void DoAd()
     {
-        int _random = Random.Range(0, 3);
-        if (_random == 0)
-        {
-            _interstitialAd.ShowAd();
-        }
+        var _random = Random.Range(0, 3);
+        if (_random == 0) _interstitialAd.ShowAd();
     }
+
     public void AdReward()
     {
         Debug.LogWarning("Ad reward");
-        foreach (GameObject _enemy in _spawnedEnemies)
+        foreach (var _enemy in _spawnedEnemies)
         {
             _enemy.GetComponent<Enemy>()._killedByManager = true;
             Destroy(_enemy);
         }
+
         _spawnedEnemies.Clear();
 
         _uiManager._dieCanvas.SetActive(false);
         _uiManager._mainUI.SetActive(true);
-        
+
         _player.Revive();
         EnableContinueCanvas(true);
     }
-    
+
     public IEnumerator ReloadLevel()
     {
         _uiManager._dieCanvas.SetActive(false);
-        GameObject _explosionn = Instantiate(_explosion,_player.transform.position, Quaternion.identity);
+        var _explosionn = Instantiate(_explosion, _player.transform.position, Quaternion.identity);
         _player.DiePlayerTexture();
         yield return new WaitForSeconds(3);
         Destroy(_explosionn);
@@ -235,7 +228,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
-        
+
         _player.transform.position = _spodek.transform.position;
         _gameLaunched = true;
         _cameraController.SwitchTarget(_player.transform);
@@ -245,6 +238,7 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("Game made lol");
         _spodek.SetActive(false);
     }
+
     public void StartGame()
     {
         _spodek.SetActive(true);
@@ -258,6 +252,7 @@ public class GameManager : MonoBehaviour
         _player._health = _player._maxHealth;
         _player._xp += _player._xpToNextLevel / 2;
     }
+
     private void OverideStart()
     {
         Debug.LogWarning("Start Overided!");
@@ -269,6 +264,5 @@ public class GameManager : MonoBehaviour
         _gameLaunched = true;
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
-        return;
     }
 }

@@ -1,24 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
     public Transform _enemy;
-    private GameManager _gameManager;
     public float _rocketSpeed;
-    private Vector3 _startTarget;
-    private bool _starterDone;
     public GameObject _explosionFX;
     public float _rocketDamage;
     public float _rocketRange;
     public bool _isEnemy;
-    private PlayerMovement _player;
-    private Vector3 _lastKnownPosition;
-    private GameObject _currentFX;
     private CameraShake _cameraShake;
-    void Start()
+    private GameObject _currentFX;
+    private GameManager _gameManager;
+    private Vector3 _lastKnownPosition;
+    private PlayerMovement _player;
+    private bool _starterDone;
+    private Vector3 _startTarget;
+
+    private void Start()
     {
         _cameraShake = FindAnyObjectByType<CameraShake>();
         _gameManager = FindAnyObjectByType<GameManager>();
@@ -26,8 +24,8 @@ public class Rocket : MonoBehaviour
         _player = FindFirstObjectByType<PlayerMovement>();
     }
 
-    void FixedUpdate()
-    {   
+    private void FixedUpdate()
+    {
         if (!_starterDone)
         {
             transform.position = Vector3.MoveTowards(transform.position, _startTarget, _rocketSpeed * Time.deltaTime);
@@ -44,15 +42,12 @@ public class Rocket : MonoBehaviour
             _enemy = _player.transform;
             */
 
-        if (_enemy != null)
-        {
-            _lastKnownPosition = _enemy.position;
-        }
+        if (_enemy != null) _lastKnownPosition = _enemy.position;
         transform.position = Vector3.MoveTowards(transform.position, _lastKnownPosition,
             _rocketSpeed * Time.deltaTime);
         _rocketSpeed *= 1.01f;
         RotateToTarget(_lastKnownPosition);
-        if(GetDistance(_lastKnownPosition) < 0.1f)
+        if (GetDistance(_lastKnownPosition) < 0.1f)
         {
             _currentFX = Instantiate(_explosionFX, transform.position, Quaternion.identity);
             DoDamage();
@@ -64,19 +59,22 @@ public class Rocket : MonoBehaviour
     {
         var _direction = _target - transform.position;
         _direction.Normalize();
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
+        transform.rotation =
+            Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_direction), 10 * Time.deltaTime);
     }
+
     private float GetDistance(Vector3 _target)
     {
         return Vector3.Distance(transform.position, _target);
     }
+
     private Transform GetNearestEnemy()
     {
         Transform _currentEnemy = null;
         var lowestDist = Mathf.Infinity;
         foreach (var _enemy in _gameManager._spawnedEnemies)
         {
-            if(_enemy == null) continue;
+            if (_enemy == null) continue;
             var dist = Vector3.Distance(_enemy.transform.position, transform.position);
 
             if (dist < lowestDist)
@@ -85,17 +83,19 @@ public class Rocket : MonoBehaviour
                 _currentEnemy = _enemy.transform;
             }
         }
+
         return _currentEnemy;
     }
+
     private void DoDamage()
     {
         _cameraShake.DoShake(0.001f, 0.5f);
-        
-        Collider[] _colliders = Physics.OverlapSphere(transform.position, _rocketRange);
-        foreach (Collider _obj in _colliders)
+
+        var _colliders = Physics.OverlapSphere(transform.position, _rocketRange);
+        foreach (var _obj in _colliders)
         {
             if (_enemy)
-            {   
+            {
                 Destroy(_enemy.gameObject);
                 if (_obj.CompareTag("Player"))
                 {
@@ -103,13 +103,12 @@ public class Rocket : MonoBehaviour
                     return;
                 }
             }
+
             if (_obj.CompareTag("Enemy"))
-            {
                 if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
                 {
                     //_explosionFX.GetComponent<AudioSource>().enabled = false;
                 }
-            }
         }
     }
 }

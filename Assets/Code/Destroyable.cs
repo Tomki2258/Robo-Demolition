@@ -1,14 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Destroyable : MonoBehaviour
 {
-    private Renderer _renderer;
-    private float _height;
-    private Vector3 _collapseVector;
     public float _fallingSpeed;
+    private Vector3 _collapseVector;
+    private float _height;
+    private Renderer _renderer;
+
     private void Start()
     {
         _renderer = GetComponent<Renderer>();

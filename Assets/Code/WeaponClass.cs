@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public enum WeaponTypes
 {
     Standard,
@@ -11,6 +12,7 @@ public enum WeaponTypes
     CircleGun,
     SphereAttack
 }
+
 namespace DefaultNamespace
 {
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/WeaponsScriptableObject", order = 1)]
@@ -22,14 +24,17 @@ namespace DefaultNamespace
         [SerializeField] private Sprite _sprite;
         [SerializeField] private bool _isUnlocked;
         [SerializeField] private bool _isInUse;
+
         public string GetWeaponName()
         {
             return _name;
         }
+
         public WeaponTypes GetWeaponType()
         {
             return _type;
         }
+
         public string GetWeaponDescription()
         {
             return _description;
@@ -39,6 +44,7 @@ namespace DefaultNamespace
         {
             return _sprite;
         }
+
         public bool IsWeaponUnlocked()
         {
             return _isUnlocked;
@@ -53,10 +59,12 @@ namespace DefaultNamespace
         {
             return _isInUse;
         }
+
         public void SetInUse(bool _inUse)
         {
             _isInUse = _inUse;
         }
+
         public void SetUnlocked(bool _unlocked)
         {
             _isUnlocked = _unlocked;

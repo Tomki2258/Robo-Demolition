@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +10,7 @@ public class NotyficationBaner : MonoBehaviour
     public string _titleText;
     public string _messageText;
     public int _waitTime;
+
     public void ShotMessage(string title, string message)
     {
         _titleText = title;

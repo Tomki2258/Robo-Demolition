@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -20,9 +19,7 @@ public class UIManager : MonoBehaviour
     public Slider _xpSlider;
     public GameObject _mainUI;
     public GameObject _gameStartUI;
-    private GameManager _gameManager;
     public GameObject _weaponUI;
-    public DateTime _startTime;
     public GameObject _dieCanvas;
     public TMP_Text _timeText;
     public TMP_Text _killedEnemiesText;
@@ -31,10 +28,13 @@ public class UIManager : MonoBehaviour
     public GameObject _adRewardButton;
     public GameObject _fpsCanvas;
     public bool _enableFPS;
-    private bool _startOverrided = false;
     public GameObject _settingsUI;
     public Image _captureAreaImage;
     public GameObject _eqCanvas;
+    private GameManager _gameManager;
+    private bool _startOverrided;
+    public DateTime _startTime;
+
     private void Awake()
     {
         _eqCanvas.SetActive(false);
@@ -44,63 +44,21 @@ public class UIManager : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         _gameManager = FindFirstObjectByType<GameManager>();
         _dieCanvas.SetActive(false);
-        
+
         _startTime = DateTime.Now;
-        
+
         /*
         if(_enableFPS) _fpsCanvas.SetActive(true);
         else _fpsCanvas.SetActive(false);
         */
     }
 
-    public void EnableEqCanvas(bool _mode)
-    {
-        _mainUI.SetActive(!_mode);
-        Time.timeScale = _mode ? 0 : 1;
-        _eqCanvas.SetActive(_mode);
-        EquipmentCanvas _eqCanvasScript = FindFirstObjectByType<EquipmentCanvas>();
-        if (_mode)
-        {
-            _eqCanvasScript.CheckForWeaponPanels();
-        }
-        else
-        {
-            _player._playerWeapons.SetWeaponsInUse();
-        }
-    }
     private void Start()
     {
-        if(!_startOverrided) StartGame(false);
+        if (!_startOverrided) StartGame(false);
         else StartGame(true);
     }
 
-    public void DoOverideStart()
-    {
-        _startOverrided = true;
-    }
-    public void ShowHpDifference(float _value)
-    {
-        GameObject _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
-        _hpDifference.transform.SetParent(_mainUI.transform);
-        Vector3 _randomPosition = new Vector3(transform.position.x  + Random.Range(100,200),
-            transform.position.y  + Random.Range(100,200),
-            transform.position.z);
-        _hpDifference.transform.position = _randomPosition;
-        _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-        TMP_Text _text = _hpDifference.GetComponent<TMP_Text>();
-        _text.text = _value.ToString("0.00");
-
-        if (_value > 0)
-        {
-            _text.color = Color.green;
-        }
-        else
-        {
-            _text.color = Color.red;
-        }
-        Destroy(_hpDifference, 1.1f);
-    }
-    
     public void Update()
     {
         //if(!_gameManager._gameLaunched) return;
@@ -108,11 +66,8 @@ public class UIManager : MonoBehaviour
         {
             //_mainUI.SetActive(false);
         }
-        else
-        {
-            //_mainUI.SetActive(true);
-        }
 
+        //_mainUI.SetActive(true);
         // if (_player._died)
         // {
         //     _mainUI.SetActive(false);
@@ -123,29 +78,67 @@ public class UIManager : MonoBehaviour
         // }
     }
 
-    public void UnlockUI(String _weaponTypeText,Sprite _weaponSprite)
+    public void EnableEqCanvas(bool _mode)
+    {
+        _mainUI.SetActive(!_mode);
+        Time.timeScale = _mode ? 0 : 1;
+        _eqCanvas.SetActive(_mode);
+        var _eqCanvasScript = FindFirstObjectByType<EquipmentCanvas>();
+        if (_mode)
+            _eqCanvasScript.CheckForWeaponPanels();
+        else
+            _player._playerWeapons.SetWeaponsInUse();
+    }
+
+    public void DoOverideStart()
+    {
+        _startOverrided = true;
+    }
+
+    public void ShowHpDifference(float _value)
+    {
+        var _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
+        _hpDifference.transform.SetParent(_mainUI.transform);
+        var _randomPosition = new Vector3(transform.position.x + Random.Range(100, 200),
+            transform.position.y + Random.Range(100, 200),
+            transform.position.z);
+        _hpDifference.transform.position = _randomPosition;
+        _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        var _text = _hpDifference.GetComponent<TMP_Text>();
+        _text.text = _value.ToString("0.00");
+
+        if (_value > 0)
+            _text.color = Color.green;
+        else
+            _text.color = Color.red;
+        Destroy(_hpDifference, 1.1f);
+    }
+
+    public void UnlockUI(string _weaponTypeText, Sprite _weaponSprite)
     {
         _weaponUI.SetActive(true);
-        Image _weaponImage = _weaponUI.transform.GetChild(1).GetChild(0).GetComponent<Image>();
-        TMP_Text _weaponText = _weaponUI.transform.GetChild(1).GetChild(1).GetComponent<TMP_Text>();
+        var _weaponImage = _weaponUI.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        var _weaponText = _weaponUI.transform.GetChild(1).GetChild(1).GetComponent<TMP_Text>();
 
         _weaponText.text = _weaponTypeText;
         StartCoroutine(DisableObject(_weaponUI));
     }
+
     private IEnumerator DisableObject(GameObject _object)
     {
         yield return new WaitForSeconds(2);
         _object.SetActive(false);
     }
+
     public void DoLevelUpCanvas(bool _sraka)
     {
         _mainUI.SetActive(!_sraka);
         _levelUpCanvas.SetActive(_sraka);
         _levelUpCanvas.SetActive(_sraka);
-        
-        if(_sraka)
+
+        if (_sraka)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
-        if(!_sraka)
+        if (!_sraka)
             _player.DoJoystickInput(true);
         Time.timeScale = !_sraka ? 1 : 0;
     }
@@ -155,8 +148,8 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(true);
         _mainUI.SetActive(false);
         _player.DoJoystickInput(false);
-        TimeSpan _time = DateTime.Now - _startTime;
-        if(_gameManager._killedEnemies > GetBestScore())
+        var _time = DateTime.Now - _startTime;
+        if (_gameManager._killedEnemies > GetBestScore())
         {
             PlayerPrefs.SetInt("BestScore", _gameManager._killedEnemies);
             _killedEnemiesText.text = $"New high score !\nKilled enemies: {_gameManager._killedEnemies}";
@@ -165,8 +158,9 @@ public class UIManager : MonoBehaviour
         {
             _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}\n" +
                                       $"Best score: {GetBestScore()}";
-        }        
-        string formattedTime = $"{_time.Minutes:D2} minutes:{_time.Seconds:D2} seconds";
+        }
+
+        var formattedTime = $"{_time.Minutes:D2} minutes:{_time.Seconds:D2} seconds";
         _timeText.text = $"Playtime: {formattedTime}";
         /*
         if (_adRewardButton.GetComponent<Button>().interactable == false)
@@ -176,10 +170,10 @@ public class UIManager : MonoBehaviour
         */
         _mainUI.SetActive(false);
     }
-    
+
     private int GetBestScore()
     {
-        int _best = PlayerPrefs.GetInt("BestScore");
+        var _best = PlayerPrefs.GetInt("BestScore");
         return _best;
     }
 

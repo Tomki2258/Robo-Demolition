@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAtributtes : MonoBehaviour
 {
-    [Header("Bullet Types")] 
-    public GameObject _currentBulletType;
+    [Header("Bullet Types")] public GameObject _currentBulletType;
+
     public GameObject _standardBullet;
     public GameObject _explosiveBullet;
-    [Header("Bullet dodge")] 
-    public float _dodgeChange;
+
+    [Header("Bullet dodge")] public float _dodgeChange;
 
     [Header("Bullet Reflection")] public float _bulletReflection;
 
@@ -23,16 +21,13 @@ public class PlayerAtributtes : MonoBehaviour
             case 1:
                 _currentBulletType = _explosiveBullet;
                 break;
-            
         }
     }
+
     public bool BulletReflection()
     {
-        int _randomValue = Random.Range(0, 100);
-        if (_randomValue < _dodgeChange)
-        {
-            return true;
-        }
+        var _randomValue = Random.Range(0, 100);
+        if (_randomValue < _dodgeChange) return true;
 
         return false;
     }
@@ -47,13 +42,11 @@ public class PlayerAtributtes : MonoBehaviour
 
         _bulletReflection *= 1.1f;
     }
+
     public bool BulletDodge()
     {
-        int _randomValue = Random.Range(0, 100);
-        if (_randomValue < _dodgeChange)
-        {
-            return true;
-        }
+        var _randomValue = Random.Range(0, 100);
+        if (_randomValue < _dodgeChange) return true;
 
         return false;
     }

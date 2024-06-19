@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,10 +10,10 @@ public class Windmill : MonoBehaviour
 
     private void Start()
     {
-        foreach (GameObject windmill in _windmills)
+        foreach (var windmill in _windmills)
         {
-            int randomRotation = Random.Range(0, 360);
-            GameObject blade = windmill.transform.GetChild(0).gameObject;
+            var randomRotation = Random.Range(0, 360);
+            var blade = windmill.transform.GetChild(0).gameObject;
             _blades.Add(blade);
             blade.transform.Rotate(Vector3.forward * randomRotation);
         }
@@ -23,9 +21,6 @@ public class Windmill : MonoBehaviour
 
     private void FixedUpdate()
     {
-        foreach (GameObject windmill in _blades)
-        {
-            windmill.transform.Rotate(Vector3.forward * (_speed * Time.deltaTime));
-        }
+        foreach (var windmill in _blades) windmill.transform.Rotate(Vector3.forward * (_speed * Time.deltaTime));
     }
 }

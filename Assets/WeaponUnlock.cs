@@ -1,30 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
-using NUnit.Framework;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+
 public class WeaponUnlock : MonoBehaviour
 {
-    private UIManager _uiManager;
-    private PlayerMovement _playerMovement;
-    private List<int> _weaponUnlockStages;
-    private Animator _animator;
-    private PlayerWeapons _playerWeapons;
     public List<WeaponClass> _weaponsAtStage;
-    private WeaponClass _firstWeapon;
-    private WeaponClass _secondWeapon;
     public GameObject _weaponUnlockUI;
-    [Header("First Element UI")]
-    public TMP_Text _firstWeaponName;
+
+    [Header("First Element UI")] public TMP_Text _firstWeaponName;
+
     public Image _firstWeaponImage;
-    
-    [Header("Second Element UI")]
-    public TMP_Text _secondWeaponName;
+
+    [Header("Second Element UI")] public TMP_Text _secondWeaponName;
+
     public Image _secondWeaponImage;
+    private Animator _animator;
     private EquipmentCanvas _equipmentCanvas;
-    void Start()
+    private WeaponClass _firstWeapon;
+    private PlayerMovement _playerMovement;
+    private PlayerWeapons _playerWeapons;
+    private WeaponClass _secondWeapon;
+    private UIManager _uiManager;
+    private List<int> _weaponUnlockStages;
+
+    private void Start()
     {
         _equipmentCanvas = FindAnyObjectByType<EquipmentCanvas>();
         _playerMovement = FindFirstObjectByType<PlayerMovement>();
@@ -33,8 +34,10 @@ public class WeaponUnlock : MonoBehaviour
         _animator = GetComponent<Animator>();
         _uiManager = FindAnyObjectByType<UIManager>();
     }
-    public void PrepareWeapons(){
-        foreach (WeaponClass weapon in _weaponsAtStage)
+
+    public void PrepareWeapons()
+    {
+        foreach (var weapon in _weaponsAtStage)
         {
             weapon.SetUnlocked(false);
             weapon.SetInUse(false);
@@ -61,6 +64,7 @@ public class WeaponUnlock : MonoBehaviour
             GetReward(_firstWeapon);
             return;
         }
+
         GetReward(_secondWeapon);
     }
 
@@ -95,45 +99,40 @@ public class WeaponUnlock : MonoBehaviour
                 break;
         }
 
-        if (_currentWeapon != null)
-        {
-            _currentWeapon.UnlockWeapon();
-        }
+        if (_currentWeapon != null) _currentWeapon.UnlockWeapon();
 
         if (_equipmentCanvas.HasFreeWeaponSlot())
         {
             _equipmentCanvas._weaponsInUse.Add(_currentWeapon);
             _currentWeapon.SetInUse(true);
         }
+
         _weaponUnlockUI.SetActive(false);
         _uiManager.DoLevelUpCanvas(false);
-        
+
         _playerWeapons.SetWeaponsInUse();
     }
+
     private void SetWeaponsUI()
     {
-        int levelOffset = _weaponUnlockStages.IndexOf(_playerMovement._level);
+        var levelOffset = _weaponUnlockStages.IndexOf(_playerMovement._level);
         _firstWeapon = _weaponsAtStage[levelOffset * 2];
         _secondWeapon = _weaponsAtStage[levelOffset * 2 + 1];
-        
+
         Debug.LogWarning($"First {_firstWeapon} Second {_secondWeapon}");
 
         _firstWeaponName.text = _firstWeapon.GetWeaponName();
         _firstWeaponImage.sprite = _firstWeapon.GetWeaponSprite();
-        
+
         _secondWeaponName.text = _secondWeapon.GetWeaponName();
         _secondWeaponImage.sprite = _secondWeapon.GetWeaponSprite();
     }
 
     private WeaponClass FindWeapon(WeaponTypes _weaponType)
     {
-        foreach (WeaponClass weapon in _weaponsAtStage)
-        {
+        foreach (var weapon in _weaponsAtStage)
             if (weapon.GetWeaponType() == _weaponType)
-            {
                 return weapon;
-            }
-        }
         return null;
     }
 }

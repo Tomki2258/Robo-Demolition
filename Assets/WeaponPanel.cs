@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,88 +12,78 @@ public class WeaponPanel : MonoBehaviour
     public EquipmentCanvas _equipment;
     [SerializeField] private Button _button;
     private GameManager _gameManager;
-    void Start()
+
+    private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _button = transform.GetChild(1).GetComponent<Button>();
-        if (_weaponClass == null)
-        {
-            return;
-        }
+        if (_weaponClass == null) return;
         UpdateVisuals();
         CheckForUnlock();
-        if (!_weaponClass.CheckInUse())
-        {
-            _weaponImage.color = new Color32(255/2,255/2,225/2,255);
-        }
+        if (!_weaponClass.CheckInUse()) _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
     }
 
     public void UpdateVisuals()
     {
-        if (_weaponClass == null)
-        {
-            return;
-        }
+        if (_weaponClass == null) return;
         _weaponSprite = _weaponClass.GetWeaponSprite();
-        
+
         CheckForUnlock();
     }
+
     public void CheckForUnlock()
     {
-        if (_weaponClass == null)
-        {
-            return;
-        }
+        if (_weaponClass == null) return;
         if (_weaponClass.IsWeaponUnlocked())
         {
             _weaponImage.sprite = _weaponSprite;
-            _weaponImage.color = new Color32(255,255,225,255);
+            _weaponImage.color = new Color32(255, 255, 225, 255);
             _button.interactable = true;
         }
         else
         {
             _weaponImage.sprite = _lockedSprite;
-            _weaponImage.color = new Color32(255/2,255/2,225/2,255);
+            _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
             _button.interactable = false;
         }
 
         if (!_weaponClass.CheckInUse())
-        {
-            _weaponImage.color = new Color32(255/2,255/2,225/2,255);
-        }
+            _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
         else
-        {
-            _weaponImage.color = new Color32(255,255,225,255);
-        }
+            _weaponImage.color = new Color32(255, 255, 225, 255);
     }
 
     private bool IsSameType(WeaponClass _weaponClass)
     {
         return this._weaponClass.GetWeaponType() == _weaponClass.GetWeaponType();
     }
+
     public void ChooseWeapon()
     {
-       if (_weaponClass.CheckInUse())
-       {
-           if (_equipment._weaponsInUse.Count == 1)
-           {
-               _gameManager._notyficationBaner.ShotMessage("Error","You can't remove last weapon!");
-               return;
-           }
-           _equipment._weaponsInUse.Remove(_weaponClass);
-           _weaponImage.color = new Color32(255/2,255/2,225/2,255);
-       }
-       else
-       {
-           if(_equipment._weaponsInUse.Count == _equipment._maxWeaponsInUse)
-           { 
-               _gameManager._notyficationBaner.ShotMessage("Error","You reach weapons limit!");
-               return;
-           }
-           _equipment._weaponsInUse.Add(_weaponClass);
-           _weaponImage.color = new Color32(255,255,225,255);
-       }
-       _equipment.RefleshWeaponAmountInfo();
-       _weaponClass.SetInUse(!_weaponClass.CheckInUse());
+        if (_weaponClass.CheckInUse())
+        {
+            if (_equipment._weaponsInUse.Count == 1)
+            {
+                _gameManager._notyficationBaner.ShotMessage("Error", "You can't remove last weapon!");
+                return;
+            }
+
+            _equipment._weaponsInUse.Remove(_weaponClass);
+            _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
+        }
+        else
+        {
+            if (_equipment._weaponsInUse.Count == _equipment._maxWeaponsInUse)
+            {
+                _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!");
+                return;
+            }
+
+            _equipment._weaponsInUse.Add(_weaponClass);
+            _weaponImage.color = new Color32(255, 255, 225, 255);
+        }
+
+        _equipment.RefleshWeaponAmountInfo();
+        _weaponClass.SetInUse(!_weaponClass.CheckInUse());
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,7 +7,8 @@ public class Bullet : MonoBehaviour
     public bool _enemyShoot;
     public Material _redMaterial;
     private Material _lastEnemyMaterial;
-     private void Start()
+
+    private void Start()
     {
         Destroy(gameObject, 5);
     }
@@ -16,6 +16,11 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.position += transform.TransformDirection(Vector3.forward * _bulletSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        HitFunction(other);
     }
 
     public void HitFunction(Collider other)
@@ -32,8 +37,8 @@ public class Bullet : MonoBehaviour
                 var _enemy = other.GetComponent<Enemy>();
                 if (_enemy.CheckHealth(_bulletDamage))
                 {
-                    
                 }
+
                 Destroy(gameObject);
             }
             else
@@ -57,9 +62,5 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        HitFunction(other);
     }
 }

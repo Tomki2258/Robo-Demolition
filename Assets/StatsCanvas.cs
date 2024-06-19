@@ -1,26 +1,26 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+
 public class StatsCanvas : MonoBehaviour
 {
-   public GameObject _playerObject;
-    private PlayerMovement _player;
-    private PlayerWeapons _playerWeapons;
-    
-    
-    private float _startHealth;
-    private float _startRegeneration;
-    private float _startReloadSpeed;
-    private float _startRange;
-    private float _startDamage;
-    [Header("Text")] 
-    [SerializeField] private TMP_Text _healthText;
+    public GameObject _playerObject;
+
+    [Header("Text")] [SerializeField] private TMP_Text _healthText;
+
     [SerializeField] private TMP_Text _regenerationText;
     [SerializeField] private TMP_Text _rangeText;
     [SerializeField] private TMP_Text _damageText;
     [SerializeField] private TMP_Text _reloadSpeedText;
+    private PlayerMovement _player;
+    private PlayerWeapons _playerWeapons;
+    private float _startDamage;
+
+
+    private float _startHealth;
+    private float _startRange;
+    private float _startRegeneration;
+    private float _startReloadSpeed;
 
     private void Start()
     {
@@ -41,17 +41,19 @@ public class StatsCanvas : MonoBehaviour
 
     private double PercentageDifference(float start, float end)
     {
-        float _result = Math.Abs(start - end) /
-            (start + end) / 2;
+        var _result = Math.Abs(start - end) /
+                      (start + end) / 2;
         _result *= 100;
-        return Math.Round(_result ,1, MidpointRounding.ToEven);
+        return Math.Round(_result, 1, MidpointRounding.ToEven);
     }
+
     public void SetStatsCanvas()
     {
         _healthText.text = $"Health bonus {_player._maxHealth - _startHealth}";
         _regenerationText.text = $"Regeneration bonus {_player._maxHealth * _player._hpRegenMultipler}/s";
         _rangeText.text = $"Attack range bonus {_player._attackRange - _startRange}";
-        _damageText.text = $"Damage bonus {PercentageDifference(_startDamage,_playerWeapons._bulletDamage)} %";
-        _reloadSpeedText.text = $"Reload speed bonus {PercentageDifference(_startReloadSpeed,_playerWeapons._standardMaxTimer)} % ";
+        _damageText.text = $"Damage bonus {PercentageDifference(_startDamage, _playerWeapons._bulletDamage)} %";
+        _reloadSpeedText.text =
+            $"Reload speed bonus {PercentageDifference(_startReloadSpeed, _playerWeapons._standardMaxTimer)} % ";
     }
 }

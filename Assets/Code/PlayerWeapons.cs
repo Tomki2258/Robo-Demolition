@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
-using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerWeapons : MonoBehaviour
@@ -10,8 +7,6 @@ public class PlayerWeapons : MonoBehaviour
     public float _damageMultipler;
     public List<WeaponClass> _weaponsInUse;
     public GameObject _bullet;
-    private float _circleGunCurrentTimer;
-    private EquipmentCanvas _equipmentCanvas;
     public List<WeaponClass> _allWeapons;
 
     [Header("Standard Gun")] public WeaponClass _standardGunClass;
@@ -35,41 +30,43 @@ public class PlayerWeapons : MonoBehaviour
     public float _machineGunCurrentTimer;
     public Transform _machineGunSpawner;
     public AudioSource _machineGunAudioSource;
-    [Header("Shotgun Gun")] 
-    public WeaponClass _shotgunGunClass;
+
+    [Header("Shotgun Gun")] public WeaponClass _shotgunGunClass;
+
     public bool _shotgunEnabled;
     public float _shotgunMaxTimer;
 
     public Transform _shotgunSpawner;
 
-    [Header("Circle Gun")] 
-    public WeaponClass _circleGunClass;
+    [Header("Circle Gun")] public WeaponClass _circleGunClass;
+
     public bool _circleGunEnabled;
     public float _circleGunMaxTimer;
 
     public int _shotsAmount;
     public Transform _circleGunSpawner;
-    [Header("Sphere Attack")] 
-    public WeaponClass _sphereAttackClass;
+
+    [Header("Sphere Attack")] public WeaponClass _sphereAttackClass;
+
     public bool _sphereAttackEnabled;
-    public float _sphereAttackMaxTimer; 
+    public float _sphereAttackMaxTimer;
     public GameObject _sphereAttackPrefab;
     public float _sphereAttackCurrentTimer;
-    private float _shotgunCurrentTimer = 0;
-    [Header("Laser Gun")] 
-    public WeaponClass _laserGunClass;
+
+    [Header("Laser Gun")] public WeaponClass _laserGunClass;
+
     public bool _laserGunEnabled;
     public float _laserMaxTimer;
     public Transform _laserSpawner;
-    private float _laserCurrentTimer;
     public LineRenderer _lineRenderer;
     public float _laserCurrentDamage;
     public float _laserMaxDamage;
     public float _laserDamageMultiplier;
     public float _laserBaseDamage;
     public Transform _lastLaserEnemy;
-    [Header("Rocket Launcher")] 
-    public WeaponClass _rocketLauncherClass;
+
+    [Header("Rocket Launcher")] public WeaponClass _rocketLauncherClass;
+
     public float _rocketDamage;
     public bool _rocketLauncherEnabled;
     public GameObject _rocketPrefab;
@@ -77,24 +74,25 @@ public class PlayerWeapons : MonoBehaviour
     public float _rocketCurrentTimer;
     public Transform _rocketSpawner;
     public List<GameObject> _weaponsModels;
+    private float _circleGunCurrentTimer;
+    private EquipmentCanvas _equipmentCanvas;
+    private float _laserCurrentTimer;
+    private float _shotgunCurrentTimer;
+
     private void Start()
     {
         _equipmentCanvas = FindFirstObjectByType<EquipmentCanvas>();
         _laserCurrentDamage = _laserBaseDamage;
-        foreach (GameObject _weapon in _weaponsModels)
-        {
-            _weapon.SetActive(false);
-        }
+        foreach (var _weapon in _weaponsModels) _weapon.SetActive(false);
     }
 
     public void SetWeaponsInUse()
     {
-        foreach (WeaponClass _weapon in _weaponsInUse)
-        {
+        foreach (var _weapon in _weaponsInUse)
             //Debug.LogWarning($"{_weapon.GetWeaponName()} is now in use !");
             _weapon.SetInUse(true);
-        }
     }
+
     public void StandardGun()
     {
         if (!_standardGunClass.CheckForUse()) return;
@@ -110,13 +108,12 @@ public class PlayerWeapons : MonoBehaviour
         _standardAudioSource.Play();
         _standardCurrentTimer = 0;
     }
+
     public void MachineGun()
     {
         if (!_machineGunClass.CheckForUse())
-        {
             //Debug.LogWarning("Machine gun not unlocked !");
             return;
-        }
         if (_machineGunMaxTimer > _machineGunCurrentTimer)
         {
             _machineGunCurrentTimer += Time.deltaTime;
@@ -130,6 +127,7 @@ public class PlayerWeapons : MonoBehaviour
         _machineGunAudioSource.Play();
         _machineGunCurrentTimer = 0;
     }
+
     public void Sniper()
     {
         if (!_sniperGunClass.CheckForUse()) return;
@@ -140,7 +138,7 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         var _currentBullet = Instantiate(_bullet, _sniperSpawner.transform.position, Quaternion.identity);
-        Bullet _bulletScript = _currentBullet.GetComponent<Bullet>();
+        var _bulletScript = _currentBullet.GetComponent<Bullet>();
         _bulletScript._bulletDamage = _sniperGunDamage;
         _bulletScript._bulletSpeed = 50;
         _currentBullet.transform.rotation = _sniperSpawner.transform.rotation;
@@ -148,6 +146,7 @@ public class PlayerWeapons : MonoBehaviour
 //        _sniperAudioSource.Play();
         _sniperCurrentTimer = 0;
     }
+
     public void RocketLauncher()
     {
         if (!_rocketLauncherClass.CheckForUse()) return;
@@ -158,10 +157,11 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         var _currentRocket = Instantiate(_rocketPrefab, _rocketSpawner.position, _rocketSpawner.rotation);
-        Rocket _rocket = _currentRocket.GetComponent<Rocket>();
+        var _rocket = _currentRocket.GetComponent<Rocket>();
         _rocket._rocketDamage *= _damageMultipler;
         _rocketCurrentTimer = 0;
     }
+
     public void ShpereAttack()
     {
         if (!_sphereAttackClass.CheckForUse()) return;
@@ -175,9 +175,10 @@ public class PlayerWeapons : MonoBehaviour
         _currentSphere.GetComponent<SphereAttack>()._player = GetComponent<PlayerMovement>();
         _sphereAttackCurrentTimer = 0;
     }
+
     public void ShotgunGun()
     {
-        if(!_shotgunGunClass.CheckForUse()) return;
+        if (!_shotgunGunClass.CheckForUse()) return;
         if (_shotgunMaxTimer > _shotgunCurrentTimer)
         {
             _shotgunCurrentTimer += Time.deltaTime;
@@ -196,7 +197,7 @@ public class PlayerWeapons : MonoBehaviour
 
     public void CircleGun()
     {
-        if(!_circleGunClass.CheckForUse()) return;
+        if (!_circleGunClass.CheckForUse()) return;
         if (_circleGunMaxTimer > _circleGunCurrentTimer)
         {
             _circleGunCurrentTimer += Time.deltaTime;
@@ -216,35 +217,32 @@ public class PlayerWeapons : MonoBehaviour
 
         _circleGunCurrentTimer = 0;
     }
+
     public void DoLaser(Transform _enemy)
     {
-        if(!_laserGunClass.CheckForUse()) return;
+        if (!_laserGunClass.CheckForUse()) return;
         _lineRenderer.enabled = true;
-        _lineRenderer.SetPosition(0,_laserSpawner.position);
-        _lineRenderer.SetPosition(1,_enemy.position);
-        
-        if (_enemy != _lastLaserEnemy)
-        {
-            _laserCurrentDamage = _laserBaseDamage;
-        }
-        
-        if(_laserCurrentDamage < _laserMaxDamage)
-        {
-            _laserCurrentDamage += (_laserDamageMultiplier * Time.deltaTime) * _damageMultipler;
-        }
-        
+        _lineRenderer.SetPosition(0, _laserSpawner.position);
+        _lineRenderer.SetPosition(1, _enemy.position);
+
+        if (_enemy != _lastLaserEnemy) _laserCurrentDamage = _laserBaseDamage;
+
+        if (_laserCurrentDamage < _laserMaxDamage)
+            _laserCurrentDamage += _laserDamageMultiplier * Time.deltaTime * _damageMultipler;
+
         if (_laserMaxTimer > _laserCurrentTimer)
         {
             _laserCurrentTimer += Time.deltaTime;
         }
         else
         {
-            Enemy enemy = _enemy.GetComponent<Enemy>();
+            var enemy = _enemy.GetComponent<Enemy>();
             enemy.CheckHealth(_laserCurrentDamage);
             _lastLaserEnemy = _enemy;
             _laserCurrentTimer = 0;
         }
     }
+
     public void ModyfyDamage(float _value)
     {
         Debug.LogWarning(_value);
@@ -254,6 +252,7 @@ public class PlayerWeapons : MonoBehaviour
         _rocketDamage *= 1 + _value;
         _laserBaseDamage *= 1 + _value;
     }
+
     public void ModyfyReloadSpeed(float _value)
     {
         Debug.LogWarning(_value);
@@ -266,10 +265,12 @@ public class PlayerWeapons : MonoBehaviour
         _sphereAttackMaxTimer *= 1 - _value;
         _shotgunMaxTimer *= 1 - _value;
     }
+
     public List<WeaponClass> GetWeapons()
     {
         return _weaponsInUse;
     }
+
     public void SetUsedWeapons(List<WeaponClass> _weapons)
     {
         _weaponsInUse = _weapons;

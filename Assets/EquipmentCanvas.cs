@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +10,7 @@ public class EquipmentCanvas : MonoBehaviour
     public PlayerWeapons _playerWeapons;
     public int _maxWeaponsInUse;
     public TMP_Text _weaponAmountText;
+
     private void Start()
     {
         _playerWeapons._weaponsInUse[0].SetInUse(true);
@@ -20,11 +18,8 @@ public class EquipmentCanvas : MonoBehaviour
 
     public void CheckForWeaponPanels()
     {
-        foreach (WeaponPanel _weaponPanel in _weaponPanels)
-        {
-            _weaponPanel.CheckForUnlock();
-        }
-        
+        foreach (var _weaponPanel in _weaponPanels) _weaponPanel.CheckForUnlock();
+
         _weaponsInUse = _playerWeapons.GetWeapons();
         _weaponsInUse.RemoveAll(s => s == null);
         RefleshWeaponAmountInfo();
@@ -34,6 +29,7 @@ public class EquipmentCanvas : MonoBehaviour
     {
         _weaponAmountText.text = $"{_weaponsInUse.Count}/{_maxWeaponsInUse}";
     }
+
     public bool HasFreeWeaponSlot()
     {
         return _weaponsInUse.Count < _maxWeaponsInUse;
