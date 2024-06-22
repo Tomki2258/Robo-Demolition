@@ -411,12 +411,13 @@ public class PlayerMovement : MonoBehaviour
         GameObject _effectInsstance = null;
         if (_currentFootStepTimer > _maxFootStepTimer)
         {
+            /*
             _footWasLeft = !_footWasLeft;
             _effectInsstance = Instantiate(_footStepEffect,
                 _footstepsTransforms[_footWasLeft ? 1 : 0].position,
                 Quaternion.identity);
             Destroy(_effectInsstance, 3);
-
+            */
             _legsAudioSource.resource = _footStepSounds[Random.Range(0, _footStepsSoundsCount)];
             _legsAudioSource.Play();
             _currentFootStepTimer = 0;
