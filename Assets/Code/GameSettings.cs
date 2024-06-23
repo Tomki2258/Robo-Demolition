@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
@@ -9,7 +10,7 @@ public class GameSettings : MonoBehaviour
     public Sprite _qualityOnSprite;
     public Sprite _qualityOffSprite;
     public Image _qualityImage;
-
+    public Volume _postProcessVolume;
     [Header("Audio")] public AudioListener _audioListener;
 
     public Sprite _audioOnSprite;
@@ -41,11 +42,13 @@ public class GameSettings : MonoBehaviour
         {
             QualitySettings.SetQualityLevel(2);
             _qualityImage.sprite = _qualityOnSprite;
+            _postProcessVolume.enabled = true;
         }
         else
         {
             QualitySettings.SetQualityLevel(0);
             _qualityImage.sprite = _qualityOffSprite;
+            _postProcessVolume.enabled = false;
         }
 
         PlayerPrefs.SetInt("SavedQuality", _high ? 1 : 0);
@@ -57,13 +60,15 @@ public class GameSettings : MonoBehaviour
         _qualityOn = !_qualityOn;
         if (_qualityOn)
         {
-            QualitySettings.SetQualityLevel(4);
+            QualitySettings.SetQualityLevel(2);
             _qualityImage.sprite = _qualityOnSprite;
+            _postProcessVolume.enabled = true;
         }
         else
         {
             QualitySettings.SetQualityLevel(0);
             _qualityImage.sprite = _qualityOffSprite;
+            _postProcessVolume.enabled = false; 
         }
 
         PlayerPrefs.SetInt("SavedQuality", _qualityOn ? 1 : 0);

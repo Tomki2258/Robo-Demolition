@@ -221,6 +221,11 @@ public class PlayerWeapons : MonoBehaviour
     public void DoLaser(Transform _enemy)
     {
         if (!_laserGunClass.CheckForUse()) return;
+
+        if (!_laserSpawner.gameObject.activeSelf)
+        {
+            _laserSpawner.gameObject.SetActive(true);
+        }
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _laserSpawner.position);
         _lineRenderer.SetPosition(1, _enemy.position);

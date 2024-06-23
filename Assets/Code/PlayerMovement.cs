@@ -121,8 +121,10 @@ public class PlayerMovement : MonoBehaviour
                 0f);
             _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
             if (_currentEnemy == null)
+            {
                 //MoveTurret();
-                _playerWeapons._laserSpawner.gameObject.SetActive(false);
+                //_playerWeapons._laserSpawner.gameObject.SetActive(false);
+            }
             StepsSoundController();
         }
         else
@@ -262,6 +264,10 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.ShpereAttack();
             _playerWeapons.RocketLauncher();
             _playerWeapons.DoLaser(_currentEnemy.transform);
+        }
+        else
+        {
+            _playerWeapons._laserSpawner.gameObject.SetActive(false);   
         }
     }
 
