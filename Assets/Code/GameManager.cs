@@ -215,6 +215,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ReloadLevel()
     {
+        UserData userData = FindFirstObjectByType<UserData>();
+        userData.AddKilledEnemies(_killedEnemies);
         _uiManager._dieCanvas.SetActive(false);
         var _explosionn = Instantiate(_explosion, _player.transform.position, Quaternion.identity);
         _player.DiePlayerTexture();

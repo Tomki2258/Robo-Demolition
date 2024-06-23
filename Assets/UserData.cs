@@ -1,0 +1,37 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UserData : MonoBehaviour
+{
+    private int _allKilldedEnemies;
+    private int _playerCoins;
+    private void Start()
+    {
+        _allKilldedEnemies = PlayerPrefs.GetInt("allKilledEnemies");
+        Debug.LogWarning(_allKilldedEnemies);
+        _playerCoins = PlayerPrefs.GetInt("allCoins");
+    }
+
+    public int GetKilledEnemies()
+    {
+        return _allKilldedEnemies;
+    }
+
+    public int GetPlayerCoins()
+    {
+        return _playerCoins;
+    }
+
+    public void AddPlayerCoins(int coins)
+    {
+        int _allCoins = this.GetPlayerCoins() + coins;
+        PlayerPrefs.SetInt("allCoins",_allCoins);
+    }
+    public void AddKilledEnemies(int killedEnemies)
+    {
+        int _allKilled = this.GetKilledEnemies() + killedEnemies;
+        PlayerPrefs.SetInt("allKilledEnemies",_allKilled);
+    }
+}
