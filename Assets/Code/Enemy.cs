@@ -28,9 +28,11 @@ public class Enemy : MonoBehaviour
     private float _lightsTimer;
     private float _oldSpeed;
     private float _stunTimer;
-
+    public AudioSource _audioSource;
+    public AudioClip _shootAudioClip;
     public void SetUp()
     {
+        _audioSource = GetComponent<AudioSource>();
         _agent = GetComponent<NavMeshAgent>();
         _oldSpeed = _agent.speed;
         _oryginalMaterial = GetComponent<Renderer>().material;
@@ -137,6 +139,7 @@ public class Enemy : MonoBehaviour
         var _bulletScript = _bulletInstance.GetComponent<Bullet>();
         _bulletScript._enemyShoot = true;
         _bulletScript._bulletDamage = _bulletDamage;
+        _audioSource.PlayOneShot(_shootAudioClip);
         Destroy(_bulletInstance, 5);
     }
 

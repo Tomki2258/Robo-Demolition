@@ -35,6 +35,7 @@ public class RocketEnemy : Enemy
                 var _currentRocketComponent = _currentRocket.GetComponent<Rocket>();
                 _currentRocketComponent._isEnemy = true;
                 _currentRocketComponent._enemy = _currentRocketTarget.transform;
+                _audioSource.PlayOneShot(_shootAudioClip);
                 //shoot
             }
             else

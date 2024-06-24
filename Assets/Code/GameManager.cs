@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> _spawnedPowerUps;
     private int _spawnsCount;
     private UIManager _uiManager;
+    public AudioSource _spodekAudioSource;
 
     private void Awake()
     {
@@ -129,7 +130,8 @@ public class GameManager : MonoBehaviour
     {
         var _point = Random.Range(0, _spawnsCount);
         var _distance = Vector3.Distance(_spawnPoints[_point].position, _player.transform.position);
-        if (_distance < _spawnOffset) return;
+        if (_distance < _spawnOffset) 
+            _point = Random.Range(0, _spawnsCount);
 
         // Spawn enemy
         var _enemyIndex = Random.Range(0, _possibleEnemies);
@@ -246,6 +248,7 @@ public class GameManager : MonoBehaviour
         _spodek.SetActive(true);
         _uiManager._gameStartUI.SetActive(false);
         _gameStarted = true;
+        _spodekAudioSource.Play();
         StartCoroutine(MakeGame());
     }
 

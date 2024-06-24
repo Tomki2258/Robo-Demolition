@@ -1321,7 +1321,7 @@ Transform:
   m_GameObject: {fileID: 6031557694318738053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 134.3, y: 0, z: -28}
+  m_LocalPosition: {x: 134.3, y: 0, z: -11.2}
   m_LocalScale: {x: 1, y: 9.72, z: 397.6672}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10350,6 +10350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &1365242898906513341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12300,6 +12303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &1582222590366063454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -21643,6 +21649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &3060911194667588673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -21892,6 +21901,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &3112718053812236442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25613,6 +25625,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &3601660971231661196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -26650,6 +26665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &3823365836391673964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -30151,6 +30169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &4344856264814464034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30618,6 +30639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &4424337636416146078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39864,6 +39888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &5982254571579374325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46622,6 +46649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &7079141699766898313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46888,6 +46918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &7142799065175780920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48957,6 +48990,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!1001 &7467327922381478621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51948,6 +51984,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &7935998110748079502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -53729,6 +53768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &8232781655876320431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -53822,6 +53864,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &8238670669596820503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -56377,6 +56422,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &8589247522982045693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -58997,6 +59045,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e20f3e1ce064c60b92338134fd683c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windmills: []
+  _speed: 0
+  _blades: []
 --- !u!4 &8941222876693774508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
