@@ -34,4 +34,14 @@ public class UserData : MonoBehaviour
         int _allKilled = this.GetKilledEnemies() + killedEnemies;
         PlayerPrefs.SetInt("allKilledEnemies",_allKilled);
     }
+
+    public void SaveBestScore(int _bestScore)
+    {
+        PlayerPrefs.SetInt("BestScore",_bestScore);        
+    }
+
+    public int GetBestScore()
+    {
+        return PlayerPrefs.GetInt("BestScore");
+    }
 }

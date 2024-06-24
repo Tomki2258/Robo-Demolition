@@ -34,9 +34,10 @@ public class UIManager : MonoBehaviour
     private GameManager _gameManager;
     private bool _startOverrided;
     public DateTime _startTime;
-
+    private UserData _userData;
     private void Awake()
     {
+        _userData = FindFirstObjectByType<UserData>();
         _eqCanvas.SetActive(false);
         _captureAreaImage.enabled = false;
         _settingsUI.SetActive(false);
@@ -149,15 +150,16 @@ public class UIManager : MonoBehaviour
         _mainUI.SetActive(false);
         _player.DoJoystickInput(false);
         var _time = DateTime.Now - _startTime;
-        if (_gameManager._killedEnemies > GetBestScore())
+        if (_gameManager._killedEnemies >_userData.GetBestScore())
         {
-            PlayerPrefs.SetInt("BestScore", _gameManager._killedEnemies);
+            int _killedEnemies = _gameManager._killedEnemies;
             _killedEnemiesText.text = $"New high score !\nKilled enemies: {_gameManager._killedEnemies}";
+            _userData.SaveBestScore(_killedEnemies);
         }
         else
         {
             _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}\n" +
-                                      $"Best score: {GetBestScore()}";
+                                      $"Best score: {_userData.GetBestScore()}";
         }
 
         var formattedTime = $"{_time.Minutes:D2} minutes:{_time.Seconds:D2} seconds";
