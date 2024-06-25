@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ced819b08dde96632b9dbd1b6da12fd0
+guid: 699c8e34625a550ec9276937c7f62f0a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: game logo
+  - name: bullet
     originalName: 
-    pivot: {x: 0.5031447, y: -0.16}
+    pivot: {x: 0.42857146, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 159
-      height: 50
-    spriteID: 72be7a05b6438ab0aae3f5785a3acf0b
+      width: 7
+      height: 1
+    spriteID: 2321ac4e74cd699bab9dde214b96df93
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -140,28 +140,28 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 3, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -825229203
-    name: game logo
+    guid: -1244910274
+    name: bullet
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: game logo
+    - name: bullet
       frameIndex: 0
       cellRect:
         x: 0
-        y: 8
-        width: 159
-        height: 50
-      spriteId: 72be7a05b6438ab0aae3f5785a3acf0b
+        y: 0
+        width: 8
+        height: 1
+      spriteId: 2321ac4e74cd699bab9dde214b96df93
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 160, y: 64}
+  canvasSize: {x: 8, y: 1}
