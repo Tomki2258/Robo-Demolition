@@ -120,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
                 _rotationSpeed * Time.deltaTime,
                 0f);
             _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
+            //_legs.transform.rotation = Quaternion.LookRotation(_targetRotation);
             if (_currentEnemy == null)
             {
                 //MoveTurret();
@@ -142,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
         // if(_health <= 0)
         //     Die();
-        XpManagment();
+        //XpManagment();
         HpRegeneration();
         ShieldManagment();
         SetUiValues();
@@ -271,6 +272,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void AddPlayerXP(int value)
+    {
+        this._xp += value;
+        XpManagment();
+    }
     private void XpManagment()
     {
         if (_xp >= _xpToNextLevel)

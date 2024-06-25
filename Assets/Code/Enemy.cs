@@ -48,7 +48,8 @@ public class Enemy : MonoBehaviour
         if (!_killedByManager)
         {
             _gameManager._killedEnemies++;
-            _player._xp += _xpReward;
+            _player.AddPlayerXP(_xpReward);
+            //_player._xp += _xpReward;
             _cameraShake.DoShake(.15f, .2f);
             DestroyClone();
         }
