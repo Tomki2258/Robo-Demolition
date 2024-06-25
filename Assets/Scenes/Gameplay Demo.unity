@@ -4099,6 +4099,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main
       objectReference: {fileID: 0}
+    - target: {fileID: 5670794344795255599, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1882613312}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4221,11 +4226,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Paused Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896641176015150022, guid: 95a6ea3ebe4a023118f80c57052600f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
