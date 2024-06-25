@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     private readonly List<Quaternion> _startPlayerQuaterions = new(2);
     private Quaternion _startRotation;
     private UIManager _uiManager;
-
+    public Transform _idleLookTransform;
     private void Awake()
     {
         _footStepsSoundsCount = _footStepSounds.Count;
@@ -115,11 +115,17 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("Moving", true);
             _legsAnimator.SetBool("Moving", true);
             _topAninmator.SetBool("Moving", true);
-            var _targetRotation = Vector3.RotateTowards(_controller.transform.forward,
-                _moveDirection,
+            Vector3 _targetRotation = Vector3.RotateTowards(_legs.parent.transform.forward,
+                new Vector3(_moveDirection.x,
+                    _moveDirection.y,
+                    _moveDirection.z),
                 _rotationSpeed * Time.deltaTime,
                 0f);
-            _controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
+            //_controller.transform.rotation = Quaternion.LookRotation(_targetRotation);
+            _legs.parent.rotation = Quaternion.LookRotation(new Vector3(_targetRotation.x,
+                _targetRotation.y,
+                _targetRotation.z
+                ));
             if (_currentEnemy == null)
             {
                 //MoveTurret();
@@ -142,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
         // if(_health <= 0)
         //     Die();
-        XpManagment();
+        //XpManagment();
         HpRegeneration();
         ShieldManagment();
         SetUiValues();
@@ -155,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             if (Vector3.Distance(transform.position, _nearestEnemy.position) < _tempAttackRange)
                 MoveTurret(GetNearestEnemy().position);
             else
-                MoveTurret(transform.GetChild(transform.childCount - 1).position);
+                MoveTurret(_idleLookTransform.position);
             if (_nearestEnemy == null)
                 return;
             Battle();
@@ -271,6 +277,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void AddPlayerXP(int value)
+    {
+        this._xp += value;
+        XpManagment();
+    }
     private void XpManagment()
     {
         if (_xp >= _xpToNextLevel)
