@@ -1845,6 +1845,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+--- !u!1 &217124204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 217124205}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &217124205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217124204}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 395928544}
+  - {fileID: 1786005188}
+  m_Father: {fileID: 1899919605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &219916791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8129774269230593262, guid: 4fe088204772cf55587f3614ddc4861b,
@@ -10091,7 +10124,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1899919605}
+    m_TransformParent: {fileID: 217124205}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
@@ -10116,7 +10149,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.493
+      value: 0.49300003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
@@ -10131,7 +10164,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
@@ -10141,7 +10174,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
@@ -15830,12 +15863,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786005187}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 4.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1899919605}
+  m_Father: {fileID: 217124205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1786751765 stripped
 GameObject:
@@ -28566,6 +28599,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
+      propertyPath: _idleLookTransform
+      value: 
+      objectReference: {fileID: 1786005188}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
       propertyPath: _turretRotateSpeed
       value: 12
       objectReference: {fileID: 0}
@@ -28726,11 +28764,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7037655989293843448, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 395928544}
-    - targetCorrespondingSourceObject: {fileID: 7037655989293843448, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1786005188}
+      addedObject: {fileID: 217124205}
     - targetCorrespondingSourceObject: {fileID: 7037655989293843448, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       insertIndex: -1
