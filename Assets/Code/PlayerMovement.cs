@@ -166,6 +166,10 @@ public class PlayerMovement : MonoBehaviour
                 return;
             Battle();
         }
+        else
+        {
+            MoveTurret(_idleLookTransform.position);
+        }
     }
 
     public bool CheckPlayerMove(Vector3 _moveDirection)

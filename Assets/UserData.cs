@@ -10,7 +10,6 @@ public class UserData : MonoBehaviour
     private void Start()
     {
         _allKilldedEnemies = PlayerPrefs.GetInt("allKilledEnemies");
-        Debug.LogWarning(_allKilldedEnemies);
         _playerCoins = PlayerPrefs.GetInt("allCoins");
     }
 

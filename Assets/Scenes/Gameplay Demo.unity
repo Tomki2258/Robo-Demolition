@@ -26738,10 +26738,80 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2124253169916648978, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1882613317}
+    - target: {fileID: 2124253169916648978, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableEqCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748782767997122262, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2803285786209543141, guid: a14fdd67982709711bf57c1d04c00d88,
         type: 3}
       propertyPath: m_Name
       value: Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483905000350722849, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483905000350722849, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670010271536916299, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670010271536916299, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670010271536916299, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670794344795255599, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1882613312}
+    - target: {fileID: 5670794344795255599, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386415377230739086, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1882613317}
+    - target: {fileID: 6386415377230739086, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableSettingsUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8512181301211512901, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_Name
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565468806529068604, guid: a14fdd67982709711bf57c1d04c00d88,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28555,7 +28625,7 @@ PrefabInstance:
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _turretRotateSpeed
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
