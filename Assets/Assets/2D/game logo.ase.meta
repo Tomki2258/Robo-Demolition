@@ -123,15 +123,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: game logo
     originalName: 
-    pivot: {x: 0.5031447, y: -0.16}
+    pivot: {x: 0.48837212, y: -0.050000004}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 159
-      height: 50
+      width: 172
+      height: 60
     spriteID: 72be7a05b6438ab0aae3f5785a3acf0b
     spriteBone: []
     spriteOutline: []
@@ -153,10 +153,10 @@ ScriptedImporter:
     - name: game logo
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 8
-        width: 159
-        height: 50
+        x: 12
+        y: 3
+        width: 172
+        height: 60
       spriteId: 72be7a05b6438ab0aae3f5785a3acf0b
     linkedCells: []
     parentIndex: -1
@@ -164,4 +164,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 160, y: 64}
+  canvasSize: {x: 192, y: 64}
