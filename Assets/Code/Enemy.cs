@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
             Random.Range(-1, 1));
         _trash.GetComponent<Rigidbody>().AddForce(_randomForceVector, ForceMode.Impulse);
         //_trash.GetComponent<Rigidbody>().AddTorque();
-        //_trash.GetComponent<Rigidbody>().AddTorque(transform.up  , ForceMode.Impulse);
+        _trash.GetComponent<Rigidbody>().AddTorque(transform.up * Random.Range(-120, 120));
         //_trash.isStatic = true;
         _trash.tag = "Trash";
     }
