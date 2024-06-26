@@ -79,7 +79,17 @@ public class Enemy : MonoBehaviour
         ChangeMeshColors(_trash.transform, 0);
         _trash.name = $"{transform.name} :trash clone";
         _trash.AddComponent<Trash>();
-        _trash.isStatic = true;
+        _trash.AddComponent<Rigidbody>();
+        _trash.AddComponent<MeshCollider>();
+        //_trash.GetComponent<MeshCollider>().sharedMesh = _mesh;
+        //_trash.GetComponent<MeshCollider>().convex = true;
+        Vector3 _randomForceVector = new Vector3(Random.Range(-1, 1),
+            Random.Range(5, 8),
+            Random.Range(-1, 1));
+        _trash.GetComponent<Rigidbody>().AddForce(_randomForceVector, ForceMode.Impulse);
+        //_trash.GetComponent<Rigidbody>().AddTorque();
+        //_trash.GetComponent<Rigidbody>().AddTorque(transform.up  , ForceMode.Impulse);
+        //_trash.isStatic = true;
         _trash.tag = "Trash";
     }
 
