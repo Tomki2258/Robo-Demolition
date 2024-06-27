@@ -13,7 +13,10 @@ public class Trash : MonoBehaviour
         _layers = FindFirstObjectByType<Layers>();
         _meshCollider = GetComponent<MeshCollider>();
         int LayerName = LayerMask.NameToLayer("Trash");
+        int PlayerLayer = LayerMask.NameToLayer("Player");
         gameObject.layer = LayerName;
+        _meshCollider.excludeLayers = PlayerLayer;
+        GetComponent<Rigidbody>().excludeLayers = PlayerLayer;
         StartCoroutine(MoveTrash());
     }
 
@@ -32,5 +35,6 @@ public class Trash : MonoBehaviour
             transform.position.z);
         _trashMove = true;
         _meshCollider.enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true; 
     }
 }

@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
     private int _spawnsCount;
     private UIManager _uiManager;
     public AudioSource _spodekAudioSource;
-
+    [SerializeField] [Range(0, 120)] private int _trashRotateX;
+    [SerializeField] [Range(0, 120)] private int _trashRotateY;
     private void Awake()
     {
         _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
@@ -269,5 +270,14 @@ public class GameManager : MonoBehaviour
         _gameLaunched = true;
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
+    }
+
+    public float GetTrashX()
+    {
+        return Random.Range(-_trashRotateX, _trashRotateX);
+    }
+    public float GetTrashY()
+    {
+        return Random.Range(-_trashRotateY, _trashRotateY);
     }
 }

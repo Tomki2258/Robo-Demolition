@@ -9,7 +9,7 @@ public class Layers : MonoBehaviour
     public LayerMask _playerLayer;
     private void Start()
     {
-        Physics.IgnoreLayerCollision(_trashlayer.value, _playerLayer.value, true);
+        //Physics.IgnoreLayerCollision(_trashlayer.value, _playerLayer.value, true);
     }
 
     public int GetTrashLayer()
