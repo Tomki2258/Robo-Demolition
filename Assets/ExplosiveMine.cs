@@ -9,14 +9,21 @@ public class ExplosiveMine : MonoBehaviour
     public int _damageRange;
     private GameManager _gameManager;
     public GameObject _explosionPrefab;
+    private bool _ready;
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        StartCoroutine(Prepare());
     }
 
+    IEnumerator Prepare()
+    {
+        yield return new WaitForSeconds(3);
+        _ready = true;
+    }
     private void FixedUpdate()
     {
-        if(_gameManager._spawnedEnemies.Count == 0) return;
+        if(_gameManager._spawnedEnemies.Count == 0 || !_ready) return;
         if(Vector3.Distance(transform.position, GetNearestEnemy().position) < _damageRange)
             DoDamage();
     }
@@ -48,7 +55,6 @@ public class ExplosiveMine : MonoBehaviour
             if (col.CompareTag("Enemy"))
             {
                 var _enemy = col.GetComponent<Enemy>();
-                Debug.Log(_enemy.name + " hit");
                 if (_enemy.CheckHealth(_damage))
                 {
                 }

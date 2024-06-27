@@ -10,7 +10,6 @@ public class PlayerWeapons : MonoBehaviour
     public List<WeaponClass> _allWeapons;
     private PlayerMovement _playerMovement;
     [Header("Standard Gun")] public WeaponClass _standardGunClass;
-    public bool _standardGunEnabled;
     public float _standardMaxTimer;
     public float _bulletDamage;
     public float _standardCurrentTimer;
@@ -18,7 +17,6 @@ public class PlayerWeapons : MonoBehaviour
     public AudioSource _standardAudioSource;
     public ParticleSystem _standardGunParticles;
     [Header("Sniper Gun")] public WeaponClass _sniperGunClass;
-    public bool _sniperGunEnabled;
     public float _sniperGunDamage;
     public float _sniperMaxTimer;
     public float _sniperCurrentTimer;
@@ -26,7 +24,6 @@ public class PlayerWeapons : MonoBehaviour
     public AudioSource _sniperAudioSource;
     [Header("Machine Gun")] public WeaponClass _machineGunClass;
     public float _machineGunDamage;
-    public bool _machineGunEnabled;
     public float _machineGunMaxTimer;
     public float _machineGunCurrentTimer;
     public Transform _machineGunSpawner;
@@ -34,7 +31,6 @@ public class PlayerWeapons : MonoBehaviour
 
     [Header("Shotgun Gun")] public WeaponClass _shotgunGunClass;
 
-    public bool _shotgunEnabled;
     public float _shotgunMaxTimer;
 
     public Transform _shotgunSpawner;
@@ -82,10 +78,14 @@ public class PlayerWeapons : MonoBehaviour
     public LayerMask _raycastIgnoreLayers;
     [Header("OrbitalGun")]
     public WeaponClass _orbitalGunClass;
-    public bool _orbitalGunEnabled;
     public float _orbitalGunMaxTimer;
     public float _orbitalGunCurrentTimer;
     public GameObject _orbitalGunPrefab;
+    [Header("Mine deployer")]
+    public WeaponClass _mineDeployerClass;
+    public float _mineDeployerMaxTimer;
+    public float _mineDeployerCurrentTimer;
+    public GameObject _minePrefab;
     private void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
@@ -270,7 +270,23 @@ public class PlayerWeapons : MonoBehaviour
             _playerMovement._currentEnemy.transform.position,
             Quaternion.identity);
     }
-
+    public void DoMineDeployer()
+    {
+        if(!_mineDeployerClass.CheckForUse()) return;
+        
+        if(_mineDeployerMaxTimer > _mineDeployerCurrentTimer)
+        {
+            _mineDeployerCurrentTimer += Time.deltaTime;
+            return;
+        }
+        GameObject _mine = Instantiate(_minePrefab,
+           transform.position + new Vector3(0, 1, 0),
+            Quaternion.identity);
+        _mine.transform.rotation = new Quaternion(0, Random.Range(0,360), 0, 0);
+        _mine.GetComponent<Rigidbody>().AddForce(_mine.transform.forward * 5, ForceMode.Impulse);
+        
+        _mineDeployerCurrentTimer = 0;
+    }
     public void ModyfyDamage(float _value)
     {
         Debug.LogWarning(_value);

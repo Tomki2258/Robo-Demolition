@@ -1421,27 +1421,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 800599738359257164}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &992575344 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7185811293998600965, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-    type: 3}
-  m_PrefabInstance: {fileID: 2876967732139545268}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &992575346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992575344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48919b811e902edaa8b10d8970935be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 50
-  _damageRepeatMax: 3
-  _damageRepeatCurrent: 0
 --- !u!1 &1044815334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,79 +4317,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bcd9206157b3bfaf87425e5c9a9decb, type: 3}
---- !u!1001 &2876967732139545268
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059255892858121487, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7185811293998600965, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      propertyPath: m_Name
-      value: Orbital Cannon Shot
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6580078083743903589, guid: fb75f65575bf28e6c9bbbf1481d14bc3, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7185811293998600965, guid: fb75f65575bf28e6c9bbbf1481d14bc3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 992575346}
-  m_SourcePrefab: {fileID: 100100000, guid: fb75f65575bf28e6c9bbbf1481d14bc3, type: 3}
 --- !u!114 &3244320920868105097 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5185255832841924923, guid: a14fdd67982709711bf57c1d04c00d88,
@@ -4954,6 +4860,40 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _minePrefab
+      value: 
+      objectReference: {fileID: 3974578891962209206, guid: fe39adcf2c834c4e5aa4700feb1d20e5,
+        type: 3}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _orbitalGunClass
+      value: 
+      objectReference: {fileID: 11400000, guid: e42e8afa0b3875eb18323cb2a2a8da2e,
+        type: 2}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _mineDeployerClass
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ad940a9190834c1687e6fa839eb094d,
+        type: 2}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _mineDeployerMaxTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _allWeapons.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: '_allWeapons.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ad940a9190834c1687e6fa839eb094d,
+        type: 2}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _raycastIgnoreLayers.m_Bits
@@ -6155,4 +6095,3 @@ SceneRoots:
   - {fileID: 2002430879}
   - {fileID: 189655996}
   - {fileID: 1872907871}
-  - {fileID: 2876967732139545268}

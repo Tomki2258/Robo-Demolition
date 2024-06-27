@@ -277,6 +277,7 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.RocketLauncher();
             _playerWeapons.DoLaser(_currentEnemy.transform);
             _playerWeapons.DoOrbitalGun();
+            _playerWeapons.DoMineDeployer();
         }
         else
         {
