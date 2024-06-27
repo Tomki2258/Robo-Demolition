@@ -50,11 +50,17 @@ public class PlayerDemolition : MonoBehaviour
             }
             else if(_type == destoryableType.Falling)
             {
-                if(_destroyable.CheckHorizontal()) continue;
-                _destroyable._fallingSpeed += Time.deltaTime * 2;
-                gobj.transform.RotateAround(gobj.transform.position,
-                    _destroyable.GetCollabseVector()
-                    , _destroyable._fallingSpeed);
+                if(!_destroyable.CheckHorizontal())
+                {
+                    _destroyable._fallingSpeed += Time.deltaTime * 2;
+                    gobj.transform.RotateAround(gobj.transform.position,
+                        _destroyable.GetCollabseVector()
+                        , _destroyable._fallingSpeed);
+                }
+                else
+                {
+                    _destroyedObjects.Remove(gobj);
+                }
             }
         }
     }

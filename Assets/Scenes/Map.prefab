@@ -1296,6 +1296,22 @@ Transform:
   - {fileID: 8404172534149366712}
   - {fileID: 2876911394014349524}
   - {fileID: 619167427974435561}
+  - {fileID: 5913278723297226879}
+  - {fileID: 5141598468181807095}
+  - {fileID: 8110917871965794301}
+  - {fileID: 21402135847027701}
+  - {fileID: 7785695832898489520}
+  - {fileID: 1340021542384522551}
+  - {fileID: 6355056507944591455}
+  - {fileID: 6462798533010742452}
+  - {fileID: 350138342372195338}
+  - {fileID: 8185464799365886658}
+  - {fileID: 3521919017902134101}
+  - {fileID: 1884074404308344486}
+  - {fileID: 1921447136349831764}
+  - {fileID: 7790643889782681547}
+  - {fileID: 2502287182137614476}
+  - {fileID: 2859785452164449936}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &220302320220668097
@@ -1696,7 +1712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &10726426638811827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1804,7 +1822,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &13022964378424177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1889,6 +1909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5126786112457728126
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2007,6 +2029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &132971180771468738
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2124,6 +2148,69 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 21084927112741991}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &21402135847426421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof Solar Panel (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.734398
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.239773
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 73.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+--- !u!4 &21402135847027701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739,
+    type: 3}
+  m_PrefabInstance: {fileID: 21402135847426421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &41050470848707375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2231,7 +2318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &41102873134294019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2381,6 +2470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9135428391766640405
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2588,6 +2679,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2900434659157028520
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2913,6 +3006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3701598674998743025
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3019,6 +3114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4434233912671984155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3137,6 +3234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3055569453400400623
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3249,6 +3348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5680446477863060116
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3368,7 +3469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &94348722080974720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -3473,6 +3576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7581875324381656887
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3585,6 +3690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7912446019976755396
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3752,6 +3859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8124794820470176478
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3846,6 +3955,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &156919977484851913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 62125825e49febf4a89f76daf85d9ca7,
@@ -3936,6 +4047,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5394954348602977627
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4065,7 +4178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &181225928441254529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -4173,7 +4288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &188391522851114900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -4270,6 +4387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2278197577202293134
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4393,7 +4512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &191569236648011458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -4501,7 +4622,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &193625421981898504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -4602,6 +4725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &171937742611952940
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4725,7 +4850,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &241946114976966053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -4839,7 +4966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &278043521282849879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4924,6 +5053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9220993581739876164
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5036,6 +5167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &916599054815963011
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5152,6 +5285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1077140163982451933
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5270,6 +5405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5235743300425159063
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5382,6 +5519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &877080681139456408
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5494,6 +5633,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7724478562705421614
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5617,7 +5758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &337092904044417903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -5718,6 +5861,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4dc7028a3a83758439585b7c7c98cb27,
     type: 3}
   m_PrefabInstance: {fileID: 346401574007565898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &350138342371796618
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof prop air (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 132.44994
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.97737
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.939999
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+--- !u!4 &350138342372195338 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be,
+    type: 3}
+  m_PrefabInstance: {fileID: 350138342371796618}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &351547887140777947
 PrefabInstance:
@@ -6022,6 +6228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1343132519991800772
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6227,6 +6435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3803277442108800252
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6356,7 +6566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &403060768635724245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -6441,6 +6653,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &418962955145092636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6525,6 +6739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2462356271001577617
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6702,6 +6918,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2333855101748935735
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6812,6 +7030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8120313494477687137
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7076,6 +7296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2969507852650115433
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7188,6 +7410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &35663224926133549
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7300,6 +7524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3587686268829861677
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7408,6 +7634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6865318098802151659
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7531,7 +7759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &537765067239122249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -7622,6 +7852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9147462266814206466
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7740,6 +7972,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6626881835202904449
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7893,6 +8127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &588568723889360681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 62125825e49febf4a89f76daf85d9ca7,
@@ -7989,6 +8225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6661103874533948213
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8112,7 +8350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &604086457301176760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -8313,6 +8553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2559191482966531815
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8448,7 +8690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &671430673707812654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8539,6 +8783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8880838545874761288
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8854,6 +9100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4860132581073649480
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8972,6 +9220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7484736792809555014
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9084,6 +9334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &885562983931938664
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9207,7 +9459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &756272832431613314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -9302,6 +9556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1206445928470176216
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9420,6 +9676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8640799836531533686
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9825,6 +10083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5815820569376677248
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9931,6 +10191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1793927789706028483
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10130,6 +10392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &904332171251538153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 62125825e49febf4a89f76daf85d9ca7,
@@ -10226,6 +10490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7590287588345881043
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10338,6 +10604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8318876550004521602
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10556,7 +10824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &956823969495067967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -10655,6 +10925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7549455606308578209
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10919,6 +11191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8410093060498995022
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11025,6 +11299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2362689806870864719
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11154,7 +11430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &996620463182720253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -11268,7 +11546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1100042603564615214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11370,7 +11650,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1100042603564752046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -11530,6 +11812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2200057622057596144
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11653,7 +11937,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1150107699268901576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -11816,7 +12102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1165642640441742634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -11901,6 +12189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &1184082534366416945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12008,7 +12298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1185050079120646475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12093,6 +12385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9035573254532498515
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12424,6 +12718,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7285169754650915979
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12602,7 +12898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1246957059521283354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -12699,6 +12997,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &164501851880730249
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12906,6 +13206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5724765994249301381
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13018,6 +13320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &988936996085138768
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13134,6 +13438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4060448377764519231
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13263,7 +13569,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
+--- !u!1001 &1340021542384652215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof_prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 46.20388
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.905
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 73.93528
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 918397a7e0523114ea408fc4eb8ca157, type: 3}
+--- !u!4 &1340021542384522551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 918397a7e0523114ea408fc4eb8ca157,
+    type: 3}
+  m_PrefabInstance: {fileID: 1340021542384652215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1343908332770321226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13423,6 +13794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6245412172097642109
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13655,6 +14028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2553044928351532664
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13837,7 +14212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1423103894312968859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -14074,6 +14451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4284597522495188873
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14190,6 +14569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1525638451801600311
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14319,7 +14700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1479404801376414116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -14433,7 +14816,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1486498611635426988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14769,6 +15154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4934948424249261684
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14885,6 +15272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4922410784956894121
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15014,7 +15403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1537765722889264982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15105,6 +15496,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6697478596944509177
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15272,6 +15665,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4821793235191724153
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15435,6 +15830,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5726790154321735864
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15600,6 +15997,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2968651218198029173
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15729,7 +16128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1582164021509323529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -15895,6 +16296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6154201999735918502
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16007,6 +16410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4509722812063822331
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16231,7 +16636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1627165780996821809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -16328,6 +16735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5583379261850014770
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16451,7 +16860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1631672108333787998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2857b989c828950448ead142ca28e4a3,
@@ -16552,6 +16963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3028018217569600166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16664,6 +17077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &418332140402824870
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16897,7 +17312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1669653297643867771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -16994,6 +17411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3630636751740510937
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17117,7 +17536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1678714695180387525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -17208,6 +17629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3800907090483694751
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17326,6 +17749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &430013786927171624
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17442,6 +17867,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2583197433720544403
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17548,6 +17975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6407468367129705425
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17660,6 +18089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &789405245285831926
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17789,7 +18220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1715978104259046081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -17962,7 +18395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1773803064711807168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18053,6 +18488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4715661765427220800
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18237,7 +18674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1792862497815558393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18322,6 +18761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &61891790938955696
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18457,7 +18898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1805630341720962630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18559,7 +19002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1805630341721353414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -18656,6 +19101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6916752903216609492
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18779,7 +19226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1832179917371991548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -18876,6 +19325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &26434352485129624
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19020,6 +19471,69 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1850801375503136239}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1884074404308206630
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_Name
+      value: Props_Traffic cone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 101.94604
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00025361776
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.494827
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+--- !u!4 &1884074404308344486 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1884074404308206630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1886899640786055027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19127,7 +19641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1910906565459401515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19246,6 +19762,69 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1917588634711992869}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1921447136349968596
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_Name
+      value: Props_Traffic cone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 99.424866
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0002526641
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.136688
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+--- !u!4 &1921447136349831764 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921447136349968596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1922741623225121599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19330,6 +19909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7769431788356310182
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19702,7 +20283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &1985729473962014980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19793,6 +20376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7162042360782587948
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19916,7 +20501,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1986405687318871165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -20119,7 +20706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &1992364399679399203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -20216,6 +20805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4048861267107768485
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20345,7 +20936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2007267783024926189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20447,7 +21040,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2007267783025313645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -20538,6 +21133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7159401672891205736
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20650,6 +21247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5864675596332331488
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20762,6 +21361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2440110494313284048
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20897,7 +21498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2065555387826046257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21005,7 +21608,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2072891199393560004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21149,6 +21754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &411233523949778009
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21284,7 +21891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2134551428490648487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21445,7 +22054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2187602881433310333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -21542,6 +22153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6595382613460470324
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21654,6 +22267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5651368670325390271
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21766,6 +22381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4953266328471472802
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21872,6 +22489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8254457817979511833
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22094,7 +22713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2266699946028789562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22234,6 +22855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &639823171230439058
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22363,7 +22986,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2297406882001623042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -22545,6 +23170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &2335242871060917370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22646,7 +23273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2335242871061313274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2857b989c828950448ead142ca28e4a3,
@@ -22825,7 +23454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2373140989859421044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2857b989c828950448ead142ca28e4a3,
@@ -22916,6 +23547,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3441698160185805154
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23377,6 +24010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &2448994274930163712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
@@ -23473,6 +24108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7482337492900683645
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23596,12 +24233,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2472215075049388696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
     type: 3}
   m_PrefabInstance: {fileID: 2472215075048988696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2502287182137752076
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_Name
+      value: Props_BillBoard_small
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 110.81902
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00080788136
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.639
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b549b1699e4cdad44b2c014041303df4, type: 3}
+--- !u!4 &2502287182137614476 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: b549b1699e4cdad44b2c014041303df4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2502287182137752076}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2511456392802769071
 PrefabInstance:
@@ -23710,7 +24412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2532607724612807453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23801,6 +24505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8749035669700858900
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23966,6 +24672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8276366209679179997
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24066,6 +24774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &2547588694667668669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 62125825e49febf4a89f76daf85d9ca7,
@@ -24173,7 +24883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2549972337437844399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -24270,6 +24982,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2967961835557891022
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24404,6 +25118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &2693111676079395728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24505,7 +25221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2693111676079524112 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -24619,7 +25337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2704828194891583613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24926,7 +25646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2733306272464851562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -25013,6 +25735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3321900798322238617
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25214,6 +25938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &2797707160680389102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25458,6 +26184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2200860574840294109
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25682,6 +26410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6673291871798714131
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25843,6 +26573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &2851174586458841830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25944,7 +26676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2851174586459240550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -26067,6 +26801,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
+--- !u!1001 &2859785452164062224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_Name
+      value: Props_Traffic Sign_stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 110.75272
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000066161156
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.075325
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8687552
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000018987249
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.4952418
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000010823854
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 59.371
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c862cab8ca035a448da05df5868553a, type: 3}
+--- !u!4 &2859785452164449936 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 6c862cab8ca035a448da05df5868553a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2859785452164062224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2874167884951558701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26311,6 +27110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5977969012419472179
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26427,6 +27228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4996532748038872425
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26537,6 +27340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3333080263231989732
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26731,7 +27536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &2946246333867907344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26925,6 +27732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1967503717812572031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27048,7 +27857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2984432209841916185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -27156,7 +27967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &2985797448394111053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -27435,6 +28248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1132736416235227207
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27564,7 +28379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3051210959925571441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27681,6 +28498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &3056461165095572237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27771,6 +28590,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4674118132086716348
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27883,6 +28704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8477871156049454172
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28316,7 +29139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3113378749878741691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28466,6 +29291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1020139278731153087
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28572,6 +29399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5605746212661160330
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28934,7 +29763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3141048449109854418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -29029,6 +29860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8392497394005638260
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29164,7 +29997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3155795316248586294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29255,6 +30090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3690327950884768891
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29361,6 +30198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3232633987372317142
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29490,7 +30329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3186311953593616532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -29604,7 +30445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3201750494817437663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29712,7 +30555,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3216288413703189689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29814,7 +30659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3216288413703319097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -29905,6 +30752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5388357084427875651
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30029,6 +30878,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &367945400716853326
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30249,6 +31100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &3288629596891067733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30357,6 +31210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &3289341218112573632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30464,7 +31319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3292593666068394512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30555,6 +31412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4874255391133157920
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30667,6 +31526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4761776059669204376
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30781,6 +31642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2128755893864883689
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30992,6 +31855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &885423621057014557
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31121,7 +31986,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3377197175862990969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -31222,6 +32089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1833967903800407845
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31351,7 +32220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3427616828456563298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31459,7 +32330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3449309163319716758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31544,6 +32417,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3436559211501837246
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31660,6 +32535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3463123752477434398
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31789,7 +32666,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3476549544337916139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -31903,7 +32782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3483783478584511691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32011,7 +32892,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3492966529222197914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32119,7 +33002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3507724496685631019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32221,12 +33106,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3507724496685767851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
     type: 3}
   m_PrefabInstance: {fileID: 3507724496685631019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3521919017901738453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_Name
+      value: Props_Traffic cone
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 104.7201
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0002526641
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.236225
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+--- !u!4 &3521919017902134101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3521919017901738453}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3528411033405732665
 PrefabInstance:
@@ -32318,6 +33268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2026241850578996625
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32479,6 +33431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2838808936253986224
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32705,6 +33659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1227731988826168247
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32895,8 +33851,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: 0b6fafa63b69b174584365f2641586a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7413872350470224483}
   m_SourcePrefab: {fileID: 100100000, guid: 0b6fafa63b69b174584365f2641586a4, type: 3}
+--- !u!1 &3601660971231301804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 0b6fafa63b69b174584365f2641586a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3601660971231270414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7413872350470224483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601660971231301804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3601660971231661196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0b6fafa63b69b174584365f2641586a4,
@@ -33010,7 +33991,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3625442617921534408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33118,7 +34101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3629009395373320665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33203,6 +34188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1504009203707941117
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33332,7 +34319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3633819475425238530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -33437,6 +34426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9042698739998344651
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33714,7 +34705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3753749261397621206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -33805,6 +34798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3378612164934220425
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33923,6 +34918,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3324880715868379945
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34029,6 +35026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8254217611799388944
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34141,6 +35140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5699431368661008254
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34444,7 +35445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3864023044548034696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -34590,6 +35593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3551280587016342366
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34719,7 +35724,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3880328806554548389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -34985,7 +35992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &3912439710437111620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -35082,6 +36091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7893778351984516721
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35188,6 +36199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &524419315436657088
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35306,6 +36319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3871734704243264499
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35435,7 +36450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &3952651911160563910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35526,6 +36543,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2436959628260316613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35691,6 +36710,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4646758645854563159
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35809,6 +36830,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1608019973545830000
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35984,6 +37007,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2360445400132414651
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36398,6 +37423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3060234942576667834
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36516,6 +37543,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2231905452718902426
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36645,7 +37674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4133280959044314889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36730,6 +37761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2993168004145963420
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36931,6 +37964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &4178858283549859390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37015,6 +38050,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4879484582311632167
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37144,7 +38181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4184629856572949615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -37347,7 +38386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4202541153164687491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -37455,7 +38496,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4212004257575831183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -37601,6 +38644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1081031710530471920
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37841,6 +38886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9189939699804376276
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38071,6 +39118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &822204695487811268
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38183,6 +39232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &296771933349598975
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38295,6 +39346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4414999624368433649
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38411,6 +39464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3705236982148580166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38595,7 +39650,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4342918552375629276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38769,6 +39826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5092210484851252570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38875,6 +39934,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3051615157563541616
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38987,6 +40048,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3902537010765833024
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39105,6 +40168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4444950660404474999
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39412,6 +40477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8616568788035885042
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39530,6 +40597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4877836994761550848
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39653,7 +40722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4433928107604199402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -39761,7 +40832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4435517899264722134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -39911,6 +40984,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5454887910997839076
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40023,6 +41098,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7329169267089362865
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40139,6 +41216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4762536618776064744
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40316,6 +41395,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5838155154304014885
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40481,6 +41562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6070676502491511805
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40610,7 +41693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4522811113061326179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -40718,7 +41803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4538259765424733984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -40809,6 +41896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1792515663732083062
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40921,6 +42010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6896023572045783364
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41115,7 +42206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4559883544751657719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41200,6 +42293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1825925360829288164
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41320,6 +42415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1438598188575035103
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41449,7 +42546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4567463293637926175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -41740,7 +42839,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4645836242668137422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41835,6 +42936,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8930863675198261801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41964,7 +43067,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4667479523650869782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42108,6 +43213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7568181906020382606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42397,6 +43504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2928630322244100088
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42526,7 +43635,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4790816014343332713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -42699,7 +43810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4859087890040515930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42807,7 +43920,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4865785290174562211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42915,7 +44030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &4868860198719912720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43006,6 +44123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &815231499075520480
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43177,6 +44296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3812526552973454178
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43289,6 +44410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8275449789686769890
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43574,6 +44697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2440750859163715518
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43792,7 +44917,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &4999962230876715310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -43883,6 +45010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1472484243673170854
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44119,6 +45248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5306435329993631352
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44242,7 +45373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5056621340911296892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -44333,6 +45466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5070287474304797569
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44453,6 +45588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3324081109134841149
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44565,6 +45702,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5674459676325815428
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44671,6 +45810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &5117641260922152361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44877,7 +46018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &5120420628886807780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44979,7 +46122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5120420628887207524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -45076,6 +46221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7011287010969652155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45098,6 +46245,69 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a4051385261ccbb45a4060203fd8d66e, type: 3}
+--- !u!1001 &5141598468181939575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof Solar Panel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 75.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.5280004
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 46.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+--- !u!4 &5141598468181807095 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739,
+    type: 3}
+  m_PrefabInstance: {fileID: 5141598468181939575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5143671799699582954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45199,7 +46409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5143671799699977578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -45313,7 +46525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &5167968134890960271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45461,6 +46675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2286204330933707452
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45674,6 +46890,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4073577409514370078
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45786,6 +47004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5572523688629165990
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45892,6 +47112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &858098875542253677
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46080,7 +47302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5292370375865020897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -46194,7 +47418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &5305060833255607375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46296,7 +47522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5305060833256003279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -46401,6 +47629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4412533659183562463
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46524,7 +47754,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5317431591094219932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -46615,6 +47847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &389442672014675698
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46809,7 +48043,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &5338188270682994087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46900,6 +48136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6250303125379181269
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47012,6 +48250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6449068838902831329
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47200,7 +48440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &5375621473603572645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47356,6 +48598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5030266449969647542
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47544,7 +48788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5393588628591242773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -47700,6 +48946,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &600200071610693902
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47816,6 +49064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7252891194741213737
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47928,6 +49178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1351181243856922568
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48034,6 +49286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5374597952970845942
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48207,6 +49461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7714847622720668929
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48486,6 +49742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8604874219574485471
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48604,6 +49862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4477860302678757404
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48710,6 +49970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6571555536634055917
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48828,6 +50090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7729485701350759683
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48940,6 +50204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8221160224708707324
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49052,6 +50318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &736739372053154136
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49373,7 +50641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &5712474350722348042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -49474,6 +50744,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6668449764575721032
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49681,6 +50953,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &63899086168198068
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49797,6 +51071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5347832943318835417
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50048,7 +51324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &5821740208069674026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50226,6 +51504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &5827417526508014360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3,
@@ -50421,6 +51701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6502541244311065864
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50550,7 +51832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &5858753356297804309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50635,6 +51919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3957863153588911492
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50808,6 +52094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8803257547901997844
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50973,6 +52261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7786131004289624628
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51132,6 +52422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &5895711113964427097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 62125825e49febf4a89f76daf85d9ca7,
@@ -51232,6 +52524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &174599142162849737
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51254,6 +52548,69 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 60550932e430af1479cebb05e97130ae, type: 3}
+--- !u!1001 &5913278723297618687
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof Solar Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 101.699455
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.35717
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.90506
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+--- !u!4 &5913278723297226879 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739,
+    type: 3}
+  m_PrefabInstance: {fileID: 5913278723297618687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5916353322061808633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51342,6 +52699,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1607887986060753402
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51450,6 +52809,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2644640984295435621
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51556,6 +52917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &5967309100856358762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51715,6 +53078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5536357710820263125
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51827,6 +53192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3684941676173070153
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51939,6 +53306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6781920818406536139
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52068,7 +53437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6024751299894319701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -52182,7 +53553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6075562435566673574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52284,7 +53657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6075562435567060006 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -52397,6 +53772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &6083412924371924016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
@@ -52504,7 +53881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6087828457362714135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -52597,6 +53976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8463034681948640918
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52764,6 +54145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4921023997360904610
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52880,6 +54263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1585336504155945440
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53058,7 +54443,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6161579519232625666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -53172,7 +54559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6188912138970247149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53280,7 +54669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6201574788087730374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53536,7 +54927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6206007288678207151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -53644,7 +55037,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6216635222477521660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -53735,6 +55130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2437245307834158123
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53851,6 +55248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3279757569854661736
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53971,6 +55370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8561436949738564777
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54089,6 +55490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4965897168552624830
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54199,6 +55602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3080273665140316635
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54328,7 +55733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6283518213498371340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -54436,7 +55843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6298507802869464692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -54544,7 +55953,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6307986791823017339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -54652,7 +56063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6320137149250635855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -54749,6 +56162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3278395250394527625
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54861,6 +56276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6807617674737392951
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55095,6 +56512,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 796948bfa75e5ee4ba5a68eabfa08ec3,
     type: 3}
   m_PrefabInstance: {fileID: 6343373478674875062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6355056507944729311
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof prop air
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.28946
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.459001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.673325
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+--- !u!4 &6355056507944591455 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be,
+    type: 3}
+  m_PrefabInstance: {fileID: 6355056507944729311}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6368936855933397059
 PrefabInstance:
@@ -55505,7 +56985,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6399656346880220357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -55619,7 +57101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6443439268178745032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55721,12 +57205,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6443439268179135560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
     type: 3}
   m_PrefabInstance: {fileID: 6443439268178745032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6462798533010605620
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof prop air (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 107.381
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.0082855
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 83.329
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 120449a04911a924ca1239be382ff0be, type: 3}
+--- !u!4 &6462798533010742452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 120449a04911a924ca1239be382ff0be,
+    type: 3}
+  m_PrefabInstance: {fileID: 6462798533010605620}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6475783871930955469
 PrefabInstance:
@@ -55818,6 +57367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6971764573225519448
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55987,6 +57538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4732092263054501321
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56122,7 +57675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6507016725547265036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56213,6 +57768,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8364703512307179986
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56342,7 +57899,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6538084909901831119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56516,6 +58075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &6573801985537654082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56600,6 +58161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8371597410764693282
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56722,6 +58285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8702373533193291945
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56845,7 +58410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6579116198524119598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -57147,7 +58714,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6584032577048545564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -57337,6 +58906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2242847283870215746
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57449,6 +59020,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2657813523249758299
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57707,6 +59280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2737076738311955460
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57836,7 +59411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6732532855801156840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -57927,6 +59504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6167794764499802405
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58056,7 +59635,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6786060040137377297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -58161,6 +59742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4120980986374623854
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58344,6 +59927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9119553698365692467
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58467,7 +60052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6833367227763601102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -58581,7 +60168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6918061957942216933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58683,7 +60272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6918061957942350437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -58791,7 +60382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &6922145377389260760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -58910,6 +60503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &6941120398297571567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59095,6 +60690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7639846857620040722
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59207,6 +60804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4328207769102674223
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59336,7 +60935,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &6984964913998960005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59421,6 +61022,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9171862478207596800
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59638,6 +61241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7593186281009820186
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59750,6 +61355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2233096531726389186
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59873,7 +61480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7063978170350709427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -59970,6 +61579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2153643040965093044
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60086,6 +61697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &554002530872450722
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60267,6 +61880,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6819536952807618427
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60379,6 +61994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3452687114140630838
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60670,6 +62287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &7146919050686028112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60830,7 +62449,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7169439536293340321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -60980,6 +62601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8589455138902451052
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61193,6 +62816,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3500932553818327475
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61299,6 +62924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1455383244699932831
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61417,6 +63044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6241714801754919274
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61635,7 +63264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7267806203920972662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -61850,6 +63481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8690903665960011379
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62072,7 +63705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7291790536160440919 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -62180,7 +63815,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7304261637383308917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -62370,6 +64007,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8432538822998240897
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62673,6 +64312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2981988854128263319
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62834,6 +64475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2333801237930199785
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62946,6 +64589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6521093029358901051
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63194,6 +64839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8445032395576948012
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63306,6 +64953,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4940057700624901111
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63521,6 +65170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &649754035137880322
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63627,6 +65278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7483094124655727905
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63832,6 +65485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6579857240604842108
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64033,6 +65688,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3429681872525379643
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64171,6 +65828,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &7502363857849839416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
@@ -64267,6 +65926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &297668349652694481
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64373,6 +66034,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6490072944595191086
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64508,7 +66171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &7523096239861239105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64610,7 +66275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7523096239861635009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -64811,7 +66478,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &7569317895295980309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64902,6 +66571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8928006317919760817
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65014,6 +66685,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6881742137704565491
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65126,6 +66799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6518211645816467610
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65249,7 +66924,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7647501950479239659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -65468,6 +67145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7319027265364130057
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65665,6 +67344,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6975665178994732389
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65830,6 +67511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &7773534753830661330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65884,6 +67567,132 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749,
     type: 3}
   m_PrefabInstance: {fileID: 7773534753830661330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7785695832898098736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof Solar Panel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.734398
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.239773
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 76.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+--- !u!4 &7785695832898489520 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739,
+    type: 3}
+  m_PrefabInstance: {fileID: 7785695832898098736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7790643889783076171
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_Name
+      value: Props_Hydrant
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 110.63385
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000012919307
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.623333
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e0e851c58997b9c438fae494e3412749, type: 3}
+--- !u!4 &7790643889782681547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: e0e851c58997b9c438fae494e3412749,
+    type: 3}
+  m_PrefabInstance: {fileID: 7790643889783076171}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7808995386041029769
 PrefabInstance:
@@ -65986,7 +67795,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7808995386041159177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -66077,6 +67888,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1138753357329046168
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66189,6 +68002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &573258921344021084
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66311,6 +68126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1822991325366443012
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66423,6 +68240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2530290333010736635
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66725,6 +68544,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5160509798690225448
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66831,6 +68652,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1654310676122725062
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66992,6 +68815,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &7892210423705631511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67177,6 +69002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8881800379022566707
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67449,6 +69276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7991149744265894264
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67578,7 +69407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7943261886056203118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -67686,7 +69517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &7976467426444083176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -67771,6 +69604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &8003665488802690779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67855,6 +69690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1584419032963717120
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67967,6 +69804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7859785302937060784
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68161,7 +70000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8048187792932818047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68351,6 +70192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4131910643965913492
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68480,7 +70323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8090458154749885452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68571,6 +70416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8997660540273712851
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68694,12 +70541,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8105094144502718564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
     type: 3}
   m_PrefabInstance: {fileID: 8105094144502332132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8110917871965926781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_Name
+      value: Props_Roof Solar Panel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.734398
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.239773
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 79.00331
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fcc0b85550a21d4f8dea0cf26372739, type: 3}
+--- !u!4 &8110917871965794301 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 0fcc0b85550a21d4f8dea0cf26372739,
+    type: 3}
+  m_PrefabInstance: {fileID: 8110917871965926781}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8111745551993744060
 PrefabInstance:
@@ -68894,6 +70806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3406597548428937320
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69017,7 +70931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8122027766021117141 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -69114,6 +71030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5009649550068471840
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69220,6 +71138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3225387592450135332
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69350,11 +71270,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &8157359003351259432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
     type: 3}
   m_PrefabInstance: {fileID: 8157359003350860712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8185464799366015042
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 190637699252081819}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_Name
+      value: Props_Traffic Control Barrier Fence
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 107.856995
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0006648302
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.257
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.15626231
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9877156
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 522.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 484404636ac422042a24ac95512dc2d3, type: 3}
+--- !u!4 &8185464799365886658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 484404636ac422042a24ac95512dc2d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8185464799366015042}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8191717754895042527
 PrefabInstance:
@@ -69446,6 +71431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2703742656998090795
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69558,6 +71545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5251833960450369047
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69814,6 +71803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4870852275017022879
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69949,7 +71940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8260066550266860351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70040,6 +72033,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5429499785195332122
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70152,6 +72147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6005929089036935328
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70264,6 +72261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1400062170674713075
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70529,7 +72528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8331630074881611985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -70738,7 +72739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8367646321689831828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70829,6 +72832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5755833591857313883
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70941,6 +72946,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6143921036608395643
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71141,7 +73148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8398171100662276921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71297,6 +73306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3600525629420079274
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71415,6 +73426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3830123410388730595
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71576,6 +73589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &711603976818362931
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71688,6 +73703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9151639941707729490
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71806,6 +73823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1344662893089304253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71935,7 +73954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8450647918040129396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72079,6 +74100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3614610157519146389
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72208,7 +74231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8502806038079001296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -72398,6 +74423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1004526468727575808
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72533,7 +74560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8547248080070120410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72772,6 +74801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7124199776352506428
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73105,6 +75136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5352043967441315263
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73207,6 +75240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &8640684997128566177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73285,6 +75320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!1001 &8650126512365585075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73392,7 +75429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8675663007785004596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73500,7 +75539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8703687396019976078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73585,6 +75626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5932053167750546885
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73720,7 +75763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!1001 &8732900725173255608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73805,6 +75850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &759919775409904070
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73934,7 +75981,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8747126429517265982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -74031,6 +76080,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7922596062495633897
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74137,6 +76188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4520847802408525384
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74249,6 +76302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2662956974374627602
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74361,6 +76416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &3630089237779962256
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74479,6 +76536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5615184233992856455
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74602,7 +76661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8782203823977733915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -74715,6 +76776,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!4 &8795307366592516322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c,
@@ -74910,6 +76973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2747094594345700452
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75121,6 +77186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &8180373147446486305
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75358,7 +77425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8814396833853676279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -75449,6 +77518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1307596392685091406
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75567,6 +77638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &9187697995417867437
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75846,6 +77919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6544057906106180575
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75975,7 +78050,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &8900732811509475288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b8ee657c6800ab849bb30b4375d02323,
@@ -76198,6 +78275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2972280298253200658
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76369,6 +78448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &5805683891144920949
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76668,6 +78749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2329319583788020784
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77101,7 +79184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156096ac28cb476f69106e3b5de8bdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingSpeed: 1
+  _fallingSpeed: 0.2
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 1
 --- !u!4 &9002826413254270681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d4cfcf659200d7548b90a5580c3ab18f,
@@ -77320,6 +79405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2959870531561647582
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77426,6 +79513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1326082074376455794
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77538,6 +79627,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6798036333653873459
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77650,6 +79741,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1657280221216631343
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77772,6 +79865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &1394202195739750948
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77884,6 +79979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &7770644564374437714
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77990,6 +80087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6873178080585005508
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78167,6 +80266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2534893424448624430
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78273,6 +80374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &4080823483396470987
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78634,6 +80737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6577990524570631349
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78805,6 +80910,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &6093887166025966012
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78917,6 +81024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallingSpeed: 1
+  _collapseVector: {x: 0, y: 0, z: 0}
+  _type: 0
 --- !u!64 &2578940030420991714
 MeshCollider:
   m_ObjectHideFlags: 0

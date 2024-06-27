@@ -16,6 +16,7 @@ public class PlayerWeapons : MonoBehaviour
     public float _standardCurrentTimer;
     public Transform _standardSpawner;
     public AudioSource _standardAudioSource;
+    public ParticleSystem _standardGunParticles;
     [Header("Sniper Gun")] public WeaponClass _sniperGunClass;
     public bool _sniperGunEnabled;
     public float _sniperGunDamage;
@@ -78,7 +79,7 @@ public class PlayerWeapons : MonoBehaviour
     private EquipmentCanvas _equipmentCanvas;
     private float _laserCurrentTimer;
     private float _shotgunCurrentTimer;
-
+    public LayerMask _raycastIgnoreLayers;
     private void Start()
     {
         _equipmentCanvas = FindFirstObjectByType<EquipmentCanvas>();
@@ -107,6 +108,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _bulletDamage * _damageMultipler;
         _standardAudioSource.Play();
         _standardCurrentTimer = 0;
+        if(_standardGunParticles != null) _standardGunParticles.Play();
     }
 
     public void MachineGun()
