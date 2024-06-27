@@ -8,7 +8,7 @@ public class PlayerWeapons : MonoBehaviour
     public List<WeaponClass> _weaponsInUse;
     public GameObject _bullet;
     public List<WeaponClass> _allWeapons;
-
+    private PlayerMovement _playerMovement;
     [Header("Standard Gun")] public WeaponClass _standardGunClass;
     public bool _standardGunEnabled;
     public float _standardMaxTimer;
@@ -80,8 +80,15 @@ public class PlayerWeapons : MonoBehaviour
     private float _laserCurrentTimer;
     private float _shotgunCurrentTimer;
     public LayerMask _raycastIgnoreLayers;
+    [Header("OrbitalGun")]
+    public WeaponClass _orbitalGunClass;
+    public bool _orbitalGunEnabled;
+    public float _orbitalGunMaxTimer;
+    public float _orbitalGunCurrentTimer;
+    public GameObject _orbitalGunPrefab;
     private void Start()
     {
+        _playerMovement = GetComponent<PlayerMovement>();
         _equipmentCanvas = FindFirstObjectByType<EquipmentCanvas>();
         _laserCurrentDamage = _laserBaseDamage;
         foreach (var _weapon in _weaponsModels) _weapon.SetActive(false);
@@ -248,6 +255,20 @@ public class PlayerWeapons : MonoBehaviour
             _lastLaserEnemy = _enemy;
             _laserCurrentTimer = 0;
         }
+    }
+
+    public void DoOrbitalGun()
+    {
+        if(!_orbitalGunClass.CheckForUse()) return;
+        
+        if(_orbitalGunMaxTimer > _orbitalGunCurrentTimer)
+        {
+            _orbitalGunCurrentTimer += Time.deltaTime;
+            return;
+        }
+        GameObject _orbitalGun = Instantiate(_orbitalGunPrefab,
+            _playerMovement._currentEnemy.transform.position,
+            Quaternion.identity);
     }
 
     public void ModyfyDamage(float _value)
