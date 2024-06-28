@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 5317437016612546682}
   - component: {fileID: 7330320486203455602}
   - component: {fileID: 7967578061399823448}
+  - component: {fileID: 184382635426059921}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -197,6 +198,8 @@ MonoBehaviour:
   _weaponUnlock: {fileID: 0}
   _notyficationBaner: {fileID: 0}
   _spodekAudioSource: {fileID: 7330320486203455602}
+  _trashRotateX: 60
+  _trashRotateY: 60
 --- !u!114 &1134717862283422432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,17 +213,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _qualityOn: 0
-  _qualityOnSprite: {fileID: -46253509169672506, guid: 08103e19a59b16c2d90d211f7572dff3,
-    type: 3}
-  _qualityOffSprite: {fileID: 409332643574109363, guid: 963c8903b758165d7b9ba68c1e6c2702,
-    type: 3}
+  _qualityOnSprite: {fileID: 21300000, guid: 2946cb796091acbaa8a3039a9074c4a5, type: 3}
+  _qualityOffSprite: {fileID: 21300000, guid: c7a0723c64510ec3bb61f4a7287f33c6, type: 3}
   _qualityImage: {fileID: 0}
   _postProcessVolume: {fileID: 0}
   _audioListener: {fileID: 0}
-  _audioOnSprite: {fileID: 3654082744527260906, guid: 1c669ea0353bc86e391b855bc5ebc5b9,
-    type: 3}
-  _audioOffSprite: {fileID: 6057934384950779801, guid: 89c12cad8ba375958aec1f9245b31275,
-    type: 3}
+  _audioOnSprite: {fileID: 21300000, guid: 2946cb796091acbaa8a3039a9074c4a5, type: 3}
+  _audioOffSprite: {fileID: 21300000, guid: c7a0723c64510ec3bb61f4a7287f33c6, type: 3}
   _audioImage: {fileID: 0}
   _twitterURL: https://x.com/tamusdev
   _facebookURL: 
@@ -584,6 +583,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &184382635426059921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821704617510575578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adab2652d8b8fdd77b38ab09e91ed0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trashlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5577204864429397369
 GameObject:
   m_ObjectHideFlags: 0
