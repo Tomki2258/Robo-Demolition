@@ -264,11 +264,16 @@ public class PlayerWeapons : MonoBehaviour
         if(_orbitalGunMaxTimer > _orbitalGunCurrentTimer)
         {
             _orbitalGunCurrentTimer += Time.deltaTime;
-            return;
+            
         }
-        GameObject _orbitalGun = Instantiate(_orbitalGunPrefab,
-            _playerMovement._currentEnemy.transform.position,
-            Quaternion.identity);
+        else
+        {
+            GameObject _orbitalGun = Instantiate(_orbitalGunPrefab,
+                transform.position,
+                Quaternion.identity);
+            _orbitalGun.transform.position = _playerMovement._currentEnemy.transform.position;
+            _orbitalGunCurrentTimer = 0;
+        }
     }
     public void DoMineDeployer()
     {

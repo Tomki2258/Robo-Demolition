@@ -10,21 +10,27 @@ public class OrbitalShoot : MonoBehaviour
     public float _damageRepeatCurrent;
     private Transform _body;
     private Renderer _renderer;
+    private int _canonShots;
+    public int _canonShotsMax;
 
     private void Start()
     {
         _body = transform.GetChild(0);
         _renderer = _body.GetComponent<Renderer>();
+        _damageRepeatCurrent = _damageRepeatMax;
     }
 
     private void FixedUpdate()
     {
+        if(_canonShots == _canonShotsMax) Destroy(gameObject);
+        
         if(_damageRepeatCurrent < _damageRepeatMax)
         {
             _damageRepeatCurrent += Time.deltaTime;
         }
         else
         {
+            _canonShots++;
             DoDamage();
         }
     }
