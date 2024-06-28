@@ -59,6 +59,7 @@ public class PlayerDemolition : MonoBehaviour
                 }
                 else
                 {
+                    _destroyable.PlayFallingSound();
                     _destroyedObjects.Remove(gobj);
                 }
             }

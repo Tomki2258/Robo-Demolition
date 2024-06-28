@@ -16,11 +16,12 @@ public class Destroyable : MonoBehaviour
     private Vector3 _startRotation;
     private float _startXSize;
     private float tolerance = 5f;
+    private AudioSource _audioSource;
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
         _height = _renderer.bounds.size.y;
-
+        _audioSource = GetComponent<AudioSource>();
         if(_type == destoryableType.NONE)
         {
             _collapseVector = new Vector3(
@@ -38,6 +39,10 @@ public class Destroyable : MonoBehaviour
         }
     }
 
+    public void PlayFallingSound()
+    {
+        _audioSource.Play();
+    }
     public Vector3 GetCollabseVector()
     {
         return _collapseVector;
