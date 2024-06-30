@@ -10,7 +10,8 @@ public enum WeaponTypes
     OrbitalGun,
     SniperGun,
     CircleGun,
-    SphereAttack
+    SphereAttack,
+    MineDeployer
 }
 
 namespace DefaultNamespace
@@ -24,7 +25,8 @@ namespace DefaultNamespace
         [SerializeField] private Sprite _sprite;
         [SerializeField] private bool _isUnlocked;
         [SerializeField] private bool _isInUse;
-
+        [SerializeField] private float _damage;
+        [SerializeField] private float _reloadTimeMax;
         public string GetWeaponName()
         {
             return _name;
@@ -73,6 +75,14 @@ namespace DefaultNamespace
         public bool CheckForUse()
         {
             return _isInUse;
+        }
+        public float GetDamage()
+        {
+            return _damage;
+        }
+        public float GetReloadTime()
+        {
+            return _reloadTimeMax;
         }
     }
 }

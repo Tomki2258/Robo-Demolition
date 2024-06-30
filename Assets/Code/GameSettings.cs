@@ -12,7 +12,7 @@ public class GameSettings : MonoBehaviour
     public Image _qualityImage;
     public Volume _postProcessVolume;
     [Header("Audio")] public AudioListener _audioListener;
-
+    public bool _audioOn;
     public Sprite _audioOnSprite;
     public Sprite _audioOffSprite;
     public Image _audioImage;
@@ -57,6 +57,7 @@ public class GameSettings : MonoBehaviour
 
     public void SwitchQualitySettings()
     {
+        Debug.Log("Switch Quality");
         _qualityOn = !_qualityOn;
         if (_qualityOn)
         {
@@ -86,18 +87,20 @@ public class GameSettings : MonoBehaviour
 
     public void SwitchAudioSettings()
     {
-        if (_audioListener.enabled)
+        Debug.Log("Audio Button");
+        _audioOn = !_audioOn;
+        if (_qualityOn)
         {
-            _audioListener.enabled = false;
-            _audioImage.sprite = _audioOnSprite;
+            _audioListener.enabled = true;
+            _audioImage.sprite =_audioOnSprite;
         }
         else
         {
-            _audioListener.enabled = true;
+            _audioListener.enabled = false;
             _audioImage.sprite = _audioOffSprite;
         }
 
-        PlayerPrefs.SetInt("SavedAudio", _audioListener.enabled ? 1 : 0);
+        PlayerPrefs.SetInt("SavedAudio", _audioOn ? 1 : 0);
     }
 
     public void LaunchURL(int _URLindex)

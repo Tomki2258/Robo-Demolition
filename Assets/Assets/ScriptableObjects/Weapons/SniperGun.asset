@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Sniper Gun
   _description: 
-  _type: 5
+  _type: 6
   _sprite: {fileID: -6142095848857412055, guid: e547f1d3541cdb06b840f8f68ba5caf3,
     type: 3}
-  _isUnlocked: 1
+  _isUnlocked: 0
   _isInUse: 0
+  _damage: 0
+  _reloadTimeMax: 0

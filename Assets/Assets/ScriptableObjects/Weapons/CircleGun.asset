@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Circle Gun
   _description: 
-  _type: 6
+  _type: 7
   _sprite: {fileID: -3219469032955256135, guid: f3dc091ba738ebecca3eb2d5a9bc4bfb,
     type: 3}
-  _isUnlocked: 1
+  _isUnlocked: 0
   _isInUse: 0
+  _damage: 0
+  _reloadTimeMax: 0

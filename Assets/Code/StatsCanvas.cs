@@ -34,9 +34,9 @@ public class StatsCanvas : MonoBehaviour
 
         _startHealth = _player._maxHealth;
         _startRange = _player._attackRange;
-        _startRegeneration = _playerWeapons._standardMaxTimer;
-        _startDamage = _playerWeapons._bulletDamage;
-        _startReloadSpeed = _playerWeapons._standardMaxTimer;
+        _startRegeneration =_player._hpRegenMultipler;
+        _startDamage = _playerWeapons._damageMultipler;
+        _startReloadSpeed = _playerWeapons._reloadMultipler;
     }
 
     private double PercentageDifference(float start, float end)
@@ -52,8 +52,9 @@ public class StatsCanvas : MonoBehaviour
         _healthText.text = $"Health bonus {_player._maxHealth - _startHealth}";
         _regenerationText.text = $"Regeneration bonus {_player._maxHealth * _player._hpRegenMultipler}/s";
         _rangeText.text = $"Attack range bonus {_player._attackRange - _startRange}";
-        _damageText.text = $"Damage bonus {PercentageDifference(_startDamage, _playerWeapons._bulletDamage)} %";
+        _damageText.text = $"Damage bonus {_playerWeapons._damageMultipler} %";
+        //_damageText.text = $"Damage bonus {PercentageDifference(_startDamage, _playerWeapons._standardGunClass.GetDamage())} %";
         _reloadSpeedText.text =
-            $"Reload speed bonus {PercentageDifference(_startReloadSpeed, _playerWeapons._standardMaxTimer)} % ";
+            $"Reload speed bonus {PercentageDifference(_startReloadSpeed,  _playerWeapons._reloadMultipler)} % ";
     }
 }
