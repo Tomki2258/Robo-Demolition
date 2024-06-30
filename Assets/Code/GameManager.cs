@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public bool _godMode;
     public bool _gameStarted;
     public bool _gameLaunched;
     public List<Transform> _spawnPoints;
@@ -67,10 +68,18 @@ public class GameManager : MonoBehaviour
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _uiManager = FindFirstObjectByType<UIManager>();
         _player.gameObject.SetActive(false);
-
+        
+        if(_godMode) DoGodMode();
+        
         if (_gameStarted && _gameLaunched) OverideStart();
     }
 
+    private void DoGodMode()
+    {
+        _player._maxHealth = 10000;
+        _player._level = 100;
+        _possibleEnemies = _enemiesCount;
+    }
     private void FixedUpdate()
     {
         if (!_gameLaunched || _player._died)

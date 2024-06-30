@@ -37,6 +37,15 @@ public class WeaponUnlock : MonoBehaviour
 
     public void PrepareWeapons()
     {
+        if (FindAnyObjectByType<GameManager>()._godMode)
+        {
+            foreach (var weapon in _weaponsAtStage)
+            {
+                weapon.UnlockWeapon();
+                weapon.SetInUse(false);
+            }
+            return;
+        }
         foreach (var weapon in _weaponsAtStage)
         {
             weapon.SetUnlocked(false);
