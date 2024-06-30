@@ -344,7 +344,8 @@ public class PlayerMovement : MonoBehaviour
     private bool RaycastEnemy(Transform enemy)
     {
         RaycastHit _hit;
-        if (Physics.Raycast(transform.position, enemy.position - transform.position, out _hit, _playerWeapons._raycastIgnoreLayers))
+        if (Physics.Raycast(transform.position, enemy.position - transform.position
+                , out _hit, _playerWeapons._raycastIgnoreLayers))
         {
             if (_hit.transform.CompareTag("Enemy"))
             {

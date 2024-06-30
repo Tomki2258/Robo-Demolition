@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     private float _stunTimer;
     public AudioSource _audioSource;
     public AudioClip _shootAudioClip;
+    private bool _died;
     public void SetUp()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -44,6 +45,8 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDie()
     {
+        if(_died) return;
+        _died = true;
         _gameManager.RemoveEnemy(gameObject);
         if (!_killedByManager)
         {

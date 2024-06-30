@@ -7,15 +7,19 @@ public class Bullet : MonoBehaviour
     public bool _enemyShoot;
     public Material _redMaterial;
     private Material _lastEnemyMaterial;
-
+    public Vector3 _flyVector = Vector3.forward;
     private void Start()
     {
         Destroy(gameObject, 5);
     }
-
+    public void AddRecoil(float _recoil)
+    {
+        float value = Random.Range(-_recoil, _recoil) / 10f;
+        _flyVector = new Vector3(Random.Range(-value,value),0, 1);
+    }
     private void Update()
     {
-        transform.position += transform.TransformDirection(Vector3.forward * _bulletSpeed * Time.deltaTime);
+        transform.position += transform.TransformDirection(_flyVector * _bulletSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

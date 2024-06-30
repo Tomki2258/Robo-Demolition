@@ -20,13 +20,16 @@ public class PlayerWeapons : MonoBehaviour
     public Transform _sniperSpawner;
     public AudioSource _sniperAudioSource;
     [Header("Machine Gun")] public WeaponClass _machineGunClass;
+    [Range(0, 5)] public float _machineGunRecoil;
     public float _machineGunCurrentTimer;
     public Transform _machineGunSpawner;
     public AudioSource _machineGunAudioSource;
 
     [Header("Shotgun Gun")] public WeaponClass _shotgunGunClass;
-    
+    public int _pelletAngle;
+    public int _shotGunPellets;
     public Transform _shotgunSpawner;
+    public float _shotgunCurrentTimer;
 
     [Header("Circle Gun")] public WeaponClass _circleGunClass;
     
@@ -56,7 +59,6 @@ public class PlayerWeapons : MonoBehaviour
     private float _circleGunCurrentTimer;
     private EquipmentCanvas _equipmentCanvas;
     private float _laserCurrentTimer;
-    private float _shotgunCurrentTimer;
     public LayerMask _raycastIgnoreLayers;
     [Header("OrbitalGun")]
     public WeaponClass _orbitalGunClass;
@@ -113,6 +115,7 @@ public class PlayerWeapons : MonoBehaviour
 
         var _currentBullet = Instantiate(_bullet, _machineGunSpawner.transform.position, Quaternion.identity);
         _currentBullet.transform.rotation = _machineGunSpawner.transform.rotation;
+        _currentBullet.GetComponent<Bullet>().AddRecoil(_machineGunRecoil);
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _machineGunClass.GetDamage() * _damageMultipler;
         _machineGunAudioSource.Play();
         _machineGunCurrentTimer = 0;
@@ -175,12 +178,29 @@ public class PlayerWeapons : MonoBehaviour
             return;
         }
 
-        for (var i = 0; i < 3; i++)
+        bool _switchSide = false;
+        int _srakaAngle = 0;
+        for (var i = 0; i < _shotGunPellets; i++)
         {
-            var _currentBullet = Instantiate(_bullet, _shotgunSpawner.GetChild(i).position,
-                _shotgunSpawner.GetChild(i).rotation);
+            var _currentBullet = Instantiate(_bullet, _shotgunSpawner.position, _shotgunSpawner.rotation);
+    
+            int _currentAngle = 0;
+            if (i % 2 == 0)
+            {
+                _currentAngle = (i / 2) * _pelletAngle; // Liczymy kąt tylko dla parzystych wartości i
+            }
+            else
+            {
+                _currentAngle = ((i + 1) / 2) * _pelletAngle; // Dla nieparzystych wartości i przesuwamy o jedną jednostkę
+            }
+
+            _currentAngle *= (_switchSide ? 1 : -1); // Zmieniamy znak kąta
+            _switchSide = !_switchSide; // Przełączamy stronę po ustawieniu kąta
+
+            _currentBullet.transform.Rotate(0, _currentAngle, 0);
             _currentBullet.GetComponent<Bullet>()._bulletDamage = _shotgunGunClass.GetDamage() * _damageMultipler;
         }
+
 
         _shotgunCurrentTimer = 0;
     }
