@@ -157,8 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f6ad7a374b006d99c4fbbb90346bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameStarted: 1
-  _gameLaunched: 1
+  _godMode: 0
+  _gameStarted: 0
+  _gameLaunched: 0
   _spawnPoints:
   - {fileID: 4565484366446682366}
   - {fileID: 7956090684129381361}
@@ -218,6 +219,7 @@ MonoBehaviour:
   _qualityImage: {fileID: 0}
   _postProcessVolume: {fileID: 0}
   _audioListener: {fileID: 0}
+  _audioOn: 0
   _audioOnSprite: {fileID: 21300000, guid: 2946cb796091acbaa8a3039a9074c4a5, type: 3}
   _audioOffSprite: {fileID: 21300000, guid: c7a0723c64510ec3bb61f4a7287f33c6, type: 3}
   _audioImage: {fileID: 0}

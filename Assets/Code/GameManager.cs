@@ -262,6 +262,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(MakeGame());
     }
 
+	public IEnumerator StartDelayCoroutine(float delay){
+		yield return new WaitForSeconds(delay);
+		StartGame();
+	}
+
+	public void StartDelay(float delay){
+		StartCoroutine(StartDelayCoroutine(delay));
+	}
+
     public void GetCaptureAreaReward()
     {
         _player._health = _player._maxHealth;

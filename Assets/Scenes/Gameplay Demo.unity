@@ -865,6 +865,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2002430879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1189900322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3872363597810990095, guid: c400599ef021da4a58e96bef62879a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 5536363986464065556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1196176096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6999732605341575574, guid: c400599ef021da4a58e96bef62879a55,
@@ -1598,11 +1604,6 @@ PrefabInstance:
       objectReference: {fileID: 1877889849}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
-      propertyPath: _godMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
-        type: 3}
       propertyPath: _pausedUI
       value: 
       objectReference: {fileID: 6407799603421028895}
@@ -1631,11 +1632,6 @@ PrefabInstance:
       propertyPath: _notyficationBaner
       value: 
       objectReference: {fileID: 931566246}
-    - target: {fileID: 1134717862283422432, guid: 860dc31f6d096540d8bc123bfaac57e4,
-        type: 3}
-      propertyPath: _audioImage
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1134717862283422432, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _qualityImage
@@ -1795,7 +1791,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _gameStartUI
       value: 
-      objectReference: {fileID: 3711202942916366693}
+      objectReference: {fileID: 1189900322}
     - target: {fileID: 3135003011862470043, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _levelUpCanvas
@@ -2020,12 +2016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3711202942916366693 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8133651201164001574, guid: c400599ef021da4a58e96bef62879a55,
-    type: 3}
-  m_PrefabInstance: {fileID: 5536363986464065556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4390641632483903109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2588,6 +2578,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1063167024733486958, guid: c400599ef021da4a58e96bef62879a55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1882613312}
+    - target: {fileID: 1392852492692961630, guid: c400599ef021da4a58e96bef62879a55,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
