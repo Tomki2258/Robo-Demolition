@@ -141,6 +141,106 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: titleScreenMonitor_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 204
+      width: 128
+      height: 192
+    spriteID: ff092e7af1ce4c4e19109acb321f09ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 204}
+  - name: titleScreenMonitor_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 4
+      width: 128
+      height: 192
+    spriteID: 6c9e64815ca512bd9b9647f2d1c91430
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 4}
+  - name: titleScreenMonitor_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 204
+      width: 128
+      height: 192
+    spriteID: a6d466c215dc04df1ae41f176359f5e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 204}
+  - name: titleScreenMonitor_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 276
+      y: 4
+      width: 128
+      height: 192
+    spriteID: a8a8c406799ed9b938e34e06cc1e092e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 276, y: 4}
+  - name: titleScreenMonitor_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 276
+      y: 204
+      width: 128
+      height: 192
+    spriteID: ecf3c86e9d3a92299b58a73db508186b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 276, y: 204}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -150,7 +250,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: titleScreenMonitor
+    - name: titleScreenMonitor_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
@@ -158,6 +258,46 @@ ScriptedImporter:
         width: 128
         height: 192
       spriteId: 360e21678983d0a129cb504a1a373436
+    - name: titleScreenMonitor_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: ff092e7af1ce4c4e19109acb321f09ba
+    - name: titleScreenMonitor_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: 6c9e64815ca512bd9b9647f2d1c91430
+    - name: titleScreenMonitor_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: a6d466c215dc04df1ae41f176359f5e7
+    - name: titleScreenMonitor_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: a8a8c406799ed9b938e34e06cc1e092e
+    - name: titleScreenMonitor_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: ecf3c86e9d3a92299b58a73db508186b
     linkedCells: []
     parentIndex: -1
   platformSettings: []
