@@ -68,7 +68,7 @@ Camera:
     width: 1
     height: 2.1
   near clip plane: 0.3
-  far clip plane: 200
+  far clip plane: 5000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 30, z: -5}
-  _speed: 3
+  _speed: 2
   _target: {fileID: 0}
   _rotationSpeed: 0.125
   _startCapsule: {fileID: 0}
