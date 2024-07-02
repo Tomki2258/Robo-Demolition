@@ -2026,6 +2026,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3153682461598138654, guid: 9d33326bc4bec38b2869435a011a9cac,
         type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153682461598138654, guid: 9d33326bc4bec38b2869435a011a9cac,
+        type: 3}
       propertyPath: _target
       value: 
       objectReference: {fileID: 1899919605}
@@ -2034,20 +2039,25 @@ PrefabInstance:
       propertyPath: _startCapsule
       value: 
       objectReference: {fileID: 1877889849}
+    - target: {fileID: 3496268757394601111, guid: 9d33326bc4bec38b2869435a011a9cac,
+        type: 3}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 7249498596033027112, guid: 9d33326bc4bec38b2869435a011a9cac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.7
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7249498596033027112, guid: 9d33326bc4bec38b2869435a011a9cac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 126.5
+      value: 1091
       objectReference: {fileID: 0}
     - target: {fileID: 7249498596033027112, guid: 9d33326bc4bec38b2869435a011a9cac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.7
+      value: -477
       objectReference: {fileID: 0}
     - target: {fileID: 7249498596033027112, guid: 9d33326bc4bec38b2869435a011a9cac,
         type: 3}
