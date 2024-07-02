@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 386
         width: 128
         height: 192
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 129
-        y: 0
+        y: 386
         width: 128
         height: 192
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 258
-        y: 0
+        y: 386
         width: 128
         height: 192
       alignment: 0
@@ -181,6 +181,90 @@ TextureImporter:
       bones: []
       spriteID: e56aeb974f847192381aba5acf9a3444
       internalID: -430286071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenMonitorAnimated_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193
+        width: 128
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763cbae10b92c10aba5654078e415217
+      internalID: -1539715140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenMonitorAnimated_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 193
+        width: 128
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05155d1337fa5c07db6f4fb2f752f227
+      internalID: 592749453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenMonitorAnimated_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 193
+        width: 128
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb5abe9e2c13804b0a875c83a56aac33
+      internalID: 1216620351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenMonitorAnimated_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eb18b781fcabc270b8dad1672a54470
+      internalID: -1815942265
       vertices: []
       indices: 
       edges: []
@@ -199,6 +283,10 @@ TextureImporter:
       titleScreenMonitorAnimated_0: 1878219177
       titleScreenMonitorAnimated_1: -579636344
       titleScreenMonitorAnimated_2: -430286071
+      titleScreenMonitorAnimated_3: -1539715140
+      titleScreenMonitorAnimated_4: 592749453
+      titleScreenMonitorAnimated_5: 1216620351
+      titleScreenMonitorAnimated_6: -1815942265
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
