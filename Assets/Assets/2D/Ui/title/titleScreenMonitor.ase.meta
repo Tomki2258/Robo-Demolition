@@ -261,6 +261,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 204}
+  - name: titleScreenMonitor_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 404
+      width: 128
+      height: 192
+    spriteID: 54191a66bb4d04a9a8435b2abbf10f86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 404}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -278,30 +298,6 @@ ScriptedImporter:
         width: 128
         height: 192
       spriteId: 360e21678983d0a129cb504a1a373436
-    - name: titleScreenMonitor_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 192
-      spriteId: ff092e7af1ce4c4e19109acb321f09ba
-    - name: titleScreenMonitor_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 192
-      spriteId: 6c9e64815ca512bd9b9647f2d1c91430
-    - name: titleScreenMonitor_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 192
-      spriteId: a6d466c215dc04df1ae41f176359f5e7
     - name: titleScreenMonitor_Frame_1
       frameIndex: 1
       cellRect:
@@ -309,7 +305,23 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 192
-      spriteId: ac82777d54d51a2d09ce5fa9022f28af
+      spriteId: ff092e7af1ce4c4e19109acb321f09ba
+    - name: titleScreenMonitor_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: 6c9e64815ca512bd9b9647f2d1c91430
+    - name: titleScreenMonitor_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: a6d466c215dc04df1ae41f176359f5e7
     - name: titleScreenMonitor_Frame_4
       frameIndex: 4
       cellRect:
@@ -317,7 +329,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 192
-      spriteId: 2c4add499688e4c4c987ee9737690149
+      spriteId: ac82777d54d51a2d09ce5fa9022f28af
     - name: titleScreenMonitor_Frame_5
       frameIndex: 5
       cellRect:
@@ -325,7 +337,23 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 192
+      spriteId: 2c4add499688e4c4c987ee9737690149
+    - name: titleScreenMonitor_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
       spriteId: 78bc29dec9b17a5dca3b78fd1a5043fc
+    - name: titleScreenMonitor_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 192
+      spriteId: 54191a66bb4d04a9a8435b2abbf10f86
     linkedCells: []
     parentIndex: -1
   platformSettings: []
