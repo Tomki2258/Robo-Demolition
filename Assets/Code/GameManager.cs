@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -13,8 +14,12 @@ public class GameManager : MonoBehaviour
     public float _spawnTimeMax;
     public PlayerMovement _player;
     public float _spawnOffset;
+    [Header("Enemies Section")]
     public List<GameObject> _enemies;
+    public List<int> _enemiesStages;
+    public int _possibleEnemies;
     public List<GameObject> _spawnedEnemies;
+    [Header("------------------")]
     public float _powerUpSpawnTimeMax;
     public List<Transform> _powerUpSpawnPoints;
     public GameObject _powerUps;
@@ -38,7 +43,6 @@ public class GameManager : MonoBehaviour
     private int _enemiesCount;
     private InterstitialAd _interstitialAd;
     private bool _paused;
-    private int _possibleEnemies;
     private float _powerUpSpawnTimeCurrent;
     private List<GameObject> _spawnedPowerUps;
     private int _spawnsCount;
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
     public AudioSource _spodekAudioSource;
     [SerializeField] [Range(0, 120)] private int _trashRotateX;
     [SerializeField] [Range(0, 120)] private int _trashRotateY;
+    
     private void Awake()
     {
         _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
@@ -130,10 +135,10 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseEnemiesIndex()
     {
-        var _possibleTemp = _possibleEnemies;
-        _possibleTemp++;
-
-        if (_possibleTemp < _enemiesCount) _possibleEnemies++;
+        if (_enemiesStages.Contains(_player._level))
+        {
+            _possibleEnemies++;
+        }
     }
 
     private void SpawnEnemy()
