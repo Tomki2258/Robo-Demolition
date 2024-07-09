@@ -4,8 +4,7 @@ using Random = UnityEngine.Random;
 
 public class CameraShake : MonoBehaviour
 {
-    private IEnumerator _cameraEnumerator;
-
+    private IEnumerator _cameraEnumerator;  
     public void DoShake(float duration, float magnitude)
     {
         _cameraEnumerator = Shake(duration, magnitude);
