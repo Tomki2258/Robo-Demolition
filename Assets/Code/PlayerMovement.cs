@@ -294,12 +294,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_xp >= _xpToNextLevel)
         {
+            _cameraShake.SwitchShakeMode(false);
             _uiManager.DoLevelUpCanvas(true);
             transform.position = new Vector3(transform.position.x,
                 transform.position.y + 0.05f,
                 transform.position.z);
             DoJoystickInput(false);
-            _cameraShake.CancelShake();
+            //_cameraShake.CancelShake();
             //CheckForWeaponUnlock(_level);
 
             _level++;

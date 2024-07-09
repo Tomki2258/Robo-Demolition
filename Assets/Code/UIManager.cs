@@ -35,8 +35,10 @@ public class UIManager : MonoBehaviour
     private bool _startOverrided;
     public DateTime _startTime;
     private UserData _userData;
+    private CameraShake _cameraShake;
     private void Awake()
     {
+        _cameraShake = FindFirstObjectByType<CameraShake>();
         _userData = FindFirstObjectByType<UserData>();
         _eqCanvas.SetActive(false);
         _captureAreaImage.enabled = false;
@@ -140,7 +142,10 @@ public class UIManager : MonoBehaviour
         if (_sraka)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
         if (!_sraka)
+        {
+            _cameraShake.SwitchShakeMode(true);
             _player.DoJoystickInput(true);
+        }
         Time.timeScale = !_sraka ? 1 : 0;
     }
 
