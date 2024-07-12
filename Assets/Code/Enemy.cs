@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 public enum EnemyType
@@ -36,8 +37,14 @@ public class Enemy : MonoBehaviour
     public AudioSource _audioSource;
     public AudioClip _shootAudioClip;
     private bool _died;
+    [Header("Flying enemy------")] 
+    public float _wingsSpeed;
+    [Header("------------------")] 
+
+    public List<Transform> _wingsList = new List<Transform>(2);
     public void SetUp()
     {
+        _agent.stoppingDistance = _incomingRange;
         _audioSource = GetComponent<AudioSource>();
         _agent = GetComponent<NavMeshAgent>();
         _oldSpeed = _agent.speed;
@@ -180,5 +187,13 @@ public class Enemy : MonoBehaviour
             _renderer.material = _hitMaterial;
         yield return new WaitForSeconds(_waitTime);
         _renderer.material = _childOryginalMaterial;
+    }
+
+    public void DoWings()
+    {
+        foreach (Transform _wing in _wingsList)
+        {
+            _wing.Rotate(new Vector3(0,0,1) * _wingsSpeed * Time.deltaTime, _wingsSpeed);
+        }
     }
 }
