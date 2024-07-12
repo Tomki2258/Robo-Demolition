@@ -10,19 +10,21 @@ public class OrbitalShoot : MonoBehaviour
     public float _damageRepeatCurrent;
     private Transform _body;
     private Renderer _renderer;
-    private int _canonShots;
+    private int _canonShots = 0;
     public int _canonShotsMax;
-
+    private Animator _animator;
+    [SerializeField] private ParticleSystem _particleSystem;
     private void Start()
     {
         _body = transform.GetChild(0);
         _renderer = _body.GetComponent<Renderer>();
         _damageRepeatCurrent = _damageRepeatMax;
+        _animator.speed = 3 / _damageRepeatCurrent;
     }
 
     private void FixedUpdate()
     {
-        if(_canonShots == _canonShotsMax) Destroy(gameObject);
+        if(_canonShots == _canonShotsMax + 1) Destroy(gameObject);
         
         if(_damageRepeatCurrent < _damageRepeatMax)
         {
@@ -37,6 +39,12 @@ public class OrbitalShoot : MonoBehaviour
 
     private void DoDamage()
     {
+        Vector3 _vector3 = new Vector3(transform.position.x, 0, transform.position.z);
+        if (_canonShots < _canonShotsMax)
+        {
+            ParticleSystem _currentParticleSystem = Instantiate(_particleSystem, _vector3, Quaternion.identity);
+            Destroy(_currentParticleSystem, 6);
+        }
         Collider[] colliders = Physics.OverlapSphere(transform.position, _renderer.bounds.size.x / 2);
         foreach (var col in colliders)
         {

@@ -1,9 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-
+public enum EnemyType
+{
+    Ground,
+    Air
+}
 public class Enemy : MonoBehaviour
 {
+    public EnemyType _enemyType;
     public NavMeshAgent _agent;
     public GameManager _gameManager;
     public PlayerMovement _player;
@@ -86,12 +91,19 @@ public class Enemy : MonoBehaviour
         _trash.AddComponent<MeshCollider>();
         _trash.GetComponent<MeshCollider>().sharedMesh = _mesh;
         _trash.GetComponent<MeshCollider>().convex = true;
-        Vector3 _randomForceVector = new Vector3(Random.Range(-1, 1),
-            Random.Range(5, 8),
-            Random.Range(-1, 1));
-        _trash.GetComponent<Rigidbody>().AddForce(_randomForceVector, ForceMode.Impulse);
-        _trash.GetComponent<Rigidbody>().AddTorque(transform.up * _gameManager.GetTrashX());
-        _trash.GetComponent<Rigidbody>().AddTorque(transform.right * _gameManager.GetTrashY());
+        if (_enemyType == EnemyType.Ground)
+        {
+            Vector3 _randomForceVector = new Vector3(Random.Range(-1, 1),
+                Random.Range(5, 8),
+                Random.Range(-1, 1));
+            _trash.GetComponent<Rigidbody>().AddForce(_randomForceVector, ForceMode.Impulse);
+            _trash.GetComponent<Rigidbody>().AddTorque(transform.up * _gameManager.GetTrashX());
+            _trash.GetComponent<Rigidbody>().AddTorque(transform.right * _gameManager.GetTrashY());    
+        }
+        else if(_enemyType == EnemyType.Air)
+        {
+           
+        }
         //_trash.isStatic = true;
         _trash.tag = "Trash";
     }

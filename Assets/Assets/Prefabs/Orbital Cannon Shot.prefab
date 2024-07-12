@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1059255892858121487}
   - component: {fileID: 2868893421397107420}
+  - component: {fileID: 3446391638137657138}
   m_Layer: 0
   m_Name: Orbital Cannon Shot
   m_TagString: Untagged
@@ -49,6 +50,28 @@ MonoBehaviour:
   _damageRepeatMax: 3
   _damageRepeatCurrent: 0
   _canonShotsMax: 2
+--- !u!95 &3446391638137657138
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185811293998600965}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc3ae0b9f8a0f8de4a22e7e7082d5fa0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9085402582070620095
 GameObject:
   m_ObjectHideFlags: 0
