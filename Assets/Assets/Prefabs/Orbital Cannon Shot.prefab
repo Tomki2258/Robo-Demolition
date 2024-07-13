@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1059255892858121487
 Transform:
   m_ObjectHideFlags: 0
@@ -49,7 +49,9 @@ MonoBehaviour:
   _damage: 50
   _damageRepeatMax: 3
   _damageRepeatCurrent: 0
-  _canonShotsMax: 2
+  _canonShotsMax: 4
+  _particleSystem: {fileID: 4560532222401834740, guid: 504d573ddfb19a4b5b0568daf8b20cf0,
+    type: 3}
 --- !u!95 &3446391638137657138
 Animator:
   serializedVersion: 7

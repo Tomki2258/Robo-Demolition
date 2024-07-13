@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class CameraShake : MonoBehaviour
 {
     private IEnumerator _cameraEnumerator;
-    [SerializeField] private bool _canShake;
+    [SerializeField] private bool _canShake = true;
 
     public void SwitchShakeMode(bool _mode)
     {

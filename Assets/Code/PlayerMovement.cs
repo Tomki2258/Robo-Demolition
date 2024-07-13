@@ -158,7 +158,8 @@ public class PlayerMovement : MonoBehaviour
             var _nearestEnemy = GetNearestEnemy();
             var _tempAttackRange = _attackRange * transform.localScale.x + 2;
 
-            if (Vector3.Distance(transform.position, _nearestEnemy.position) < _tempAttackRange && RaycastEnemy(_currentEnemy.transform))
+            if (Vector3.Distance(transform.position, _nearestEnemy.position) < _tempAttackRange  
+                /*&& RaycastEnemy(_currentEnemy.transform) */)
             {
                 MoveTurret(GetNearestEnemy().position);
                 Battle();
@@ -364,7 +365,7 @@ public class PlayerMovement : MonoBehaviour
             if (_enemy == null) continue;
             //if(!RaycastEnemy(_enemy.transform)) continue;
             var dist = Vector3.Distance(_enemy.transform.position, transform.position);
-
+            
             if (dist < lowestDist)
             {
                 lowestDist = dist;
