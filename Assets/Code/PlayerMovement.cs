@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     private Quaternion _startRotation;
     private UIManager _uiManager;
     public Transform _idleLookTransform;
+    public Transform _mainCannonRotateElement;
     private void Awake()
     {
         _footStepsSoundsCount = _footStepSounds.Count;
@@ -269,6 +270,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_enemyDist < _tempAttackRange)
         {
+            _mainCannonRotateElement.Rotate(Vector3.left * 300 * Time.deltaTime);
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
