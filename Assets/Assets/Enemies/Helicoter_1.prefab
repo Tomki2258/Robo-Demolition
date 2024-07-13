@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1001285241722268339}
-  - component: {fileID: -1239454557769777658}
+  - component: {fileID: -8373815629330642022}
   - component: {fileID: 5922888676198504622}
   - component: {fileID: 7147305318804133754}
   - component: {fileID: 308622834934889302}
@@ -331,7 +331,7 @@ Transform:
   - {fileID: 2515637262503085605}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1239454557769777658
+--- !u!114 &-8373815629330642022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,12 +349,12 @@ MonoBehaviour:
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
-  _attackRange: 16
-  _incomingRange: 12
-  _xpReward: 50
+  _attackRange: 15
+  _incomingRange: 10
+  _xpReward: 15
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _bulletDamage: 1
-  health: 1
+  _bulletDamage: 15
+  health: 75
   _attackDelayMax: 1
   _attackDelayCurrent: 0
   _stunned: 0
@@ -363,12 +363,10 @@ MonoBehaviour:
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
   _dieMesh: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 4795026762475432317}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
-  _wingsSpeed: 15
-  _wingsList:
-  - {fileID: 6993205206597633530}
-  - {fileID: 4423249117979462800}
+  _wingsSpeed: 0
+  _wingsList: []
   _shootingPoint: {fileID: 5956903305426156799}
 --- !u!33 &5922888676198504622
 MeshFilter:
