@@ -16,7 +16,7 @@ public class RocketEnemy : Enemy
     {
         if (_player._died) return;
 
-        _agent.SetDestination(_player.transform.position);
+        SetPlayerTarget();
 
         if (Vector3.Distance(transform.position, _player.transform.position) < _attackRange)
         {

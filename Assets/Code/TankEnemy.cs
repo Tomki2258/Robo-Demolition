@@ -13,7 +13,7 @@ public class TankEnemy : Enemy
     private void FixedUpdate()
     {
         if (_player._died) return;
-        _agent.SetDestination(_player.transform.position);
+        SetPlayerTarget();
         Attacking();
         CheckStunned();
 

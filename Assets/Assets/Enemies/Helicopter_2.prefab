@@ -35,8 +35,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 4188292457138227153}
   - {fileID: 5956903305426156799}
+  - {fileID: 4188292457138227153}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3339026597257844537
@@ -55,13 +55,14 @@ MonoBehaviour:
   _agent: {fileID: 1822932637142027826}
   _gameManager: {fileID: 0}
   _player: {fileID: 0}
-  _explosionPrefab: {fileID: 0}
+  _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
+    type: 3}
   _attackRange: 20
-  _incomingRange: 16
+  _stoppingDistance: 15
   _xpReward: 50
-  _bullet: {fileID: 0}
+  _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 50
-  health: 0
+  health: 1
   _attackDelayMax: 0.75
   _attackDelayCurrent: 0
   _stunned: 0
@@ -72,10 +73,15 @@ MonoBehaviour:
   _dieMesh: {fileID: 0}
   _audioSource: {fileID: 4795026762475432317}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
-  _wingsSpeed: 0
-  _wingsList: []
+  _wingsSpeed: 20
+  _wingsList:
+  - {fileID: 8789408107085005838}
+  - {fileID: 2707809808889564516}
   _rocketPrefab: {fileID: 6731008745918168869, guid: e7cd881819f4a39f094452f00141ea38,
     type: 3}
+  _shootingPoint: {fileID: 5956903305426156799}
+  _rocketDelayCurrent: 0
+  _rocketDelayMax: 3
 --- !u!33 &5922888676198504622
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -159,18 +165,18 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
-  m_Acceleration: 2
+  m_Speed: 5
+  m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 12
-  m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 0
-  m_AutoRepath: 0
+  m_AngularSpeed: 80
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 12
   m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!82 &4795026762475432317
 AudioSource:
   m_ObjectHideFlags: 0
@@ -367,9 +373,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0129a644e0b9d49f5a84a54ad463eb4c, type: 3}
+--- !u!4 &2707809808889564516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7493596028755563170, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4437581315253035066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4188292457138227153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4437581315253035066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8789408107085005838 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4292154010595695564, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
     type: 3}
   m_PrefabInstance: {fileID: 4437581315253035066}
   m_PrefabAsset: {fileID: 0}

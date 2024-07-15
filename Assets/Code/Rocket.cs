@@ -13,7 +13,7 @@ public class Rocket : MonoBehaviour
     private GameManager _gameManager;
     private Vector3 _lastKnownPosition;
     private PlayerMovement _player;
-    private bool _starterDone;
+    public bool _starterDone;
     private Vector3 _startTarget;
 
     private void Start()

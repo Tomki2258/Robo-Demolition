@@ -87,6 +87,7 @@ public class Enemy : MonoBehaviour
 
     public void DestroyClone()
     {
+        Debug.LogWarning("Destroy clone");
         if (!_gameManager._gameSettings._qualityOn) return;
 
         var _mesh = new Mesh();
@@ -201,6 +202,7 @@ public class Enemy : MonoBehaviour
 
     public void SetPlayerTarget()
     {
+        if(_gameManager._player._died) return;
         if (_refleshPlayerTargetcurrent < _reflashPlayerTargetMax)
         {
             _refleshPlayerTargetcurrent += Time.deltaTime;
