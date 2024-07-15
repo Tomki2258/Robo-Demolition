@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 136c0d81214460c19a256b6eb38b2920
+guid: 5b6ad59aaf7ae9651933ca1e0466f222
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: XpBar
+  - name: HPXpconcepts
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 94
-      height: 32
-    spriteID: ec1e9cb39e1c47895831f8f70248f037
+      width: 160
+      height: 48
+    spriteID: 1f2667acf24561d06a314a6932619699
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,25 +144,25 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1317540733
-    name: XpBar
+    guid: 734538879
+    name: HPXpconcepts
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: XpBar
+    - name: HPXpconcepts
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 94
-        height: 32
-      spriteId: ec1e9cb39e1c47895831f8f70248f037
+        width: 160
+        height: 48
+      spriteId: 1f2667acf24561d06a314a6932619699
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 94, y: 32}
+  canvasSize: {x: 160, y: 48}
