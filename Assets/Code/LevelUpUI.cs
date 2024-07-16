@@ -73,6 +73,16 @@ public class LevelUpUI : MonoBehaviour
                 _player._playerWeapons.ModyfyReloadSpeed(_currentPowerUp.GetPlayerBonus());
                 //Debug.LogWarning(PowerUpsEnum.ReloadSped);
                 break;
+            case PowerUpsEnum.BulletDodge:
+                PlayerAtributtes _playerAtributtes = _player.GetComponent<PlayerAtributtes>();
+                float currentValue = _playerAtributtes._dodgeChange;
+                if(currentValue == 0)
+                {
+                    _playerAtributtes._dodgeChange = 5;
+                    return;
+                }
+                _player.GetComponent<PlayerAtributtes>()._dodgeChange *= 1 + _currentPowerUp.GetPlayerBonus();
+                break;
         }
 
         if (_weaponUnlock.CheckForWeaponUnlock())

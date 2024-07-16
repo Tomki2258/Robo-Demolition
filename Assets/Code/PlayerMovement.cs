@@ -384,19 +384,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_shield || _died) return;
 
-        if (_playerAtributtes.BulletDodge()) return;
 
         if (!_playerAtributtes.BulletReflection())
         {
             //NOT IMPLEMENTED YET
         }
 
-        _uiManager.ShowHpDifference(-_value);
-        _health -= _value;
-        if (_health <= 0)
-            Die();
+        if (!_playerAtributtes.BulletDodge())
+        {
+            _uiManager.ShowHpDifference(-_value);
+            _health -= _value;
+            if (_health <= 0)
+                Die();
+        }
+        else _uiManager.ShowHpDifference(-1);
     }
-
     private void Die()
     {
         DoJoystickInput(false);

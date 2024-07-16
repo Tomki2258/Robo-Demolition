@@ -3632,7 +3632,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _godMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -3642,7 +3642,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -3652,8 +3652,13 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _secondSpodek
+      value: 
+      objectReference: {fileID: 484771173}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _weaponUnlock
@@ -4244,6 +4249,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3917809111193361986, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _dodgeChange
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _hpText
@@ -4271,13 +4281,18 @@ PrefabInstance:
       objectReference: {fileID: 8348373513848555029}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
+      propertyPath: _xpToNextLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
       propertyPath: _xPProgressText
       value: 
       objectReference: {fileID: 1590001716022679865}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _weaponsUnlockStages.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
@@ -4690,6 +4705,17 @@ PrefabInstance:
       propertyPath: _statsCanvas
       value: 
       objectReference: {fileID: 1882613320}
+    - target: {fileID: 9076389710118365736, guid: c400599ef021da4a58e96bef62879a55,
+        type: 3}
+      propertyPath: _powerUpsList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076389710118365736, guid: c400599ef021da4a58e96bef62879a55,
+        type: 3}
+      propertyPath: '_powerUpsList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e40fe68fd9c936a2ca30afd63006f3c4,
+        type: 2}
     - target: {fileID: 9099965569082713952, guid: c400599ef021da4a58e96bef62879a55,
         type: 3}
       propertyPath: m_AnchorMax.x

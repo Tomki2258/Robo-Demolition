@@ -108,12 +108,22 @@ public class UIManager : MonoBehaviour
         _hpDifference.transform.position = _randomPosition;
         _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         var _text = _hpDifference.GetComponent<TMP_Text>();
-        _text.text = _value.ToString("0.00");
+        if (_value != -1)
+        {
+        
+            _text.text = _value.ToString("0.00");
 
-        if (_value > 0)
-            _text.color = Color.green;
+            if (_value > 0)
+                _text.color = Color.green;
+            else
+                _text.color = Color.red;
+        }
         else
-            _text.color = Color.red;
+        {
+            Debug.LogWarning("BULLET MISS");
+            _text.text = "Miss";
+            _text.color = Color.white;
+        }
         Destroy(_hpDifference, 1.1f);
     }
 
