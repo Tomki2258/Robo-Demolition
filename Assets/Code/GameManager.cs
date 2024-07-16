@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] [Range(0, 120)] private int _trashRotateY;
     public Material _hitMaterial;
     public Material _blackMaterial;
+    public GameObject _secondSpodek;
     private void Awake()
     {
         _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
@@ -247,6 +248,7 @@ public class GameManager : MonoBehaviour
         if(_godMode) DoGodMode();
         
         yield return new WaitForSeconds(5);
+        _secondSpodek.SetActive(false);
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
 
