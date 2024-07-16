@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
     public AudioSource _spodekAudioSource;
     [SerializeField] [Range(0, 120)] private int _trashRotateX;
     [SerializeField] [Range(0, 120)] private int _trashRotateY;
-    
+    public Material _hitMaterial;
+    public Material _blackMaterial;
     private void Awake()
     {
         _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
@@ -74,16 +75,15 @@ public class GameManager : MonoBehaviour
         _uiManager = FindFirstObjectByType<UIManager>();
         _player.gameObject.SetActive(false);
         
-        if(_godMode) DoGodMode();
-        
         if (_gameStarted && _gameLaunched) OverideStart();
     }
 
-    private void DoGodMode()
+    public void DoGodMode()
     {
         _player._maxHealth = 10000;
         _player._level = 100;
         _possibleEnemies = _enemiesCount;
+        _godMode = true;
     }
     private void FixedUpdate()
     {
@@ -244,6 +244,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator MakeGame()
     {
+        if(_godMode) DoGodMode();
+        
         yield return new WaitForSeconds(5);
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;

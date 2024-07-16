@@ -96,7 +96,7 @@ public class Rocket : MonoBehaviour
         {
             if (_enemy)
             {
-                Destroy(_enemy.gameObject);
+                //Destroy(_enemy.gameObject);
                 if (_obj.CompareTag("Player"))
                 {
                     _player.CheckHealth(_rocketDamage);

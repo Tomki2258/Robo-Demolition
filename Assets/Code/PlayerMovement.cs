@@ -386,7 +386,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_playerAtributtes.BulletDodge()) return;
 
-        if (_playerAtributtes.BulletReflection())
+        if (!_playerAtributtes.BulletReflection())
         {
             //NOT IMPLEMENTED YET
         }

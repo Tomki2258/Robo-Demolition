@@ -46,14 +46,17 @@ public class Enemy : MonoBehaviour
     public List<Transform> _wingsList = new List<Transform>(2);
     public void SetUp()
     {
+        _agent = GetComponent<NavMeshAgent>();
         _agent.stoppingDistance =_stoppingDistance;
         _audioSource = GetComponent<AudioSource>();
-        _agent = GetComponent<NavMeshAgent>();
         _oldSpeed = _agent.speed;
         _oryginalMaterial = GetComponent<Renderer>().material;
         _cameraShake = FindFirstObjectByType<CameraShake>();
         _enemyModel = transform.GetChild(transform.childCount - 1).gameObject;
-
+        //_explosionPrefab = _gameManager._explosion;
+        _hitMaterial = _gameManager._hitMaterial;
+        _blackMaterial = _gameManager._blackMaterial;
+        
         if (_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
     }
 

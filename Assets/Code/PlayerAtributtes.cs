@@ -27,7 +27,7 @@ public class PlayerAtributtes : MonoBehaviour
     public bool BulletReflection()
     {
         var _randomValue = Random.Range(0, 100);
-        if (_randomValue < _dodgeChange) return true;
+        if (_randomValue < _bulletReflection) return true;
 
         return false;
     }
