@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public PlayerMovement _player;
     public GameObject _explosionPrefab;
     public int _attackRange;
-    public int _incomingRange;
+    public int _stoppingDistance;
     public int _xpReward;
     public GameObject _bullet;
     public int _bulletDamage;
@@ -39,12 +39,14 @@ public class Enemy : MonoBehaviour
     private bool _died;
     [Header("Flying enemy------")] 
     public float _wingsSpeed;
-    [Header("------------------")] 
+
+    [Header("------------------")] private float _refleshPlayerTargetcurrent;
+    private float _reflashPlayerTargetMax = 0.5f;
 
     public List<Transform> _wingsList = new List<Transform>(2);
     public void SetUp()
     {
-        _agent.stoppingDistance = _incomingRange;
+        _agent.stoppingDistance =_stoppingDistance;
         _audioSource = GetComponent<AudioSource>();
         _agent = GetComponent<NavMeshAgent>();
         _oldSpeed = _agent.speed;
@@ -85,6 +87,7 @@ public class Enemy : MonoBehaviour
 
     public void DestroyClone()
     {
+        Debug.LogWarning("Destroy clone");
         if (!_gameManager._gameSettings._qualityOn) return;
 
         var _mesh = new Mesh();
@@ -109,7 +112,7 @@ public class Enemy : MonoBehaviour
         }
         else if(_enemyType == EnemyType.Air)
         {
-           
+           _trash.GetComponent<Rigidbody>().AddTorque(_trash.transform.up * 50);
         }
         //_trash.isStatic = true;
         _trash.tag = "Trash";
@@ -194,6 +197,20 @@ public class Enemy : MonoBehaviour
         foreach (Transform _wing in _wingsList)
         {
             _wing.Rotate(new Vector3(0,0,1) * _wingsSpeed * Time.deltaTime, _wingsSpeed);
+        }
+    }
+
+    public void SetPlayerTarget()
+    {
+        if(_gameManager._player._died) return;
+        if (_refleshPlayerTargetcurrent < _reflashPlayerTargetMax)
+        {
+            _refleshPlayerTargetcurrent += Time.deltaTime;
+        }
+        else
+        {
+            _agent.SetDestination(_player.transform.position);
+            _refleshPlayerTargetcurrent = 0;
         }
     }
 }

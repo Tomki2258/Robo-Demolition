@@ -155,7 +155,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 20
   m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 0
@@ -176,13 +176,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e176c648877d01c8e21cbc0033e4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyType: 0
   _agent: {fileID: 0}
   _gameManager: {fileID: 0}
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
   _attackRange: 14
-  _incomingRange: 0
+  _stoppingDistance: 0
   _xpReward: 25
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 18
@@ -197,6 +198,8 @@ MonoBehaviour:
   _dieMesh: {fileID: 0}
   _audioSource: {fileID: 0}
   _shootAudioClip: {fileID: 0}
+  _wingsSpeed: 0
+  _wingsList: []
   _shootingPoint: {fileID: 6097033507101572674}
   _topModel: {fileID: 0}
 --- !u!1001 &7540473043316123532

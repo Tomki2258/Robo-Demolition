@@ -350,11 +350,11 @@ MonoBehaviour:
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
   _attackRange: 15
-  _incomingRange: 10
+  _stoppingDistance: 10
   _xpReward: 15
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 15
-  health: 75
+  health: 1
   _attackDelayMax: 1
   _attackDelayCurrent: 0
   _stunned: 0
@@ -365,9 +365,12 @@ MonoBehaviour:
   _dieMesh: {fileID: 0}
   _audioSource: {fileID: 4795026762475432317}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
-  _wingsSpeed: 0
-  _wingsList: []
+  _wingsSpeed: 15
+  _wingsList:
+  - {fileID: 6993205206597633530}
+  - {fileID: 4423249117979462800}
   _shootingPoint: {fileID: 5956903305426156799}
+  _waypoint: {fileID: 0}
 --- !u!33 &5922888676198504622
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -451,18 +454,18 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
-  m_Acceleration: 2
+  m_Speed: 7
+  m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 12
-  m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 0
-  m_AutoRepath: 0
+  m_AngularSpeed: 80
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 12
   m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!82 &4795026762475432317
 AudioSource:
   m_ObjectHideFlags: 0

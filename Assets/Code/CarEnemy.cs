@@ -24,21 +24,8 @@ public class CarEnemy : Enemy
         //SwitchLight();
 
         var _distance = PlayerDistance();
-        if (_currentState == State.Incoming)
-        {
-            if (_distance < _attackRange)
-                _currentState = State.Attacking;
-            _agent.SetDestination(_player.transform.position);
-            _agent.isStopped = false;
-        }
-        else if (_currentState == State.Attacking)
-        {
-            if (_distance > _incomingRange)
-                _currentState = State.Incoming;
-            _agent.isStopped = true;
-            Attacking();
-        }
-
+        SetPlayerTarget();
+        if(_distance < _attackRange) Attacking();
         CheckStunned();
     }
 

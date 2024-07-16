@@ -5,8 +5,10 @@ using UnityEngine;
 public class HelicopterEnemy : Enemy
 {
     public Transform _shootingPoint;
+    public Transform _waypoint;
     void Start()
     {
+        _agent.SetDestination(_player.transform.position);
         SetUp();
     }
 
@@ -15,7 +17,7 @@ public class HelicopterEnemy : Enemy
         DoWings();
         
         if (_player._died) return;
-        _agent.SetDestination(_player.transform.position);
+        SetPlayerTarget();
         CheckStunned();
         if(Vector3.Distance(_player.transform.position, transform.position) < _attackRange)
         {

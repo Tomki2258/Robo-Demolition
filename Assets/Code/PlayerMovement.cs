@@ -142,7 +142,10 @@ public class PlayerMovement : MonoBehaviour
             _topAninmator.SetBool("Moving", false);
         }
     }
-
+    public int GetRealAttackRange()
+    {
+        return Convert.ToInt16(_attackRange * transform.localScale.x + 2);
+    }
     private void FixedUpdate()
     {
         if (_died) return;
@@ -157,9 +160,8 @@ public class PlayerMovement : MonoBehaviour
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             var _nearestEnemy = GetNearestEnemy();
-            var _tempAttackRange = _attackRange * transform.localScale.x + 2;
 
-            if (Vector3.Distance(transform.position, _nearestEnemy.position) < _tempAttackRange  
+            if (Vector3.Distance(transform.position, _nearestEnemy.position) < GetRealAttackRange()  
                 /*&& RaycastEnemy(_currentEnemy.transform) */)
             {
                 MoveTurret(GetNearestEnemy().position);
