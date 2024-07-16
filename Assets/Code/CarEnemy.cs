@@ -51,11 +51,8 @@ public class CarEnemy : Enemy
         if (_attackDelayCurrent > _attackDelayMax)
         {
             _attackDelayCurrent = 0;
-            if (_shootingPointIndex == 0) _shootingPointIndex = 1;
-            else _shootingPointIndex = 0;
-            Attack(_shootingPoints[_shootingPointIndex]);
+            Attack(_shootingPoints[0]);
             _shootingPoints[0].LookAt(_player.transform.position);
-            _shootingPoints[1].LookAt(_player.transform.position);
             //shoot
         }
         else

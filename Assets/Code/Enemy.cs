@@ -54,8 +54,8 @@ public class Enemy : MonoBehaviour
         _cameraShake = FindFirstObjectByType<CameraShake>();
         _enemyModel = transform.GetChild(transform.childCount - 1).gameObject;
         //_explosionPrefab = _gameManager._explosion;
-        _hitMaterial = _gameManager._hitMaterial;
-        _blackMaterial = _gameManager._blackMaterial;
+        //_hitMaterial = _gameManager._hitMaterial;
+        //_blackMaterial = _gameManager._blackMaterial;
         
         if (_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
     }

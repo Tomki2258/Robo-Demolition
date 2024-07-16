@@ -128,7 +128,8 @@ MonoBehaviour:
   _wingsSpeed: 0
   _wingsList: []
   _currentState: 0
-  _shootingPoints: []
+  _shootingPoints:
+  - {fileID: 5652634464156369406}
   _lights: []
 --- !u!65 &2003031916744454399
 BoxCollider:
