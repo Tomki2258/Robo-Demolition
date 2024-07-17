@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2824307707346639766}
   - component: {fileID: 7651033367341536324}
   - component: {fileID: -6880585565383893601}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 704
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   _bulletDamage: 5
   _enemyShoot: 0
   _redMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
+  _flyVector: {x: 0, y: 0, z: 1}
 --- !u!54 &-6880585565383893601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -215,6 +216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c319ad90287e7c5a8e062e5b59ed721,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
                 var _randomSpawn = Random.Range(0, _bombSpawns.Length);
                 var _targetVector = new Vector3(_bombSpawns[_randomSpawn].transform.position.x,
                     _bombSpawns[_randomSpawn].transform.position.y + 0.5f,
-                    _bombSpawns[_randomSpawn].transform.position.z + 6);
+                    _bombSpawns[_randomSpawn].transform.position.z-10);
 
                 _currentCaptureArea = Instantiate(_captureAreaPrefab, _targetVector, Quaternion.identity);
             }
