@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform _hands;
     public int _turretRotateSpeed;
     public GameObject _currentEnemy;
-    public float _attackRange;
+    public float _attackRange; //base
+    public float _currentAttackRange;
     public int _damage;
     [Header("Player Stats")] public float _maxHealth;
 
@@ -72,8 +73,11 @@ public class PlayerMovement : MonoBehaviour
     private UIManager _uiManager;
     public Transform _idleLookTransform;
     public Transform _mainCannonRotateElement;
+    public float _levelUpPlayerScaler;
+    private EquipmentCanvas _equipmentCanvas;
     private void Awake()
     {
+        _equipmentCanvas = FindAnyObjectByType<EquipmentCanvas>();
         _footStepsSoundsCount = _footStepSounds.Count;
         _legsAnimator = _legs.GetComponent<Animator>();
         _idleQuaterion = new Quaternion(0, 0, 0, 0);
@@ -268,9 +272,9 @@ public class PlayerMovement : MonoBehaviour
     private void Battle()
     {
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
-        var _tempAttackRange = _attackRange * transform.localScale.x;
+        _currentAttackRange = _attackRange * transform.localScale.x;
 
-        if (_enemyDist < _tempAttackRange)
+        if (_enemyDist < _currentAttackRange)
         {
             _mainCannonRotateElement.Rotate(Vector3.left * 300 * Time.deltaTime);
             _playerWeapons.StandardGun();
@@ -299,6 +303,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_xp >= _xpToNextLevel)
         {
+            _equipmentCanvas.CheckForWeaponPanels();
             _cameraShake.SwitchShakeMode(false);
             _uiManager.DoLevelUpCanvas(true);
             transform.position = new Vector3(transform.position.x,
@@ -313,7 +318,7 @@ public class PlayerMovement : MonoBehaviour
             _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.5f);
 
             var _scale = transform.localScale;
-            _scale += new Vector3(0.1f, 0.1f, 0.1f);
+            _scale += new Vector3(0.1f, 0.1f, 0.1f) * _levelUpPlayerScaler;
             transform.localScale = _scale;
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);

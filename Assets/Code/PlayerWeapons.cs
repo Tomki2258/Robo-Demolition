@@ -20,7 +20,7 @@ public class PlayerWeapons : MonoBehaviour
     public Transform _sniperSpawner;
     public AudioSource _sniperAudioSource;
     [Header("Machine Gun")] public WeaponClass _machineGunClass;
-    [Range(0, 5)] public float _machineGunRecoil;
+    [Range(0, 10)] public float _machineGunRecoil;
     public float _machineGunCurrentTimer;
     public Transform _machineGunSpawner;
     public AudioSource _machineGunAudioSource;

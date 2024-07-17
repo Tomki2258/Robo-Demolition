@@ -14,10 +14,12 @@ public class EquipmentCanvas : MonoBehaviour
     private void Start()
     {
         _playerWeapons._weaponsInUse[0].SetInUse(true);
+        CheckForWeaponPanels();
     }
 
     public void CheckForWeaponPanels()
     {
+        Debug.LogWarning("Weapons panels checks");
         foreach (var _weaponPanel in _weaponPanels) _weaponPanel.CheckForUnlock();
 
         _weaponsInUse = _playerWeapons.GetWeapons();
