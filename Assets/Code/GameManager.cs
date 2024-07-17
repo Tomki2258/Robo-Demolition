@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _uiManager = FindFirstObjectByType<UIManager>();
         _player.gameObject.SetActive(false);
-        
+        _spawnTimeCurrent = _spawnTimeMax;
         if (_gameStarted && _gameLaunched) OverideStart();
     }
 

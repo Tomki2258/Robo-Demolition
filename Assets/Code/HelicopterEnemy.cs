@@ -18,6 +18,7 @@ public class HelicopterEnemy : Enemy
         if (_player._died) return;
         SetPlayerTarget();
         CheckStunned();
+        SwitchSpeed();
         if(Vector3.Distance(_player.transform.position, transform.position) < _attackRange)
         {
             Attacking();

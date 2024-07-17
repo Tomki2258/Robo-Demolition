@@ -16,7 +16,7 @@ public class RocketEnemy : Enemy
     {
         if (_player._died) return;
         SetPlayerTarget();
-
+        SwitchSpeed();
         if (Vector3.Distance(transform.position, _player.transform.position) < _attackRange)
         {
             if (_attackDelayCurrent > _attackDelayMax)

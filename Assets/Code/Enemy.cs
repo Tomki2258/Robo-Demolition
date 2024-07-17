@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
         //_explosionPrefab = _gameManager._explosion;
         //_hitMaterial = _gameManager._hitMaterial;
         //_blackMaterial = _gameManager._blackMaterial;
-        _baseSpeed = _agent.speed / 10;
+        _baseSpeed = _agent.speed;
         if (_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
     }
 

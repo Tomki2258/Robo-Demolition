@@ -22,7 +22,7 @@ public class AttackHelicopter : Enemy
         _stoppingDistance = Convert.ToInt32(_player.GetRealAttackRange() + 5);
         DoWings();
         SetPlayerTarget();
-
+        SwitchSpeed();
         if (_player._died) return;
         SetPlayerTarget();
         CheckStunned();

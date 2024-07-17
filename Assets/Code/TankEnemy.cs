@@ -16,7 +16,7 @@ public class TankEnemy : Enemy
         SetPlayerTarget();
         Attacking();
         CheckStunned();
-
+        SwitchSpeed();
         //_topModel.LookAt(_player.transform.position);
         // Vector3 lookDirection = new Vector3(
         //     _topModel.position.x

@@ -78,6 +78,7 @@ MonoBehaviour:
   _wingsList:
   - {fileID: 8789408107085005838}
   - {fileID: 2707809808889564516}
+  _baseSpeed: 0
   _rocketPrefab: {fileID: 6731008745918168869, guid: e7cd881819f4a39f094452f00141ea38,
     type: 3}
   _shootingPoint: {fileID: 5956903305426156799}
@@ -175,7 +176,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 12
+  m_BaseOffset: 8
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!82 &4795026762475432317
@@ -419,7 +420,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
         type: 3}
