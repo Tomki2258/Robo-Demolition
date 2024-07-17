@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            _currentFootStepTimer = 0;
+            _currentFootStepTimer = 0.1f;
             _animator.SetBool("Moving", false);
             _legsAnimator.SetBool("Moving", false);
             _topAninmator.SetBool("Moving", false);
