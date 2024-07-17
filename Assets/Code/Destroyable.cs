@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum destoryableType
 {
@@ -17,6 +18,8 @@ public class Destroyable : MonoBehaviour
     private float _startXSize;
     private float tolerance = 5f;
     private AudioSource _audioSource;
+    public AudioClip _fallingSound;
+    public AudioClip _secretSound;
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
@@ -41,7 +44,13 @@ public class Destroyable : MonoBehaviour
 
     public void PlayFallingSound()
     {
-        _audioSource.Play();
+        int value = Random.Range(0, 100);
+        if(value < 2)
+        {
+            _audioSource.PlayOneShot(_secretSound);
+            return;
+        }
+        _audioSource.PlayOneShot(_fallingSound);
     }
     public Vector3 GetCollabseVector()
     {

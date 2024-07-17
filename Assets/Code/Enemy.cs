@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 public enum EnemyType
@@ -39,24 +40,24 @@ public class Enemy : MonoBehaviour
     private bool _died;
     [Header("Flying enemy------")] 
     public float _wingsSpeed;
-
+    
     [Header("------------------")] private float _refleshPlayerTargetcurrent;
     private float _reflashPlayerTargetMax = 0.5f;
 
     public List<Transform> _wingsList = new List<Transform>(2);
+    public float _baseSpeed;
     public void SetUp()
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.stoppingDistance =_stoppingDistance;
         _audioSource = GetComponent<AudioSource>();
-        _oldSpeed = _agent.speed;
         _oryginalMaterial = GetComponent<Renderer>().material;
         _cameraShake = FindFirstObjectByType<CameraShake>();
         _enemyModel = transform.GetChild(transform.childCount - 1).gameObject;
         //_explosionPrefab = _gameManager._explosion;
         //_hitMaterial = _gameManager._hitMaterial;
         //_blackMaterial = _gameManager._blackMaterial;
-        
+        _baseSpeed = _agent.speed / 10;
         if (_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
     }
 
@@ -147,6 +148,17 @@ public class Enemy : MonoBehaviour
         return true;
     }
 
+    public void SwitchSpeed()
+    {
+        if (PlayerDistance()< 50)
+        {
+            _agent.speed = _baseSpeed;
+        }
+        else
+        {
+            _agent.speed = _baseSpeed * 3;
+        }
+    }
     public float PlayerDistance()
     {
         return Vector3.Distance(transform.position, _player.transform.position);
@@ -163,13 +175,8 @@ public class Enemy : MonoBehaviour
         {
             _stunTimer += Time.deltaTime;
         }
-
-        if (_stunned)
-            _agent.speed = 0;
-        else
-            _agent.speed = _oldSpeed;
     }
-
+    
     public void Attack(Transform _bulletSpawn)
     {
         _bulletSpawn.LookAt(_player.transform.position);

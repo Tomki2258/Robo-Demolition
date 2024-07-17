@@ -22,9 +22,9 @@ public class CarEnemy : Enemy
     private void FixedUpdate()
     {
         //SwitchLight();
-
         var _distance = PlayerDistance();
         SetPlayerTarget();
+        SwitchSpeed();
         if(_distance < _attackRange) Attacking();
         CheckStunned();
     }

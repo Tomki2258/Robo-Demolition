@@ -15,7 +15,6 @@ public class HelicopterEnemy : Enemy
     void FixedUpdate()
     {
         DoWings();
-        
         if (_player._died) return;
         SetPlayerTarget();
         CheckStunned();

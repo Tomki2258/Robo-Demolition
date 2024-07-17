@@ -15,6 +15,7 @@ public class Rocket : MonoBehaviour
     private PlayerMovement _player;
     public bool _starterDone;
     private Vector3 _startTarget;
+    public GameObject _rocketTargetPrefab;
 
     private void Start()
     {
@@ -52,6 +53,7 @@ public class Rocket : MonoBehaviour
             _currentFX = Instantiate(_explosionFX, transform.position, Quaternion.identity);
             DoDamage();
             Destroy(gameObject);
+            if(_rocketTargetPrefab != null) Destroy(_rocketTargetPrefab);
         }
     }
 

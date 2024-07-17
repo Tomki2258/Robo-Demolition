@@ -15,7 +15,6 @@ public class RocketEnemy : Enemy
     private void FixedUpdate()
     {
         if (_player._died) return;
-
         SetPlayerTarget();
 
         if (Vector3.Distance(transform.position, _player.transform.position) < _attackRange)
@@ -25,7 +24,7 @@ public class RocketEnemy : Enemy
                 var _currentRocketTarget = Instantiate(_rocketTargetPrefab,
                     _player.transform.position,
                     Quaternion.identity);
-
+            
 
                 _attackDelayCurrent = 0;
 
@@ -33,6 +32,7 @@ public class RocketEnemy : Enemy
                     _shootTransform.position,
                     Quaternion.identity);
                 var _currentRocketComponent = _currentRocket.GetComponent<Rocket>();
+                _currentRocketComponent._rocketTargetPrefab = _currentRocketTarget;
                 _currentRocketComponent._isEnemy = true;
                 _currentRocketComponent._enemy = _currentRocketTarget.transform;
                 _audioSource.PlayOneShot(_shootAudioClip);
