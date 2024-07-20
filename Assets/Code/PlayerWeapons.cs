@@ -314,7 +314,7 @@ public class PlayerWeapons : MonoBehaviour
             Quaternion.identity);
         _granade.transform.rotation = _granadeSpawner.transform.rotation;
         
-        _granade.GetComponent<Rigidbody>().AddForce(_granadeSpawner.transform.forward, ForceMode.Impulse);
+        _granade.GetComponent<Rigidbody>().AddForce(_granadeSpawner.transform.forward * 5, ForceMode.Impulse);
         _granadeLauncherCurrentTimer = 0;
     }
     public void ModyfyDamage(float _value)

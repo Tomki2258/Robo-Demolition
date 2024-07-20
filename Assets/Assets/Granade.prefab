@@ -129,7 +129,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 2240
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -149,11 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560aeee6d52750735b0a3ac27fcb3d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionRange: 5
+  _explosionRange: 10
   _explosionEffect: {fileID: 4916640740343874935, guid: 53716f5f90ef48c3f89f21b3acda739c,
     type: 3}
   _granadeSpeed: 0
-  _bulletDamage: 25
+  _bulletDamage: 50
 --- !u!1001 &907266893105594695
 PrefabInstance:
   m_ObjectHideFlags: 0
