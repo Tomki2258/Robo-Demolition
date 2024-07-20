@@ -36,4 +36,8 @@ public class EquipmentCanvas : MonoBehaviour
     {
         return _weaponsInUse.Count < _maxWeaponsInUse;
     }
+    public int GetUsedWeapons()
+    {
+        return _maxWeaponsInUse + 1 - _weaponsInUse.Count;
+    }
 }

@@ -106,7 +106,8 @@ public class PlayerWeapons : MonoBehaviour
     }
     private float GetFinalReloadTime(WeaponClass _weapon)
     {
-        return _weapon.GetReloadTime() * _reloadMultipler;
+        float _weaponsMultipler = 1 + (_equipmentCanvas.GetUsedWeapons() * 0.1f);
+        return _weapon.GetReloadTime() * _reloadMultipler * _weaponsMultipler;
     }
     public void MachineGun()
     {
