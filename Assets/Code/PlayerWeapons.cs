@@ -68,6 +68,12 @@ public class PlayerWeapons : MonoBehaviour
     public WeaponClass _mineDeployerClass;
     public float _mineDeployerCurrentTimer;
     public GameObject _minePrefab;
+    [Header("Granade Launcher")]
+    public WeaponClass _granadeLauncherClass;
+    public float _granadeLauncherCurrentTimer;
+    public GameObject _granadePrefab;
+    public float _granadeForce;
+    public Transform _granadeSpawner;
     private void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
@@ -91,7 +97,7 @@ public class PlayerWeapons : MonoBehaviour
             return;
         }
 
-        var _currentBullet = Instantiate(_bullet, _standardSpawner.transform.position, Quaternion.identity);
+        var _currentBullet = Instantiate(_bullet,  _machineGunSpawner.transform.position, Quaternion.identity);
         _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _standardGunClass.GetDamage() * _damageMultipler;
         _standardAudioSource.Play();
@@ -292,6 +298,24 @@ public class PlayerWeapons : MonoBehaviour
         _mine.GetComponent<Rigidbody>().AddForce(_mine.transform.forward * 5, ForceMode.Impulse);
         
         _mineDeployerCurrentTimer = 0;
+    }
+
+    public void DoGranadeLauncher()
+    {
+        if(!_granadeLauncherClass.CheckForUse()) return;
+        
+        if(GetFinalReloadTime(_granadeLauncherClass) > _granadeLauncherCurrentTimer)
+        {
+            _granadeLauncherCurrentTimer += Time.deltaTime;
+            return;
+        }
+        GameObject _granade = Instantiate(_granadePrefab,
+            _granadeSpawner.transform.position,
+            Quaternion.identity);
+        _granade.transform.rotation = _granadeSpawner.transform.rotation;
+        
+        _granade.GetComponent<Rigidbody>().AddForce(_granadeSpawner.transform.forward, ForceMode.Impulse);
+        _granadeLauncherCurrentTimer = 0;
     }
     public void ModyfyDamage(float _value)
     {

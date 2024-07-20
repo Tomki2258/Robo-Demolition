@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         _uiManager = FindFirstObjectByType<UIManager>();
         _player.gameObject.SetActive(false);
         _spawnTimeCurrent = _spawnTimeMax;
+        if(_godMode) DoGodMode();
         if (_gameStarted && _gameLaunched) OverideStart();
     }
 
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
     {
         _player._maxHealth = 10000;
         _player._level = 100;
+        _player._xpToNextLevel = 10000;
         _possibleEnemies = _enemiesCount;
         _godMode = true;
     }

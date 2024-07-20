@@ -11,7 +11,8 @@ public enum WeaponTypes
     SniperGun,
     CircleGun,
     SphereAttack,
-    MineDeployer
+    MineDeployer,
+    GranadeLauncher
 }
 
 namespace DefaultNamespace
