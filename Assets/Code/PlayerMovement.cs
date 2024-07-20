@@ -286,13 +286,13 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons.RocketLauncher();
             _playerWeapons.DoLaser(_currentEnemy.transform);
             _playerWeapons.DoOrbitalGun();
-            _playerWeapons.DoMineDeployer();
             _playerWeapons.DoGranadeLauncher();
         }
         else
         {
             _playerWeapons._laserSpawner.gameObject.SetActive(false);   
         }
+        _playerWeapons.DoMineDeployer();
     }
 
     public void AddPlayerXP(int value)

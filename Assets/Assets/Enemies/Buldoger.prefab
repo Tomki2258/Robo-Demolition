@@ -267,6 +267,7 @@ MonoBehaviour:
   _shootAudioClip: {fileID: 0}
   _wingsSpeed: 0
   _wingsList: []
+  _baseSpeed: 0
 --- !u!1 &5346698066536454960
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +357,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 95647d4d1831686868e4dcddc3c356d7, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 95647d4d1831686868e4dcddc3c356d7, type: 2}
+    - target: {fileID: -804731622281664130, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 95647d4d1831686868e4dcddc3c356d7, type: 2}
+    - target: {fileID: -678588488315902003, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 95647d4d1831686868e4dcddc3c356d7, type: 2}
     - target: {fileID: 919132149155446097, guid: 6953ce6c5caca4921aee139e3c5fdde7,
         type: 3}
       propertyPath: m_Name
