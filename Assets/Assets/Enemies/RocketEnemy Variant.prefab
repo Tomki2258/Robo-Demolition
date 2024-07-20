@@ -84,6 +84,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 254387567753227750, guid: c8ac0ed6cc93d4c0cbee5c665280acab,
         type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 254387567753227750, guid: c8ac0ed6cc93d4c0cbee5c665280acab,
+        type: 3}
       propertyPath: m_StoppingDistance
       value: 17
       objectReference: {fileID: 0}
@@ -253,6 +258,7 @@ MonoBehaviour:
   _shootAudioClip: {fileID: 8300000, guid: 3fd94f3817b8d4444a3f0146f80a028b, type: 3}
   _wingsSpeed: 0
   _wingsList: []
+  _baseSpeed: 0
   _rocketPrefab: {fileID: 6731008745918168869, guid: e7cd881819f4a39f094452f00141ea38,
     type: 3}
   _rocketTargetPrefab: {fileID: 8707792461134015577, guid: cd3f59d7bb5f403839ab1b36139e6c91,

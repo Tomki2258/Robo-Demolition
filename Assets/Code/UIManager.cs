@@ -36,8 +36,10 @@ public class UIManager : MonoBehaviour
     public DateTime _startTime;
     private UserData _userData;
     private CameraShake _cameraShake;
+    public GameObject _newEnemySpottedUI;
     private void Awake()
     {
+        _newEnemySpottedUI.SetActive(false);
         _cameraShake = FindFirstObjectByType<CameraShake>();
         _userData = FindFirstObjectByType<UserData>();
         _eqCanvas.SetActive(false);
@@ -62,6 +64,16 @@ public class UIManager : MonoBehaviour
         else StartGame(true);
     }
 
+    public void ShowSpottedUI()
+    {
+        _newEnemySpottedUI.SetActive(true);
+        StartCoroutine(DisableSpottedUI());
+    }
+    private IEnumerator DisableSpottedUI()
+    {
+        yield return new WaitForSeconds(2);
+        _newEnemySpottedUI.SetActive(false);
+    }
     public void Update()
     {
         //if(!_gameManager._gameLaunched) return;

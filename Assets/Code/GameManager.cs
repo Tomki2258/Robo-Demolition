@@ -133,12 +133,15 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+    public void ShowNewEnemySpotted()
+    {
+    }
     public void IncreaseEnemiesIndex()
     {
         if (_enemiesStages.Contains(_player._level))
         {
             _possibleEnemies++;
+            _uiManager.ShowSpottedUI();
         }
     }
 

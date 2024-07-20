@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public int GetRealAttackRange()
     {
-        return Convert.ToInt16(_attackRange * transform.localScale.x + 2);
+        return Convert.ToInt16(_attackRange * (transform.localScale.x / 2) + 5);
     }
     private void FixedUpdate()
     {
