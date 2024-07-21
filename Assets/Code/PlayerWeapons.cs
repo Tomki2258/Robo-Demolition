@@ -165,6 +165,7 @@ public class PlayerWeapons : MonoBehaviour
     public void ShpereAttack()
     {
         if (!_sphereAttackClass.CheckForUse()) return;
+        
         if (GetFinalReloadTime(_sphereAttackClass) > _sphereAttackCurrentTimer)
         {
             _sphereAttackCurrentTimer += Time.deltaTime;

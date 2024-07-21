@@ -29,12 +29,12 @@ public class Enemy : MonoBehaviour
     public bool _killedByManager;
     public Material _blackMaterial;
     public Mesh _dieMesh;
-    private readonly int _stunTime = 5;
+    private readonly int _maxStunTime = 5;
     private CameraShake _cameraShake;
     private GameObject _enemyModel;
     private float _lightsTimer;
     private float _oldSpeed;
-    private float _stunTimer;
+    private float _maxStunTimer;
     public AudioSource _audioSource;
     public AudioClip _shootAudioClip;
     private bool _died;
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         //_blackMaterial = _gameManager._blackMaterial;
         _baseSpeed = _agent.speed;
         if (_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
-    }
+    } 
 
     public void EnemyDie()
     {
@@ -166,14 +166,16 @@ public class Enemy : MonoBehaviour
 
     public void CheckStunned()
     {
-        if (_stunTimer > _stunTime)
+        if(!_stunned) return;
+        
+        if (_maxStunTimer > _maxStunTime)
         {
             _stunned = false;
-            _stunTimer = 0;
+            _maxStunTimer = 0;
         }
         else
         {
-            _stunTimer += Time.deltaTime;
+            _maxStunTimer += Time.deltaTime;
         }
     }
     

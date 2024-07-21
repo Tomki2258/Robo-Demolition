@@ -30,7 +30,12 @@ public class SphereAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy")) other.GetComponent<Enemy>()._stunned = true;
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Enemy _enemy = other.GetComponent<Enemy>();
+            _enemy.CheckHealth(_damage);
+            _enemy._stunned = true;
+        }
         //Debug.LogWarning($"{other.name} is stunned !");
     }
 }
