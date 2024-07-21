@@ -7,7 +7,8 @@ public enum PowerUpsEnum
     Damage,
     ReloadSped,
     Range,
-    BulletDodge
+    BulletDodge,
+    FieldOfView
 }
 
 namespace DefaultNamespace
