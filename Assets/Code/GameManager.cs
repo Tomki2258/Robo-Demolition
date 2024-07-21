@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
             _spawnPoints[_point].position.y,
             _spawnPoints[_point].position.z + Random.Range(-3, 3));
         var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
-        _spawnTimeMax -= _spawnTimeMax * 0.001f;
+        _spawnTimeMax -= _spawnTimeMax * 0.005f;
 
         if (_enemy.GetComponent<BombardEnemy>()) return;
 

@@ -88,12 +88,56 @@ public class PlayerWeapons : MonoBehaviour
             _weapon.SetInUse(true);
     }
 
+    private float GetFinalReloadTime(WeaponClass _weapon)
+    {
+        float _weaponsMultipler = 1 + (_equipmentCanvas.GetUsedWeapons() * 0.1f);
+        return _weapon.GetReloadTime() * _reloadMultipler * _weaponsMultipler;
+    }
+    
+    public void WeaponsReloads()
+    {
+        if (_standardGunClass.GetReloadTime() > _standardCurrentTimer)
+        {
+            _standardCurrentTimer += Time.deltaTime;
+        } 
+        if (GetFinalReloadTime(_machineGunClass) > _machineGunCurrentTimer)
+        {
+            _machineGunCurrentTimer += Time.deltaTime;
+        }
+        if (GetFinalReloadTime(_sniperGunClass) > _sniperCurrentTimer)
+        {
+            _sniperCurrentTimer += Time.deltaTime;
+        }
+        if (GetFinalReloadTime(_rocketLauncherClass) > _rocketCurrentTimer)
+        {
+            _rocketCurrentTimer += Time.deltaTime;
+        }
+        if (GetFinalReloadTime(_sphereAttackClass) > _sphereAttackCurrentTimer)
+        {
+            _sphereAttackCurrentTimer += Time.deltaTime;
+        }
+        if (GetFinalReloadTime(_shotgunGunClass) > _shotgunCurrentTimer)
+        {
+            _shotgunCurrentTimer += Time.deltaTime;
+        }
+        if (GetFinalReloadTime(_circleGunClass) > _circleGunCurrentTimer)
+        {
+            _circleGunCurrentTimer += Time.deltaTime;
+        }
+        if(GetFinalReloadTime(_mineDeployerClass) > _mineDeployerCurrentTimer)
+        {
+            _mineDeployerCurrentTimer += Time.deltaTime;
+        }
+        if(GetFinalReloadTime(_granadeLauncherClass) > _granadeLauncherCurrentTimer)
+        {
+            _granadeLauncherCurrentTimer += Time.deltaTime;
+        }
+    }
     public void StandardGun()
     {
         if (!_standardGunClass.CheckForUse()) return;
         if (_standardGunClass.GetReloadTime() > _standardCurrentTimer)
         {
-            _standardCurrentTimer += Time.deltaTime;
             return;
         }
 
@@ -104,11 +148,6 @@ public class PlayerWeapons : MonoBehaviour
         _standardCurrentTimer = 0;
         if(_standardGunParticles != null) _standardGunParticles.Play();
     }
-    private float GetFinalReloadTime(WeaponClass _weapon)
-    {
-        float _weaponsMultipler = 1 + (_equipmentCanvas.GetUsedWeapons() * 0.1f);
-        return _weapon.GetReloadTime() * _reloadMultipler * _weaponsMultipler;
-    }
     public void MachineGun()
     {
         if (!_machineGunClass.CheckForUse())
@@ -116,7 +155,6 @@ public class PlayerWeapons : MonoBehaviour
             return;
         if (GetFinalReloadTime(_machineGunClass) > _machineGunCurrentTimer)
         {
-            _machineGunCurrentTimer += Time.deltaTime;
             return;
         }
 
@@ -133,7 +171,6 @@ public class PlayerWeapons : MonoBehaviour
         if (!_sniperGunClass.CheckForUse()) return;
         if (GetFinalReloadTime(_sniperGunClass) > _sniperCurrentTimer)
         {
-            _sniperCurrentTimer += Time.deltaTime;
             return;
         }
 
@@ -152,7 +189,6 @@ public class PlayerWeapons : MonoBehaviour
         if (!_rocketLauncherClass.CheckForUse()) return;
         if (GetFinalReloadTime(_rocketLauncherClass) > _rocketCurrentTimer)
         {
-            _rocketCurrentTimer += Time.deltaTime;
             return;
         }
 
@@ -168,7 +204,6 @@ public class PlayerWeapons : MonoBehaviour
         
         if (GetFinalReloadTime(_sphereAttackClass) > _sphereAttackCurrentTimer)
         {
-            _sphereAttackCurrentTimer += Time.deltaTime;
             return;
         }
 
@@ -182,7 +217,6 @@ public class PlayerWeapons : MonoBehaviour
         if (!_shotgunGunClass.CheckForUse()) return;
         if (GetFinalReloadTime(_shotgunGunClass) > _shotgunCurrentTimer)
         {
-            _shotgunCurrentTimer += Time.deltaTime;
             return;
         }
 
@@ -218,7 +252,6 @@ public class PlayerWeapons : MonoBehaviour
         if (!_circleGunClass.CheckForUse()) return;
         if (GetFinalReloadTime(_circleGunClass) > _circleGunCurrentTimer)
         {
-            _circleGunCurrentTimer += Time.deltaTime;
             return;
         }
 
@@ -272,7 +305,6 @@ public class PlayerWeapons : MonoBehaviour
         if(GetFinalReloadTime(_orbitalGunClass) > _orbitalGunCurrentTimer)
         {
             _orbitalGunCurrentTimer += Time.deltaTime;
-            
         }
         else
         {
@@ -289,7 +321,6 @@ public class PlayerWeapons : MonoBehaviour
         
         if(GetFinalReloadTime(_mineDeployerClass) > _mineDeployerCurrentTimer)
         {
-            _mineDeployerCurrentTimer += Time.deltaTime;
             return;
         }
         GameObject _mine = Instantiate(_minePrefab,
@@ -307,7 +338,6 @@ public class PlayerWeapons : MonoBehaviour
         
         if(GetFinalReloadTime(_granadeLauncherClass) > _granadeLauncherCurrentTimer)
         {
-            _granadeLauncherCurrentTimer += Time.deltaTime;
             return;
         }
         GameObject _granade = Instantiate(_granadePrefab,

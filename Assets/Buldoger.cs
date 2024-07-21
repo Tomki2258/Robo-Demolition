@@ -9,7 +9,7 @@ public class Buldoger : Enemy
         SetUp();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         SetPlayerTarget();
         if(_player._died) return;
@@ -17,6 +17,7 @@ public class Buldoger : Enemy
         {
             Attacking();
         }
+        CheckStunned();
     }
 
     private void Attacking()

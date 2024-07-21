@@ -271,6 +271,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Battle()
     {
+        _playerWeapons.WeaponsReloads();
+        
         var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         _currentAttackRange = _attackRange * transform.localScale.x;
 

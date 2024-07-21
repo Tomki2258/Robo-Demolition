@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
         //_hitMaterial = _gameManager._hitMaterial;
         //_blackMaterial = _gameManager._blackMaterial;
         _baseSpeed = _agent.speed;
+        _attackDelayCurrent = _attackDelayMax;
         if (_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
     } 
 

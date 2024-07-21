@@ -5844,7 +5844,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _godMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -5854,18 +5854,23 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _secondSpodek
       value: 
       objectReference: {fileID: 484771173}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _spawnTimeMax
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _weaponUnlock
@@ -6532,7 +6537,7 @@ PrefabInstance:
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _machineGunRecoil
-      value: 10
+      value: 7.08
       objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
@@ -6573,6 +6578,16 @@ PrefabInstance:
       objectReference: {fileID: 5080793733214557765}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
+      propertyPath: _maxHealth
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _attackRange
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
       propertyPath: _inputCanvas
       value: 
       objectReference: {fileID: 8348373513848555029}
@@ -6586,6 +6601,11 @@ PrefabInstance:
       propertyPath: _xPProgressText
       value: 
       objectReference: {fileID: 1590001716022679865}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _hpRegenMultipler
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _maxFootStepTimer
