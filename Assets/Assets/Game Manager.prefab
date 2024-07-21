@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _godMode: 0
-  _gameStarted: 1
-  _gameLaunched: 1
+  _gameStarted: 0
+  _gameLaunched: 0
   _spawnPoints:
   - {fileID: 4565484366446682366}
   - {fileID: 7956090684129381361}
@@ -173,9 +173,10 @@ MonoBehaviour:
   - {fileID: 2364406345628423798, guid: 46ff41c3c097b457ba823c787a1d4ffd, type: 3}
   - {fileID: 5931495445033531497, guid: c8ac0ed6cc93d4c0cbee5c665280acab, type: 3}
   - {fileID: 4563359409024015839, guid: f488746c0acb9653db91f3fabc7f97cc, type: 3}
-  - {fileID: 2364406345628423798, guid: 7becb756078f85168904f275337970e9, type: 3}
+  - {fileID: 2364406345628423798, guid: eddf139eb0afcae089bc3319845bf8e7, type: 3}
   - {fileID: 3720050694364289240, guid: 57ae5f15adfb8ab30962caaf4e0c8fac, type: 3}
   - {fileID: 7999560087031452913, guid: 83c3d13579af5101db959c252d746180, type: 3}
+  - {fileID: 2364406345628423798, guid: 7becb756078f85168904f275337970e9, type: 3}
   - {fileID: 4563359409024015839, guid: 5683e18a3a244b918bb1ac3a935dbc18, type: 3}
   _enemiesStages: 0300000006000000090000000c0000000f000000120000001500000018000000
   _possibleEnemies: 1
@@ -279,6 +280,7 @@ MonoBehaviour:
   _settingsUI: {fileID: 0}
   _captureAreaImage: {fileID: 0}
   _eqCanvas: {fileID: 0}
+  _newEnemySpottedUI: {fileID: 0}
 --- !u!114 &8411048046895516547
 MonoBehaviour:
   m_ObjectHideFlags: 0
