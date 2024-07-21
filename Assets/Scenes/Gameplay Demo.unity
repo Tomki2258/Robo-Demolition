@@ -7641,6 +7641,17 @@ PrefabInstance:
       propertyPath: _statsCanvas
       value: 
       objectReference: {fileID: 1882613320}
+    - target: {fileID: 9076389710118365736, guid: c400599ef021da4a58e96bef62879a55,
+        type: 3}
+      propertyPath: _powerUpsList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076389710118365736, guid: c400599ef021da4a58e96bef62879a55,
+        type: 3}
+      propertyPath: '_powerUpsList.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b5fe8a9d715548d2d831d463b395724d,
+        type: 2}
     - target: {fileID: 9099965569082713952, guid: c400599ef021da4a58e96bef62879a55,
         type: 3}
       propertyPath: m_AnchorMax.x
