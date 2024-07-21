@@ -35,6 +35,7 @@ public class PlayerWeapons : MonoBehaviour
     
     public int _shotsAmount;
     public Transform _circleGunSpawner;
+    public float _circleGunCurrentTimer;
 
     [Header("Sphere Attack")] public WeaponClass _sphereAttackClass;
 
@@ -56,7 +57,6 @@ public class PlayerWeapons : MonoBehaviour
     public float _rocketCurrentTimer;
     public Transform _rocketSpawner;
     public List<GameObject> _weaponsModels;
-    private float _circleGunCurrentTimer;
     private EquipmentCanvas _equipmentCanvas;
     private float _laserCurrentTimer;
     public LayerMask _raycastIgnoreLayers;
@@ -221,7 +221,6 @@ public class PlayerWeapons : MonoBehaviour
             return;
         }
 
-        Debug.Log("Circle Gun !");
         float _rotateValue = 360 / _shotsAmount;
 
         for (var i = 0; i < _shotsAmount; i++)

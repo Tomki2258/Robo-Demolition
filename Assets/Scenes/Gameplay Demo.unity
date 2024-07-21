@@ -140,6 +140,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 725050970}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &186994415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5891006724376844434, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+    type: 3}
+  m_PrefabInstance: {fileID: 5336057214332085525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &189655992
 GameObject:
   m_ObjectHideFlags: 0
@@ -6493,6 +6499,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
+      propertyPath: _bullet
+      value: 
+      objectReference: {fileID: 6881128617358307309, guid: 3c36f3e1b566df76fb46aa2a0dbf5783,
+        type: 3}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _shotsAmount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
       propertyPath: _granadeForce
       value: 15
       objectReference: {fileID: 0}
@@ -6507,6 +6524,11 @@ PrefabInstance:
       propertyPath: _granadeSpawner
       value: 
       objectReference: {fileID: 495087850}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _circleGunSpawner
+      value: 
+      objectReference: {fileID: 186994415}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _machineGunRecoil
@@ -6583,6 +6605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: '_weaponsUnlockStages.Array.data[4]'
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891006724376844434, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.544
       objectReference: {fileID: 0}
     - target: {fileID: 6524360049494093422, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
