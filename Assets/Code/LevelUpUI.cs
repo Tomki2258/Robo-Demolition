@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using TMPro;
@@ -54,8 +55,10 @@ public class LevelUpUI : MonoBehaviour
         switch (_currentPowerUp.GetPowerUpType())
         {
             case PowerUpsEnum.Health:
+                var _oldHP = _player._maxHealth;
                 var maxHealth = _player._maxHealth * (1 + _currentPowerUp.GetPlayerBonus());
                 _player._maxHealth = Mathf.Round(maxHealth);
+                _statsCanvas._bonusHP += Math.Abs(_oldHP - _player._maxHealth);
                 //Debug.LogWarning(PowerUpsEnum.Health);
                 break;
             case PowerUpsEnum.Damage:

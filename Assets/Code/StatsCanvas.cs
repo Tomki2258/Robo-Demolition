@@ -14,12 +14,14 @@ public class StatsCanvas : MonoBehaviour
     [SerializeField] private TMP_Text _reloadSpeedText;
     [SerializeField] private TMP_Text _bulletDodgeText;
     [SerializeField] private TMP_Text _fovText;
+    [SerializeField] private TMP_Text _bonusHPText;
     private PlayerMovement _player;
     private PlayerWeapons _playerWeapons;
     private float _startDamage;
 
 
     private float _startHealth;
+    public float _bonusHP = 0;
     private float _startRange;
     private float _startRegeneration;
     private float _startReloadSpeed;
@@ -29,7 +31,6 @@ public class StatsCanvas : MonoBehaviour
     private void Start()
     {
         SetValues();
-        _cameraController = FindAnyObjectByType<CameraController>();
     }
 
     public void SetValues()
@@ -43,6 +44,8 @@ public class StatsCanvas : MonoBehaviour
         _startDamage = _playerWeapons._damageMultipler;
         _startReloadSpeed = _playerWeapons._reloadMultipler;
         _startBulletDodge = _player._playerAtributtes._dodgeChange;
+        _cameraController = FindAnyObjectByType<CameraController>();
+        _startFov = _cameraController._offset.y;
     }
 
     private double PercentageDifference(float start, float end)
@@ -57,12 +60,13 @@ public class StatsCanvas : MonoBehaviour
     {
         _healthText.text = $"Health bonus {_player._maxHealth - _startHealth}";
         _regenerationText.text = $"Regeneration bonus {_player._maxHealth * _player._hpRegenMultipler}/s";
-        _rangeText.text = $"Attack range bonus {_player._attackRange - _startRange}";
-        _damageText.text = $"Damage bonus {_playerWeapons._damageMultipler} %";
+        _rangeText.text = $"Attack range bonus {PercentageDifference(_startRange, _player._attackRange)} %";
+        _damageText.text = $"Damage bonus {_playerWeapons._damageMultipler - 1} %";
         //_damageText.text = $"Damage bonus {PercentageDifference(_startDamage, _playerWeapons._standardGunClass.GetDamage())} %";
         _reloadSpeedText.text =
             $"Reload speed bonus {PercentageDifference(_startReloadSpeed,  _playerWeapons._reloadMultipler)} % ";
-        _bulletDodgeText.text = $"Bullet dodge bonus {PercentageDifference(_startBulletDodge, _player._playerAtributtes._dodgeChange)} %";
-        //_fovText.text = $"Field of view bonus {PercentageDifference(_startFov, _cameraController._offset)} %";
+        _bulletDodgeText.text = $"Bullet dodge bonus {_player._playerAtributtes._dodgeChange} %";
+        _fovText.text = $"Field of view bonus {PercentageDifference(_startFov, _cameraController._offset.y)} %";
+        _bonusHPText.text = $"Bonus HP {_bonusHP}";
     }
 }
