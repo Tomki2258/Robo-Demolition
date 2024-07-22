@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _godMode: 0
-  _gameStarted: 0
-  _gameLaunched: 0
+  _gameStarted: 1
+  _gameLaunched: 1
   _spawnPoints:
   - {fileID: 4565484366446682366}
   - {fileID: 7956090684129381361}
@@ -314,6 +314,8 @@ MonoBehaviour:
   _rangeText: {fileID: 0}
   _damageText: {fileID: 0}
   _reloadSpeedText: {fileID: 0}
+  _bulletDodgeText: {fileID: 0}
+  _fovText: {fileID: 0}
 --- !u!114 &3003237416524270945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5df66a88cd7203a1b3236412678e4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsOnline: 0
 --- !u!82 &7330320486203455602
 AudioSource:
   m_ObjectHideFlags: 0

@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private VariableJoystick _joystick;
     private Animator _legsAnimator;
     private GameObject _nearestEnemy;
-    private PlayerAtributtes _playerAtributtes;
+    public PlayerAtributtes _playerAtributtes;
     private PlayerDemolition _playerDemolition;
     private bool _playerMoving = false;
     private readonly List<Vector3> _startPlayerPositions = new(3);
