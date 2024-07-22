@@ -114,10 +114,10 @@ public class LevelUpUI : MonoBehaviour
         _rightPowerUp = _powerUpsList[_randomTwo];
 
         //Set UI
-        _leftPowerUpUI.transform.GetChild(1).GetComponent<Image>().sprite = _leftPowerUp.GetPowerUpSprite();
-        _leftPowerUpUI.transform.GetChild(2).GetComponent<TMP_Text>().text = _leftPowerUp.GetPowerUpDescription();
+        _leftPowerUpUI.transform.GetChild(0).GetComponent<Image>().sprite = _leftPowerUp.GetPowerUpSprite();
+        _leftPowerUpUI.transform.GetChild(1).GetComponent<TMP_Text>().text = _leftPowerUp.GetPowerUpDescription();
 
-        _rightPowerUpUI.transform.GetChild(1).GetComponent<Image>().sprite = _rightPowerUp.GetPowerUpSprite();
-        _rightPowerUpUI.transform.GetChild(2).GetComponent<TMP_Text>().text = _rightPowerUp.GetPowerUpDescription();
+        _rightPowerUpUI.transform.GetChild(0).GetComponent<Image>().sprite = _rightPowerUp.GetPowerUpSprite();
+        _rightPowerUpUI.transform.GetChild(1).GetComponent<TMP_Text>().text = _rightPowerUp.GetPowerUpDescription();
     }
 }
