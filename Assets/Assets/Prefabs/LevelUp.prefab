@@ -766,9 +766,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4741976338433645175}
   - {fileID: 509601362174813742}
   - {fileID: 5270462854433672842}
+  - {fileID: 4741976338433645175}
   m_Father: {fileID: 8985019107220797825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1704,9 +1704,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4693299941744940823}
   - {fileID: 5033325800320942494}
   - {fileID: 5902018743915142974}
-  - {fileID: 4693299941744940823}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1728,10 +1728,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _powerUpsList: []
   _hpMultipler: 10
-  _damageMultipler: 10
-  _rangeMultipler: 10
-  _regenerationMultipler: 10
-  _reloadSpeed: 10
   _leftPowerUpUI: {fileID: 4141377948877883608}
   _rightPowerUpUI: {fileID: 2241338372564367463}
   _statsCanvas: {fileID: 0}
@@ -1862,9 +1858,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 467871124192794375}
   - {fileID: 8513305681036740518}
   - {fileID: 7008183799504601380}
+  - {fileID: 467871124192794375}
   m_Father: {fileID: 5271130230659599257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
