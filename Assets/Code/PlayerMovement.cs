@@ -318,14 +318,14 @@ public class PlayerMovement : MonoBehaviour
 
             _level++;
             _xp = 0;
-            _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.5f);
+            _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.3f);
 
             var _scale = transform.localScale;
             _scale += new Vector3(0.1f, 0.1f, 0.1f) * _levelUpPlayerScaler;
             transform.localScale = _scale;
             _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
             _health += Convert.ToInt16(_maxHealth * 0.15f);
-
+            _speed+= 0.25f;
             if (_level % 3 == 0) _gameManager.IncreaseEnemiesIndex();
 
             _playerDemolition.UpdatePlayerSize();

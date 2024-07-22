@@ -23,6 +23,7 @@ public class LevelUpUI : MonoBehaviour
     private CameraController _cameraController;
     private void Awake()
     {
+        _cameraController = FindAnyObjectByType<CameraController>();
         _weaponUnlock = GetComponent<WeaponUnlock>();
         _weaponUnlock.gameObject.SetActive(false);
         _uiManager = FindAnyObjectByType<UIManager>();
@@ -79,9 +80,11 @@ public class LevelUpUI : MonoBehaviour
                 if(currentValue == 0)
                 {
                     _playerAtributtes._dodgeChange = 5;
-                    return;
                 }
-                _player.GetComponent<PlayerAtributtes>()._dodgeChange *= 1 + _currentPowerUp.GetPlayerBonus();
+                else
+                {
+                    _player.GetComponent<PlayerAtributtes>()._dodgeChange *= 1 + _currentPowerUp.GetPlayerBonus();
+                }
                 break;
             case PowerUpsEnum.FieldOfView:
                 _cameraController._offset *= 1 + _currentPowerUp.GetPlayerBonus();

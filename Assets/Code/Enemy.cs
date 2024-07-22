@@ -151,13 +151,13 @@ public class Enemy : MonoBehaviour
 
     public void SwitchSpeed()
     {
-        if (PlayerDistance()< 50)
+        if (PlayerDistance() < 60)
         {
             _agent.speed = _baseSpeed;
         }
         else
         {
-            _agent.speed = _baseSpeed * 3;
+            _agent.speed = _baseSpeed * 4;
         }
     }
     public float PlayerDistance()

@@ -53,8 +53,11 @@ public class GameManager : MonoBehaviour
     public Material _hitMaterial;
     public Material _blackMaterial;
     public GameObject _secondSpodek;
+    private UserData _userData;
     private void Awake()
     {
+        _userData = FindFirstObjectByType<UserData>();
+        _userData.CheckPlayerOnline();
         _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
         _notyficationBaner._notyficationBaner.SetActive(false);
         _bombSpawns = GameObject.FindGameObjectsWithTag("bombersSpawner");
@@ -238,8 +241,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ReloadLevel()
     {
-        UserData userData = FindFirstObjectByType<UserData>();
-        userData.AddKilledEnemies(_killedEnemies);
+        _userData.AddKilledEnemies(_killedEnemies);
         _uiManager._dieCanvas.SetActive(false);
         var _explosionn = Instantiate(_explosion, _player.transform.position, Quaternion.identity);
         _player.DiePlayerTexture();

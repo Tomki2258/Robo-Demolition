@@ -7,6 +7,7 @@ public class UserData : MonoBehaviour
 {
     private int _allKilldedEnemies;
     private int _playerCoins;
+    public bool _IsOnline;
     private void Start()
     {
         _allKilldedEnemies = PlayerPrefs.GetInt("allKilledEnemies");
@@ -42,5 +43,13 @@ public class UserData : MonoBehaviour
     public int GetBestScore()
     {
         return PlayerPrefs.GetInt("BestScore");
+    }
+    public void CheckPlayerOnline(){
+        if(Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            _IsOnline = false;
+            return;
+        }
+        _IsOnline = true;
     }
 }
