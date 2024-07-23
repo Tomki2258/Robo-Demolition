@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         _startPlayerQuaterions.Add(_hands.localRotation);
         _playerDemolition = GetComponent<PlayerDemolition>();
         _playerDemolition.UpdatePlayerSize();
+        
     }
 
     private void Start()
@@ -106,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
         _startRotation = _top.rotation;
         _animator.enabled = false;
         _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
+        _playerWeapons._laserSpawner.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -172,7 +174,10 @@ public class PlayerMovement : MonoBehaviour
                 Battle();
             }
             else
+            {
                 MoveTurret(_idleLookTransform.position);
+                _playerWeapons._laserSpawner.gameObject.SetActive(false);
+            }
             if (_nearestEnemy == null)
                 return;
         }
@@ -292,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            _playerWeapons._laserSpawner.gameObject.SetActive(false);   
+            _playerWeapons._laserSpawner.gameObject.SetActive(false);
         }
         _playerWeapons.DoMineDeployer();
     }
