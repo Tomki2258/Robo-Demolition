@@ -274,9 +274,8 @@ public class PlayerWeapons : MonoBehaviour
 
         if (!_laserSpawner.gameObject.activeSelf)
         {
-            _laserSpawner.gameObject.SetActive(true);
         }
-        _lineRenderer.enabled = true;
+        _laserSpawner.gameObject.SetActive(true);
         _lineRenderer.SetPosition(0, _laserSpawner.position);
         _lineRenderer.SetPosition(1, _enemy.position);
 

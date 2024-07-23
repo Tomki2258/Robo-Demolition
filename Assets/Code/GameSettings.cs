@@ -31,7 +31,7 @@ public class GameSettings : MonoBehaviour
         var _savedQuality = Convert.ToBoolean(PlayerPrefs.GetInt("SavedQuality"));
         LoadQuality(_savedQuality);
         var _savedAudio = Convert.ToBoolean(PlayerPrefs.GetInt("SavedAudio"));
-        LoadAudio(_savedAudio);
+        //LoadAudio(_savedAudio);
     }
 
     private void LoadQuality(bool _high)
@@ -89,7 +89,7 @@ public class GameSettings : MonoBehaviour
     {
         Debug.Log("Audio Button");
         _audioOn = !_audioOn;
-        if (_qualityOn)
+        if (_audioOn)
         {
             _audioListener.enabled = true;
             _audioImage.sprite =_audioOnSprite;
@@ -109,6 +109,9 @@ public class GameSettings : MonoBehaviour
         {
             case 0:
                 Application.OpenURL(_twitterURL);
+                break;
+            case 1:
+                Application.OpenURL(_facebookURL);
                 break;
         }
     }
