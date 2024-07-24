@@ -6,8 +6,7 @@ public class StatsCanvas : MonoBehaviour
 {
     public GameObject _playerObject;
     private CameraController _cameraController;
-    [Header("Text")] [SerializeField] private TMP_Text _healthText;
-
+    [Header("Text")]
     [SerializeField] private TMP_Text _regenerationText;
     [SerializeField] private TMP_Text _rangeText;
     [SerializeField] private TMP_Text _damageText;
@@ -58,7 +57,7 @@ public class StatsCanvas : MonoBehaviour
 
     public void SetStatsCanvas()
     {
-        _healthText.text = $"Health bonus {_player._maxHealth - _startHealth}";
+        //_healthText.text = $"Health bonus {_player._maxHealth - _startHealth}";
         _regenerationText.text = $"Regeneration bonus {_player._maxHealth * _player._hpRegenMultipler}/s";
         _rangeText.text = $"Attack range bonus {PercentageDifference(_startRange, _player._attackRange)} %";
         _damageText.text = $"Damage bonus {_playerWeapons._damageMultipler - 1} %";

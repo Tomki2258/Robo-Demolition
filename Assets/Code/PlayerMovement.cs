@@ -210,6 +210,11 @@ public class PlayerMovement : MonoBehaviour
                                $"{_xpToNextLevel}";
     }
 
+    public void InstantLvlUp()
+    {
+        int _xpToLevel = _xpToNextLevel - _xp;
+        AddPlayerXP(_xpToLevel + 1);
+    }
     private void ShieldManagment()
     {
         if (!_shield) return;
