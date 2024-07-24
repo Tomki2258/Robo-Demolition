@@ -80,6 +80,8 @@ public class WeaponPanel : MonoBehaviour
             }
 
             _equipment._weaponsInUse.Add(_weaponClass);
+            _gameManager._notyficationBaner.ShotMessage(_weaponClass.GetWeaponName(), 
+                _weaponClass.GetWeaponDescription());
             _weaponImage.color = new Color32(255, 255, 225, 255);
         }
 

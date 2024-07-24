@@ -10,12 +10,20 @@ public class NotyficationBaner : MonoBehaviour
     public string _titleText;
     public string _messageText;
     public int _waitTime;
-
+    private Coroutine _currentEnumerator;
     public void ShotMessage(string title, string message)
     {
         _titleText = title;
         _messageText = message;
-        StartCoroutine(Show());
+        if (_currentEnumerator == null)
+        {
+            _currentEnumerator = StartCoroutine(Show());
+        }
+        else
+        {
+            StopCoroutine(_currentEnumerator);
+            _currentEnumerator = StartCoroutine(Show());
+        }
     }
 
     private IEnumerator Show()
