@@ -54,8 +54,10 @@ public class GameManager : MonoBehaviour
     public Material _blackMaterial;
     public GameObject _secondSpodek;
     private UserData _userData;
+    public GameObject _startGameParticle;
     private void Awake()
     {
+        DoAppLaunch();
         _userData = FindFirstObjectByType<UserData>();
         _userData.CheckPlayerOnline();
         _notyficationBaner = FindFirstObjectByType<NotyficationBaner>();
@@ -83,6 +85,15 @@ public class GameManager : MonoBehaviour
         if (_gameStarted && _gameLaunched) OverideStart();
     }
 
+    private void DoAppLaunch()
+    {
+        if (!Application.isEditor)
+        {
+            _godMode = false;
+            _gameLaunched = false;
+            _gameStarted = false;
+        }
+    }
     public void DoGodMode()
     {
         _player._maxHealth = 10000;
@@ -249,12 +260,28 @@ public class GameManager : MonoBehaviour
         Destroy(_explosionn);
         SceneManager.LoadScene(SceneManager.loadedSceneCount);
     }
+    
 
+    public void StartGame()
+    {
+        _spodek.SetActive(true);
+        _uiManager._gameStartUI.SetActive(false);
+        _gameStarted = true;
+        _spodekAudioSource.Play();
+        StartCoroutine(MakeGame());
+    }
     private IEnumerator MakeGame()
     {
         if(_godMode) DoGodMode();
         
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
+        if (_startGameParticle != null)
+        {
+            GameObject _startParticleInstance =
+                Instantiate(_startGameParticle, _secondSpodek.transform.position, Quaternion.identity);
+            Destroy(_startParticleInstance,10);
+        }
+        yield return new WaitForSeconds(1);
         _secondSpodek.SetActive(false);
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
@@ -265,19 +292,9 @@ public class GameManager : MonoBehaviour
         _player.DoJoystickInput(true);
         _uiManager.StartGame(true);
         _player.gameObject.SetActive(true);
-        Debug.LogWarning("Game made lol");
+        //Debug.LogWarning("Game made lol");
         _spodek.SetActive(false);
     }
-
-    public void StartGame()
-    {
-        _spodek.SetActive(true);
-        _uiManager._gameStartUI.SetActive(false);
-        _gameStarted = true;
-        _spodekAudioSource.Play();
-        StartCoroutine(MakeGame());
-    }
-
 	public IEnumerator StartDelayCoroutine(float delay){
 		yield return new WaitForSeconds(delay);
 		StartGame();
