@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerObject: {fileID: 0}
+  _cameraController: {fileID: 0}
   _regenerationText: {fileID: 0}
   _rangeText: {fileID: 0}
   _damageText: {fileID: 0}
@@ -359,6 +360,7 @@ MonoBehaviour:
   _notyficationBaner: {fileID: 0}
   _title: {fileID: 0}
   _message: {fileID: 0}
+  animator: {fileID: 0}
   _titleText: 
   _messageText: 
   _waitTime: 3
