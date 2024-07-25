@@ -44,7 +44,7 @@ public class WeaponPanel : MonoBehaviour
         {
             _weaponImage.sprite = _lockedSprite;
             _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
-            _button.interactable = false;
+            //_button.interactable = false;
         }
 
         if (!_weaponClass.CheckInUse())
@@ -60,6 +60,12 @@ public class WeaponPanel : MonoBehaviour
 
     public void ChooseWeapon()
     {
+        if (!_weaponClass.IsWeaponUnlocked())
+        {
+            _gameManager._notyficationBaner.ShotMessage("Error", "This weapon is locked");
+            return;
+        }
+        
         if (_weaponClass.CheckInUse())
         {
             if (_equipment._weaponsInUse.Count == 1)
