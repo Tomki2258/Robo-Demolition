@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatsCanvas : MonoBehaviour
 {
     public GameObject _playerObject;
-    private CameraController _cameraController;
+    [SerializeField] private CameraController _cameraController;
     [Header("Text")]
     [SerializeField] private TMP_Text _regenerationText;
     [SerializeField] private TMP_Text _rangeText;
@@ -43,7 +43,6 @@ public class StatsCanvas : MonoBehaviour
         _startDamage = _playerWeapons._damageMultipler;
         _startReloadSpeed = _playerWeapons._reloadMultipler;
         _startBulletDodge = _player._playerAtributtes._dodgeChange;
-        _cameraController = FindAnyObjectByType<CameraController>();
         _startFov = _cameraController._offset.y;
     }
 
