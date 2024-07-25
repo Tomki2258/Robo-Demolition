@@ -34,4 +34,13 @@ public class NotyficationBaner : MonoBehaviour
         yield return new WaitForSecondsRealtime(_waitTime);
         _notyficationBaner.SetActive(false);
     }
+
+    public void CancelIEnumerator()
+    {
+        if (_currentEnumerator != null)
+        {
+            StopCoroutine(_currentEnumerator);
+            _notyficationBaner.SetActive(false);
+        }
+    }
 }
