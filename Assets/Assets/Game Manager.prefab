@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _godMode: 0
-  _gameStarted: 1
-  _gameLaunched: 1
+  _gameStarted: 0
+  _gameLaunched: 0
   _spawnPoints:
   - {fileID: 4565484366446682366}
   - {fileID: 7956090684129381361}
@@ -210,6 +210,8 @@ MonoBehaviour:
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
   _secondSpodek: {fileID: 0}
+  _startGameParticle: {fileID: 575421399411175490, guid: c7788b697531e58569d3bdb4d717da0f,
+    type: 3}
 --- !u!114 &1134717862283422432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerObject: {fileID: 0}
-  _healthText: {fileID: 0}
   _regenerationText: {fileID: 0}
   _rangeText: {fileID: 0}
   _damageText: {fileID: 0}
