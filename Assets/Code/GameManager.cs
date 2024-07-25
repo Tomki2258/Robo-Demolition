@@ -274,14 +274,17 @@ public class GameManager : MonoBehaviour
     {
         if(_godMode) DoGodMode();
         
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4.2f);
         if (_startGameParticle != null)
         {
+            Debug.LogWarning("Start particle");
             GameObject _startParticleInstance =
-                Instantiate(_startGameParticle, _secondSpodek.transform.position, Quaternion.identity);
+                Instantiate(_startGameParticle, _spodek.transform.position, Quaternion.identity);
+            ParticleSystem _particleSystem = _startParticleInstance.GetComponent<ParticleSystem>();
+            _particleSystem.Play();
             Destroy(_startParticleInstance,10);
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.8f);
         _secondSpodek.SetActive(false);
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
