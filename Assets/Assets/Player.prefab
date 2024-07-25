@@ -843,7 +843,7 @@ MonoBehaviour:
   _hpRegenMultipler: 0.02
   _xp: 0
   _level: 1
-  _xpToNextLevel: 30
+  _xpToNextLevel: 1
   _died: 0
   _shield: 0
   _shieldTimer: 0
@@ -868,9 +868,10 @@ MonoBehaviour:
   - {fileID: 3540997941914217053}
   _footStepEffect: {fileID: 4916640740343874935, guid: 53716f5f90ef48c3f89f21b3acda739c,
     type: 3}
+  _playerAtributtes: {fileID: 0}
   _idleLookTransform: {fileID: 8910536273972078061}
   _mainCannonRotateElement: {fileID: 5731191009634395235}
-  _levelUpPlayerScaler: 2
+  _levelUpPlayerScaler: 1.5
 --- !u!114 &5308632745959701585
 MonoBehaviour:
   m_ObjectHideFlags: 0
