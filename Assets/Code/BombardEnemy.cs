@@ -44,7 +44,7 @@ public class BombardEnemy : MonoBehaviour
             if (_possibleVectors.y == 0)
             {
                 _testY = Convert.ToBoolean(Random.Range(0, 2));
-                Debug.LogWarning(_testY);
+//                Debug.LogWarning(_testY);
                 _directionY = _testY ? 1 : -1;
                 _planesVector = new Vector3(0, 0, _directionY);
                 _planes.transform.Rotate(0, _testY ? 90 : -90, 0);
