@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f6ad7a374b006d99c4fbbb90346bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _godMode: 0
+  _godMode: 1
   _gameStarted: 1
   _gameLaunched: 1
   _spawnPoints:
@@ -212,6 +212,8 @@ MonoBehaviour:
   _secondSpodek: {fileID: 0}
   _startGameParticle: {fileID: 575421399411175490, guid: c7788b697531e58569d3bdb4d717da0f,
     type: 3}
+  _animationClip: {fileID: 7400000, guid: 4f36af1bfd9afb94fa29e03c0a089c3b, type: 2}
+  _pauseAnimator: {fileID: 0}
 --- !u!114 &1134717862283422432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +366,7 @@ MonoBehaviour:
   _titleText: 
   _messageText: 
   _waitTime: 3
+  _animationClip: {fileID: 7400000, guid: baaec75382044387abe5d6e3363afa29, type: 2}
 --- !u!114 &4350041709856705868
 MonoBehaviour:
   m_ObjectHideFlags: 0

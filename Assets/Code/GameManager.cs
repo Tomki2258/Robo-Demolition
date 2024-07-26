@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     private UserData _userData;
     public GameObject _startGameParticle;
     [SerializeField] private AnimationClip _animationClip;
+    [SerializeField] private Animator _pauseAnimator;
     private bool _unPauseStarted = false;
     private void Awake()
     {
@@ -231,6 +232,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator unPauseIEnumerator()
     {
         Debug.LogWarning("coroutine");
+        _pauseAnimator.SetTrigger("isOpen");
         yield return new WaitForSecondsRealtime(_animationClip.length);
         _player.DoJoystickInput(true);
         Time.timeScale = 1;
