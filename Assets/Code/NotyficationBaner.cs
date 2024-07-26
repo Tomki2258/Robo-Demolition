@@ -5,15 +5,15 @@ using UnityEngine;
 public class NotyficationBaner : MonoBehaviour
 {
     public GameObject _notyficationBaner;
-    public TMP_Text _title;
-    public TMP_Text _message;
+    [SerializeField] private TMP_Text _title;
+    [SerializeField] TMP_Text _message;
 
-    public Animator animator;
-    public string _titleText;
+    [SerializeField] Animator animator;
+    [SerializeField] string _titleText;
     public string _messageText;
     public int _waitTime;
     private Coroutine _currentEnumerator;
-    
+    public AnimationClip _animationClip;
     public void ShotMessage(string title, string message)
     {
         _titleText = title;
@@ -36,7 +36,7 @@ public class NotyficationBaner : MonoBehaviour
         _message.text = _messageText;
         yield return new WaitForSecondsRealtime(_waitTime);
         animator.SetTrigger("isOpen");
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(_animationClip.length);
         _notyficationBaner.SetActive(false);
     }
 
