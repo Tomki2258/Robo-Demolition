@@ -2308,6 +2308,11 @@ PrefabInstance:
       objectReference: {fileID: 1877889849}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
+      propertyPath: _godMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
       propertyPath: _pausedUI
       value: 
       objectReference: {fileID: 6407799603421028895}
@@ -2321,6 +2326,11 @@ PrefabInstance:
       propertyPath: _weaponUnlock
       value: 
       objectReference: {fileID: 3274586576254891362}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _animationClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 2daa1f2a7fb418f43be9b4d3f565cd76, type: 2}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _continueCanvas
@@ -2341,6 +2351,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 931566248}
+    - target: {fileID: 562539019407417825, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _animationClip
+      value: 
+      objectReference: {fileID: 7400000, guid: baaec75382044387abe5d6e3363afa29, type: 2}
     - target: {fileID: 562539019407417825, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _notyficationBaner

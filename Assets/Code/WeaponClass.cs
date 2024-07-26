@@ -28,6 +28,9 @@ namespace DefaultNamespace
         [SerializeField] private bool _isInUse;
         [SerializeField] private float _damage;
         [SerializeField] private float _reloadTimeMax;
+        [SerializeField] private float _attackRange;
+        public float _currentReloadTime;
+
         public string GetWeaponName()
         {
             return _name;
@@ -77,13 +80,26 @@ namespace DefaultNamespace
         {
             return _isInUse;
         }
+
         public float GetDamage()
         {
             return _damage;
         }
+
         public float GetReloadTime()
         {
             return _reloadTimeMax;
         }
-    }
+
+        public float GetAttackRange()
+        {
+            return _attackRange;
+        }
+
+        public bool CheckShoot()
+        {
+            if (_currentReloadTime > _reloadTimeMax) return true;
+            return false;
+        }
+}
 }

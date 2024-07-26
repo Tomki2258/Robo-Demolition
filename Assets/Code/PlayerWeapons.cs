@@ -80,6 +80,14 @@ public class PlayerWeapons : MonoBehaviour
         _equipmentCanvas = FindFirstObjectByType<EquipmentCanvas>();
         _laserCurrentDamage = _laserGunClass.GetDamage();
         foreach (var _weapon in _weaponsModels) _weapon.SetActive(false);
+        
+        foreach (WeaponClass _weaponClass in _weaponsInUse)
+        {
+            if (_weaponClass.GetReloadTime() > _weaponClass._currentReloadTime)
+            {
+                _weaponClass._currentReloadTime = 0;
+            }
+        }
     }
 
     public void SetWeaponsInUse()
@@ -90,53 +98,24 @@ public class PlayerWeapons : MonoBehaviour
 
     private float GetFinalReloadTime(WeaponClass _weapon)
     {
-        float _weaponsMultipler = 1 + (_equipmentCanvas.GetUsedWeapons() * 0.1f);
-        return _weapon.GetReloadTime() * _reloadMultipler * _weaponsMultipler;
+        //float _weaponsMultipler = 1 + (_equipmentCanvas.GetUsedWeapons() * 0.1f);
+        return _weapon.GetReloadTime() * _reloadMultipler;
     }
     
     public void WeaponsReloads()
     {
-        if (_standardGunClass.GetReloadTime() > _standardCurrentTimer)
+        foreach (WeaponClass _weaponClass in _weaponsInUse)
         {
-            _standardCurrentTimer += Time.deltaTime;
-        } 
-        if (GetFinalReloadTime(_machineGunClass) > _machineGunCurrentTimer)
-        {
-            _machineGunCurrentTimer += Time.deltaTime;
-        }
-        if (GetFinalReloadTime(_sniperGunClass) > _sniperCurrentTimer)
-        {
-            _sniperCurrentTimer += Time.deltaTime;
-        }
-        if (GetFinalReloadTime(_rocketLauncherClass) > _rocketCurrentTimer)
-        {
-            _rocketCurrentTimer += Time.deltaTime;
-        }
-        if (GetFinalReloadTime(_sphereAttackClass) > _sphereAttackCurrentTimer)
-        {
-            _sphereAttackCurrentTimer += Time.deltaTime;
-        }
-        if (GetFinalReloadTime(_shotgunGunClass) > _shotgunCurrentTimer)
-        {
-            _shotgunCurrentTimer += Time.deltaTime;
-        }
-        if (GetFinalReloadTime(_circleGunClass) > _circleGunCurrentTimer)
-        {
-            _circleGunCurrentTimer += Time.deltaTime;
-        }
-        if(GetFinalReloadTime(_mineDeployerClass) > _mineDeployerCurrentTimer)
-        {
-            _mineDeployerCurrentTimer += Time.deltaTime;
-        }
-        if(GetFinalReloadTime(_granadeLauncherClass) > _granadeLauncherCurrentTimer)
-        {
-            _granadeLauncherCurrentTimer += Time.deltaTime;
+            if (_weaponClass.GetReloadTime() > _weaponClass._currentReloadTime)
+            {
+                _weaponClass._currentReloadTime += Time.deltaTime;
+            }
         }
     }
     public void StandardGun()
     {
         if (!_standardGunClass.CheckForUse()) return;
-        if (_standardGunClass.GetReloadTime() > _standardCurrentTimer)
+        if (_standardGunClass.GetReloadTime() > _standardGunClass._currentReloadTime)
         {
             return;
         }
@@ -145,7 +124,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.transform.rotation = _standardSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _standardGunClass.GetDamage() * _damageMultipler;
         _standardAudioSource.Play();
-        _standardCurrentTimer = 0;
+        _standardGunClass._currentReloadTime = 0;
         if(_standardGunParticles != null) _standardGunParticles.Play();
     }
     public void MachineGun()
@@ -153,7 +132,7 @@ public class PlayerWeapons : MonoBehaviour
         if (!_machineGunClass.CheckForUse())
             //Debug.LogWarning("Machine gun not unlocked !");
             return;
-        if (GetFinalReloadTime(_machineGunClass) > _machineGunCurrentTimer)
+        if (GetFinalReloadTime(_machineGunClass) > _machineGunClass._currentReloadTime)
         {
             return;
         }
@@ -163,13 +142,13 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>().AddRecoil(_machineGunRecoil);
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _machineGunClass.GetDamage() * _damageMultipler;
         _machineGunAudioSource.Play();
-        _machineGunCurrentTimer = 0;
+        _machineGunClass._currentReloadTime = 0;
     }
 
     public void Sniper()
     {
         if (!_sniperGunClass.CheckForUse()) return;
-        if (GetFinalReloadTime(_sniperGunClass) > _sniperCurrentTimer)
+        if (GetFinalReloadTime(_sniperGunClass) > _sniperGunClass._currentReloadTime)
         {
             return;
         }
@@ -181,13 +160,13 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.transform.rotation = _sniperSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _shotgunGunClass.GetDamage() * _damageMultipler;
 //        _sniperAudioSource.Play();
-        _sniperCurrentTimer = 0;
+        _sniperGunClass._currentReloadTime = 0;
     }
 
     public void RocketLauncher()
     {
         if (!_rocketLauncherClass.CheckForUse()) return;
-        if (GetFinalReloadTime(_rocketLauncherClass) > _rocketCurrentTimer)
+        if (GetFinalReloadTime(_rocketLauncherClass) > _rocketLauncherClass._currentReloadTime)
         {
             return;
         }
@@ -195,27 +174,27 @@ public class PlayerWeapons : MonoBehaviour
         var _currentRocket = Instantiate(_rocketPrefab, _rocketSpawner.position, _rocketSpawner.rotation);
         var _rocket = _currentRocket.GetComponent<Rocket>();
         _rocket._rocketDamage *= _damageMultipler;
-        _rocketCurrentTimer = 0;
+        _rocketLauncherClass._currentReloadTime = 0;
     }
 
     public void ShpereAttack()
     {
         if (!_sphereAttackClass.CheckForUse()) return;
         
-        if (GetFinalReloadTime(_sphereAttackClass) > _sphereAttackCurrentTimer)
+        if (GetFinalReloadTime(_sphereAttackClass) > _sphereAttackClass._currentReloadTime)
         {
             return;
         }
 
         var _currentSphere = Instantiate(_sphereAttackPrefab, transform.position, Quaternion.identity);
         _currentSphere.GetComponent<SphereAttack>()._player = GetComponent<PlayerMovement>();
-        _sphereAttackCurrentTimer = 0;
+        _sphereAttackClass._currentReloadTime = 0;
     }
 
     public void ShotgunGun()
     {
         if (!_shotgunGunClass.CheckForUse()) return;
-        if (GetFinalReloadTime(_shotgunGunClass) > _shotgunCurrentTimer)
+        if (GetFinalReloadTime(_shotgunGunClass) > _shotgunGunClass._currentReloadTime)
         {
             return;
         }
@@ -229,28 +208,28 @@ public class PlayerWeapons : MonoBehaviour
             int _currentAngle = 0;
             if (i % 2 == 0)
             {
-                _currentAngle = (i / 2) * _pelletAngle; // Liczymy kąt tylko dla parzystych wartości i
+                _currentAngle = (i / 2) * _pelletAngle;
             }
             else
             {
-                _currentAngle = ((i + 1) / 2) * _pelletAngle; // Dla nieparzystych wartości i przesuwamy o jedną jednostkę
+                _currentAngle = ((i + 1) / 2) * _pelletAngle;
             }
 
-            _currentAngle *= (_switchSide ? 1 : -1); // Zmieniamy znak kąta
-            _switchSide = !_switchSide; // Przełączamy stronę po ustawieniu kąta
+            _currentAngle *= (_switchSide ? 1 : -1);
+            _switchSide = !_switchSide;
 
             _currentBullet.transform.Rotate(0, _currentAngle, 0);
             _currentBullet.GetComponent<Bullet>()._bulletDamage = _shotgunGunClass.GetDamage() * _damageMultipler;
         }
 
 
-        _shotgunCurrentTimer = 0;
+        _shotgunGunClass._currentReloadTime = 0;
     }
 
     public void CircleGun()
     {
         if (!_circleGunClass.CheckForUse()) return;
-        if (GetFinalReloadTime(_circleGunClass) > _circleGunCurrentTimer)
+        if (GetFinalReloadTime(_circleGunClass) > _circleGunClass._currentReloadTime)
         {
             return;
         }
@@ -265,7 +244,7 @@ public class PlayerWeapons : MonoBehaviour
             _currentBullet.GetComponent<Bullet>()._bulletDamage = _circleGunClass.GetDamage() * _damageMultipler;
         }
 
-        _circleGunCurrentTimer = 0;
+        _circleGunClass._currentReloadTime = 0;
     }
 
     public void DoLaser(Transform _enemy)
@@ -284,16 +263,16 @@ public class PlayerWeapons : MonoBehaviour
         if (_laserCurrentDamage < _laserMaxDamage)
             _laserCurrentDamage += _laserDamageMultiplier * Time.deltaTime * _damageMultipler;
 
-        if (GetFinalReloadTime(_laserGunClass) > _laserCurrentTimer)
+        if (GetFinalReloadTime(_laserGunClass) > _laserGunClass._currentReloadTime)
         {
-            _laserCurrentTimer += Time.deltaTime;
+           // _laserCurrentTimer += Time.deltaTime;
         }
         else
         {
             var enemy = _enemy.GetComponent<Enemy>();
             enemy.CheckHealth(_laserCurrentDamage);
             _lastLaserEnemy = _enemy;
-            _laserCurrentTimer = 0;
+            _laserGunClass._currentReloadTime = 0;
         }
     }
 
@@ -301,7 +280,7 @@ public class PlayerWeapons : MonoBehaviour
     {
         if(!_orbitalGunClass.CheckForUse()) return;
         
-        if(GetFinalReloadTime(_orbitalGunClass) > _orbitalGunCurrentTimer)
+        if(GetFinalReloadTime(_orbitalGunClass) > _orbitalGunClass._currentReloadTime)
         {
             _orbitalGunCurrentTimer += Time.deltaTime;
         }
@@ -311,14 +290,14 @@ public class PlayerWeapons : MonoBehaviour
                 transform.position,
                 Quaternion.identity);
             _orbitalGun.transform.position = _playerMovement._currentEnemy.transform.position;
-            _orbitalGunCurrentTimer = 0;
+            _orbitalGunClass._currentReloadTime = 0;
         }
     }
     public void DoMineDeployer()
     {
         if(!_mineDeployerClass.CheckForUse()) return;
         
-        if(GetFinalReloadTime(_mineDeployerClass) > _mineDeployerCurrentTimer)
+        if(GetFinalReloadTime(_mineDeployerClass) > _mineDeployerClass._currentReloadTime)
         {
             return;
         }
@@ -328,14 +307,14 @@ public class PlayerWeapons : MonoBehaviour
         _mine.transform.rotation = new Quaternion(0, Random.Range(0,360), 0, 0);
         _mine.GetComponent<Rigidbody>().AddForce(_mine.transform.forward * 5, ForceMode.Impulse);
         
-        _mineDeployerCurrentTimer = 0;
+        _mineDeployerClass._currentReloadTime = 0;
     }
 
     public void DoGranadeLauncher()
     {
         if(!_granadeLauncherClass.CheckForUse()) return;
         
-        if(GetFinalReloadTime(_granadeLauncherClass) > _granadeLauncherCurrentTimer)
+        if(GetFinalReloadTime(_granadeLauncherClass) > _granadeLauncherClass._currentReloadTime)
         {
             return;
         }
@@ -345,7 +324,7 @@ public class PlayerWeapons : MonoBehaviour
         _granade.transform.rotation = _granadeSpawner.transform.rotation;
         
         _granade.GetComponent<Rigidbody>().AddForce(_granadeSpawner.transform.forward * 5, ForceMode.Impulse);
-        _granadeLauncherCurrentTimer = 0;
+        _granadeLauncherClass._currentReloadTime = 0;
     }
     public void ModyfyDamage(float _value)
     {

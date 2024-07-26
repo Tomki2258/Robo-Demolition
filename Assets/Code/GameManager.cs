@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     public GameObject _secondSpodek;
     private UserData _userData;
     public GameObject _startGameParticle;
+    [SerializeField] private AnimationClip _animationClip;
+    private bool _unPauseStarted = false;
     private void Awake()
     {
         DoAppLaunch();
@@ -209,6 +211,8 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        if(_unPauseStarted) return;
+        
         _paused = !_paused;
         if (_paused)
         {
@@ -219,13 +223,21 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            _player.DoJoystickInput(true);
-            Time.timeScale = 1;
-            _pausedUI.SetActive(false);
-            _uiManager._mainUI.SetActive(true);
+            _unPauseStarted = true;
+            StartCoroutine(unPauseIEnumerator());
         }
     }
 
+    private IEnumerator unPauseIEnumerator()
+    {
+        Debug.LogWarning("coroutine");
+        yield return new WaitForSecondsRealtime(_animationClip.length);
+        _player.DoJoystickInput(true);
+        Time.timeScale = 1;
+        _pausedUI.SetActive(false);
+        _uiManager._mainUI.SetActive(true);
+        _unPauseStarted = false;
+    }
     public void DoAd()
     {
         var _random = Random.Range(0, 3);
