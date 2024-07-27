@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AnimationClip _animationClip;
     [SerializeField] private Animator _pauseAnimator;
     private bool _unPauseStarted = false;
+    [SerializeField] private AudioListener _mainAudioListener;
     private void Awake()
     {
         DoAppLaunch();
@@ -217,6 +218,7 @@ public class GameManager : MonoBehaviour
         _paused = !_paused;
         if (_paused)
         {
+            AudioListener.pause = true;
             _player.DoJoystickInput(false);
             Time.timeScale = 0;
             _pausedUI.SetActive(true);
@@ -231,9 +233,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator unPauseIEnumerator()
     {
-        Debug.LogWarning("coroutine");
         _pauseAnimator.SetTrigger("isOpen");
         yield return new WaitForSecondsRealtime(_animationClip.length);
+        AudioListener.pause = false;
         _player.DoJoystickInput(true);
         Time.timeScale = 1;
         _pausedUI.SetActive(false);
