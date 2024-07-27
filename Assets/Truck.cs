@@ -11,7 +11,6 @@ public class Truck : Enemy
         SetUp();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(_player._died) return;
@@ -41,7 +40,7 @@ public class Truck : Enemy
     }
     private void Attacking()
     {
-        GameObject _explosion = Instantiate(_explosionPrefab, _player.transform.position, Quaternion.identity);
+        GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
         _explosion.transform.localScale = new Vector3(2, 2, 2);
         
         _player.CheckHealth(_bulletDamage);

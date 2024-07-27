@@ -66,6 +66,20 @@ public class Enemy : MonoBehaviour
     {
         if(_died) return;
         _died = true;
+        if(gameObject.GetComponent<Truck>())
+        {
+            Truck _truck = gameObject.GetComponent<Truck>();
+            Collider[] _colliders = Physics.OverlapSphere(transform.position, _attackRange);
+
+            foreach (Collider _collider in _colliders)
+            {
+                if (_collider.gameObject.GetComponent<Enemy>())
+                {
+                    Enemy _enemy = _collider.gameObject.GetComponent<Enemy>();
+                    _enemy.CheckHealth(_bulletDamage);
+                }
+            }
+        }
         _gameManager.RemoveEnemy(gameObject);
         if (!_killedByManager)
         {
