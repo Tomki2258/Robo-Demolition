@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _shieldEffect;
     public PlayerWeapons _playerWeapons;
     public List<int> _weaponsUnlockStages;
+    public int _activeWeaponModels;
+    public List<GameObject> _weaponsModels;
     public Material _blackMaterial;
     public CameraShake _cameraShake;
 
@@ -108,6 +110,11 @@ public class PlayerMovement : MonoBehaviour
         _animator.enabled = false;
         _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
         _playerWeapons._laserSpawner.gameObject.SetActive(false);
+
+        foreach (GameObject _weaponObject in _weaponsModels)
+        {
+            _weaponObject.SetActive(false);
+        }
     }
 
     private void Update()

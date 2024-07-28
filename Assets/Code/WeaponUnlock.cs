@@ -120,6 +120,12 @@ public class WeaponUnlock : MonoBehaviour
         _uiManager.DoLevelUpCanvas(false);
 
         _playerWeapons.SetWeaponsInUse();
+
+        if (_playerMovement._activeWeaponModels <= _playerMovement._weaponsModels.Count)
+        {
+            _playerMovement._weaponsModels[_playerMovement._activeWeaponModels].SetActive(true);
+            _playerMovement._activeWeaponModels++;   
+        }
     }
 
     private void SetWeaponsUI()
