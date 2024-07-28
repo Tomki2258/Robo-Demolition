@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator _pauseAnimator;
     private bool _unPauseStarted = false;
     [SerializeField] private AudioListener _mainAudioListener;
+    [SerializeField] private List<GameObject> _disableBuildObjects;
     private void Awake()
     {
         DoAppLaunch();
@@ -96,6 +97,11 @@ public class GameManager : MonoBehaviour
             _godMode = false;
             _gameLaunched = false;
             _gameStarted = false;
+
+            foreach (GameObject _gameObject in _disableBuildObjects) 
+            {
+                _gameObject.SetActive(false);
+            }
         }
     }
     public void DoGodMode()

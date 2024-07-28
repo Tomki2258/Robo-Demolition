@@ -112,9 +112,10 @@ GameObject:
   - component: {fileID: 562539019407417825}
   - component: {fileID: 4350041709856705868}
   - component: {fileID: 5317437016612546682}
+  - component: {fileID: 184382635426059921}
   - component: {fileID: 7330320486203455602}
   - component: {fileID: 7967578061399823448}
-  - component: {fileID: 184382635426059921}
+  - component: {fileID: 4573293081968223171}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -214,6 +215,7 @@ MonoBehaviour:
     type: 3}
   _animationClip: {fileID: 7400000, guid: 4f36af1bfd9afb94fa29e03c0a089c3b, type: 2}
   _pauseAnimator: {fileID: 0}
+  _mainAudioListener: {fileID: 0}
 --- !u!114 &1134717862283422432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +414,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _IsOnline: 0
+--- !u!114 &184382635426059921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821704617510575578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adab2652d8b8fdd77b38ab09e91ed0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trashlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!82 &7330320486203455602
 AudioSource:
   m_ObjectHideFlags: 0
@@ -606,7 +626,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &184382635426059921
+--- !u!114 &4573293081968223171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,15 +635,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2821704617510575578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adab2652d8b8fdd77b38ab09e91ed0d0, type: 3}
+  m_Script: {fileID: 11500000, guid: b372468a9f57ccb47814e5ec11043253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trashlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  _playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  _waypointUIObject: {fileID: 0}
+  _waypointArrow: {fileID: 0}
+  _player: {fileID: 0}
+  _hideWaypointDistance: 0
 --- !u!1 &5577204864429397369
 GameObject:
   m_ObjectHideFlags: 0
