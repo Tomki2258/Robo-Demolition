@@ -173,17 +173,28 @@ public class PlayerMovement : MonoBehaviour
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             var _nearestEnemy = GetNearestEnemy();
-
-            if (Vector3.Distance(transform.position, _nearestEnemy.position) < GetRealAttackRange()  
-                /*&& RaycastEnemy(_currentEnemy.transform) */)
+            if (_playerWeapons._sniperGunClass.CheckInUse())
             {
-                MoveTurret(GetNearestEnemy().position);
-                Battle();
+                if (Vector3.Distance(transform.position, _nearestEnemy.position) < (GetRealAttackRange() * 2)  
+                    /*&& RaycastEnemy(_currentEnemy.transform) */)
+                {
+                    MoveTurret(GetNearestEnemy().position);
+                    Battle();
+                }
             }
             else
             {
-                MoveTurret(_idleLookTransform.position);
-                _playerWeapons._laserSpawner.gameObject.SetActive(false);
+                if (Vector3.Distance(transform.position, _nearestEnemy.position) < GetRealAttackRange()  
+                    /*&& RaycastEnemy(_currentEnemy.transform) */)
+                {
+                    MoveTurret(GetNearestEnemy().position);
+                    Battle();
+                }
+                else
+                {
+                    MoveTurret(_idleLookTransform.position);
+                    _playerWeapons._laserSpawner.gameObject.SetActive(false);
+                }    
             }
             if (_nearestEnemy == null)
                 return;
@@ -295,12 +306,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (_enemyDist < _currentAttackRange)
         {
-            _mainCannonRotateElement.Rotate(Vector3.left * 300 * Time.deltaTime);
+            //_mainCannonRotateElement.Rotate(Vector3.left * 300 * Time.deltaTime);
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
             _playerWeapons.MachineGun();
-            _playerWeapons.Sniper();
             _playerWeapons.ShpereAttack();
             _playerWeapons.RocketLauncher();
             _playerWeapons.DoLaser(_currentEnemy.transform);
@@ -310,6 +320,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _playerWeapons._laserSpawner.gameObject.SetActive(false);
+        }
+
+        if (_enemyDist < _currentAttackRange * 2)
+        {
+            _playerWeapons.Sniper();
         }
         _playerWeapons.DoMineDeployer();
     }
