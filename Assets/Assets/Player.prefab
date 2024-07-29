@@ -851,6 +851,8 @@ MonoBehaviour:
   _shieldEffect: {fileID: 1673872094950143119}
   _playerWeapons: {fileID: 0}
   _weaponsUnlockStages: 0300000006000000090000000c000000
+  _activeWeaponModels: 0
+  _weaponsModels: []
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
   _cameraShake: {fileID: 0}
   _hpSlider: {fileID: 0}
@@ -1533,7 +1535,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 4e2a7eea7ac76a0be8103a0b0b96e1f8, type: 2}
+      objectReference: {fileID: 2100000, guid: 3b6475dea91731048bdb02cb619b5605, type: 2}
     - target: {fileID: -1079592985656878568, guid: 06e4ab9196c44fbbab97fdeb98c8529d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1888,6 +1890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 480afb6b1a173b58897e67bec4c4770e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3367009851457584942, guid: 480afb6b1a173b58897e67bec4c4770e,
         type: 3}
