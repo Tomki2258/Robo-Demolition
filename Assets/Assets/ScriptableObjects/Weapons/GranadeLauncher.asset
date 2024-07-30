@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: GranadeLauncher
   m_EditorClassIdentifier: 
   _name: Granade Launcher
-  _description: 
+  _description: skibidi boom
   _type: 10
   _sprite: {fileID: 21300000, guid: 15637d8be3e2c0a14ada09f5614510e0, type: 3}
   _isUnlocked: 1
-  _isInUse: 1
+  _isInUse: 0
   _damage: 25
   _reloadTimeMax: 3
+  _attackRange: 0
+  _currentReloadTime: 0

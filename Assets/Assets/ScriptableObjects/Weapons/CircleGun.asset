@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: CircleGun
   m_EditorClassIdentifier: 
   _name: Circle Gun
-  _description: 
+  _description: Circle damage lol
   _type: 7
   _sprite: {fileID: -3219469032955256135, guid: f3dc091ba738ebecca3eb2d5a9bc4bfb,
     type: 3}
   _isUnlocked: 1
-  _isInUse: 1
+  _isInUse: 0
   _damage: 20
   _reloadTimeMax: 2
+  _attackRange: 0
+  _currentReloadTime: 0

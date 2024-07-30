@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: 
   _name: Laser Gun
-  _description: 
+  _description: brrrrrrrrr
   _type: 3
   _sprite: {fileID: 3957793353536679050, guid: 6601a788047f5e2b3b257d0b867b629a, type: 3}
-  _isUnlocked: 0
-  _isInUse: 0
+  _isUnlocked: 1
+  _isInUse: 1
   _damage: 25
   _reloadTimeMax: 1.25
+  _attackRange: 0
+  _currentReloadTime: 0

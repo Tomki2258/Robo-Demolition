@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: MineDeployer
   m_EditorClassIdentifier: 
   _name: Mine deployer
-  _description: 
+  _description: boooooooom
   _type: 9
   _sprite: {fileID: 0}
   _isUnlocked: 1
   _isInUse: 0
   _damage: 15
   _reloadTimeMax: 5
+  _attackRange: 0
+  _currentReloadTime: 0

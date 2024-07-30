@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: OrbitalGun
   m_EditorClassIdentifier: 
   _name: Orbital Gun
-  _description: 
+  _description: guma orbit
   _type: 5
   _sprite: {fileID: 6248463491730416798, guid: 2074b90393dc0f271b732be697b6455e, type: 3}
   _isUnlocked: 1
-  _isInUse: 1
+  _isInUse: 0
   _damage: 50
   _reloadTimeMax: 9
+  _attackRange: 0
+  _currentReloadTime: 0

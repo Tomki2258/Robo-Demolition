@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,15 +13,16 @@ public class WeaponPanel : MonoBehaviour
     public EquipmentCanvas _equipment;
     [SerializeField] private Button _button;
     private GameManager _gameManager;
+    [SerializeField] private TMP_Text _titleText;
+    [SerializeField] private TMP_Text _descriptionText;
 
     private void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-        _button = transform.GetChild(1).GetComponent<Button>();
         if (_weaponClass == null) return;
         UpdateVisuals();
         CheckForUnlock();
-        if (!_weaponClass.CheckInUse()) _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
+        //if (!_weaponClass.CheckInUse()) _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
     }
 
     public void UpdateVisuals()
@@ -36,21 +38,26 @@ public class WeaponPanel : MonoBehaviour
         if (_weaponClass == null) return;
         if (_weaponClass.IsWeaponUnlocked())
         {
-            _weaponImage.sprite = _weaponSprite;
-            _weaponImage.color = new Color32(255, 255, 225, 255);
+            //_weaponImage.sprite = _weaponSprite;
+            //_weaponImage.color = new Color32(255, 255, 225, 255);
+            _titleText.text = _weaponClass.GetWeaponName();
+            _descriptionText.text = _weaponClass.GetWeaponDescription();
             _button.interactable = true;
         }
         else
         {
-            _weaponImage.sprite = _lockedSprite;
-            _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
+            //_weaponImage.sprite = _lockedSprite;
+            //_weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
             //_button.interactable = false;
+            _titleText.text = "LOCKED";
+            _descriptionText.text = "LOCKED";
         }
-
+        /*
         if (!_weaponClass.CheckInUse())
             _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
         else
             _weaponImage.color = new Color32(255, 255, 225, 255);
+            */
     }
 
     private bool IsSameType(WeaponClass _weaponClass)
@@ -60,6 +67,7 @@ public class WeaponPanel : MonoBehaviour
 
     public void ChooseWeapon()
     {
+        Debug.LogWarning("ChooseButton");
         if (!_weaponClass.IsWeaponUnlocked())
         {
             _gameManager._notyficationBaner.ShotMessage("Error", "This weapon is locked");
@@ -75,11 +83,11 @@ public class WeaponPanel : MonoBehaviour
             }
 
             _equipment._weaponsInUse.Remove(_weaponClass);
-            _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
+            //_weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
         }
         else
         {
-            if (_equipment._weaponsInUse.Count == _equipment._maxWeaponsInUse)
+            if (_equipment._weaponsInUse.Count == 4)
             {
                 _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!");
                 return;
@@ -88,7 +96,7 @@ public class WeaponPanel : MonoBehaviour
             _equipment._weaponsInUse.Add(_weaponClass);
             _gameManager._notyficationBaner.ShotMessage(_weaponClass.GetWeaponName(), 
                 _weaponClass.GetWeaponDescription());
-            _weaponImage.color = new Color32(255, 255, 225, 255);
+            //_weaponImage.color = new Color32(255, 255, 225, 255);
         }
 
         _equipment.RefleshWeaponAmountInfo();

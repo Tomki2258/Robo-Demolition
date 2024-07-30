@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Standard Gun
   m_EditorClassIdentifier: 
   _name: Standard Gun
-  _description: 
+  _description: Basic weapon
   _type: 0
   _sprite: {fileID: 8707775937729159183, guid: 66f13cf72bbf30979b7e64fadf314230, type: 3}
   _isUnlocked: 1
   _isInUse: 1
   _damage: 5
   _reloadTimeMax: 0.75
+  _attackRange: 0
+  _currentReloadTime: 0

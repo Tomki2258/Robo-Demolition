@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RocketLauncher
   m_EditorClassIdentifier: 
   _name: Rocket Launcher
-  _description: 
+  _description: Ohio dance
   _type: 4
   _sprite: {fileID: -7265355883233912140, guid: 6838d1f095e107bf9b3b284033f1bc24,
     type: 3}
@@ -21,3 +21,5 @@ MonoBehaviour:
   _isInUse: 0
   _damage: 60
   _reloadTimeMax: 4
+  _attackRange: 0
+  _currentReloadTime: 0
