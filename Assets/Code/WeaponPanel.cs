@@ -18,6 +18,7 @@ public class WeaponPanel : MonoBehaviour
 
     private void Start()
     {
+        _equipment = FindFirstObjectByType<EquipmentCanvas>();
         _gameManager = FindObjectOfType<GameManager>();
         if (_weaponClass == null) return;
         UpdateVisuals();
