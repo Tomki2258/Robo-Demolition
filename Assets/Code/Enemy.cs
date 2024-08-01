@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
+
 public enum EnemyType
 {
     Ground,
@@ -46,8 +49,19 @@ public class Enemy : MonoBehaviour
 
     public List<Transform> _wingsList = new List<Transform>(2);
     public float _baseSpeed;
+    public bool _isPoweredUp;
+    public float _poweredUpMultipler;
     public void SetUp()
     {
+        int _poweredRandom = Random.Range(0, 100);
+        if (_poweredRandom < _gameManager.GetPoweredEnemyChance())
+        {
+            _isPoweredUp = true;
+            transform.localScale *= _poweredUpMultipler;
+            _attackRange = (int)Math.Round(_attackRange * _poweredUpMultipler);
+            _bulletDamage = (int)Math.Round(_bulletDamage * _poweredUpMultipler);
+            health *= _poweredUpMultipler;
+        }
         _agent = GetComponent<NavMeshAgent>();
         _agent.stoppingDistance =_stoppingDistance;
         _audioSource = GetComponent<AudioSource>();

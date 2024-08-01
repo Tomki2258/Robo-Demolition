@@ -129,6 +129,8 @@ MonoBehaviour:
   _wingsSpeed: 0
   _wingsList: []
   _baseSpeed: 0
+  _isPoweredUp: 0
+  _poweredUpMultipler: 1.5
   _currentState: 0
   _shootingPoints:
   - {fileID: 5652634464156369406}

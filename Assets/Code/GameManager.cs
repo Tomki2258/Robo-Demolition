@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     private bool _unPauseStarted = false;
     [SerializeField] private AudioListener _mainAudioListener;
     [SerializeField] private List<GameObject> _disableBuildObjects;
+    [Range(0, 100)] private int _poweredEnemyChange;
     private void Awake()
     {
         DoAppLaunch();
@@ -339,5 +340,10 @@ public class GameManager : MonoBehaviour
     public float GetTrashY()
     {
         return Random.Range(-_trashRotateY, _trashRotateY);
+    }
+
+    public int GetPoweredEnemyChance()
+    {
+        return _poweredEnemyChange;
     }
 }
