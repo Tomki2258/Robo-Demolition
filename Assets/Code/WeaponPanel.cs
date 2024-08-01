@@ -15,7 +15,7 @@ public class WeaponPanel : MonoBehaviour
     private GameManager _gameManager;
     [SerializeField] private TMP_Text _titleText;
     [SerializeField] private TMP_Text _descriptionText;
-
+    public Image _backgroundImage;
     private void Start()
     {
         _equipment = FindFirstObjectByType<EquipmentCanvas>();
@@ -40,7 +40,7 @@ public class WeaponPanel : MonoBehaviour
         if (_weaponClass.IsWeaponUnlocked())
         {
             //_weaponImage.sprite = _weaponSprite;
-            //_weaponImage.color = new Color32(255, 255, 225, 255);
+            _backgroundImage.color = new Color(255, 255, 255, 100);
             _titleText.text = _weaponClass.GetWeaponName();
             _descriptionText.text = _weaponClass.GetWeaponDescription();
             _button.interactable = true;
@@ -48,7 +48,7 @@ public class WeaponPanel : MonoBehaviour
         else
         {
             //_weaponImage.sprite = _lockedSprite;
-            //_weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
+            _backgroundImage.color = new Color(255, 255, 255, 50);
             //_button.interactable = false;
             _titleText.text = "LOCKED";
             _descriptionText.text = "LOCKED";
@@ -68,7 +68,6 @@ public class WeaponPanel : MonoBehaviour
 
     public void ChooseWeapon()
     {
-        Debug.LogWarning("ChooseButton");
         if (!_weaponClass.IsWeaponUnlocked())
         {
             _gameManager._notyficationBaner.ShotMessage("Error", "This weapon is locked",true);
@@ -83,6 +82,7 @@ public class WeaponPanel : MonoBehaviour
                 return;
             }
 
+            _gameManager._notyficationBaner.ShotMessage("Weapon Removed", "",true);
             _equipment._weaponsInUse.Remove(_weaponClass);
             //_weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
         }
@@ -93,7 +93,6 @@ public class WeaponPanel : MonoBehaviour
                 _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!",true);
                 return;
             }
-
             _equipment._weaponsInUse.Add(_weaponClass);
             _gameManager._notyficationBaner.ShotMessage(_weaponClass.GetWeaponName(), 
                 _weaponClass.GetWeaponDescription(),false);

@@ -21,7 +21,7 @@ public class EquipmentCanvas : MonoBehaviour
     public void CheckForWeaponPanels()
     {
         SortWeapons();
-        Debug.LogWarning("Weapons panels checks");
+        //Debug.LogWarning("Weapons panels checks");
         foreach (var _weaponPanel in _weaponPanels) _weaponPanel.CheckForUnlock();
 
         _weaponsInUse = _playerWeapons.GetWeapons();
