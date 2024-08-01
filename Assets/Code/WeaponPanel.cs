@@ -23,7 +23,6 @@ public class WeaponPanel : MonoBehaviour
         if (_weaponClass == null) return;
         UpdateVisuals();
         CheckForUnlock();
-        //if (!_weaponClass.CheckInUse()) _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
     }
 
     public void UpdateVisuals()
@@ -53,12 +52,12 @@ public class WeaponPanel : MonoBehaviour
             _titleText.text = "LOCKED";
             _descriptionText.text = "LOCKED";
         }
-        /*
-        if (!_weaponClass.CheckInUse())
-            _weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
+
+        if (_weaponClass.CheckInUse())
+            _backgroundImage.color = new Color(255, 255, 225, 100);
         else
-            _weaponImage.color = new Color32(255, 255, 225, 255);
-            */
+           _backgroundImage.color = Color.gray;
+
     }
 
     private bool IsSameType(WeaponClass _weaponClass)
