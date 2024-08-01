@@ -14,7 +14,10 @@ public class NotyficationBaner : MonoBehaviour
     public int _waitTime;
     private Coroutine _currentEnumerator;
     public AnimationClip _animationClip;
-    public void ShotMessage(string title, string message)
+    [SerializeField] private AudioClip _errorAudioClip;
+    [SerializeField] private AudioClip _clickAudioClip;
+    [SerializeField] private AudioSource _audioSource;
+    public void ShotMessage(string title, string message,bool _isError)
     {
         _titleText = title;
         _messageText = message;
@@ -27,6 +30,8 @@ public class NotyficationBaner : MonoBehaviour
             StopCoroutine(_currentEnumerator);
             _currentEnumerator = StartCoroutine(Show());
         }
+
+        _audioSource.PlayOneShot(_isError ? _errorAudioClip : _clickAudioClip);
     }
 
     private IEnumerator Show()

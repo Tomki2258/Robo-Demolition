@@ -71,7 +71,7 @@ public class WeaponPanel : MonoBehaviour
         Debug.LogWarning("ChooseButton");
         if (!_weaponClass.IsWeaponUnlocked())
         {
-            _gameManager._notyficationBaner.ShotMessage("Error", "This weapon is locked");
+            _gameManager._notyficationBaner.ShotMessage("Error", "This weapon is locked",true);
             return;
         }
         
@@ -79,7 +79,7 @@ public class WeaponPanel : MonoBehaviour
         {
             if (_equipment._weaponsInUse.Count == 1)
             {
-                _gameManager._notyficationBaner.ShotMessage("Error", "You can't remove last weapon!");
+                _gameManager._notyficationBaner.ShotMessage("Error", "You can't remove last weapon!",true);
                 return;
             }
 
@@ -90,13 +90,13 @@ public class WeaponPanel : MonoBehaviour
         {
             if (_equipment._weaponsInUse.Count == 4)
             {
-                _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!");
+                _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!",true);
                 return;
             }
 
             _equipment._weaponsInUse.Add(_weaponClass);
             _gameManager._notyficationBaner.ShotMessage(_weaponClass.GetWeaponName(), 
-                _weaponClass.GetWeaponDescription());
+                _weaponClass.GetWeaponDescription(),false);
             //_weaponImage.color = new Color32(255, 255, 225, 255);
         }
 

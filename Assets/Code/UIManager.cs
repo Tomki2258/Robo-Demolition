@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     private UserData _userData;
     private CameraShake _cameraShake;
     public GameObject _newEnemySpottedUI;
+    [SerializeField] private GameObject _notyficationBaner;
     private void Awake()
     {
         _newEnemySpottedUI.SetActive(false);
@@ -102,7 +103,10 @@ public class UIManager : MonoBehaviour
         if (_mode)
             _eqCanvasScript.CheckForWeaponPanels();
         else
+        {
             _player._playerWeapons.SetWeaponsInUse();
+            _notyficationBaner.SetActive(false);
+        }
     }
 
     public void DoOverideStart()
