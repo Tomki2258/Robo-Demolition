@@ -17,7 +17,7 @@ public class QuestClass : ScriptableObject
     [SerializeField] private QuestType _questType;
     [SerializeField] private int _questRewardAmount;
     private int _randomIndex;
-    private bool _questDone;
+    public bool _questDone;
     public void CreateQuest(int _targetValue,QuestType _questType,int _questRewardAmount)
     {
         this._targetValue = _targetValue;
