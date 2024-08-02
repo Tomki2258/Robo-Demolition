@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyType _enemyType;
     public NavMeshAgent _agent;
-    public GameManager _gameManager;
+    private GameManager _gameManager;
     public PlayerMovement _player;
     public GameObject _explosionPrefab;
     public int _attackRange;
@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
     public float _poweredUpMultipler;
     public void SetUp()
     {
+        _gameManager = FindFirstObjectByType<GameManager>();
         int _poweredRandom = Random.Range(0, 100);
         if (_poweredRandom < _gameManager.GetPoweredEnemyChance())
         {

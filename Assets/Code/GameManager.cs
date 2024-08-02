@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     private bool _unPauseStarted = false;
     [SerializeField] private AudioListener _mainAudioListener;
     [SerializeField] private List<GameObject> _disableBuildObjects;
-    [Range(0, 100)] private int _poweredEnemyChange;
+    [SerializeField] [Range(0, 100)] private int _poweredEnemyChange; //recompile
     private void Awake()
     {
         DoAppLaunch();
@@ -180,12 +180,13 @@ public class GameManager : MonoBehaviour
             _spawnPoints[_point].position.y,
             _spawnPoints[_point].position.z + Random.Range(-3, 3));
         var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
+        //_enemy.GetComponent<Enemy>()._gameManager = this;
+
         _spawnTimeMax -= _spawnTimeMax * 0.005f;
 
         if (_enemy.GetComponent<BombardEnemy>()) return;
 
         _spawnedEnemies.Add(_enemy);
-        _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
     }
 
