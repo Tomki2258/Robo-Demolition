@@ -69,7 +69,7 @@ public class WeaponPanel : MonoBehaviour
     {
         if (!_weaponClass.IsWeaponUnlocked())
         {
-            _gameManager._notyficationBaner.ShotMessage("Error", "This weapon is locked",true);
+            _gameManager._notyficationBaner.ShotMessage("Error", "This weapon is locked",true,false);
             return;
         }
         
@@ -77,11 +77,11 @@ public class WeaponPanel : MonoBehaviour
         {
             if (_equipment._weaponsInUse.Count == 1)
             {
-                _gameManager._notyficationBaner.ShotMessage("Error", "You can't remove last weapon!",true);
+                _gameManager._notyficationBaner.ShotMessage("Error", "You can't remove last weapon!",true,false);
                 return;
             }
 
-            _gameManager._notyficationBaner.ShotMessage("Weapon Removed", "",true);
+            _gameManager._notyficationBaner.ShotMessage("Weapon Removed", "",true,false);
             _equipment._weaponsInUse.Remove(_weaponClass);
             //_weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
         }
@@ -89,12 +89,12 @@ public class WeaponPanel : MonoBehaviour
         {
             if (_equipment._weaponsInUse.Count == 4)
             {
-                _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!",true);
+                _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!",true,false);
                 return;
             }
             _equipment._weaponsInUse.Add(_weaponClass);
             _gameManager._notyficationBaner.ShotMessage(_weaponClass.GetWeaponName(), 
-                _weaponClass.GetWeaponDescription(),false);
+                _weaponClass.GetWeaponDescription(),false,false);
             //_weaponImage.color = new Color32(255, 255, 225, 255);
         }
 

@@ -8,10 +8,12 @@ public class CaptureAreaManager : MonoBehaviour
     public GameObject _captureAreaPrefab;
     public float _currentCaptureWaitTime;
     private List<Transform> _zonesRespawns;
-    public int _maxCaptureWaitTime;    
+    public int _maxCaptureWaitTime;
+    private PlayerMovement _player;
     void Start()
     {
         _gameManager = GetComponent<GameManager>();
+        _player= _gameManager._player;
         _zonesRespawns = _gameManager._spawnPoints;
     }
 
@@ -37,5 +39,12 @@ public class CaptureAreaManager : MonoBehaviour
                 _currentCaptureWaitTime += Time.deltaTime;
             }
         }
+    }
+    public void GetCaptureAreaReward()
+    {
+        _player._health = _player._maxHealth;
+        _player._xp += _player._xpToNextLevel / 2;
+        _gameManager._notyficationBaner.ShotMessage("ZONE CAPTURED", 
+            "Player boosted",false,true);
     }
 }

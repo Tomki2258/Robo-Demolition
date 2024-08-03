@@ -288,12 +288,6 @@ public class GameManager : MonoBehaviour
 		StartCoroutine(StartDelayCoroutine(delay));
 	}
 
-    public void GetCaptureAreaReward()
-    {
-        _player._health = _player._maxHealth;
-        _player._xp += _player._xpToNextLevel / 2;
-    }
-
     private void OverideStart()
     {
         Debug.LogWarning("Start Overided!");
