@@ -16,6 +16,7 @@ public class StatsCanvas : MonoBehaviour
     [SerializeField] private TMP_Text _bonusHPText;
     private PlayerMovement _player;
     private PlayerWeapons _playerWeapons;
+    private PlayerAtributtes _playerAtributtes;
     private float _startDamage;
 
 
@@ -29,20 +30,20 @@ public class StatsCanvas : MonoBehaviour
 
     private void Start()
     {
+        _player = _playerObject.GetComponent<PlayerMovement>();
+        _playerWeapons = _playerObject.GetComponent<PlayerWeapons>();
+        _playerAtributtes = _player.GetComponent<PlayerAtributtes>();
         SetValues();
     }
 
     public void SetValues()
     {
-        _player = _playerObject.GetComponent<PlayerMovement>();
-        _playerWeapons = _playerObject.GetComponent<PlayerWeapons>();
-
         _startHealth = _player._maxHealth;
         _startRange = _player._attackRange;
         _startRegeneration =_player._hpRegenMultipler;
         _startDamage = _playerWeapons._damageMultipler;
         _startReloadSpeed = _playerWeapons._reloadMultipler;
-        _startBulletDodge = _player._playerAtributtes._dodgeChange;
+        _startBulletDodge = _playerAtributtes._dodgeChange;
         _startFov = _cameraController._offset.y;
     }
 
