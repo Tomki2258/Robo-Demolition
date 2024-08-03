@@ -6208,6 +6208,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1882613340}
+    - targetCorrespondingSourceObject: {fileID: 2821704617510575578, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1581952686236268082}
   m_SourcePrefab: {fileID: 100100000, guid: 860dc31f6d096540d8bc123bfaac57e4, type: 3}
 --- !u!4 &1581952686236268071 stripped
 Transform:
@@ -6221,6 +6225,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1581952686236268070}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1581952686236268082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902965180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc8ec91684fb27058899f3bb5eab7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentCaptureArea: {fileID: 0}
+  _captureAreaPrefab: {fileID: 3176705485402209269, guid: 3a9957eb2123b40bc96fbfae6004692b,
+    type: 3}
+  _currentCaptureWaitTime: 0
+  _maxCaptureWaitTime: 10
 --- !u!114 &1628083045396974138
 MonoBehaviour:
   m_ObjectHideFlags: 0
