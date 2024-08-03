@@ -106,6 +106,12 @@ public class WeaponUnlock : MonoBehaviour
             case WeaponTypes.RocketLauncher:
                 _currentWeapon = FindWeapon(WeaponTypes.RocketLauncher);
                 break;
+            case WeaponTypes.MineDeployer:
+                _currentWeapon = FindWeapon(WeaponTypes.MineDeployer);
+                break;
+            case WeaponTypes.GranadeLauncher:
+                _currentWeapon = FindWeapon(WeaponTypes.GranadeLauncher);
+                break;
         }
 
         if (_currentWeapon != null) _currentWeapon.UnlockWeapon();
