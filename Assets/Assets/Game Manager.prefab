@@ -115,7 +115,8 @@ GameObject:
   - component: {fileID: 184382635426059921}
   - component: {fileID: 7330320486203455602}
   - component: {fileID: 7967578061399823448}
-  - component: {fileID: 4573293081968223171}
+  - component: {fileID: 219572190147633335}
+  - component: {fileID: 7473855328017133584}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -182,14 +183,6 @@ MonoBehaviour:
   _enemiesStages: 0300000006000000090000000c0000000f000000120000001500000018000000
   _possibleEnemies: 1
   _spawnedEnemies: []
-  _powerUpSpawnTimeMax: 0
-  _powerUpSpawnPoints:
-  - {fileID: 6814147953747338964}
-  - {fileID: 330226173503083188}
-  - {fileID: 2418113281025433088}
-  - {fileID: 5402264823493077181}
-  _powerUps: {fileID: 4643203288062025043, guid: 3e99924e07387aca59c7a70ad684d011,
-    type: 3}
   _pausedUI: {fileID: 0}
   _spawnTimeCurrent: 0
   _killedEnemies: 0
@@ -198,11 +191,6 @@ MonoBehaviour:
     type: 3}
   _spodek: {fileID: 0}
   _continueCanvas: {fileID: 0}
-  _currentCaptureArea: {fileID: 0}
-  _captureAreaPrefab: {fileID: 3176705485402209269, guid: 3a9957eb2123b40bc96fbfae6004692b,
-    type: 3}
-  _currentCaptureWaitTime: 0
-  _maxCaptureWaitTime: 15
   _weaponUnlock: {fileID: 0}
   _notyficationBaner: {fileID: 0}
   _spodekAudioSource: {fileID: 7330320486203455602}
@@ -216,6 +204,8 @@ MonoBehaviour:
   _animationClip: {fileID: 7400000, guid: 4f36af1bfd9afb94fa29e03c0a089c3b, type: 2}
   _pauseAnimator: {fileID: 0}
   _mainAudioListener: {fileID: 0}
+  _disableBuildObjects: []
+  _poweredEnemyChange: 0
 --- !u!114 &1134717862283422432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +277,7 @@ MonoBehaviour:
   _captureAreaImage: {fileID: 0}
   _eqCanvas: {fileID: 0}
   _newEnemySpottedUI: {fileID: 0}
+  _notyficationBaner: {fileID: 0}
 --- !u!114 &8411048046895516547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +340,7 @@ MonoBehaviour:
   _playerWeapons: {fileID: 0}
   _maxWeaponsInUse: 4
   _weaponAmountText: {fileID: 0}
+  _scrollRect: {fileID: 0}
 --- !u!114 &562539019407417825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +361,9 @@ MonoBehaviour:
   _messageText: 
   _waitTime: 3
   _animationClip: {fileID: 7400000, guid: baaec75382044387abe5d6e3363afa29, type: 2}
+  _errorAudioClip: {fileID: 0}
+  _clickAudioClip: {fileID: 0}
+  _audioSource: {fileID: 0}
 --- !u!114 &4350041709856705868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,7 +621,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4573293081968223171
+--- !u!114 &219572190147633335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -635,13 +630,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 2821704617510575578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b372468a9f57ccb47814e5ec11043253, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b86ff49d0684a779fe35d9e5518e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waypointUIObject: {fileID: 0}
-  _waypointArrow: {fileID: 0}
-  _player: {fileID: 0}
-  _hideWaypointDistance: 0
+  _spawnersList:
+  - {fileID: 4565484366446682366}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _powerUpPrefab: {fileID: 4643203288062025043, guid: 3e99924e07387aca59c7a70ad684d011,
+    type: 3}
+  _respawnMaxTime: 15
+  _spawnedPowerUps: []
+  _maxSpawnedPowerUps: 3
+--- !u!114 &7473855328017133584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821704617510575578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4941896c869ea4b2bad3dd82e5e6f4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeQuestsList: []
+  _questClassObject: {fileID: 11400000, guid: 6a9f2200f9bad50f9b96ac5d2ec856a8, type: 2}
+  _questWaitTime: 1
 --- !u!1 &5577204864429397369
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         _gameManager = GetComponent<GameManager>();
+        
         //DoQuest();
         LoadSavedQuests();
         CheckQuests();
@@ -44,12 +45,10 @@ public class QuestManager : MonoBehaviour
         foreach (QuestClass _quest in _loadedQuests)
         {
             Debug.LogWarning(_quest.GetQuestType());
-            if (_quest.IsQuestDone())
+            if (!_quest.IsQuestDone())
             {
-                //_activeQuestsList.Add(_quest);
+                _activeQuestsList.Add(_quest);
             }
-            _activeQuestsList.Add(_quest);
-
         }
    }
     private void DoQuest()
@@ -59,6 +58,7 @@ public class QuestManager : MonoBehaviour
         QuestClass _newQuest = ScriptableObject.CreateInstance<QuestClass>();
         _newQuest.SetIndex(
             Random.Range(0,100));
+        _newQuest.CreateQuest(Random.Range(5,10),QuestType.killEnemies,10);
         AssetDatabase.CreateAsset(_newQuest,$"Assets/Resources/SavedQuests/{_newQuest.GetIndex()}.asset");
         _activeQuestsList.Add(_newQuest);
         
@@ -90,6 +90,10 @@ public class QuestManager : MonoBehaviour
     private long GetSavedTime()
     {
         string _ticksString = PlayerPrefs.GetString("LastSavedTime");
+        if(_ticksString == "")
+        {
+            SaveTime(); 
+        }
         return Convert.ToInt64(_ticksString);
     }
 }
