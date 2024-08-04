@@ -5,54 +5,34 @@ using Random = UnityEngine.Random;
 
 public enum PowerUpType
 {
-    Speed,
     Health,
-    Damage,
     Shield
 }
 
 public class PowerUP : MonoBehaviour
 {
     public PowerUpType _powerUpType;
-    [SerializeField] private List<Mesh> _meshes;
-    private MeshFilter _meshFilter;
     private UIManager _uiManager;
-
+    private Transform _meshesParent;
     private void Start()
     {
+        _meshesParent = transform.GetChild(0);
+        for (int i = 0; i < _meshesParent.childCount; i++)
+        {
+            _meshesParent.GetChild(i).gameObject.SetActive(false);
+        }
         _uiManager = FindFirstObjectByType<UIManager>();
 
-        _meshFilter = transform.GetChild(0).GetComponent<MeshFilter>();
         var _randomType = Random.Range(0, Enum.GetNames(typeof(PowerUpType)).Length);
         switch (_randomType)
         {
             case 0:
-                _powerUpType = PowerUpType.Speed;
+                _powerUpType = PowerUpType.Health;
+                _meshesParent.GetChild(0).gameObject.SetActive(true);
                 break;
             case 1:
-                _powerUpType = PowerUpType.Health;
-                break;
-            // case 2:
-            //     _powerUpType = PowerUpType.Damage;
-            //     break;
-            case 2:
                 _powerUpType = PowerUpType.Shield;
-                break;
-        }
-
-
-        //Tutaj będzie ustawianie textur etc na starcie
-        switch (_powerUpType)
-        {
-            case PowerUpType.Speed:
-                break;
-            case PowerUpType.Health:
-                break;
-            case PowerUpType.Damage:
-                break;
-            case PowerUpType.Shield:
-                _meshFilter.mesh = _meshes[0];
-                //Debug.LogWarning("Shield done");
+                _meshesParent.GetChild(1).gameObject.SetActive(true);
                 break;
         }
     }
@@ -64,20 +44,13 @@ public class PowerUP : MonoBehaviour
             var _player = other.GetComponent<PlayerMovement>();
             switch (_powerUpType)
             {
-                case PowerUpType.Speed:
-                    _player._speed *= 1.33f;
-                    break;
                 case PowerUpType.Health:
                     if (_player._health >= _player._maxHealth) return;
                     _player._health += Convert.ToInt32(_player._health * 0.33f);
                     _uiManager.ShowHpDifference(_player._health * 0.33f);
-                    //_player._maxHealth += Convert.ToInt32(_player._maxHealth * 0.33f);
 
                     if (_player._health > _player._maxHealth)
                         _player._health = _player._maxHealth;
-                    break;
-                case PowerUpType.Damage:
-                    _player._damage += Convert.ToInt16(_player._damage * 0.33f);
                     break;
                 case PowerUpType.Shield:
                     _player._shield = true;

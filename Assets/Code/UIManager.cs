@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     private UserData _userData;
     private CameraShake _cameraShake;
     public GameObject _newEnemySpottedUI;
+    [SerializeField] private GameObject _notyficationBaner;
     private void Awake()
     {
         _newEnemySpottedUI.SetActive(false);
@@ -102,7 +103,10 @@ public class UIManager : MonoBehaviour
         if (_mode)
             _eqCanvasScript.CheckForWeaponPanels();
         else
+        {
             _player._playerWeapons.SetWeaponsInUse();
+            _notyficationBaner.SetActive(false);
+        }
     }
 
     public void DoOverideStart()
@@ -120,7 +124,7 @@ public class UIManager : MonoBehaviour
         _hpDifference.transform.position = _randomPosition;
         _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         var _text = _hpDifference.GetComponent<TMP_Text>();
-        if (_value != -1)
+        if (_value != -1 && _value != -2)
         {
         
             _text.text = _value.ToString("0.00");
@@ -130,10 +134,15 @@ public class UIManager : MonoBehaviour
             else
                 _text.color = Color.red;
         }
-        else
+        else if(_value == -1)
         {
             Debug.LogWarning("BULLET MISS");
             _text.text = "Miss";
+            _text.color = Color.white;
+        }
+        else if (_value == -2)
+        {
+            _text.text = "SHIELD";
             _text.color = Color.white;
         }
         Destroy(_hpDifference, 1.1f);

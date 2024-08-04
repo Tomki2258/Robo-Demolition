@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SniperGun
   m_EditorClassIdentifier: 
   _name: Sniper Gun
-  _description: 
+  _description: Powerful but slow sniper rifle
   _type: 6
   _sprite: {fileID: -6142095848857412055, guid: e547f1d3541cdb06b840f8f68ba5caf3,
     type: 3}
@@ -21,3 +21,5 @@ MonoBehaviour:
   _isInUse: 0
   _damage: 40
   _reloadTimeMax: 2.5
+  _attackRange: 0
+  _currentReloadTime: 0

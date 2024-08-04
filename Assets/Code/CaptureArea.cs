@@ -8,9 +8,10 @@ public class CaptureArea : MonoBehaviour
     public float _currentTime;
     private Image _captureAreaImage;
     private UIManager _uiManager;
-
+    private CaptureAreaManager _captureAreaManager;
     private void Start()
     {
+        _captureAreaManager = FindFirstObjectByType<CaptureAreaManager>();
         _uiManager = FindAnyObjectByType<UIManager>();
         _captureAreaImage = _uiManager._captureAreaImage;
         Destroy(gameObject, 60);
@@ -54,7 +55,7 @@ public class CaptureArea : MonoBehaviour
 
     private void CompleteArea()
     {
-        FindFirstObjectByType<GameManager>().GetCaptureAreaReward();
+        _captureAreaManager.GetCaptureAreaReward();
         Destroy(gameObject);
     }
 }

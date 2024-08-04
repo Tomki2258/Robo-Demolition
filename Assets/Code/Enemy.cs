@@ -106,7 +106,6 @@ public class Enemy : MonoBehaviour
 
     public void DestroyClone()
     {
-        Debug.LogWarning("Destroy clone");
         if (!_gameManager._gameSettings._qualityOn) return;
 
         var _mesh = new Mesh();

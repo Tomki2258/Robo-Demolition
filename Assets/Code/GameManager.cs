@@ -20,9 +20,6 @@ public class GameManager : MonoBehaviour
     public int _possibleEnemies;
     public List<GameObject> _spawnedEnemies;
     [Header("------------------")]
-    public float _powerUpSpawnTimeMax;
-    public List<Transform> _powerUpSpawnPoints;
-    public GameObject _powerUps;
     public GameObject _pausedUI;
     public float _spawnTimeCurrent;
     public int _killedEnemies;
@@ -30,12 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject _explosion;
     public GameObject _spodek;
     public GameObject _continueCanvas;
-
-    [Header("Capture areas")] public GameObject _currentCaptureArea;
-
-    public GameObject _captureAreaPrefab;
-    public float _currentCaptureWaitTime;
-    public int _maxCaptureWaitTime;
+    
     public WeaponUnlock _weaponUnlock;
     public NotyficationBaner _notyficationBaner;
     private GameObject[] _bombSpawns;
@@ -43,8 +35,6 @@ public class GameManager : MonoBehaviour
     private int _enemiesCount;
     private InterstitialAd _interstitialAd;
     private bool _paused;
-    private float _powerUpSpawnTimeCurrent;
-    private List<GameObject> _spawnedPowerUps;
     private int _spawnsCount;
     private UIManager _uiManager;
     public AudioSource _spodekAudioSource;
@@ -121,7 +111,6 @@ public class GameManager : MonoBehaviour
         }
         //if(!_player._died) return;
 
-        DoCaptureAreas();
 
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
@@ -139,26 +128,7 @@ public class GameManager : MonoBehaviour
         _trashArray = GameObject.FindGameObjectsWithTag("Trash");
         foreach (var _trash in _trashArray) Destroy(_trash);
     }
-
-    private void DoCaptureAreas()
-    {
-        if (_currentCaptureArea == null)
-        {
-            if (_currentCaptureWaitTime > _maxCaptureWaitTime)
-            {
-                var _randomSpawn = Random.Range(0, _bombSpawns.Length);
-                var _targetVector = new Vector3(_bombSpawns[_randomSpawn].transform.position.x,
-                    _bombSpawns[_randomSpawn].transform.position.y + 0.5f,
-                    _bombSpawns[_randomSpawn].transform.position.z-10);
-
-                _currentCaptureArea = Instantiate(_captureAreaPrefab, _targetVector, Quaternion.identity);
-            }
-            else
-            {
-                _currentCaptureWaitTime += Time.deltaTime;
-            }
-        }
-    }
+    
     public void ShowNewEnemySpotted()
     {
     }
@@ -191,17 +161,6 @@ public class GameManager : MonoBehaviour
         _spawnedEnemies.Add(_enemy);
         _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
-    }
-
-    private void SpawnPowerUp()
-    {
-        var _point = Random.Range(0, _spawnsCount);
-        var _distance = Vector3.Distance(_powerUpSpawnPoints[_point].position, _player.transform.position);
-        if (_distance < _spawnOffset) return;
-
-        //var _powerUpIndex = Random.Range(0, _enemiesCount);
-        var _currentPowerUp = Instantiate(_powerUps, _powerUpSpawnPoints[_point].position, Quaternion.identity);
-        _spawnedPowerUps.Add(_currentPowerUp);
     }
 
     public void RemoveEnemy(GameObject _enemy)
@@ -328,12 +287,6 @@ public class GameManager : MonoBehaviour
 	public void StartDelay(float delay){
 		StartCoroutine(StartDelayCoroutine(delay));
 	}
-
-    public void GetCaptureAreaReward()
-    {
-        _player._health = _player._maxHealth;
-        _player._xp += _player._xpToNextLevel / 2;
-    }
 
     private void OverideStart()
     {

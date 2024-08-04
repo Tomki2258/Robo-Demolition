@@ -422,14 +422,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckHealth(float _value)
     {
-        if (_shield || _died) return;
+        if (_died) return;
 
-
+        if (_shield)
+        {
+            _uiManager.ShowHpDifference(-2);
+            return;
+        }
+        
         if (!_playerAtributtes.BulletReflection())
         {
             //NOT IMPLEMENTED YET
         }
-
+        
         if (!_playerAtributtes.BulletDodge())
         {
             _uiManager.ShowHpDifference(-_value);
@@ -452,6 +457,8 @@ public class PlayerMovement : MonoBehaviour
         _legsAnimator.SetBool("Moving", false);
         _topAninmator.SetBool("Moving", false);
         _topAninmator.enabled = false;
+        _shield = false;
+        _shieldEffect.SetActive(false);
         //_gameManager.DoAd();
     }
 
