@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6097033507101572674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 254387567753227750}
   - component: {fileID: 5453444351486003530}
   - component: {fileID: 1855958286251059625}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TankEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -184,13 +184,13 @@ MonoBehaviour:
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
-  _attackRange: 20
+  _attackRange: 25
   _stoppingDistance: 12
   _xpReward: 35
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _bulletDamage: 18
+  _bulletDamage: 25
   health: 35
-  _attackDelayMax: 1
+  _attackDelayMax: 1.5
   _attackDelayCurrent: 0
   _stunned: 0
   _oryginalMaterial: {fileID: 0}
@@ -360,11 +360,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 396062386305b7d93a6aae1afefe5660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -7918335002988649766, guid: 396062386305b7d93a6aae1afefe5660,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 193fda31f0d469fcb9775bd01ff4b472, type: 2}
+    - target: {fileID: -7029948723529949830, guid: 396062386305b7d93a6aae1afefe5660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 396062386305b7d93a6aae1afefe5660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: 396062386305b7d93a6aae1afefe5660,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -375,10 +390,20 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 193fda31f0d469fcb9775bd01ff4b472, type: 2}
+    - target: {fileID: -516098083770646512, guid: 396062386305b7d93a6aae1afefe5660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 396062386305b7d93a6aae1afefe5660,
         type: 3}
       propertyPath: m_Name
       value: tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 396062386305b7d93a6aae1afefe5660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 396062386305b7d93a6aae1afefe5660,
         type: 3}
@@ -390,6 +415,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 193fda31f0d469fcb9775bd01ff4b472, type: 2}
+    - target: {fileID: 8416272007918961125, guid: 396062386305b7d93a6aae1afefe5660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 396062386305b7d93a6aae1afefe5660,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

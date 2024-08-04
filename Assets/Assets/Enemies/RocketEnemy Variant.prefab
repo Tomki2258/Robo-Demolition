@@ -58,10 +58,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 854e1a9c380e60b769941190d927abc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 854e1a9c380e60b769941190d927abc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 854e1a9c380e60b769941190d927abc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 854e1a9c380e60b769941190d927abc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 854e1a9c380e60b769941190d927abc6,
         type: 3}
       propertyPath: m_Name
       value: RocketEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 854e1a9c380e60b769941190d927abc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 854e1a9c380e60b769941190d927abc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -264,6 +294,7 @@ MonoBehaviour:
   _rocketTargetPrefab: {fileID: 8707792461134015577, guid: cd3f59d7bb5f403839ab1b36139e6c91,
     type: 3}
   _shootTransform: {fileID: 914398930821521206}
+  _rocketDamage: 45
 --- !u!82 &-5095760256069922583
 AudioSource:
   m_ObjectHideFlags: 0

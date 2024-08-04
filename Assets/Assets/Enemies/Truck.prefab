@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8823130015929368748}
   - component: {fileID: -8734701051252472421}
   - component: {fileID: 6705608401987723988}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Truck
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652634464156369406}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,6 +359,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: a8f720969056735fb9826a1333a1a923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: a8f720969056735fb9826a1333a1a923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: a8f720969056735fb9826a1333a1a923,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -374,10 +384,20 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 02b019872fcb7e4278b6cc02e824d569, type: 2}
+    - target: {fileID: -516098083770646512, guid: a8f720969056735fb9826a1333a1a923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a8f720969056735fb9826a1333a1a923,
         type: 3}
       propertyPath: m_Name
       value: truck
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8f720969056735fb9826a1333a1a923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a8f720969056735fb9826a1333a1a923,
         type: 3}
@@ -389,6 +409,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 02b019872fcb7e4278b6cc02e824d569, type: 2}
+    - target: {fileID: 8416272007918961125, guid: a8f720969056735fb9826a1333a1a923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

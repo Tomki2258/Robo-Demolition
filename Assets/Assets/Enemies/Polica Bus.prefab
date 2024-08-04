@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2003031916744454399}
   - component: {fileID: -8734701051252472421}
   - component: {fileID: -2516378189511504486}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Polica Bus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -111,9 +111,9 @@ MonoBehaviour:
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
-  _attackRange: 12
+  _attackRange: 13
   _stoppingDistance: 6
-  _xpReward: 10
+  _xpReward: 12
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 7
   health: 20
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652634464156369406}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5561782545454610262}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,6 +395,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b6f77acaa632d847e89f98ba5d7c4e47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: b6f77acaa632d847e89f98ba5d7c4e47,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -405,10 +410,20 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4e2a7eea7ac76a0be8103a0b0b96e1f8, type: 2}
+    - target: {fileID: -516098083770646512, guid: b6f77acaa632d847e89f98ba5d7c4e47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b6f77acaa632d847e89f98ba5d7c4e47,
         type: 3}
       propertyPath: m_Name
       value: bus
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6f77acaa632d847e89f98ba5d7c4e47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b6f77acaa632d847e89f98ba5d7c4e47,
         type: 3}
@@ -430,6 +445,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4e2a7eea7ac76a0be8103a0b0b96e1f8, type: 2}
+    - target: {fileID: 8416272007918961125, guid: b6f77acaa632d847e89f98ba5d7c4e47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: b6f77acaa632d847e89f98ba5d7c4e47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

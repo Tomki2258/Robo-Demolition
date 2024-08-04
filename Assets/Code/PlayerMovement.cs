@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform _mainCannonRotateElement;
     public float _levelUpPlayerScaler;
     private EquipmentCanvas _equipmentCanvas;
+    private float _startPlayerY = 1.871f;
     private void Awake()
     {
         _equipmentCanvas = FindAnyObjectByType<EquipmentCanvas>();
@@ -154,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
             _legsAnimator.SetBool("Moving", false);
             _topAninmator.SetBool("Moving", false);
         }
+        ValidPlayerY();
     }
     public int GetRealAttackRange()
     {
@@ -347,7 +349,7 @@ public class PlayerMovement : MonoBehaviour
             DoJoystickInput(false);
             //_cameraShake.CancelShake();
             //CheckForWeaponUnlock(_level);
-
+            _startPlayerY += 0.15f;
             _level++;
             _xp = 0;
             _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.3f);
@@ -520,6 +522,17 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _currentFootStepTimer += Time.deltaTime;
+        }
+    }
+
+    private void ValidPlayerY()
+    {
+        Vector3 _currentVectr = transform.position;
+        if (_currentVectr.y != _startPlayerY)
+        {
+            transform.position = new Vector3(_currentVectr.x,
+                _startPlayerY,
+                _currentVectr.z);
         }
     }
 }

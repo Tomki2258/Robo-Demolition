@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerDemolition : MonoBehaviour
@@ -34,7 +35,7 @@ public class PlayerDemolition : MonoBehaviour
 
     private void CollabseObjects()
     {
-        foreach (var gobj in _destroyedObjects)
+        foreach (var gobj in _destroyedObjects.ToList())
         {
             var _destroyable = gobj.GetComponent<Destroyable>();
             destoryableType _type = _destroyable._type;
