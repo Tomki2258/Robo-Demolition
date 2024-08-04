@@ -175,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
             var _nearestEnemy = GetNearestEnemy();
             if (_playerWeapons._sniperGunClass.CheckInUse())
             {
-                if (Vector3.Distance(transform.position, _nearestEnemy.position) < (GetRealAttackRange() * 2)  
+                if (Vector3.Distance(transform.position, _nearestEnemy.position) < (GetRealAttackRange() * 1.75f)  
                     /*&& RaycastEnemy(_currentEnemy.transform) */)
                 {
                     MoveTurret(GetNearestEnemy().position);
@@ -322,7 +322,7 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons._laserSpawner.gameObject.SetActive(false);
         }
 
-        if (_enemyDist < _currentAttackRange * 2)
+        if (_enemyDist < _currentAttackRange * 1.75f)
         {
             _playerWeapons.Sniper();
         }
