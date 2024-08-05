@@ -2506,11 +2506,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3806844660244034597, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5207419825524013954, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
         type: 3}
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 8625210846116562820, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 2dc6eec92e1be10c48d6e4600a20e325,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
