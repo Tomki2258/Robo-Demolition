@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     private CameraShake _cameraShake;
     public GameObject _newEnemySpottedUI;
     [SerializeField] private GameObject _notyficationBaner;
+    [SerializeField] private VariableJoystick _variableJoystick;
     private void Awake()
     {
         _newEnemySpottedUI.SetActive(false);
@@ -127,7 +128,8 @@ public class UIManager : MonoBehaviour
         if (_value != -1 && _value != -2)
         {
         
-            _text.text = _value.ToString("0.00");
+            string _toDisplay = _value.ToString("0.00");
+            _text.text = _toDisplay.Replace(",", ".");
 
             if (_value > 0)
                 _text.color = Color.green;
@@ -166,6 +168,7 @@ public class UIManager : MonoBehaviour
 
     public void DoLevelUpCanvas(bool _sraka)
     {
+        //_variableJoystick.gameObject.SetActive(!_sraka);
         _mainUI.SetActive(!_sraka);
         _levelUpCanvas.SetActive(_sraka);
         _levelUpCanvas.SetActive(_sraka);

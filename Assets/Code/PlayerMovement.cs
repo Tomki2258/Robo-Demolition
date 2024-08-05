@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Stats")] public float _maxHealth;
 
     public float _health;
-    public float _hpRegenMultipler = 0.1f;
+    public float _hpRegenMultipler;
     public int _xp;
     public int _level;
     public int _xpToNextLevel = 100;
