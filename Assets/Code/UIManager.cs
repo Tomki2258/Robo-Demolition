@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
     public GameObject _newEnemySpottedUI;
     [SerializeField] private GameObject _notyficationBaner;
     [SerializeField] private VariableJoystick _variableJoystick;
+    public GameObject _questCanvas;
     private void Awake()
     {
         _newEnemySpottedUI.SetActive(false);
@@ -242,5 +243,10 @@ public class UIManager : MonoBehaviour
         _settingsUI.SetActive(_mode);
         if (_mode) Time.timeScale = 0;
         else Time.timeScale = 1;
+    }
+
+    public void EnableQuestUI(bool _mode)
+    {
+        _questCanvas.SetActive(_mode);
     }
 }

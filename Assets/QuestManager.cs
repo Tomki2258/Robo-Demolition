@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Windows;
@@ -14,6 +15,9 @@ public class QuestManager : MonoBehaviour
     public QuestClass _questClassObject;
     private GameManager _gameManager;
     public int _questWaitTime; //Time in MINUTES
+    [SerializeField] private GameObject _questPanelPrefab;
+    [SerializeField] private Transform _questPanelUI;
+    [SerializeField] private TMP_Text _newQuestTime;
     private void Start()
     {
         _gameManager = GetComponent<GameManager>();
@@ -25,17 +29,25 @@ public class QuestManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_gameManager._gameLaunched || _activeQuestsList.Count >= _maxActiveQuests) return;
-        
-        DateTime _currentTime = DateTime.Now;
-        DateTime _savedTime = new DateTime(GetSavedTime());
-        TimeSpan _timeSpan = _savedTime - _currentTime;
-
-        int _elapsedTime = Math.Abs(_timeSpan.Minutes);
-        //Debug.LogWarning($"{_timeSpan.Seconds}");
-        if (Math.Abs(_elapsedTime) > _questWaitTime)
+        if(_gameManager._gameLaunched || _activeQuestsList.Count >= _maxActiveQuests)
         {
-            DoQuest();
+            _newQuestTime.gameObject.SetActive(false);
+        }
+        else
+        {
+            _newQuestTime.gameObject.SetActive(true);
+            
+            DateTime _currentTime = DateTime.Now;
+            DateTime _savedTime = new DateTime(GetSavedTime());
+            TimeSpan _timeSpan = _savedTime - _currentTime;
+
+            int _elapsedTime = Math.Abs(_timeSpan.Minutes);
+            //Debug.LogWarning($"{_timeSpan.Seconds}");
+            _newQuestTime.SetText(_elapsedTime.ToString());
+            if (Math.Abs(_elapsedTime) > _questWaitTime)
+            {
+                DoQuest();
+            }    
         }
     }
 
@@ -48,6 +60,7 @@ public class QuestManager : MonoBehaviour
             if (!_quest.IsQuestDone())
             {
                 _activeQuestsList.Add(_quest);
+                ShowQuest(_quest);
             }
         }
    }
@@ -62,9 +75,20 @@ public class QuestManager : MonoBehaviour
         AssetDatabase.CreateAsset(_newQuest,$"Assets/Resources/SavedQuests/{_newQuest.GetIndex()}.asset");
         _activeQuestsList.Add(_newQuest);
         
+        ShowQuest(_newQuest);
+        
         SaveTime();
     }
 
+    private void ShowQuest(QuestClass _questClass)
+    {
+        
+        GameObject _quest = Instantiate(_questPanelPrefab, transform.position, Quaternion.identity);
+        QuestPanel _currentQuestPanel = _quest.GetComponent<QuestPanel>();
+        _currentQuestPanel.SetQuest(_questClass);
+        //_quest.transform.localScale = new Vector3(1, 1, 1);
+        _quest.transform.parent = _questPanelUI;
+    }
     private void CheckQuests()
     {
         foreach (QuestClass _quest in _activeQuestsList.ToList())

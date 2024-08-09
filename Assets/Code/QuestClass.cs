@@ -54,4 +54,14 @@ public class QuestClass : ScriptableObject
     {
         return _questDone;
     }
+
+    public int GetCurrentValue()
+    {
+        return _currentValue;
+    }
+
+    public int GetTargetValue()
+    {
+        return _targetValue;
+    }
 }
