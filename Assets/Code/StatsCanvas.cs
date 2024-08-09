@@ -40,7 +40,7 @@ public class StatsCanvas : MonoBehaviour
     {
         _startHealth = _player._maxHealth;
         _startRange = _player._attackRange;
-        _startRegeneration =_player._hpRegenMultipler;
+        _startRegeneration =_player._hpRegenMultipler - 1;
         _startDamage = _playerWeapons._damageMultipler;
         _startReloadSpeed = _playerWeapons._reloadMultipler;
         _startBulletDodge = _playerAtributtes._dodgeChange;

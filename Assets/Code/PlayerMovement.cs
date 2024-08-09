@@ -495,12 +495,18 @@ public class PlayerMovement : MonoBehaviour
     {
         _cameraShake.DoShake(.15f, .5f);
         foreach (var _child in transform.GetComponentsInChildren<Transform>())
+        {
             //Debug.LogWarning(_child.name);
             if (_child.GetComponent<MeshRenderer>())
             {
                 var _meshRenderer = _child.GetComponent<MeshRenderer>();
                 _meshRenderer.material = _blackMaterial;
+            }else if (_child.GetComponent<SkinnedMeshRenderer>())
+            {
+                var _meshRenderer = _child.GetComponent<SkinnedMeshRenderer>();
+                _meshRenderer.material = _blackMaterial;
             }
+        }
     }
 
     private void StepsSoundController()

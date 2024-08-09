@@ -715,8 +715,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.3
+  m_Color: {r: 1, g: 0.9987028, b: 0.9481132, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1043,6 +1043,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8232781655876280463, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
     type: 3}
   m_PrefabInstance: {fileID: 2002430879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &787102415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4160082921165370214, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+    type: 3}
+  m_PrefabInstance: {fileID: 5336057214332085525}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &792073603 stripped
 MonoBehaviour:
@@ -4323,6 +4329,11 @@ PrefabInstance:
       objectReference: {fileID: 484771173}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
+      propertyPath: _spawnTimeMax
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
       propertyPath: _weaponUnlock
       value: 
       objectReference: {fileID: 7475491331960425884}
@@ -7339,6 +7350,11 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _legsObject
+      value: 
+      objectReference: {fileID: 787102415}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _inputCanvas
