@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2003031916744454399}
   - component: {fileID: -8734701051252472421}
   - component: {fileID: 6705608401987723988}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Polica Car
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -110,13 +110,13 @@ MonoBehaviour:
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
-  _attackRange: 10
+  _attackRange: 11
   _stoppingDistance: 6
   _xpReward: 5
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _bulletDamage: 3
+  _bulletDamage: 5
   health: 10
-  _attackDelayMax: 1.5
+  _attackDelayMax: 1.25
   _attackDelayCurrent: 0
   _stunned: 0
   _oryginalMaterial: {fileID: 0}
@@ -154,7 +154,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5937436, z: 1}
+  m_Size: {x: 2, y: 1.5937436, z: 2.5}
   m_Center: {x: 0, y: 0.29687178, z: 0}
 --- !u!195 &-8734701051252472421
 NavMeshAgent:
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652634464156369406}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,10 +364,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: e5608a6d1706b8a068d4d7c133b33ad1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: e5608a6d1706b8a068d4d7c133b33ad1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e5608a6d1706b8a068d4d7c133b33ad1,
         type: 3}
       propertyPath: m_Name
       value: car
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5608a6d1706b8a068d4d7c133b33ad1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: e5608a6d1706b8a068d4d7c133b33ad1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: e5608a6d1706b8a068d4d7c133b33ad1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

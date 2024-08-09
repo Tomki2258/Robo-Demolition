@@ -132,6 +132,8 @@ public class WeaponUnlock : MonoBehaviour
             _playerMovement._weaponsModels[_playerMovement._activeWeaponModels].SetActive(true);
             _playerMovement._activeWeaponModels++;   
         }
+        
+        _uiManager._newEnemySpottedUI.GetComponent<AudioSource>().Play();
     }
 
     private void SetWeaponsUI()

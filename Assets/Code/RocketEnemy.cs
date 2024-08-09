@@ -6,7 +6,7 @@ public class RocketEnemy : Enemy
 
     public GameObject _rocketTargetPrefab;
     public Transform _shootTransform;
-
+    [SerializeField] private int _rocketDamage;
     private void Start()
     {
         SetUp();
@@ -34,6 +34,7 @@ public class RocketEnemy : Enemy
                 var _currentRocketComponent = _currentRocket.GetComponent<Rocket>();
                 _currentRocketComponent._rocketTargetPrefab = _currentRocketTarget;
                 _currentRocketComponent._isEnemy = true;
+                _currentRocketComponent._rocketDamage = _rocketDamage;
                 _currentRocketComponent._enemy = _currentRocketTarget.transform;
                 _audioSource.PlayOneShot(_shootAudioClip);
                 //shoot

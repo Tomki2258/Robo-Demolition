@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8734701051252472421}
   - component: {fileID: 6705608401987723988}
   - component: {fileID: 8399243718155122219}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Buldoger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -66,6 +66,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -277,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652634464156369406}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,11 +358,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -7918335002988649766, guid: 6953ce6c5caca4921aee139e3c5fdde7,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 95647d4d1831686868e4dcddc3c356d7, type: 2}
+    - target: {fileID: -7146521406498821007, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: 6953ce6c5caca4921aee139e3c5fdde7,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -377,10 +388,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 95647d4d1831686868e4dcddc3c356d7, type: 2}
+    - target: {fileID: -516098083770646512, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6953ce6c5caca4921aee139e3c5fdde7,
         type: 3}
       propertyPath: m_Name
       value: buldoger
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 6953ce6c5caca4921aee139e3c5fdde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1822932637142027826}
   - component: {fileID: 4795026762475432317}
   - component: {fileID: 49850534359248706}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Helicopter_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5956903305426156799}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,10 +463,60 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -1599826595754709761, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
         type: 3}
       propertyPath: m_Name
       value: helicopter2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 0129a644e0b9d49f5a84a54ad463eb4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Stats")] public float _maxHealth;
 
     public float _health;
-    public float _hpRegenMultipler = 0.1f;
+    public float _hpRegenMultipler;
     public int _xp;
     public int _level;
     public int _xpToNextLevel = 100;
@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform _mainCannonRotateElement;
     public float _levelUpPlayerScaler;
     private EquipmentCanvas _equipmentCanvas;
+    private float _startPlayerY = 1.871f;
     private void Awake()
     {
         _equipmentCanvas = FindAnyObjectByType<EquipmentCanvas>();
@@ -154,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
             _legsAnimator.SetBool("Moving", false);
             _topAninmator.SetBool("Moving", false);
         }
+        ValidPlayerY();
     }
     public int GetRealAttackRange()
     {
@@ -173,17 +175,28 @@ public class PlayerMovement : MonoBehaviour
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             var _nearestEnemy = GetNearestEnemy();
-
-            if (Vector3.Distance(transform.position, _nearestEnemy.position) < GetRealAttackRange()  
-                /*&& RaycastEnemy(_currentEnemy.transform) */)
+            if (_playerWeapons._sniperGunClass.CheckInUse())
             {
-                MoveTurret(GetNearestEnemy().position);
-                Battle();
+                if (Vector3.Distance(transform.position, _nearestEnemy.position) < (GetRealAttackRange() * 1.75f)  
+                    /*&& RaycastEnemy(_currentEnemy.transform) */)
+                {
+                    MoveTurret(GetNearestEnemy().position);
+                    Battle();
+                }
             }
             else
             {
-                MoveTurret(_idleLookTransform.position);
-                _playerWeapons._laserSpawner.gameObject.SetActive(false);
+                if (Vector3.Distance(transform.position, _nearestEnemy.position) < GetRealAttackRange()  
+                    /*&& RaycastEnemy(_currentEnemy.transform) */)
+                {
+                    MoveTurret(GetNearestEnemy().position);
+                    Battle();
+                }
+                else
+                {
+                    MoveTurret(_idleLookTransform.position);
+                    _playerWeapons._laserSpawner.gameObject.SetActive(false);
+                }    
             }
             if (_nearestEnemy == null)
                 return;
@@ -295,12 +308,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (_enemyDist < _currentAttackRange)
         {
-            _mainCannonRotateElement.Rotate(Vector3.left * 300 * Time.deltaTime);
+            //_mainCannonRotateElement.Rotate(Vector3.left * 300 * Time.deltaTime);
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
             _playerWeapons.MachineGun();
-            _playerWeapons.Sniper();
             _playerWeapons.ShpereAttack();
             _playerWeapons.RocketLauncher();
             _playerWeapons.DoLaser(_currentEnemy.transform);
@@ -310,6 +322,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _playerWeapons._laserSpawner.gameObject.SetActive(false);
+        }
+
+        if (_enemyDist < _currentAttackRange * 1.75f)
+        {
+            _playerWeapons.Sniper();
         }
         _playerWeapons.DoMineDeployer();
     }
@@ -332,7 +349,7 @@ public class PlayerMovement : MonoBehaviour
             DoJoystickInput(false);
             //_cameraShake.CancelShake();
             //CheckForWeaponUnlock(_level);
-
+            _startPlayerY += 0.15f;
             _level++;
             _xp = 0;
             _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.3f);
@@ -478,12 +495,18 @@ public class PlayerMovement : MonoBehaviour
     {
         _cameraShake.DoShake(.15f, .5f);
         foreach (var _child in transform.GetComponentsInChildren<Transform>())
+        {
             //Debug.LogWarning(_child.name);
             if (_child.GetComponent<MeshRenderer>())
             {
                 var _meshRenderer = _child.GetComponent<MeshRenderer>();
                 _meshRenderer.material = _blackMaterial;
+            }else if (_child.GetComponent<SkinnedMeshRenderer>())
+            {
+                var _meshRenderer = _child.GetComponent<SkinnedMeshRenderer>();
+                _meshRenderer.material = _blackMaterial;
             }
+        }
     }
 
     private void StepsSoundController()
@@ -505,6 +528,17 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _currentFootStepTimer += Time.deltaTime;
+        }
+    }
+
+    private void ValidPlayerY()
+    {
+        Vector3 _currentVectr = transform.position;
+        if (_currentVectr.y != _startPlayerY)
+        {
+            transform.position = new Vector3(_currentVectr.x,
+                _startPlayerY,
+                _currentVectr.z);
         }
     }
 }

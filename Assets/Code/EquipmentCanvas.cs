@@ -12,14 +12,21 @@ public class EquipmentCanvas : MonoBehaviour
     public int _maxWeaponsInUse;
     [SerializeField] private TMP_Text _weaponAmountText;
     [SerializeField] private ScrollRect _scrollRect;
+    [SerializeField] private Transform _weaponsPanel;
+    private float _startWeaponValue;
     private void Start()
     {
+        _startWeaponValue = _weaponsPanel.transform.position.y;
         _playerWeapons._weaponsInUse[0].SetInUse(true);
         CheckForWeaponPanels();
     }
     
     public void CheckForWeaponPanels()
     {
+        _weaponsPanel.position = new Vector3(_weaponsPanel.transform.position.x,
+            _startWeaponValue,
+            _weaponsPanel.transform.position.z);
+        
         SortWeapons();
         //Debug.LogWarning("Weapons panels checks");
         foreach (var _weaponPanel in _weaponPanels) _weaponPanel.CheckForUnlock();
