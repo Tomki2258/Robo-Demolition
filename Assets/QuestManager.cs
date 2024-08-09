@@ -36,14 +36,12 @@ public class QuestManager : MonoBehaviour
         else
         {
             _newQuestTime.gameObject.SetActive(true);
-            
+            _newQuestTime.transform.SetSiblingIndex(_questPanelUI.childCount);
             DateTime _currentTime = DateTime.Now;
             DateTime _savedTime = new DateTime(GetSavedTime());
             TimeSpan _timeSpan = _savedTime - _currentTime;
-
             int _elapsedTime = Math.Abs(_timeSpan.Minutes);
-            //Debug.LogWarning($"{_timeSpan.Seconds}");
-            _newQuestTime.SetText(_elapsedTime.ToString());
+            
             if (Math.Abs(_elapsedTime) > _questWaitTime)
             {
                 DoQuest();
