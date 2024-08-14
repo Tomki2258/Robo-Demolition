@@ -451,9 +451,9 @@ public class PlayerMovement : MonoBehaviour
         DoJoystickInput(false);
         _uiManager.EnableDieCanvas();
         _died = true;
-        _cameraController._offset.y = 7;
+        _cameraController._offset.y = 8;
         _cameraController._speed /= 2;
-        _cameraController._rotationSpeed *= 1.5f;
+        //_cameraController._rotationSpeed *= 1.5f;
         _animator.enabled = true;
         _animator.SetTrigger("die");
         _legsAnimator.SetBool("Moving", false);
@@ -480,7 +480,6 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("revive");
             _health = _maxHealth / 2;
             _uiManager.ShowHpDifference(_maxHealth / 2);
-            _cameraController._offset.y = 30;
             _cameraController._speed *= 2;
             _animator.enabled = false;
         }
