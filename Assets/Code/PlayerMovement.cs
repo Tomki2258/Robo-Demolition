@@ -451,7 +451,7 @@ public class PlayerMovement : MonoBehaviour
         DoJoystickInput(false);
         _uiManager.EnableDieCanvas();
         _died = true;
-        _cameraController._offset.y = 8;
+        _cameraController._offset.y = 15;
         _cameraController._speed /= 2;
         //_cameraController._rotationSpeed *= 1.5f;
         _animator.enabled = true;
