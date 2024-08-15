@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     private bool _unPauseStarted = false;
     [SerializeField] private AudioListener _mainAudioListener;
     [SerializeField] private List<GameObject> _disableBuildObjects;
+    [SerializeField] private List<Transform> _playerPossibleSpawners;
     private void Awake()
     {
         DoAppLaunch();
@@ -78,6 +79,15 @@ public class GameManager : MonoBehaviour
         _spawnTimeCurrent = _spawnTimeMax;
         if(_godMode) DoGodMode();
         if (_gameStarted && _gameLaunched) OverideStart();
+        
+        Transform _randomSpodekSpawner = _playerPossibleSpawners[Random.Range(0,
+            _playerPossibleSpawners.Count)];
+        Vector3 _spawnVector = new Vector3(
+            _randomSpodekSpawner.position.x,
+            _randomSpodekSpawner.position.y + 110,
+            _randomSpodekSpawner.position.z);
+        _spodek.transform.position = _spawnVector;
+
     }
 
     private void DoAppLaunch()
@@ -249,6 +259,7 @@ public class GameManager : MonoBehaviour
         _uiManager._gameStartUI.SetActive(false);
         _gameStarted = true;
         _spodekAudioSource.Play();
+        
         StartCoroutine(MakeGame());
     }
     private IEnumerator MakeGame()
