@@ -422,6 +422,7 @@ public class PlayerMovement : MonoBehaviour
         return _currentEnemy.transform;
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void CheckHealth(float _value)
     {
         if (_died) return;
