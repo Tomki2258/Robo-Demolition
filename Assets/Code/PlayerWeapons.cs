@@ -50,7 +50,7 @@ public class PlayerWeapons : MonoBehaviour
     public float _laserMaxDamage;
     public float _laserDamageMultiplier;
     public Transform _lastLaserEnemy;
-
+    [SerializeField] private ParticleSystem _laserParticle;
     [Header("Rocket Launcher")] public WeaponClass _rocketLauncherClass;
 
     public GameObject _rocketPrefab;
@@ -74,8 +74,11 @@ public class PlayerWeapons : MonoBehaviour
     public GameObject _granadePrefab;
     public float _granadeForce;
     public Transform _granadeSpawner;
+    [Header("Other")] [SerializeField] private List<ParticleSystem> _particleSystems;
+    private GameSettings _gameSettings;
     private void Start()
     {
+        _gameSettings = FindFirstObjectByType<GameSettings>();
         _playerMovement = GetComponent<PlayerMovement>();
         _equipmentCanvas = FindFirstObjectByType<EquipmentCanvas>();
         _laserCurrentDamage = _laserGunClass.GetDamage();
@@ -125,7 +128,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _standardGunClass.GetDamage() * _damageMultipler;
         _standardAudioSource.Play();
         _standardGunClass._currentReloadTime = 0;
-        if(_standardGunParticles != null) _standardGunParticles.Play();
+        PlayerWeaponParticle(_particleSystems[0]);
     }
     public void MachineGun()
     {
@@ -142,6 +145,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>().AddRecoil(_machineGunRecoil);
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _machineGunClass.GetDamage() * _damageMultipler;
         _machineGunAudioSource.Play();
+        PlayerWeaponParticle(_particleSystems[1]);
         _machineGunClass._currentReloadTime = 0;
     }
 
@@ -160,6 +164,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.transform.rotation = _sniperSpawner.transform.rotation;
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _shotgunGunClass.GetDamage() * _damageMultipler;
 //        _sniperAudioSource.Play();
+        PlayerWeaponParticle(_particleSystems[1]);
         _sniperGunClass._currentReloadTime = 0;
     }
 
@@ -174,6 +179,7 @@ public class PlayerWeapons : MonoBehaviour
         var _currentRocket = Instantiate(_rocketPrefab, _rocketSpawner.position, _rocketSpawner.rotation);
         var _rocket = _currentRocket.GetComponent<Rocket>();
         _rocket._rocketDamage *= _damageMultipler;
+        PlayerWeaponParticle(_particleSystems[3]);
         _rocketLauncherClass._currentReloadTime = 0;
     }
 
@@ -222,7 +228,7 @@ public class PlayerWeapons : MonoBehaviour
             _currentBullet.GetComponent<Bullet>()._bulletDamage = _shotgunGunClass.GetDamage() * _damageMultipler;
         }
 
-
+        PlayerWeaponParticle(_particleSystems[1]);
         _shotgunGunClass._currentReloadTime = 0;
     }
 
@@ -254,6 +260,7 @@ public class PlayerWeapons : MonoBehaviour
         if (!_laserSpawner.gameObject.activeSelf)
         {
         }
+        _laserParticle.Play();
         _laserSpawner.gameObject.SetActive(true);
         _lineRenderer.SetPosition(0, _laserSpawner.position);
         _lineRenderer.SetPosition(1, _enemy.position);
@@ -306,7 +313,8 @@ public class PlayerWeapons : MonoBehaviour
             Quaternion.identity);
         _mine.transform.rotation = new Quaternion(0, Random.Range(0,360), 0, 0);
         _mine.GetComponent<Rigidbody>().AddForce(_mine.transform.forward * 5, ForceMode.Impulse);
-        
+        PlayerWeaponParticle(_particleSystems[3]);
+
         _mineDeployerClass._currentReloadTime = 0;
     }
 
@@ -357,5 +365,12 @@ public class PlayerWeapons : MonoBehaviour
     {
         _weaponsInUse = _weapons;
         _weaponsInUse.RemoveAll(s => s == null);
+    }
+
+    private void PlayerWeaponParticle(ParticleSystem _particleSystem)
+    {
+        if(!_gameSettings._qualityOn) return;
+        
+        _particleSystem.Play();
     }
 }
