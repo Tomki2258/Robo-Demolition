@@ -626,7 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidGameId: 5589505
   _iOSGameId: 5589504
-  _testMode: 1
+  _testMode: 0
 --- !u!114 &258913721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8836,6 +8836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416273763465797552, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8808520860718216945, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
