@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioListener _mainAudioListener;
     [SerializeField] private List<GameObject> _disableBuildObjects;
     [SerializeField] private List<Transform> _playerPossibleSpawners;
+    [SerializeField] private ParticleSystem _spawnParticles;
+    private Transform _choosenSpawner;
     private void Awake()
     {
         DoAppLaunch();
@@ -80,12 +82,12 @@ public class GameManager : MonoBehaviour
         if(_godMode) DoGodMode();
         if (_gameStarted && _gameLaunched) OverideStart();
         
-        Transform _randomSpodekSpawner = _playerPossibleSpawners[Random.Range(0,
+        _choosenSpawner = _playerPossibleSpawners[Random.Range(0,
             _playerPossibleSpawners.Count)];
         Vector3 _spawnVector = new Vector3(
-            _randomSpodekSpawner.position.x,
-            _randomSpodekSpawner.position.y + 110,
-            _randomSpodekSpawner.position.z);
+            _choosenSpawner.position.x,
+            _choosenSpawner.position.y + 110,
+            _choosenSpawner.position.z);
         _spodek.transform.position = _spawnVector;
 
     }
@@ -267,15 +269,17 @@ public class GameManager : MonoBehaviour
         if(_godMode) DoGodMode();
         
         yield return new WaitForSeconds(4.2f);
+        
         if (_startGameParticle != null)
         {
             Debug.LogWarning("Start particle");
             GameObject _startParticleInstance =
-                Instantiate(_startGameParticle, _spodek.transform.position, Quaternion.identity);
+                Instantiate(_startGameParticle, _choosenSpawner.position, Quaternion.identity);
             ParticleSystem _particleSystem = _startParticleInstance.GetComponent<ParticleSystem>();
             _particleSystem.Play();
-            Destroy(_startParticleInstance,10);
+            //Destroy(_startParticleInstance,10);
         }
+        
         yield return new WaitForSeconds(0.8f);
         _secondSpodek.SetActive(false);
         _player.transform.GetComponent<AudioListener>().enabled = true;
