@@ -123,6 +123,10 @@ public class GameManager : MonoBehaviour
         }
         //if(!_player._died) return;
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
 
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
