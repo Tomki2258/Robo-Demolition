@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 258913722}
   - component: {fileID: 258913721}
   - component: {fileID: 258913720}
+  - component: {fileID: 258913723}
   m_Layer: 0
   m_Name: Ads
   m_TagString: Untagged
@@ -626,7 +627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidGameId: 5589505
   _iOSGameId: 5589504
-  _testMode: 0
+  _testMode: 1
 --- !u!114 &258913721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +657,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258913723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258913719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678461fbe7bcd40d2af05b6096e954f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 1150281345}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &262471940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7456799831169592272, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
@@ -2046,19 +2062,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1150281346}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1882613317}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: RetryAdRelaod
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1150281346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5502,12 +5506,12 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -6000,7 +6004,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _adRewardButton
       value: 
-      objectReference: {fileID: 6205373192693253911}
+      objectReference: {fileID: 0}
     - target: {fileID: 3135003011862470043, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _xPProgressText
@@ -6208,6 +6212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4573293081968223171, guid: 860dc31f6d096540d8bc123bfaac57e4, type: 3}
+    - {fileID: 8411048046895516547, guid: 860dc31f6d096540d8bc123bfaac57e4, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1948108754055115463, guid: 860dc31f6d096540d8bc123bfaac57e4, type: 3}
     - {fileID: 8870068242037689557, guid: 860dc31f6d096540d8bc123bfaac57e4, type: 3}
@@ -8355,7 +8360,7 @@ PrefabInstance:
     - target: {fileID: 3153682461598138654, guid: 9d33326bc4bec38b2869435a011a9cac,
         type: 3}
       propertyPath: _offset.y
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3153682461598138654, guid: 9d33326bc4bec38b2869435a011a9cac,
         type: 3}
@@ -8761,7 +8766,7 @@ PrefabInstance:
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _maxHealth
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
@@ -9942,6 +9947,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6205373192693253911}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &6205373192693253911
 GameObject:

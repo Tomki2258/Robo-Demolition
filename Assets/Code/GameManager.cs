@@ -232,19 +232,21 @@ public class GameManager : MonoBehaviour
     public void AdReward()
     {
         Debug.LogWarning("Ad reward");
-        foreach (var _enemy in _spawnedEnemies)
-        {
-            _enemy.GetComponent<Enemy>()._killedByManager = true;
-            Destroy(_enemy);
-        }
-
-        _spawnedEnemies.Clear();
-
+        
         _uiManager._dieCanvas.SetActive(false);
         _uiManager._mainUI.SetActive(true);
 
         _player.Revive();
         EnableContinueCanvas(true);
+        
+        foreach (var _enemy in _spawnedEnemies.ToList())
+        {
+            Enemy _enemyScript = _enemy.GetComponent<Enemy>();
+            _enemyScript._killedByManager = true;
+            _enemyScript.CheckHealth(_enemyScript.health + 1);
+        }
+
+        _spawnedEnemies.Clear();
     }
 
     public IEnumerator ReloadLevel()
