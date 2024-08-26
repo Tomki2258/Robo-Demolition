@@ -12,10 +12,11 @@ public class WeaponUnlock : MonoBehaviour
     [Header("First Element UI")] public TMP_Text _firstWeaponName;
 
     public Image _firstWeaponImage;
-
+    public TMP_Text _firstWeaponDescription;
     [Header("Second Element UI")] public TMP_Text _secondWeaponName;
 
     public Image _secondWeaponImage;
+    public TMP_Text _secondWeaponDescription;
     private Animator _animator;
     private EquipmentCanvas _equipmentCanvas;
     private WeaponClass _firstWeapon;
@@ -145,10 +146,11 @@ public class WeaponUnlock : MonoBehaviour
         Debug.LogWarning($"First {_firstWeapon} Second {_secondWeapon}");
 
         _firstWeaponName.text = _firstWeapon.GetWeaponName();
-        _firstWeaponImage.sprite = _firstWeapon.GetWeaponSprite();
-
+        //_firstWeaponImage.sprite = _firstWeapon.GetWeaponSprite();
+        _firstWeaponDescription.text = _firstWeapon.GetWeaponDescription();
         _secondWeaponName.text = _secondWeapon.GetWeaponName();
-        _secondWeaponImage.sprite = _secondWeapon.GetWeaponSprite();
+        //_secondWeaponImage.sprite = _secondWeapon.GetWeaponSprite();
+        _secondWeaponDescription.text = _secondWeapon.GetWeaponDescription();
     }
 
     private WeaponClass FindWeapon(WeaponTypes _weaponType)

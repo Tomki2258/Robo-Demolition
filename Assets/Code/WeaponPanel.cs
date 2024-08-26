@@ -39,7 +39,7 @@ public class WeaponPanel : MonoBehaviour
         if (_weaponClass.IsWeaponUnlocked())
         {
             //_weaponImage.sprite = _weaponSprite;
-            _backgroundImage.color = new Color(255, 255, 255, 100);
+            SwitchPanelVisuals(true);
             _titleText.text = _weaponClass.GetWeaponName();
             _descriptionText.text = _weaponClass.GetWeaponDescription();
             _button.interactable = true;
@@ -47,17 +47,16 @@ public class WeaponPanel : MonoBehaviour
         else
         {
             //_weaponImage.sprite = _lockedSprite;
-            _backgroundImage.color = new Color(255, 255, 255, 50);
+            SwitchPanelVisuals(false);
             //_button.interactable = false;
             _titleText.text = "LOCKED";
             _descriptionText.text = "LOCKED";
         }
 
         if (_weaponClass.CheckInUse())
-            _backgroundImage.color = new Color(255, 255, 225, 100);
+            SwitchPanelVisuals(true);
         else
-           _backgroundImage.color = Color.gray;
-
+            SwitchPanelVisuals(false);
     }
 
     private bool IsSameType(WeaponClass _weaponClass)
@@ -80,10 +79,10 @@ public class WeaponPanel : MonoBehaviour
                 _gameManager._notyficationBaner.ShotMessage("Error", "You can't remove last weapon!",true,false);
                 return;
             }
-
+            SwitchPanelVisuals(false);
             _gameManager._notyficationBaner.ShotMessage("Weapon Removed", "",true,false);
             _equipment._weaponsInUse.Remove(_weaponClass);
-            //_weaponImage.color = new Color32(255 / 2, 255 / 2, 225 / 2, 255);
+
         }
         else
         {
@@ -92,13 +91,26 @@ public class WeaponPanel : MonoBehaviour
                 _gameManager._notyficationBaner.ShotMessage("Error", "You reach weapons limit!",true,false);
                 return;
             }
+            SwitchPanelVisuals(true);
             _equipment._weaponsInUse.Add(_weaponClass);
             _gameManager._notyficationBaner.ShotMessage(_weaponClass.GetWeaponName(), 
                 _weaponClass.GetWeaponDescription(),false,false);
-            //_weaponImage.color = new Color32(255, 255, 225, 255);
+
         }
 
         _equipment.RefleshWeaponAmountInfo();
         _weaponClass.SetInUse(!_weaponClass.CheckInUse());
+    }
+
+    private void SwitchPanelVisuals(bool _isOn)
+    {
+        if (_isOn)
+        {
+            _backgroundImage.color = new Color(255, 255, 255, 100);
+        }
+        else
+        {
+            _backgroundImage.color = Color.gray;
+        }
     }
 }

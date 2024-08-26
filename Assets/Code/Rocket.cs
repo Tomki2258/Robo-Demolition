@@ -22,7 +22,7 @@ public class Rocket : MonoBehaviour
         _cameraShake = FindAnyObjectByType<CameraShake>();
         _gameManager = FindAnyObjectByType<GameManager>();
         _startTarget = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
-        _player = FindFirstObjectByType<PlayerMovement>();
+        _player = _gameManager._player;
     }
 
     private void FixedUpdate()
@@ -37,17 +37,15 @@ public class Rocket : MonoBehaviour
         }
 
         if (!_isEnemy)
-            _enemy = GetNearestEnemy();
-        /*
-        else
-            _enemy = _player.transform;
-            */
-
+            if(_enemy == null)
+                _enemy = GetNearestEnemy();
+        
         if (_enemy != null) _lastKnownPosition = _enemy.position;
         transform.position = Vector3.MoveTowards(transform.position, _lastKnownPosition,
             _rocketSpeed * Time.deltaTime);
         _rocketSpeed *= 1.01f;
         RotateToTarget(_lastKnownPosition);
+        
         if (GetDistance(_lastKnownPosition) < 0.1f)
         {
             _currentFX = Instantiate(_explosionFX, transform.position, Quaternion.identity);
@@ -94,23 +92,32 @@ public class Rocket : MonoBehaviour
         _cameraShake.DoShake(0.001f, 0.5f);
 
         var _colliders = Physics.OverlapSphere(transform.position, _rocketRange);
-        foreach (var _obj in _colliders)
+        
+        if (_isEnemy)
         {
-            if (_enemy)
-            {
-                //Destroy(_enemy.gameObject);
-                if (_obj.CompareTag("Player"))
-                {
-                    _player.CheckHealth(_rocketDamage);
-                    return;
-                }
-            }
+            float _playerRocketRange = _rocketRange / 2;
 
-            if (_obj.CompareTag("Enemy"))
-                if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
+            float _rangeToPlayer = Vector3.Distance(_player.transform.position, transform.position);
+
+            if (_rangeToPlayer < _playerRocketRange)
+            {
+                //Debug.LogWarning("Rocket hit");
+                _player.CheckHealth(_rocketDamage);
+            }
+        }
+        else
+        {
+             foreach (var _obj in _colliders)
+            {
+                if (_obj.GetComponent<Enemy>())
                 {
-                    //_explosionFX.GetComponent<AudioSource>().enabled = false;
+                    //Debug.LogWarning("Enemy hit" + _obj.name);
+                    if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
+                    {
+                        //_explosionFX.GetComponent<AudioSource>().enabled = false;
+                    }
                 }
+            } 
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DefaultNamespace;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -184,33 +185,42 @@ public class UIManager : MonoBehaviour
         Time.timeScale = !_sraka ? 1 : 0;
     }
 
-    public void EnableDieCanvas()
+    public void EnableDieCanvas(bool _mode)
     {
-        _dieCanvas.SetActive(true);
-        _mainUI.SetActive(false);
-        _player.DoJoystickInput(false);
-        var _time = DateTime.Now - _startTime;
-        if (_gameManager._killedEnemies >_userData.GetBestScore())
+        if(_mode)
         {
-            int _killedEnemies = _gameManager._killedEnemies;
-            _killedEnemiesText.text = $"New high score !\nKilled enemies: {_gameManager._killedEnemies}";
-            _userData.SaveBestScore(_killedEnemies);
+            FindFirstObjectByType<RewardAd>().LoadAd();
+            _dieCanvas.SetActive(true);
+            _mainUI.SetActive(false);
+            _player.DoJoystickInput(false);
+            var _time = DateTime.Now - _startTime;
+            if (_gameManager._killedEnemies > _userData.GetBestScore())
+            {
+                int _killedEnemies = _gameManager._killedEnemies;
+                _killedEnemiesText.text = $"New high score !\nKilled enemies: {_gameManager._killedEnemies}";
+                _userData.SaveBestScore(_killedEnemies);
+            }
+            else
+            {
+                _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}\n" +
+                                          $"Best score: {_userData.GetBestScore()}";
+            }
+
+            var formattedTime = $"{_time.Minutes:D2} minutes:{_time.Seconds:D2} seconds";
+            _timeText.text = $"Playtime: {formattedTime}";
+            /*
+            if (_adRewardButton.GetComponent<Button>().interactable == false)
+            {
+                _adRewardButton.SetActive(false);
+            }
+            */
+            _mainUI.SetActive(false);
         }
         else
         {
-            _killedEnemiesText.text = $"Killed enemies: {_gameManager._killedEnemies}\n" +
-                                      $"Best score: {_userData.GetBestScore()}";
+            _dieCanvas.SetActive(false);
+            _mainUI.SetActive(true);
         }
-
-        var formattedTime = $"{_time.Minutes:D2} minutes:{_time.Seconds:D2} seconds";
-        _timeText.text = $"Playtime: {formattedTime}";
-        /*
-        if (_adRewardButton.GetComponent<Button>().interactable == false)
-        {
-            _adRewardButton.SetActive(false);
-        }
-        */
-        _mainUI.SetActive(false);
     }
 
     private int GetBestScore()
@@ -226,8 +236,8 @@ public class UIManager : MonoBehaviour
 
     public void RetryAdRelaod()
     {
-        _gameManager.AdReward();
-    }
+        FindFirstObjectByType<RewardAd>().ShowAd();
+    } 
 
     public void StartGame(bool state)
     {

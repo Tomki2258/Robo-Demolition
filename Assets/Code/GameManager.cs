@@ -50,7 +50,9 @@ public class GameManager : MonoBehaviour
     private bool _unPauseStarted = false;
     [SerializeField] private AudioListener _mainAudioListener;
     [SerializeField] private List<GameObject> _disableBuildObjects;
-    [SerializeField] [Range(0, 100)] private int _poweredEnemyChange; //recompile
+    [SerializeField] private List<Transform> _playerPossibleSpawners;
+    [SerializeField] private ParticleSystem _spawnParticles;
+    private Transform _choosenSpawner;
     private void Awake()
     {
         DoAppLaunch();
@@ -79,6 +81,15 @@ public class GameManager : MonoBehaviour
         _spawnTimeCurrent = _spawnTimeMax;
         if(_godMode) DoGodMode();
         if (_gameStarted && _gameLaunched) OverideStart();
+        
+        _choosenSpawner = _playerPossibleSpawners[Random.Range(0,
+            _playerPossibleSpawners.Count)];
+        Vector3 _spawnVector = new Vector3(
+            _choosenSpawner.position.x,
+            _choosenSpawner.position.y + 110,
+            _choosenSpawner.position.z);
+        _spodek.transform.position = _spawnVector;
+
     }
 
     private void DoAppLaunch()
@@ -112,6 +123,10 @@ public class GameManager : MonoBehaviour
         }
         //if(!_player._died) return;
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
 
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
@@ -155,13 +170,12 @@ public class GameManager : MonoBehaviour
             _spawnPoints[_point].position.y,
             _spawnPoints[_point].position.z + Random.Range(-3, 3));
         var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
-        //_enemy.GetComponent<Enemy>()._gameManager = this;
-
         _spawnTimeMax -= _spawnTimeMax * 0.005f;
 
         if (_enemy.GetComponent<BombardEnemy>()) return;
 
         _spawnedEnemies.Add(_enemy);
+        _enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
     }
 
@@ -218,19 +232,21 @@ public class GameManager : MonoBehaviour
     public void AdReward()
     {
         Debug.LogWarning("Ad reward");
-        foreach (var _enemy in _spawnedEnemies)
-        {
-            _enemy.GetComponent<Enemy>()._killedByManager = true;
-            Destroy(_enemy);
-        }
-
-        _spawnedEnemies.Clear();
-
+        
         _uiManager._dieCanvas.SetActive(false);
         _uiManager._mainUI.SetActive(true);
 
         _player.Revive();
         EnableContinueCanvas(true);
+        
+        foreach (var _enemy in _spawnedEnemies.ToList())
+        {
+            Enemy _enemyScript = _enemy.GetComponent<Enemy>();
+            _enemyScript._killedByManager = true;
+            _enemyScript.CheckHealth(_enemyScript.health + 1);
+        }
+
+        _spawnedEnemies.Clear();
     }
 
     public IEnumerator ReloadLevel()
@@ -251,6 +267,7 @@ public class GameManager : MonoBehaviour
         _uiManager._gameStartUI.SetActive(false);
         _gameStarted = true;
         _spodekAudioSource.Play();
+        
         StartCoroutine(MakeGame());
     }
     private IEnumerator MakeGame()
@@ -258,15 +275,17 @@ public class GameManager : MonoBehaviour
         if(_godMode) DoGodMode();
         
         yield return new WaitForSeconds(4.2f);
+        
         if (_startGameParticle != null)
         {
             Debug.LogWarning("Start particle");
             GameObject _startParticleInstance =
-                Instantiate(_startGameParticle, _spodek.transform.position, Quaternion.identity);
+                Instantiate(_startGameParticle, _choosenSpawner.position, Quaternion.identity);
             ParticleSystem _particleSystem = _startParticleInstance.GetComponent<ParticleSystem>();
             _particleSystem.Play();
-            Destroy(_startParticleInstance,10);
+            //Destroy(_startParticleInstance,10);
         }
+        
         yield return new WaitForSeconds(0.8f);
         _secondSpodek.SetActive(false);
         _player.transform.GetComponent<AudioListener>().enabled = true;
@@ -310,10 +329,5 @@ public class GameManager : MonoBehaviour
     public float GetTrashY()
     {
         return Random.Range(-_trashRotateY, _trashRotateY);
-    }
-
-    public int GetPoweredEnemyChance()
-    {
-        return _poweredEnemyChange;
     }
 }

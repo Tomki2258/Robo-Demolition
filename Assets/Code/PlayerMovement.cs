@@ -357,8 +357,8 @@ public class PlayerMovement : MonoBehaviour
             var _scale = transform.localScale;
             _scale += new Vector3(0.1f, 0.1f, 0.1f) * _levelUpPlayerScaler;
             transform.localScale = _scale;
-            _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
-            _health += Convert.ToInt16(_maxHealth * 0.15f);
+            _maxHealth += Convert.ToInt16(_maxHealth * 0.1f);
+            _health += Convert.ToInt16(_maxHealth * 0.10f);
             _speed+= 0.25f;
             if (_level % 3 == 0) _gameManager.IncreaseEnemiesIndex();
 
@@ -422,6 +422,7 @@ public class PlayerMovement : MonoBehaviour
         return _currentEnemy.transform;
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void CheckHealth(float _value)
     {
         if (_died) return;
@@ -449,11 +450,11 @@ public class PlayerMovement : MonoBehaviour
     private void Die()
     {
         DoJoystickInput(false);
-        _uiManager.EnableDieCanvas();
+        _uiManager.EnableDieCanvas(true);
         _died = true;
-        _cameraController._offset.y = 7;
+        _cameraController._offset.y = 15;
         _cameraController._speed /= 2;
-        _cameraController._rotationSpeed *= 1.5f;
+        //_cameraController._rotationSpeed *= 1.5f;
         _animator.enabled = true;
         _animator.SetTrigger("die");
         _legsAnimator.SetBool("Moving", false);
@@ -480,7 +481,6 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("revive");
             _health = _maxHealth / 2;
             _uiManager.ShowHpDifference(_maxHealth / 2);
-            _cameraController._offset.y = 30;
             _cameraController._speed *= 2;
             _animator.enabled = false;
         }

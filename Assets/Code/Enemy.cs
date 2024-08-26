@@ -95,7 +95,9 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+        
         _gameManager.RemoveEnemy(gameObject);
+        
         if (!_killedByManager)
         {
             _gameManager._killedEnemies++;
@@ -103,8 +105,12 @@ public class Enemy : MonoBehaviour
             //_player._xp += _xpReward;
             _cameraShake.DoShake(.15f, .2f);
             DestroyClone();
+            
+            var _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+            //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
+            Destroy(_explosion, 5);
         }
-
+        Destroy(gameObject);
         /*
         if (_gameManager._gameSettings._qualityOn)
         {
@@ -113,10 +119,6 @@ public class Enemy : MonoBehaviour
             Destroy(_explosion,5);
         }
         */
-        var _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-        //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
-        Destroy(_explosion, 5);
-        Destroy(gameObject);
     }
 
     public void DestroyClone()

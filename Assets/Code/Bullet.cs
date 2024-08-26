@@ -56,6 +56,7 @@ public class Bullet : MonoBehaviour
             {
                 var _player = other.GetComponent<PlayerMovement>();
                 _player.CheckHealth(_bulletDamage);
+                Destroy(gameObject);
             }
             else if (other.gameObject.CompareTag("Enemy"))
             {
