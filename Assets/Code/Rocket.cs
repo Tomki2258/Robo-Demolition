@@ -37,7 +37,8 @@ public class Rocket : MonoBehaviour
         }
 
         if (!_isEnemy)
-            _enemy = GetNearestEnemy();
+            if(_enemy == null)
+                _enemy = GetNearestEnemy();
         /*
         else
             _enemy = _player.transform;
@@ -48,6 +49,7 @@ public class Rocket : MonoBehaviour
             _rocketSpeed * Time.deltaTime);
         _rocketSpeed *= 1.01f;
         RotateToTarget(_lastKnownPosition);
+        
         if (GetDistance(_lastKnownPosition) < 0.1f)
         {
             _currentFX = Instantiate(_explosionFX, transform.position, Quaternion.identity);
@@ -94,24 +96,33 @@ public class Rocket : MonoBehaviour
         _cameraShake.DoShake(0.001f, 0.5f);
 
         var _colliders = Physics.OverlapSphere(transform.position, _rocketRange);
-        foreach (var _obj in _colliders)
+        
+        if (_isEnemy)
         {
-            if (_enemy)
+            foreach (var _obj in _colliders)
             {
                 //Destroy(_enemy.gameObject);
                 if (_obj.CompareTag("Player"))
                 {
+                    Debug.LogWarning("player dostal po tylku");
                     _player.CheckHealth(_rocketDamage);
-                    return;
+                    //return;
                 }
-            }
-            else if (_obj.CompareTag("Enemy"))
+            }    
+        }
+        else
+        {
+             foreach (var _obj in _colliders)
             {
-                if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
+                if (_obj.GetComponent<Enemy>())
                 {
-                    //_explosionFX.GetComponent<AudioSource>().enabled = false;
+                    Debug.LogWarning("Enemy hit" + _obj.name);
+                    if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
+                    {
+                        //_explosionFX.GetComponent<AudioSource>().enabled = false;
+                    }
                 }
-            }
+            } 
         }
     }
 }
