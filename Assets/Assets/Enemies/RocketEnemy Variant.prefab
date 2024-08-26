@@ -460,13 +460,13 @@ MonoBehaviour:
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4,
     type: 3}
-  _attackRange: 50
-  _stoppingDistance: 30
-  _xpReward: 0
+  _attackRange: 60
+  _stoppingDistance: 38
+  _xpReward: 75
   _bullet: {fileID: 0}
   _bulletDamage: 0
   health: 0
-  _attackDelayMax: 2.5
+  _attackDelayMax: 4
   _attackDelayCurrent: 0
   _stunned: 0
   _oryginalMaterial: {fileID: 0}

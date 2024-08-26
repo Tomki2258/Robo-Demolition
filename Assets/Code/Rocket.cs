@@ -105,12 +105,13 @@ public class Rocket : MonoBehaviour
                     return;
                 }
             }
-
-            if (_obj.CompareTag("Enemy"))
+            else if (_obj.CompareTag("Enemy"))
+            {
                 if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
                 {
                     //_explosionFX.GetComponent<AudioSource>().enabled = false;
                 }
+            }
         }
     }
 }

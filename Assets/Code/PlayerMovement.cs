@@ -357,8 +357,8 @@ public class PlayerMovement : MonoBehaviour
             var _scale = transform.localScale;
             _scale += new Vector3(0.1f, 0.1f, 0.1f) * _levelUpPlayerScaler;
             transform.localScale = _scale;
-            _maxHealth += Convert.ToInt16(_maxHealth * 0.15f);
-            _health += Convert.ToInt16(_maxHealth * 0.15f);
+            _maxHealth += Convert.ToInt16(_maxHealth * 0.1f);
+            _health += Convert.ToInt16(_maxHealth * 0.10f);
             _speed+= 0.25f;
             if (_level % 3 == 0) _gameManager.IncreaseEnemiesIndex();
 
