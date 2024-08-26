@@ -8978,6 +8978,47 @@ PrefabInstance:
       propertyPath: _secondWeaponDescription
       value: 
       objectReference: {fileID: 836262507}
+    - target: {fileID: 6617133470223419159, guid: 4fe088204772cf55587f3614ddc4861b,
+        type: 3}
+      propertyPath: _weaponsAtStage.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617133470223419159, guid: 4fe088204772cf55587f3614ddc4861b,
+        type: 3}
+      propertyPath: '_weaponsAtStage.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e42e8afa0b3875eb18323cb2a2a8da2e,
+        type: 2}
+    - target: {fileID: 6617133470223419159, guid: 4fe088204772cf55587f3614ddc4861b,
+        type: 3}
+      propertyPath: '_weaponsAtStage.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b7fc0d0dfd3c926f928dbf53f5aea9b,
+        type: 2}
+    - target: {fileID: 6617133470223419159, guid: 4fe088204772cf55587f3614ddc4861b,
+        type: 3}
+      propertyPath: '_weaponsAtStage.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 06f1a26fcdd1f54d0ad4c1229d43f8e5,
+        type: 2}
+    - target: {fileID: 6617133470223419159, guid: 4fe088204772cf55587f3614ddc4861b,
+        type: 3}
+      propertyPath: '_weaponsAtStage.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 963fd05ad19e2bb519ac28ead70e6cc4,
+        type: 2}
+    - target: {fileID: 6617133470223419159, guid: 4fe088204772cf55587f3614ddc4861b,
+        type: 3}
+      propertyPath: '_weaponsAtStage.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cee78c95b19d884cac32448d42ac8c4,
+        type: 2}
+    - target: {fileID: 6617133470223419159, guid: 4fe088204772cf55587f3614ddc4861b,
+        type: 3}
+      propertyPath: '_weaponsAtStage.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ad940a9190834c1687e6fa839eb094d,
+        type: 2}
     - target: {fileID: 6732944087338488999, guid: 4fe088204772cf55587f3614ddc4861b,
         type: 3}
       propertyPath: m_Pivot.x

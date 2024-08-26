@@ -22,7 +22,7 @@ public class Rocket : MonoBehaviour
         _cameraShake = FindAnyObjectByType<CameraShake>();
         _gameManager = FindAnyObjectByType<GameManager>();
         _startTarget = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
-        _player = FindFirstObjectByType<PlayerMovement>();
+        _player = _gameManager._player;
     }
 
     private void FixedUpdate()
@@ -39,11 +39,7 @@ public class Rocket : MonoBehaviour
         if (!_isEnemy)
             if(_enemy == null)
                 _enemy = GetNearestEnemy();
-        /*
-        else
-            _enemy = _player.transform;
-            */
-
+        
         if (_enemy != null) _lastKnownPosition = _enemy.position;
         transform.position = Vector3.MoveTowards(transform.position, _lastKnownPosition,
             _rocketSpeed * Time.deltaTime);
@@ -99,16 +95,15 @@ public class Rocket : MonoBehaviour
         
         if (_isEnemy)
         {
-            foreach (var _obj in _colliders)
+            float _playerRocketRange = _rocketRange / 2;
+
+            float _rangeToPlayer = Vector3.Distance(_player.transform.position, transform.position);
+
+            if (_rangeToPlayer < _playerRocketRange)
             {
-                //Destroy(_enemy.gameObject);
-                if (_obj.CompareTag("Player"))
-                {
-                    Debug.LogWarning("player dostal po tylku");
-                    _player.CheckHealth(_rocketDamage);
-                    //return;
-                }
-            }    
+                //Debug.LogWarning("Rocket hit");
+                _player.CheckHealth(_rocketDamage);
+            }
         }
         else
         {
@@ -116,7 +111,7 @@ public class Rocket : MonoBehaviour
             {
                 if (_obj.GetComponent<Enemy>())
                 {
-                    Debug.LogWarning("Enemy hit" + _obj.name);
+                    //Debug.LogWarning("Enemy hit" + _obj.name);
                     if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
                     {
                         //_explosionFX.GetComponent<AudioSource>().enabled = false;
