@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Transform> _playerPossibleSpawners;
     [SerializeField] private ParticleSystem _spawnParticles;
     private Transform _choosenSpawner;
+    [SerializeField] private int _poweredEnemyChance;
     private void Awake()
     {
         DoAppLaunch();
@@ -175,7 +176,7 @@ public class GameManager : MonoBehaviour
         if (_enemy.GetComponent<BombardEnemy>()) return;
 
         _spawnedEnemies.Add(_enemy);
-        _enemy.GetComponent<Enemy>()._gameManager = this;
+        //_enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
     }
 
@@ -329,5 +330,10 @@ public class GameManager : MonoBehaviour
     public float GetTrashY()
     {
         return Random.Range(-_trashRotateY, _trashRotateY);
+    }
+
+    public int GetPoweredEnemyChance()
+    {
+        return _poweredEnemyChance;
     }
 }
