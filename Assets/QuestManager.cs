@@ -87,7 +87,7 @@ public class QuestManager : MonoBehaviour
         //_quest.transform.localScale = new Vector3(1, 1, 1);
         _quest.transform.parent = _questPanelUI;
     }
-    private void CheckQuests()
+    public void CheckQuests()
     {
         foreach (QuestClass _quest in _activeQuestsList.ToList())
         {

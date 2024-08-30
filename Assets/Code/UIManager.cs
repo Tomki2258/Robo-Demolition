@@ -41,8 +41,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _notyficationBaner;
     [SerializeField] private VariableJoystick _variableJoystick;
     public GameObject _questCanvas;
+    private QuestManager _questManager;
     private void Awake()
     {
+        _questCanvas.SetActive(false);
+        _questManager = FindFirstObjectByType<QuestManager>();
         _newEnemySpottedUI.SetActive(false);
         _cameraShake = FindFirstObjectByType<CameraShake>();
         _userData = FindFirstObjectByType<UserData>();
@@ -255,8 +258,18 @@ public class UIManager : MonoBehaviour
         else Time.timeScale = 1;
     }
 
-    public void EnableQuestUI(bool _mode)
+    public void EnableQuestUI()
     {
-        _questCanvas.SetActive(_mode);
+        bool _questEnabled = _questCanvas.activeSelf;
+
+        if (_questCanvas)
+        {
+            _questCanvas.SetActive(!_questEnabled);
+        }
+        else
+        {
+            _questCanvas.SetActive(_questEnabled);
+            _questManager.CheckQuests();
+        }
     }
 }
