@@ -80,7 +80,7 @@ public class WeaponPanel : MonoBehaviour
                 return;
             }
             SwitchPanelVisuals(false);
-            _gameManager._notyficationBaner.ShotMessage("Weapon Removed", "",true,false);
+            _gameManager._notyficationBaner.ShotMessage("Weapon Removed", "",false,false);
             _equipment._weaponsInUse.Remove(_weaponClass);
 
         }

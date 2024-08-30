@@ -39,7 +39,7 @@ public class NotyficationBaner : MonoBehaviour
             _currentEnumerator = StartCoroutine(Show());
         }
 
-        //_audioSource.PlayOneShot(_isError ? _errorAudioClip : _clickAudioClip);
+        _audioSource.PlayOneShot(_isError ? _errorAudioClip : _clickAudioClip);
 
         float _currentYValue = _startPosition;
         if (_onTop)

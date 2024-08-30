@@ -4396,7 +4396,7 @@ PrefabInstance:
     - target: {fileID: 7745437229648850004, guid: a75aa67c106f40949bcf323baef4becc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -973.391
+      value: -973.3899
       objectReference: {fileID: 0}
     - target: {fileID: 8221254486424636924, guid: a75aa67c106f40949bcf323baef4becc,
         type: 3}
@@ -4406,7 +4406,7 @@ PrefabInstance:
     - target: {fileID: 8221254486424636924, guid: a75aa67c106f40949bcf323baef4becc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8782710254516639179, guid: a75aa67c106f40949bcf323baef4becc,
         type: 3}
@@ -5496,7 +5496,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _godMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -5506,12 +5506,12 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -5749,7 +5749,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7965239692602747438}
     - target: {fileID: 562539019407417825, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _clickAudioClip
@@ -7989,7 +7989,7 @@ PrefabInstance:
     - target: {fileID: 3314009663949274887, guid: 8d7bc175f7f001245a3435a4b70789d7,
         type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3314009663949274887, guid: 8d7bc175f7f001245a3435a4b70789d7,
         type: 3}
@@ -8016,8 +8016,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3314009663949274887, guid: 8d7bc175f7f001245a3435a4b70789d7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11535,6 +11534,12 @@ MonoBehaviour:
 --- !u!95 &7965239692602747437 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6649056573074109562, guid: 8d7bc175f7f001245a3435a4b70789d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3470563281283297474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7965239692602747438 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3314009663949274887, guid: 8d7bc175f7f001245a3435a4b70789d7,
     type: 3}
   m_PrefabInstance: {fileID: 3470563281283297474}
   m_PrefabAsset: {fileID: 0}
