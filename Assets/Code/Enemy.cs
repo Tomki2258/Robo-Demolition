@@ -110,9 +110,8 @@ public class Enemy : MonoBehaviour
     {
         if (!_gameManager._gameSettings._qualityOn) return;
 
-        var _mesh = new Mesh();
         var _meshFilter = GetComponent<MeshFilter>();
-        _mesh = _meshFilter.mesh;
+        var _mesh = _meshFilter.mesh;
         var _trash = Instantiate(_enemyModel, transform.position, transform.rotation);
         ChangeMeshColors(_trash.transform, 0);
         _trash.name = $"{transform.name} :trash clone";
@@ -209,9 +208,8 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator HitChangeMaterial(Renderer _enemyPart, float _waitTime)
     {
-        Material _childOryginalMaterial;
         var _renderer = _enemyPart;
-        _childOryginalMaterial = _renderer.material;
+        Material _childOryginalMaterial = _renderer.material;
         if (_waitTime == 0)
             _renderer.material = _blackMaterial;
         else

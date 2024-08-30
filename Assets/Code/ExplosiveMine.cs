@@ -24,28 +24,20 @@ public class ExplosiveMine : MonoBehaviour
     private void FixedUpdate()
     {
         if(_gameManager._spawnedEnemies.Count == 0 || !_ready) return;
-        if(Vector3.Distance(transform.position, GetNearestEnemy().position) < _damageRange)
+        if(EnemyInRange())
             DoDamage();
     }
 
-    private Transform GetNearestEnemy()
+    private bool EnemyInRange()
     {
-        var lowestDist = Mathf.Infinity;
-        GameObject _currentEnemy = null;
-        foreach (var _enemy in _gameManager._spawnedEnemies)
+        Collider[] _colliders = Physics.OverlapSphere(transform.position, _damageRange);
+        foreach (Collider _col in _colliders)
         {
-            if (_enemy == null) continue;
-            //if(!RaycastEnemy(_enemy.transform)) continue;
-            var dist = Vector3.Distance(_enemy.transform.position, transform.position);
-
-            if (dist < lowestDist)
-            {
-                lowestDist = dist;
-                _currentEnemy = _enemy;
-            }
+            if (_col.GetComponent<Enemy>())
+                return true;
         }
 
-        return _currentEnemy.transform;
+        return false;
     }
     private void DoDamage()
     {
