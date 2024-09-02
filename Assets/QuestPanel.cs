@@ -15,7 +15,7 @@ public class QuestPanel : MonoBehaviour
 
     public void RefleshUI()
     {
-        _questTypeText.text = _currentQuest.GetQuestType().ToString();
+        _questTypeText.text = _currentQuest.GetQuestDescription();
         _currentTastValue.text = _currentQuest.GetCurrentValue().ToString();
         _targetTastValue.text = _currentQuest.GetTargetValue().ToString();
     }

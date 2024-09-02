@@ -42,13 +42,25 @@ public class QuestManager : MonoBehaviour
             TimeSpan _timeSpan = _savedTime - _currentTime;
             int _elapsedTime = Math.Abs(_timeSpan.Minutes);
             
-            if (Math.Abs(_elapsedTime) > _questWaitTime)
+            if (_elapsedTime > _questWaitTime)
             {
                 DoQuest();
             }    
+            
+            int _remainingMinutes = GetRemainingTimeForNewQuest() / 60;
+            int _remainingSeconds = GetRemainingTimeForNewQuest() - (_remainingMinutes * 60);
+            _newQuestTime.text = $"New quest in\n{_remainingMinutes}:{_remainingSeconds}";
         }
     }
-
+    
+    public int GetRemainingTimeForNewQuest()
+    {
+        DateTime currentTime = DateTime.Now;
+        DateTime savedTime = new DateTime(GetSavedTime());
+        TimeSpan timeSpan = savedTime - currentTime;
+        int elapsedTime = Math.Abs(timeSpan.Seconds);
+        return _questWaitTime * 60  - elapsedTime;
+    }
     private void LoadSavedQuests()
     {
         List<QuestClass> _loadedQuests = Resources.LoadAll("SavedQuests", typeof(QuestClass)).Cast<QuestClass>().ToList();
@@ -69,7 +81,9 @@ public class QuestManager : MonoBehaviour
         QuestClass _newQuest = ScriptableObject.CreateInstance<QuestClass>();
         _newQuest.SetIndex(
             Random.Range(0,100));
-        _newQuest.CreateQuest(Random.Range(5,10),QuestType.killEnemies,10);
+        QuestType _randomQuestType 
+            = Enum.GetValues(typeof(QuestType)).Cast<QuestType>().ToList()[Random.Range(0,_newQuest.GetQuestsTypesLength())];
+        _newQuest.CreateQuest(Random.Range(5,10),_randomQuestType,10);
         AssetDatabase.CreateAsset(_newQuest,$"Assets/Resources/SavedQuests/{_newQuest.GetIndex()}.asset");
         _activeQuestsList.Add(_newQuest);
         

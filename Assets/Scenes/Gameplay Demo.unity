@@ -926,6 +926,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5255279551210296764, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255279551210296764, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 34eedd4eac274bb67b5182a6fc10590f,
+        type: 2}
+    - target: {fileID: 5255279551210296764, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255279551210296764, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255279551210296764, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -907727655873278791, guid: 34eedd4eac274bb67b5182a6fc10590f,
+        type: 2}
+    - target: {fileID: 5255279551210296764, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5587095100432389098, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6492,6 +6524,11 @@ PrefabInstance:
       propertyPath: _questPanelUI
       value: 
       objectReference: {fileID: 411674280}
+    - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _questWaitTime
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _questPanelPrefab

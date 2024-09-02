@@ -64,4 +64,27 @@ public class QuestClass : ScriptableObject
     {
         return _targetValue;
     }
+    public int GetQuestsTypesLength()
+    {
+        return Enum.GetValues(typeof(QuestType)).Length;
+    }
+
+    public string GetQuestDescription()
+    {
+        switch(_questType)
+        {
+            case QuestType.killEnemies:
+                return "Killed enemies";
+            case QuestType.walkDistance:
+                return "Walk distance";
+            case QuestType.surviveTime:
+                return "Survive time";
+            case QuestType.shootenBullets:
+                return "Shooten bullets";
+            case QuestType.collectPowerUps:
+                return "Collect power ups";
+            default:
+                return "No description";
+        }
+    }
 }
