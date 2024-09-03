@@ -3,7 +3,7 @@ using Random = UnityEngine.Random;
 
 public enum QuestType{
     killEnemies,
-    walkDistance,
+    //walkDistance,
     surviveTime,
     shootenBullets,
     collectPowerUps
@@ -75,8 +75,8 @@ public class QuestClass : ScriptableObject
         {
             case QuestType.killEnemies:
                 return "Killed enemies";
-            case QuestType.walkDistance:
-                return "Walk distance";
+            //case QuestType.walkDistance:
+            //    return "Walk distance";
             case QuestType.surviveTime:
                 return "Survive time";
             case QuestType.shootenBullets:

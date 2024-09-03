@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 public class QuestManager : MonoBehaviour
 {
-    [SerializeField] private List<QuestClass> _activeQuestsList;
+    public List<QuestClass> _activeQuestsList;
     private int _maxActiveQuests = 3;
     public QuestClass _questClassObject;
     private GameManager _gameManager;

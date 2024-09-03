@@ -13,9 +13,11 @@ public class PowerUP : MonoBehaviour
 {
     public PowerUpType _powerUpType;
     private UIManager _uiManager;
+    private QuestsMonitor _questsMonitor;
     private Transform _meshesParent;
     private void Start()
     {
+        _questsMonitor = FindFirstObjectByType<QuestsMonitor>();
         _meshesParent = transform.GetChild(0);
         for (int i = 0; i < _meshesParent.childCount; i++)
         {
@@ -57,6 +59,7 @@ public class PowerUP : MonoBehaviour
                     break;
             }
 
+            _questsMonitor._colledtedPowerUps++;
             Destroy(gameObject);
         }
     }

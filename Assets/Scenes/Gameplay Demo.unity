@@ -6527,7 +6527,7 @@ PrefabInstance:
     - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _questWaitTime
-      value: 180
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -6679,6 +6679,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1581952686236268082}
+    - targetCorrespondingSourceObject: {fileID: 2821704617510575578, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1581952686236268084}
   m_SourcePrefab: {fileID: 100100000, guid: 860dc31f6d096540d8bc123bfaac57e4, type: 3}
 --- !u!4 &1581952686236268071 stripped
 Transform:
@@ -6709,6 +6713,35 @@ MonoBehaviour:
     type: 3}
   _currentCaptureWaitTime: 0
   _maxCaptureWaitTime: 15
+--- !u!114 &1581952686236268084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902965180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143d15912a41077f19a9680ef4bb2259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questManager: {fileID: 1581952686236268085}
+  _colledtedPowerUps: 0
+  _killedEnemies: 0
+  _bulletsShot: 0
+  _timeSurvived: 0
+--- !u!114 &1581952686236268085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1581952686236268070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902965180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4941896c869ea4b2bad3dd82e5e6f4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1628083045396974138 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1426780215392261550, guid: 4fe088204772cf55587f3614ddc4861b,

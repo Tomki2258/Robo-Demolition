@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     public AudioSource _audioSource;
     public AudioClip _shootAudioClip;
     private bool _died;
+    private QuestsMonitor _questsMonitor;
     [Header("Flying enemy------")] 
     public float _wingsSpeed;
     
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour
     public float _poweredUpMultipler;
     public void SetUp()
     {
+        _questsMonitor = FindFirstObjectByType<QuestsMonitor>();
         _gameManager = FindFirstObjectByType<GameManager>();
         int _poweredRandom = Random.Range(0, 100);
         if (_poweredRandom < _gameManager.GetPoweredEnemyChance())
@@ -110,6 +112,9 @@ public class Enemy : MonoBehaviour
             //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
             Destroy(_explosion, 5);
         }
+        
+        _questsMonitor._killedEnemies++;
+        
         Destroy(gameObject);
         /*
         if (_gameManager._gameSettings._qualityOn)

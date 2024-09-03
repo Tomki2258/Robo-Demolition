@@ -234,6 +234,8 @@ public class UIManager : MonoBehaviour
 
     public void ReloadLevel()
     {
+        QuestsMonitor _questsMonitor = FindFirstObjectByType<QuestsMonitor>();
+        _questsMonitor.ApplyStats();
         StartCoroutine(_gameManager.ReloadLevel());
     }
 
