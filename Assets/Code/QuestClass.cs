@@ -27,12 +27,17 @@ public class QuestClass : ScriptableObject
 
     public void AddValue(int _value)
     {
-        _currentValue += _currentValue;
+        _currentValue += _value;
     }
     
     public bool IsQuestCompleted()
     {
-        if (_currentValue >= _targetValue) return true;
+        if (_currentValue >= _targetValue)
+        {
+            _questDone = true;
+            return true;
+        }
+
         return false;
     }
 
@@ -86,5 +91,10 @@ public class QuestClass : ScriptableObject
             default:
                 return "No description";
         }
+    }
+
+    private void CompleteQuest()
+    {
+        _questDone = true;
     }
 }

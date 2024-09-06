@@ -271,7 +271,7 @@ public class UIManager : MonoBehaviour
         else
         {
             _questCanvas.SetActive(_questEnabled);
-            _questManager.CheckQuests();
+            //_questManager.CheckQuests();
         }
     }
 }

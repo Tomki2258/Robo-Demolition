@@ -18,10 +18,15 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private GameObject _questPanelPrefab;
     [SerializeField] private Transform _questPanelUI;
     [SerializeField] private TMP_Text _newQuestTime;
+    [Header("Quests Range Values")]
+    public int _killedEnemiesRange;
+    public int _collectedPowerUpsRange;
+    public int _surviveTimeRange;
+    public int _shootenBulletsRange;
+    private DateTime _savedTime;
     private void Start()
     {
         _gameManager = GetComponent<GameManager>();
-        
         //DoQuest();
         LoadSavedQuests();
         CheckQuests();
@@ -38,18 +43,20 @@ public class QuestManager : MonoBehaviour
             _newQuestTime.gameObject.SetActive(true);
             _newQuestTime.transform.SetSiblingIndex(_questPanelUI.childCount);
             DateTime _currentTime = DateTime.Now;
-            DateTime _savedTime = new DateTime(GetSavedTime());
+            _savedTime = new DateTime(GetSavedTime());
             TimeSpan _timeSpan = _savedTime - _currentTime;
             int _elapsedTime = Math.Abs(_timeSpan.Minutes);
             
-            if (_elapsedTime > _questWaitTime)
+            if (GetRemainingTimeForNewQuest() <= 1)
             {
                 DoQuest();
-            }    
+                SaveTime();
+            }
             
             int _remainingMinutes = GetRemainingTimeForNewQuest() / 60;
             int _remainingSeconds = GetRemainingTimeForNewQuest() - (_remainingMinutes * 60);
-            _newQuestTime.text = $"New quest in\n{_remainingMinutes}:{_remainingSeconds}";
+            _newQuestTime.text = $"New quest in\n{_remainingMinutes}:{_remainingSeconds}"; 
+            Debug.LogWarning(GetRemainingTimeForNewQuest());
         }
     }
     
@@ -57,8 +64,8 @@ public class QuestManager : MonoBehaviour
     {
         DateTime currentTime = DateTime.Now;
         DateTime savedTime = new DateTime(GetSavedTime());
-        TimeSpan timeSpan = savedTime - currentTime;
-        int elapsedTime = Math.Abs(timeSpan.Seconds);
+        TimeSpan timeSpan = currentTime-savedTime;
+        int elapsedTime = timeSpan.Seconds;
         return _questWaitTime * 60  - elapsedTime;
     }
     private void LoadSavedQuests()
@@ -83,15 +90,36 @@ public class QuestManager : MonoBehaviour
             Random.Range(0,100));
         QuestType _randomQuestType 
             = Enum.GetValues(typeof(QuestType)).Cast<QuestType>().ToList()[Random.Range(0,_newQuest.GetQuestsTypesLength())];
-        _newQuest.CreateQuest(Random.Range(5,10),_randomQuestType,10);
-        AssetDatabase.CreateAsset(_newQuest,$"Assets/Resources/SavedQuests/{_newQuest.GetIndex()}.asset");
+            
+        int _questTargetValue = 0;
+        switch (_randomQuestType)
+        {
+            case QuestType.killEnemies:
+                _questTargetValue = GetRandomQuestValue(_killedEnemiesRange);
+                break;
+            case QuestType.collectPowerUps:
+                _questTargetValue = GetRandomQuestValue(_collectedPowerUpsRange);
+                break;
+            case QuestType.surviveTime:
+                _questTargetValue = GetRandomQuestValue(_surviveTimeRange);
+                break;
+            case QuestType.shootenBullets:
+                _questTargetValue = GetRandomQuestValue(_shootenBulletsRange);
+                break;
+        }
+        _newQuest.CreateQuest(_questTargetValue,
+            _randomQuestType,
+            10);
+        AssetDatabase.CreateAsset(_newQuest,
+            $"Assets/Resources/SavedQuests/{_newQuest.GetIndex()}.asset");
         _activeQuestsList.Add(_newQuest);
         
         ShowQuest(_newQuest);
-        
-        SaveTime();
     }
-
+    private int GetRandomQuestValue(int _range)
+    {
+        return Random.Range(0,_range);
+    }
     private void ShowQuest(QuestClass _questClass)
     {
         
@@ -106,9 +134,9 @@ public class QuestManager : MonoBehaviour
         foreach (QuestClass _quest in _activeQuestsList.ToList())
         {
             if(_quest.IsQuestDone()) return;
-            
-            bool _questResult = _quest.IsQuestCompleted();
-            if (_questResult)
+         
+            Debug.LogWarning(_quest.GetQuestType());
+            if (_quest.IsQuestCompleted())
             {
                 int _listIndex = _activeQuestsList.IndexOf(_quest);
                 _activeQuestsList.RemoveAt(_listIndex);

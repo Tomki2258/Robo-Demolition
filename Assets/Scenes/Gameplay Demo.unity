@@ -6535,6 +6535,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8813612805122119987, guid: aa507d11281f0005cba98b2404910f2a,
         type: 3}
+    - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _surviveTimeRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _killedEnemiesRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _shootenBulletsRange
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473855328017133584, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _collectedPowerUpsRange
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8411048046895516547, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _showAdButton

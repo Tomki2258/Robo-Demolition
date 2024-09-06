@@ -31,5 +31,6 @@ public class QuestsMonitor : MonoBehaviour
                     break;
             }
         }
+        _questManager.CheckQuests();
     }
 }
