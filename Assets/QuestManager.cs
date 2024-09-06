@@ -23,7 +23,8 @@ public class QuestManager : MonoBehaviour
     public int _collectedPowerUpsRange;
     public int _surviveTimeRange;
     public int _shootenBulletsRange;
-    private DateTime _savedTime;
+    public long _targetTimeTicks;
+    public long _currentTicks;
     private void Start()
     {
         _gameManager = GetComponent<GameManager>();
@@ -43,31 +44,23 @@ public class QuestManager : MonoBehaviour
             _newQuestTime.gameObject.SetActive(true);
             _newQuestTime.transform.SetSiblingIndex(_questPanelUI.childCount);
             DateTime _currentTime = DateTime.Now;
-            _savedTime = new DateTime(GetSavedTime());
-            TimeSpan _timeSpan = _savedTime - _currentTime;
+            _targetTimeTicks = new DateTime(GetSavedTime()).Ticks;
+            TimeSpan _timeSpan = new DateTime(GetSavedTime()) - _currentTime;
             int _elapsedTime = Math.Abs(_timeSpan.Minutes);
-            
-            if (GetRemainingTimeForNewQuest() <= 1)
+            _currentTicks = _currentTime.Ticks;
+            if (_currentTicks >= _targetTimeTicks)
             {
                 DoQuest();
                 SaveTime();
             }
             
-            int _remainingMinutes = GetRemainingTimeForNewQuest() / 60;
-            int _remainingSeconds = GetRemainingTimeForNewQuest() - (_remainingMinutes * 60);
-            _newQuestTime.text = $"New quest in\n{_remainingMinutes}:{_remainingSeconds}"; 
-            Debug.LogWarning(GetRemainingTimeForNewQuest());
+            TimeSpan _timeLeast = new DateTime(_targetTimeTicks) - new DateTime(_currentTicks);
+
+            _newQuestTime.text = $"New quest in\n{_timeLeast.Minutes}:" +
+                                 $"{_timeLeast.Seconds}"; 
         }
     }
     
-    public int GetRemainingTimeForNewQuest()
-    {
-        DateTime currentTime = DateTime.Now;
-        DateTime savedTime = new DateTime(GetSavedTime());
-        TimeSpan timeSpan = currentTime-savedTime;
-        int elapsedTime = timeSpan.Seconds;
-        return _questWaitTime * 60  - elapsedTime;
-    }
     private void LoadSavedQuests()
     {
         List<QuestClass> _loadedQuests = Resources.LoadAll("SavedQuests", typeof(QuestClass)).Cast<QuestClass>().ToList();
@@ -146,8 +139,8 @@ public class QuestManager : MonoBehaviour
 
     public void SaveTime()
     {
-        DateTime _now = DateTime.Now;
-        long _ticks = _now.Ticks;
+        DateTime _targetTime = DateTime.Now.AddMinutes(_questWaitTime);
+        long _ticks = _targetTime.Ticks;
         PlayerPrefs.SetString("LastSavedTime",_ticks.ToString());
     }
 
