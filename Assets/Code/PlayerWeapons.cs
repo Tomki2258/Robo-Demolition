@@ -76,8 +76,10 @@ public class PlayerWeapons : MonoBehaviour
     public Transform _granadeSpawner;
     [Header("Other")] [SerializeField] private List<ParticleSystem> _particleSystems;
     private GameSettings _gameSettings;
+    private QuestsMonitor _questsMonitor;
     private void Start()
     {
+        _questsMonitor = FindFirstObjectByType<QuestsMonitor>();
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _playerMovement = GetComponent<PlayerMovement>();
         _equipmentCanvas = FindFirstObjectByType<EquipmentCanvas>();
@@ -128,6 +130,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _standardGunClass.GetDamage() * _damageMultipler;
         _standardAudioSource.Play();
         _standardGunClass._currentReloadTime = 0;
+        _questsMonitor._bulletsShot++;
         PlayerWeaponParticle(_particleSystems[0]);
     }
     public void MachineGun()
@@ -146,6 +149,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _machineGunClass.GetDamage() * _damageMultipler;
         _machineGunAudioSource.Play();
         PlayerWeaponParticle(_particleSystems[1]);
+        _questsMonitor._bulletsShot++;
         _machineGunClass._currentReloadTime = 0;
     }
 
@@ -165,6 +169,7 @@ public class PlayerWeapons : MonoBehaviour
         _currentBullet.GetComponent<Bullet>()._bulletDamage = _shotgunGunClass.GetDamage() * _damageMultipler;
 //        _sniperAudioSource.Play();
         PlayerWeaponParticle(_particleSystems[1]);
+        _questsMonitor._bulletsShot++;
         _sniperGunClass._currentReloadTime = 0;
     }
 
@@ -180,6 +185,7 @@ public class PlayerWeapons : MonoBehaviour
         var _rocket = _currentRocket.GetComponent<Rocket>();
         _rocket._rocketDamage *= _damageMultipler;
         PlayerWeaponParticle(_particleSystems[3]);
+        _questsMonitor._bulletsShot++;
         _rocketLauncherClass._currentReloadTime = 0;
     }
 
@@ -195,6 +201,7 @@ public class PlayerWeapons : MonoBehaviour
         var _currentSphere = Instantiate(_sphereAttackPrefab, transform.position, Quaternion.identity);
         _currentSphere.GetComponent<SphereAttack>()._player = GetComponent<PlayerMovement>();
         _sphereAttackClass._currentReloadTime = 0;
+        _questsMonitor._bulletsShot++;
     }
 
     public void ShotgunGun()
@@ -230,6 +237,7 @@ public class PlayerWeapons : MonoBehaviour
 
         PlayerWeaponParticle(_particleSystems[1]);
         _shotgunGunClass._currentReloadTime = 0;
+        _questsMonitor._bulletsShot++;
     }
 
     public void CircleGun()
@@ -251,6 +259,7 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         _circleGunClass._currentReloadTime = 0;
+        _questsMonitor._bulletsShot++;
     }
 
     public void DoLaser(Transform _enemy)
@@ -281,6 +290,7 @@ public class PlayerWeapons : MonoBehaviour
             _lastLaserEnemy = _enemy;
             _laserGunClass._currentReloadTime = 0;
         }
+        _questsMonitor._bulletsShot++;
     }
 
     public void DoOrbitalGun()
@@ -299,6 +309,7 @@ public class PlayerWeapons : MonoBehaviour
             _orbitalGun.transform.position = _playerMovement._currentEnemy.transform.position;
             _orbitalGunClass._currentReloadTime = 0;
         }
+        _questsMonitor._bulletsShot++;
     }
     public void DoMineDeployer()
     {
@@ -316,6 +327,7 @@ public class PlayerWeapons : MonoBehaviour
         PlayerWeaponParticle(_particleSystems[3]);
 
         _mineDeployerClass._currentReloadTime = 0;
+        _questsMonitor._bulletsShot++;
     }
 
     public void DoGranadeLauncher()
@@ -333,6 +345,7 @@ public class PlayerWeapons : MonoBehaviour
         
         _granade.GetComponent<Rigidbody>().AddForce(_granadeSpawner.transform.forward * 5, ForceMode.Impulse);
         _granadeLauncherClass._currentReloadTime = 0;
+        _questsMonitor._bulletsShot++;
     }
     public void ModyfyDamage(float _value)
     {

@@ -1,10 +1,12 @@
-using System;using UnityEngine;
+using System;
+using System.IO;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public enum QuestType{
     killEnemies,
     //walkDistance,
-    surviveTime,
+    //surviveTime,
     shootenBullets,
     collectPowerUps
 }
@@ -16,13 +18,14 @@ public class QuestClass : ScriptableObject
     [SerializeField] private int _targetValue;
     [SerializeField] private QuestType _questType;
     [SerializeField] private int _questRewardAmount;
-    private int _randomIndex;
+    [SerializeField] private int _randomIndex;
     public bool _questDone;
-    public void CreateQuest(int _targetValue,QuestType _questType,int _questRewardAmount)
+    public void CreateQuest(int _targetValue,QuestType _questType,int _questRewardAmount,int _randomIndex)
     {
         this._targetValue = _targetValue;
         this._questType = _questType;
         this._questRewardAmount = _questRewardAmount;
+        this._randomIndex = _randomIndex;
     }
 
     public void AddValue(int _value)
@@ -82,8 +85,8 @@ public class QuestClass : ScriptableObject
                 return "Killed enemies";
             //case QuestType.walkDistance:
             //    return "Walk distance";
-            case QuestType.surviveTime:
-                return "Survive time";
+            //case QuestType.surviveTime:
+                //return "Survive time";
             case QuestType.shootenBullets:
                 return "Shooten bullets";
             case QuestType.collectPowerUps:

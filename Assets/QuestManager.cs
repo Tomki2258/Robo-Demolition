@@ -25,7 +25,8 @@ public class QuestManager : MonoBehaviour
     public int _shootenBulletsRange;
     public long _targetTimeTicks;
     public long _currentTicks;
-    private void Start()
+    string _questPath = "Assets/Resources/SavedQuests/";
+    private void Awake()
     {
         _gameManager = GetComponent<GameManager>();
         //DoQuest();
@@ -60,20 +61,41 @@ public class QuestManager : MonoBehaviour
                                  $"{_timeLeast.Seconds}"; 
         }
     }
-    
+    private bool IsQuestDone(QuestClass _quest)
+    {
+        int _targetValue = _quest.GetTargetValue();
+        int _currentValue = _quest.GetCurrentValue();
+        return _targetValue > _currentValue;
+    }
     private void LoadSavedQuests()
     {
-        List<QuestClass> _loadedQuests = Resources.LoadAll("SavedQuests", typeof(QuestClass)).Cast<QuestClass>().ToList();
-        foreach (QuestClass _quest in _loadedQuests)
+        string _questPath = "Assets/Resources/SavedQuests/";
+        string[] files = System.IO.Directory.GetFiles(_questPath, "*.json");
+
+        foreach (string file in files)
         {
-            Debug.LogWarning(_quest.GetQuestType());
-            if (!_quest.IsQuestDone())
+            string json = System.IO.File.ReadAllText(file);
+            QuestClass quest = ScriptableObject.CreateInstance<QuestClass>();
+            JsonUtility.FromJsonOverwrite(json, quest);
+            if (IsQuestDone(quest))
             {
-                _activeQuestsList.Add(_quest);
-                ShowQuest(_quest);
+                _activeQuestsList.Add(quest);
+                ShowQuest(quest);
             }
         }
-   }
+    }
+
+    public void SaveQuests()
+    {
+        string path = "Assets/Resources/SavedQuests/";
+        Debug.LogWarning("SAVING QUESTS");
+        foreach (QuestClass quest in _activeQuestsList)
+        {
+            string filePath = $"{path}{quest.GetIndex()}.json";
+            string json = JsonUtility.ToJson(quest);
+            System.IO.File.WriteAllText(filePath, json);
+        }
+    }
     private void DoQuest()
     {
         if(_activeQuestsList.Count >= _maxActiveQuests) return;
@@ -93,8 +115,8 @@ public class QuestManager : MonoBehaviour
             case QuestType.collectPowerUps:
                 _questTargetValue = GetRandomQuestValue(_collectedPowerUpsRange);
                 break;
-            case QuestType.surviveTime:
-                _questTargetValue = GetRandomQuestValue(_surviveTimeRange);
+            //case QuestType.surviveTime:
+                //_questTargetValue = GetRandomQuestValue(_surviveTimeRange);
                 break;
             case QuestType.shootenBullets:
                 _questTargetValue = GetRandomQuestValue(_shootenBulletsRange);
@@ -102,9 +124,15 @@ public class QuestManager : MonoBehaviour
         }
         _newQuest.CreateQuest(_questTargetValue,
             _randomQuestType,
-            10);
-        AssetDatabase.CreateAsset(_newQuest,
-            $"Assets/Resources/SavedQuests/{_newQuest.GetIndex()}.asset");
+            10,
+            _newQuest.GetIndex());
+        
+        string __questPath = "Assets/Resources/SavedQuests/" + _newQuest.GetIndex() + ".json";
+        
+        string _soJson = JsonUtility.ToJson(_newQuest);
+        
+        System.IO.File.WriteAllText(__questPath,_soJson);
+        
         _activeQuestsList.Add(_newQuest);
         
         ShowQuest(_newQuest);
@@ -115,7 +143,6 @@ public class QuestManager : MonoBehaviour
     }
     private void ShowQuest(QuestClass _questClass)
     {
-        
         GameObject _quest = Instantiate(_questPanelPrefab, transform.position, Quaternion.identity);
         QuestPanel _currentQuestPanel = _quest.GetComponent<QuestPanel>();
         _currentQuestPanel.SetQuest(_questClass);

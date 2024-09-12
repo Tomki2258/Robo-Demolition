@@ -26,11 +26,12 @@ public class QuestsMonitor : MonoBehaviour
                 case QuestType.shootenBullets:
                     _quest.AddValue(_bulletsShot);
                     break;
-                case QuestType.surviveTime:
-                    _quest.AddValue(_timeSurvived);
+                //case QuestType.surviveTime:
+                    //_quest.AddValue(_timeSurvived);
                     break;
             }
         }
+        _questManager.SaveQuests();
         _questManager.CheckQuests();
     }
 }
