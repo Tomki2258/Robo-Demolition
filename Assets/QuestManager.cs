@@ -174,7 +174,7 @@ public class QuestManager : MonoBehaviour
     private long GetSavedTime()
     {
         string _ticksString = PlayerPrefs.GetString("LastSavedTime");
-        if(_ticksString == "")
+        if(string.IsNullOrEmpty(_ticksString))
         {
             SaveTime(); 
         }
