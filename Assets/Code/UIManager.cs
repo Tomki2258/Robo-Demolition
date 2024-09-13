@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private VariableJoystick _variableJoystick;
     public GameObject _questCanvas;
     private QuestManager _questManager;
+    [SerializeField] private TMP_Text _coinsText;
     private void Awake()
     {
         _questCanvas.SetActive(false);
@@ -264,6 +265,8 @@ public class UIManager : MonoBehaviour
     {
         bool _questEnabled = _questCanvas.activeSelf;
 
+        _coinsText.text = _userData.GetPlayerCoins().ToString();
+        
         if (_questCanvas)
         {
             _questCanvas.SetActive(!_questEnabled);
