@@ -25,9 +25,10 @@ public class QuestManager : MonoBehaviour
     public int _shootenBulletsRange;
     public long _targetTimeTicks;
     public long _currentTicks;
-    string _questPath = "Assets/Resources/SavedQuests/";
+    private string _questPath;
     private void Awake()
     {
+        _questPath = Application.persistentDataPath + "/SavedQuests/";
         _gameManager = GetComponent<GameManager>();
         //DoQuest();
         LoadSavedQuests();
@@ -69,7 +70,10 @@ public class QuestManager : MonoBehaviour
     }
     private void LoadSavedQuests()
     {
-        string _questPath = "Assets/Resources/SavedQuests/";
+        if (!System.IO.Directory.Exists(_questPath))
+        {
+            System.IO.Directory.CreateDirectory(_questPath);
+        }
         string[] files = System.IO.Directory.GetFiles(_questPath, "*.json");
 
         foreach (string file in files)
@@ -87,11 +91,10 @@ public class QuestManager : MonoBehaviour
 
     public void SaveQuests()
     {
-        string path = "Assets/Resources/SavedQuests/";
         Debug.LogWarning("SAVING QUESTS");
         foreach (QuestClass quest in _activeQuestsList)
         {
-            string filePath = $"{path}{quest.GetIndex()}.json";
+            string filePath = $"{_questPath}{quest.GetIndex()}.json";
             string json = JsonUtility.ToJson(quest);
             System.IO.File.WriteAllText(filePath, json);
         }
@@ -127,7 +130,7 @@ public class QuestManager : MonoBehaviour
             10,
             _newQuest.GetIndex());
         
-        string __questPath = "Assets/Resources/SavedQuests/" + _newQuest.GetIndex() + ".json";
+        string __questPath = _questPath + _newQuest.GetIndex() + ".json";
         
         string _soJson = JsonUtility.ToJson(_newQuest);
         
