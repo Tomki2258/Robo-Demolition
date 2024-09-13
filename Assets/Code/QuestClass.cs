@@ -96,8 +96,12 @@ public class QuestClass : ScriptableObject
         }
     }
 
-    private void CompleteQuest()
+    public void CompleteQuest()
     {
         _questDone = true;
+    }
+    public int GetQuestRewardAmount()
+    {
+        return _questRewardAmount;
     }
 }

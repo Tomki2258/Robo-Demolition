@@ -6,7 +6,7 @@ using UnityEngine;
 public class UserData : MonoBehaviour
 {
     private int _allKilldedEnemies;
-    private int _playerCoins;
+    [SerializeField] private int _playerCoins;
     public bool _IsOnline;
     private void Start()
     {

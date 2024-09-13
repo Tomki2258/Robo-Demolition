@@ -25,9 +25,13 @@ public class QuestManager : MonoBehaviour
     public int _shootenBulletsRange;
     public long _targetTimeTicks;
     public long _currentTicks;
-    private string _questPath;
+    private string _questPath; 
+    private UserData _userData;
+    private NotyficationBaner _notyficationBaner;
     private void Awake()
     {
+        _notyficationBaner = FindObjectOfType<NotyficationBaner>();
+        _userData = FindObjectOfType<UserData>();
         _questPath = Application.persistentDataPath + "/SavedQuests/";
         _gameManager = GetComponent<GameManager>();
         //DoQuest();
@@ -48,7 +52,6 @@ public class QuestManager : MonoBehaviour
             DateTime _currentTime = DateTime.Now;
             _targetTimeTicks = new DateTime(GetSavedTime()).Ticks;
             TimeSpan _timeSpan = new DateTime(GetSavedTime()) - _currentTime;
-            int _elapsedTime = Math.Abs(_timeSpan.Minutes);
             _currentTicks = _currentTime.Ticks;
             if (_currentTicks >= _targetTimeTicks)
             {
@@ -58,7 +61,7 @@ public class QuestManager : MonoBehaviour
             
             TimeSpan _timeLeast = new DateTime(_targetTimeTicks) - new DateTime(_currentTicks);
 
-            _newQuestTime.text = $"New quest in\n{_timeLeast.Minutes}:" +
+            _newQuestTime.text = $"New quest in\n{_timeLeast.Minutes + (_timeLeast.Hours * 60)}:" +
                                  $"{_timeLeast.Seconds}"; 
         }
     }
@@ -142,7 +145,7 @@ public class QuestManager : MonoBehaviour
     }
     private int GetRandomQuestValue(int _range)
     {
-        return Random.Range(0,_range);
+        return Random.Range(_range/3,_range);
     }
     private void ShowQuest(QuestClass _questClass)
     {
@@ -161,8 +164,18 @@ public class QuestManager : MonoBehaviour
             Debug.LogWarning(_quest.GetQuestType());
             if (_quest.IsQuestCompleted())
             {
+                _quest.CompleteQuest();
+                
+                int _questReward = _quest.GetQuestRewardAmount();
+                _userData.AddPlayerCoins(_questReward);
+                
                 int _listIndex = _activeQuestsList.IndexOf(_quest);
                 _activeQuestsList.RemoveAt(_listIndex);
+                
+                _notyficationBaner.ShotMessage("Quest Completed",
+                    _questReward.ToString() + " coins earned",
+                    false,
+                    true);
             }
         }
     }
