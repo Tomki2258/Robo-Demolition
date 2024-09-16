@@ -26,9 +26,6 @@ public class UIManager : MonoBehaviour
     public TMP_Text _killedEnemiesText;
     public GameObject _hpDifferenceText;
     public PlayerMovement _player;
-    public GameObject _adRewardButton;
-    public GameObject _fpsCanvas;
-    public bool _enableFPS;
     public GameObject _settingsUI;
     public Image _captureAreaImage;
     public GameObject _eqCanvas;
@@ -59,11 +56,6 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(false);
 
         _startTime = DateTime.Now;
-
-        /*
-        if(_enableFPS) _fpsCanvas.SetActive(true);
-        else _fpsCanvas.SetActive(false);
-        */
     }
 
     private void Start()
@@ -81,24 +73,6 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         _newEnemySpottedUI.SetActive(false);
-    }
-    public void Update()
-    {
-        //if(!_gameManager._gameLaunched) return;
-        if (_levelUpCanvas.activeSelf)
-        {
-            //_mainUI.SetActive(false);
-        }
-
-        //_mainUI.SetActive(true);
-        // if (_player._died)
-        // {
-        //     _mainUI.SetActive(false);
-        //     if (Input.GetMouseButtonDown(0))
-        //     {
-        //         SceneManager.LoadScene(0);
-        //     }
-        // }
     }
 
     public void EnableEqCanvas(bool _mode)
@@ -172,21 +146,20 @@ public class UIManager : MonoBehaviour
         _object.SetActive(false);
     }
 
-    public void DoLevelUpCanvas(bool _sraka)
+    public void DoLevelUpCanvas(bool _mode)
     {
-        //_variableJoystick.gameObject.SetActive(!_sraka);
-        _mainUI.SetActive(!_sraka);
-        _levelUpCanvas.SetActive(_sraka);
-        _levelUpCanvas.SetActive(_sraka);
+        _mainUI.SetActive(!_mode);
+        _levelUpCanvas.SetActive(_mode);
+        _levelUpCanvas.SetActive(_mode);
 
-        if (_sraka)
+        if (_mode)
             _levelUpCanvas.GetComponent<LevelUpUI>().SetReward();
-        if (!_sraka)
+        if (!_mode)
         {
             _cameraShake.SwitchShakeMode(true);
             _player.DoJoystickInput(true);
         }
-        Time.timeScale = !_sraka ? 1 : 0;
+        Time.timeScale = !_mode ? 1 : 0;
     }
 
     public void EnableDieCanvas(bool _mode)

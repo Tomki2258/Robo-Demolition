@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ParticleSystem _spawnParticles;
     private Transform _choosenSpawner;
     [SerializeField] private int _poweredEnemyChance;
+    private bool _playerWasRevived = false;
     private void Awake()
     {
         DoAppLaunch();
@@ -146,9 +147,6 @@ public class GameManager : MonoBehaviour
         foreach (var _trash in _trashArray) Destroy(_trash);
     }
     
-    public void ShowNewEnemySpotted()
-    {
-    }
     public void IncreaseEnemiesIndex()
     {
         if (_enemiesStages.Contains(_player._level))
@@ -335,5 +333,14 @@ public class GameManager : MonoBehaviour
     public int GetPoweredEnemyChance()
     {
         return _poweredEnemyChance;
+    }
+
+    public void SetPlayerRevived()
+    {
+        _playerWasRevived = true;
+    }
+    public bool GetPlayerRevived()
+    {
+        return _playerWasRevived;
     }
 }

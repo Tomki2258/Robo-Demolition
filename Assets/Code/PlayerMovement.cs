@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _currentEnemy;
     public float _attackRange; //base
     public float _currentAttackRange;
-    public int _damage;
     [Header("Player Stats")] public float _maxHealth;
 
     public float _health;
@@ -49,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
     public float _maxFootStepTimer;
     public AudioSource _legsAudioSource;
     [Header("FootSteps sounds")] public List<AudioClip> _footStepSounds;
-    public List<Transform> _footstepsTransforms;
-    public GameObject _footStepEffect;
     private readonly int _hpRegenTime = 1;
     private Animator _animator;
     private CameraController _cameraController;
@@ -71,10 +68,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _playerMoving = false;
     private readonly List<Vector3> _startPlayerPositions = new(3);
     private readonly List<Quaternion> _startPlayerQuaterions = new(2);
-    private Quaternion _startRotation;
     private UIManager _uiManager;
     public Transform _idleLookTransform;
-    public Transform _mainCannonRotateElement;
     public float _levelUpPlayerScaler;
     private EquipmentCanvas _equipmentCanvas;
     private float _startPlayerY = 1.871f;
@@ -107,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
         _playerWeapons = GetComponent<PlayerWeapons>();
         _shieldEffect.SetActive(false);
         _animator = GetComponent<Animator>();
-        _startRotation = _top.rotation;
         _animator.enabled = false;
         _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
         _playerWeapons._laserSpawner.gameObject.SetActive(false);
@@ -164,10 +158,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (_died) return;
-
-        // if(_health <= 0)
-        //     Die();
-        //XpManagment();
+        
         HpRegeneration();
         ShieldManagment();
         SetUiValues();
@@ -252,45 +243,7 @@ public class PlayerMovement : MonoBehaviour
             _shield = false;
         }
     }
-
-    // private void CheckForWeaponUnlock(int _currentLevel)
-    // {
-    //     if (_weaponsUnlockStages.Contains(_currentLevel))
-    //     {
-    //         int _index = _weaponsUnlockStages.IndexOf(_currentLevel);
-    //     
-    //         switch (_index)
-    //         {
-    //             case 0:
-    //                 _playerWeapons._shotgunEnabled = true;
-    //                 _playerWeapons._weaponsModels[0].SetActive(true);
-    //                 _uiManager.UnlockUI("Shotgun", null);
-    //                 break;
-    //             case 1:
-    //                 _playerWeapons._circleGunEnabled = true;
-    //                 _playerWeapons._weaponsModels[1].SetActive(true);
-    //                 _uiManager.UnlockUI("Circle gun", null);
-    //
-    //                 break;
-    //             case 2:
-    //                 _playerWeapons._sphereAttackEnabled = true;
-    //                 _playerWeapons._weaponsModels[2].SetActive(true);
-    //                 _uiManager.UnlockUI("Sphere bomb", null);
-    //
-    //                 break;
-    //             case 3:
-    //                 _playerWeapons._laserGunEnabled = true;
-    //                 _playerWeapons._weaponsModels[3].SetActive(true);
-    //                 _uiManager.UnlockUI("Laser", null);
-    //                 break;
-    //             case 4:
-    //                 _playerWeapons._rocketLauncherEnabled = true;
-    //                 _playerWeapons._weaponsModels[4].SetActive(true);
-    //                 _uiManager.UnlockUI("Rocket launcher", null);
-    //                 break;
-    //         }
-    //     }
-    // }
+    
     private void MoveTurret(Vector3 _target)
     {
         var _direction = _target - transform.position;
@@ -308,7 +261,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (_enemyDist < _currentAttackRange)
         {
-            //_mainCannonRotateElement.Rotate(Vector3.left * 300 * Time.deltaTime);
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
             _playerWeapons.CircleGun();
@@ -409,7 +361,6 @@ public class PlayerMovement : MonoBehaviour
         foreach (var _enemy in _gameManager._spawnedEnemies)
         {
             if (_enemy == null) continue;
-            //if(!RaycastEnemy(_enemy.transform)) continue;
             var dist = Vector3.Distance(_enemy.transform.position, transform.position);
             
             if (dist < lowestDist)
@@ -422,7 +373,6 @@ public class PlayerMovement : MonoBehaviour
         return _currentEnemy.transform;
     }
 
-    // ReSharper disable Unity.PerformanceAnalysis
     public void CheckHealth(float _value)
     {
         if (_died) return;
@@ -454,7 +404,6 @@ public class PlayerMovement : MonoBehaviour
         _died = true;
         _cameraController._offset.y = 15;
         _cameraController._speed /= 2;
-        //_cameraController._rotationSpeed *= 1.5f;
         _animator.enabled = true;
         _animator.SetTrigger("die");
         _legsAnimator.SetBool("Moving", false);
@@ -462,13 +411,10 @@ public class PlayerMovement : MonoBehaviour
         _topAninmator.enabled = false;
         _shield = false;
         _shieldEffect.SetActive(false);
-        //_gameManager.DoAd();
     }
 
     public void Revive()
     {
-        try
-        {
             _top.localPosition = _startPlayerPositions[0];
             _top.localRotation = _startPlayerQuaterions[0];
             _legs.localPosition = _startPlayerPositions[1];
@@ -483,12 +429,7 @@ public class PlayerMovement : MonoBehaviour
             _uiManager.ShowHpDifference(_maxHealth / 2);
             _cameraController._speed *= 2;
             _animator.enabled = false;
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"Ten skrypt rzuca błędem:\n {e}");
-            throw;
-        }
+            _topAninmator.enabled = true;
     }
 
     public void DiePlayerTexture()
@@ -514,13 +455,6 @@ public class PlayerMovement : MonoBehaviour
         GameObject _effectInsstance = null;
         if (_currentFootStepTimer > _maxFootStepTimer)
         {
-            /*
-            _footWasLeft = !_footWasLeft;
-            _effectInsstance = Instantiate(_footStepEffect,
-                _footstepsTransforms[_footWasLeft ? 1 : 0].position,
-                Quaternion.identity);
-            Destroy(_effectInsstance, 3);
-            */
             _legsAudioSource.resource = _footStepSounds[Random.Range(0, _footStepsSoundsCount)];
             _legsAudioSource.Play();
             _currentFootStepTimer = 0;

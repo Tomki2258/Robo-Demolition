@@ -8,9 +8,10 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
- 
+    private GameManager _gameManager;
     void Awake()
     {   
+        _gameManager = FindObjectOfType<GameManager>();
         // Get the Ad Unit ID for the current platform:
 #if UNITY_IOS
         _adUnitId = _iOSAdUnitId;
@@ -57,7 +58,7 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
     {
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
-            Debug.LogWarning("Unity Ads Rewarded Ad Completed");
+            _showAdButton.gameObject.SetActive(false);
             
             FindFirstObjectByType<GameManager>().AdReward();
         }
