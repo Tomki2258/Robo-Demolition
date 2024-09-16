@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         HitFunction(other);
     }
 
-    public void HitFunction(Collider other)
+    private void HitFunction(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet")) return;
 

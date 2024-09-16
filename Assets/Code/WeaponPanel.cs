@@ -25,7 +25,7 @@ public class WeaponPanel : MonoBehaviour
         CheckForUnlock();
     }
 
-    public void UpdateVisuals()
+    private void UpdateVisuals()
     {
         if (_weaponClass == null) return;
         _weaponSprite = _weaponClass.GetWeaponSprite();
@@ -107,10 +107,8 @@ public class WeaponPanel : MonoBehaviour
         if (_isOn)
         {
             _backgroundImage.color = new Color(255, 255, 255, 100);
+            return;
         }
-        else
-        {
-            _backgroundImage.color = Color.gray;
-        }
+        _backgroundImage.color = Color.gray;
     }
 }

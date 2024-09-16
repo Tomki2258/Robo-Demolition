@@ -16,7 +16,7 @@ public class ExplosiveMine : MonoBehaviour
         StartCoroutine(Prepare());
     }
 
-    IEnumerator Prepare()
+    private IEnumerator Prepare()
     {
         yield return new WaitForSeconds(3);
         _ready = true;

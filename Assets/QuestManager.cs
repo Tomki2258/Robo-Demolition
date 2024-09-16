@@ -25,14 +25,14 @@ public class QuestManager : MonoBehaviour
     public int _shootenBulletsRange;
     public long _targetTimeTicks;
     public long _currentTicks;
-    private string _questPath; 
+    private string _questDataPath; 
     private UserData _userData;
     private NotyficationBaner _notyficationBaner;
     private void Awake()
     {
         _notyficationBaner = FindObjectOfType<NotyficationBaner>();
         _userData = FindObjectOfType<UserData>();
-        _questPath = Application.persistentDataPath + "/SavedQuests/";
+        _questDataPath = Application.persistentDataPath + "/SavedQuests/";
         _gameManager = GetComponent<GameManager>();
         //DoQuest();
         LoadSavedQuests();
@@ -73,11 +73,11 @@ public class QuestManager : MonoBehaviour
     }
     private void LoadSavedQuests()
     {
-        if (!System.IO.Directory.Exists(_questPath))
+        if (!System.IO.Directory.Exists(_questDataPath))
         {
-            System.IO.Directory.CreateDirectory(_questPath);
+            System.IO.Directory.CreateDirectory(_questDataPath);
         }
-        string[] files = System.IO.Directory.GetFiles(_questPath, "*.json");
+        string[] files = System.IO.Directory.GetFiles(_questDataPath, "*.json");
 
         foreach (string file in files)
         {
@@ -97,7 +97,7 @@ public class QuestManager : MonoBehaviour
         Debug.LogWarning("SAVING QUESTS");
         foreach (QuestClass quest in _activeQuestsList)
         {
-            string filePath = $"{_questPath}{quest.GetIndex()}.json";
+            string filePath = $"{_questDataPath}{quest.GetIndex()}.json";
             string json = JsonUtility.ToJson(quest);
             System.IO.File.WriteAllText(filePath, json);
         }
@@ -133,11 +133,11 @@ public class QuestManager : MonoBehaviour
             10,
             _newQuest.GetIndex());
         
-        string __questPath = _questPath + _newQuest.GetIndex() + ".json";
+        string _questPath = _questDataPath + _newQuest.GetIndex() + ".json";
         
         string _soJson = JsonUtility.ToJson(_newQuest);
         
-        System.IO.File.WriteAllText(__questPath,_soJson);
+        System.IO.File.WriteAllText(_questPath,_soJson);
         
         _activeQuestsList.Add(_newQuest);
         
@@ -180,7 +180,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void SaveTime()
+    private void SaveTime()
     {
         DateTime _targetTime = DateTime.Now.AddMinutes(_questWaitTime);
         long _ticks = _targetTime.Ticks;

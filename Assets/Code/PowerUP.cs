@@ -41,26 +41,25 @@ public class PowerUP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerMovement>())
+        if (!other.gameObject.GetComponent<PlayerMovement>()) return;
+        
+        var _player = other.GetComponent<PlayerMovement>();
+        switch (_powerUpType)
         {
-            var _player = other.GetComponent<PlayerMovement>();
-            switch (_powerUpType)
-            {
-                case PowerUpType.Health:
-                    if (_player._health >= _player._maxHealth) return;
-                    _player._health += Convert.ToInt32(_player._health * 0.33f);
-                    _uiManager.ShowHpDifference(_player._health * 0.33f);
+            case PowerUpType.Health:
+                if (_player._health >= _player._maxHealth) return;
+                _player._health += Convert.ToInt32(_player._health * 0.33f);
+                _uiManager.ShowHpDifference(_player._health * 0.33f);
 
-                    if (_player._health > _player._maxHealth)
-                        _player._health = _player._maxHealth;
-                    break;
-                case PowerUpType.Shield:
-                    _player._shield = true;
-                    break;
-            }
-
-            _questsMonitor._colledtedPowerUps++;
-            Destroy(gameObject);
+                if (_player._health > _player._maxHealth)
+                    _player._health = _player._maxHealth;
+                break;
+            case PowerUpType.Shield:
+                _player._shield = true;
+                break;
         }
+
+        _questsMonitor._colledtedPowerUps++;
+        Destroy(gameObject);
     }
 }

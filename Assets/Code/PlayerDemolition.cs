@@ -18,13 +18,13 @@ public class PlayerDemolition : MonoBehaviour
         if (other.CompareTag("Destroyable"))
         {
             Debug.Log("Destroyable object");
-            if (CheckDestroy(other.gameObject))
-                if (!_destroyedObjects.Contains(other.gameObject))
-                {
-                    other.tag = "Destroyed";
-                    other.gameObject.isStatic = false;
-                    _destroyedObjects.Add(other.gameObject);
-                }
+            if (!CheckDestroy(other.gameObject)) return;
+            if (!_destroyedObjects.Contains(other.gameObject))
+            {
+                other.tag = "Destroyed";
+                other.gameObject.isStatic = false;
+                _destroyedObjects.Add(other.gameObject);
+            }
         }
     }
 
@@ -39,30 +39,29 @@ public class PlayerDemolition : MonoBehaviour
         {
             var _destroyable = gobj.GetComponent<Destroyable>();
             destoryableType _type = _destroyable._type;
-            if(_type == destoryableType.NONE)
+            switch (_type)
             {
-                if (Vector3.Distance(_destroyable.transform.position, _destroyable.GetCollabseVector()) > 0.2f)
-                    _destroyable.transform.position = Vector3.Lerp(
-                        new Vector3(
-                            _destroyable.transform.position.x + Mathf.Sin(Time.time * 50) * 0.03f,
-                            _destroyable.transform.position.y,
-                            _destroyable.transform.position.z + +Mathf.Sin(Time.time * 50) * 0.03f),
-                        _destroyable.GetCollabseVector(), _destroyable._fallingSpeed * Time.deltaTime);
-            }
-            else if(_type == destoryableType.Falling)
-            {
-                if(!_destroyable.CheckHorizontal())
+                case destoryableType.NONE:
                 {
+                    if (Vector3.Distance(_destroyable.transform.position, _destroyable.GetCollabseVector()) > 0.2f)
+                        _destroyable.transform.position = Vector3.Lerp(
+                            new Vector3(
+                                _destroyable.transform.position.x + Mathf.Sin(Time.time * 50) * 0.03f,
+                                _destroyable.transform.position.y,
+                                _destroyable.transform.position.z + +Mathf.Sin(Time.time * 50) * 0.03f),
+                            _destroyable.GetCollabseVector(), _destroyable._fallingSpeed * Time.deltaTime);
+                    break;
+                }
+                case destoryableType.Falling when !_destroyable.CheckHorizontal():
                     _destroyable._fallingSpeed += Time.deltaTime * 2;
                     gobj.transform.RotateAround(gobj.transform.position,
                         _destroyable.GetCollabseVector()
                         , _destroyable._fallingSpeed);
-                }
-                else
-                {
+                    break;
+                case destoryableType.Falling:
                     _destroyable.PlayFallingSound();
                     _destroyedObjects.Remove(gobj);
-                }
+                    break;
             }
         }
     }
@@ -71,7 +70,6 @@ public class PlayerDemolition : MonoBehaviour
     {
         var _objectRenderer = _object.GetComponent<Renderer>();
         var sizeY = _objectRenderer.bounds.size.y;
-        if (sizeY < _playerHeight) return true;
-        return false;
+        return sizeY < _playerHeight;
     }
 }

@@ -21,6 +21,7 @@ public class Windmill : MonoBehaviour
 
     private void FixedUpdate()
     {
-        foreach (var windmill in _blades) windmill.transform.Rotate(Vector3.forward * (_speed * Time.deltaTime));
+        foreach (var windmill in _blades) 
+            windmill.transform.Rotate(Vector3.forward * (_speed * Time.deltaTime));
     }
 }

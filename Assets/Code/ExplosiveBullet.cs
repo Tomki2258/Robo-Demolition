@@ -6,10 +6,6 @@ public class ExplosiveBullet : Bullet
     public GameObject _explosionEffect;
     public int _granadeSpeed;
 
-    private void Start()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet")) return;

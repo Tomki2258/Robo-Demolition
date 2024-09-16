@@ -6257,12 +6257,12 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -9238,6 +9238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _particleSystems.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _raycastIgnoreLayers.m_Bits
+      value: 1152
       objectReference: {fileID: 0}
     - target: {fileID: 5308632745959701585, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}

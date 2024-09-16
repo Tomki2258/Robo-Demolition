@@ -56,15 +56,13 @@ public class WeaponUnlock : MonoBehaviour
 
     public bool CheckForWeaponUnlock()
     {
-        if (_weaponUnlockStages.Contains(_playerMovement._level))
-        {
-            Debug.LogWarning("Weapon unlock");
-            _animator.SetTrigger("ChooseWeapon");
-            SetWeaponsUI();
-            return true;
-        }
+        if (!_weaponUnlockStages.Contains(_playerMovement._level)) return false;
+        
+        //Debug.LogWarning("Weapon unlock");
+        _animator.SetTrigger("ChooseWeapon");
+        SetWeaponsUI();
+        return true;
 
-        return false;
     }
 
     public void ChooseReward(bool _isLeft)

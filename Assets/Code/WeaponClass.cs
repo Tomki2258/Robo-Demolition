@@ -98,8 +98,7 @@ namespace DefaultNamespace
 
         public bool CheckShoot()
         {
-            if (_currentReloadTime > _reloadTimeMax) return true;
-            return false;
+            return _currentReloadTime > _reloadTimeMax;
         }
 }
 }

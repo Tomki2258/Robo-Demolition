@@ -149,11 +149,10 @@ public class GameManager : MonoBehaviour
     
     public void IncreaseEnemiesIndex()
     {
-        if (_enemiesStages.Contains(_player._level))
-        {
-            _possibleEnemies++;
-            _uiManager.ShowSpottedUI();
-        }
+        if (!_enemiesStages.Contains(_player._level)) return;
+        
+        _possibleEnemies++;
+        _uiManager.ShowSpottedUI();
     }
 
     private void SpawnEnemy()
@@ -299,7 +298,8 @@ public class GameManager : MonoBehaviour
         //Debug.LogWarning("Game made lol");
         _spodek.SetActive(false);
     }
-	public IEnumerator StartDelayCoroutine(float delay){
+
+    private IEnumerator StartDelayCoroutine(float delay){
 		yield return new WaitForSeconds(delay);
 		StartGame();
 	}

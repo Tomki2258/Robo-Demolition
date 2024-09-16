@@ -108,16 +108,16 @@ public class Rocket : MonoBehaviour
         else
         {
              foreach (var _obj in _colliders)
-            {
-                if (_obj.GetComponent<Enemy>())
-                {
-                    //Debug.LogWarning("Enemy hit" + _obj.name);
-                    if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
-                    {
-                        //_explosionFX.GetComponent<AudioSource>().enabled = false;
-                    }
-                }
-            } 
+             {
+                 if (_obj.GetComponent<Enemy>())
+                 {
+                     //Debug.LogWarning("Enemy hit" + _obj.name);
+                     if (!_obj.GetComponent<Enemy>().CheckHealth(_rocketDamage))
+                     {
+                         //_explosionFX.GetComponent<AudioSource>().enabled = false;
+                     }
+                 }
+             } 
         }
     }
 }

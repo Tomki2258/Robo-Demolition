@@ -18,7 +18,7 @@ public class PowerUpsManagment : MonoBehaviour
         _gameManager = GetComponent<GameManager>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if(!_gameManager._gameLaunched || !_gameManager._gameStarted) return;
         

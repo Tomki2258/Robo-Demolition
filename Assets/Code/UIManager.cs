@@ -60,8 +60,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if (!_startOverrided) StartGame(false);
-        else StartGame(true);
+        StartGame(_startOverrided);
     }
 
     public void ShowSpottedUI()
@@ -107,7 +106,7 @@ public class UIManager : MonoBehaviour
         var _text = _hpDifference.GetComponent<TMP_Text>();
         if (_value != -1 && _value != -2)
         {
-        
+            //-1 is for bullet miss -2 is fot shield
             string _toDisplay = _value.ToString("0.00");
             _text.text = _toDisplay.Replace(",", ".");
 

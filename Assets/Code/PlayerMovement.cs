@@ -58,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _footWasLeft;
     private GameManager _gameManager;
     private float _hpRegenTimer;
-    private Quaternion _idleQuaterion;
     private bool _isJoystick;
     private VariableJoystick _joystick;
     private Animator _legsAnimator;
@@ -78,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         _equipmentCanvas = FindAnyObjectByType<EquipmentCanvas>();
         _footStepsSoundsCount = _footStepSounds.Count;
         _legsAnimator = _legs.GetComponent<Animator>();
-        _idleQuaterion = new Quaternion(0, 0, 0, 0);
         _startPlayerPositions.Add(_top.localPosition);
         _startPlayerQuaterions.Add(_top.localRotation);
         _startPlayerPositions.Add(_legs.localPosition);
@@ -198,10 +196,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool CheckPlayerMove(Vector3 _moveDirection)
+    private bool CheckPlayerMove(Vector3 _moveDirection)
     {
-        if (_moveDirection.sqrMagnitude <= 0) return false;
-        return true;
+        return !(_moveDirection.sqrMagnitude <= 0);
     }
 
     private void SetUiValues()
@@ -285,37 +282,35 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddPlayerXP(int value)
     {
-        this._xp += value;
+        _xp += value;
         XpManagment();
     }
     private void XpManagment()
     {
-        if (_xp >= _xpToNextLevel)
-        {
-            _equipmentCanvas.CheckForWeaponPanels();
-            _cameraShake.SwitchShakeMode(false);
-            _uiManager.DoLevelUpCanvas(true);
-            transform.position = new Vector3(transform.position.x,
-                transform.position.y + 0.05f,
-                transform.position.z);
-            DoJoystickInput(false);
-            //_cameraShake.CancelShake();
-            //CheckForWeaponUnlock(_level);
-            _startPlayerY += 0.15f;
-            _level++;
-            _xp = 0;
-            _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.3f);
+        if (_xp < _xpToNextLevel) return;
+        
+        _equipmentCanvas.CheckForWeaponPanels();
+        _cameraShake.SwitchShakeMode(false);
+        _uiManager.DoLevelUpCanvas(true);
+        transform.position = new Vector3(transform.position.x,
+            transform.position.y + 0.05f,
+            transform.position.z);
+        DoJoystickInput(false);
 
-            var _scale = transform.localScale;
-            _scale += new Vector3(0.1f, 0.1f, 0.1f) * _levelUpPlayerScaler;
-            transform.localScale = _scale;
-            _maxHealth += Convert.ToInt16(_maxHealth * 0.1f);
-            _health += Convert.ToInt16(_maxHealth * 0.10f);
-            _speed+= 0.25f;
-            if (_level % 3 == 0) _gameManager.IncreaseEnemiesIndex();
+        _startPlayerY += 0.15f;
+        _level++;
+        _xp = 0;
+        _xpToNextLevel += Convert.ToInt16(_xpToNextLevel * 0.3f);
 
-            _playerDemolition.UpdatePlayerSize();
-        }
+        var _scale = transform.localScale;
+        _scale += new Vector3(0.1f, 0.1f, 0.1f) * _levelUpPlayerScaler;
+        transform.localScale = _scale;
+        _maxHealth += Convert.ToInt16(_maxHealth * 0.1f);
+        _health += Convert.ToInt16(_maxHealth * 0.10f);
+        _speed+= 0.25f;
+        if (_level % 3 == 0) _gameManager.IncreaseEnemiesIndex();
+
+        _playerDemolition.UpdatePlayerSize();
     }
 
     private void HpRegeneration()

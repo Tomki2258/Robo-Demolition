@@ -64,10 +64,9 @@ public class NotyficationBaner : MonoBehaviour
 
     public void CancelIEnumerator()
     {
-        if (_currentEnumerator != null)
-        {
-            StopCoroutine(_currentEnumerator);
-            _notyficationBaner.SetActive(false);
-        }
+        if (_currentEnumerator == null) return;
+        
+        StopCoroutine(_currentEnumerator);
+        _notyficationBaner.SetActive(false);
     }
 }

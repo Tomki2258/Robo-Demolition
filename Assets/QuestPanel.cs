@@ -15,7 +15,7 @@ public class QuestPanel : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
     }
 
-    public void RefleshUI()
+    private void RefleshUI()
     {
         _questTypeText.text = _currentQuest.GetQuestDescription();
         _currentTastValue.text = _currentQuest.GetCurrentValue().ToString();

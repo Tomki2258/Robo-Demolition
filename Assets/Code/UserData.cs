@@ -14,7 +14,7 @@ public class UserData : MonoBehaviour
         _playerCoins = PlayerPrefs.GetInt("allCoins");
     }
 
-    public int GetKilledEnemies()
+    private int GetKilledEnemies()
     {
         return _allKilldedEnemies;
     }

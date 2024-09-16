@@ -36,7 +36,7 @@ public class StatsCanvas : MonoBehaviour
         SetValues();
     }
 
-    public void SetValues()
+    private void SetValues()
     {
         _startHealth = _player._maxHealth;
         _startRange = _player._attackRange;
