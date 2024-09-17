@@ -55,8 +55,10 @@ public class GameManager : MonoBehaviour
     private Transform _choosenSpawner;
     [SerializeField] private int _poweredEnemyChance;
     private bool _playerWasRevived = false;
+    [SerializeField] private Camera _garageCammera;
     private void Awake()
     {
+        _garageCammera.enabled = false;
         DoAppLaunch();
         _userData = FindFirstObjectByType<UserData>();
         _userData.CheckPlayerOnline();
