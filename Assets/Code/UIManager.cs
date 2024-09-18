@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
     public GameObject _questCanvas;
     private QuestManager _questManager;
     [SerializeField] private TMP_Text _coinsText;
+    [SerializeField] private GameObject _playerCustomizationCanvas;
+    private PlayerGarage _playerGarage;
     private void Awake()
     {
         _questCanvas.SetActive(false);
@@ -56,6 +58,8 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(false);
 
         _startTime = DateTime.Now;
+        _playerCustomizationCanvas.SetActive(false);
+        _playerGarage = FindFirstObjectByType<PlayerGarage>();
     }
 
     private void Start()
@@ -248,5 +252,12 @@ public class UIManager : MonoBehaviour
             _questCanvas.SetActive(_questEnabled);
             //_questManager.CheckQuests();
         }
+    }
+    public void EnablePlayerCustomizationCanvas(bool _mode)
+    {
+        _gameManager.EnablePlayerGarage(_mode);
+        _playerCustomizationCanvas.SetActive(_mode);
+        _playerGarage._garageEnabled = _mode;
+        _gameStartUI.SetActive(!_mode);
     }
 }
