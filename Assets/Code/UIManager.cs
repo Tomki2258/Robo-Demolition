@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
     private GameManager _gameManager;
     private bool _startOverrided;
     public DateTime _startTime;
-    private UserData _userData;
+    public UserData _userData;
     private CameraShake _cameraShake;
     public GameObject _newEnemySpottedUI;
     [SerializeField] private GameObject _notyficationBaner;
@@ -40,8 +40,12 @@ public class UIManager : MonoBehaviour
     public GameObject _questCanvas;
     private QuestManager _questManager;
     [SerializeField] private TMP_Text _coinsText;
+    [Header("Player customization")]
     [SerializeField] private GameObject _playerCustomizationCanvas;
     private PlayerGarage _playerGarage;
+    public TMP_Text _skinNameText;
+    public TMP_Text _skinPriceText;
+    public GameObject _lockedSkinBaner;
     private void Awake()
     {
         _questCanvas.SetActive(false);
