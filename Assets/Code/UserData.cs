@@ -26,8 +26,8 @@ public class UserData : MonoBehaviour
 
     public void AddPlayerCoins(int coins)
     {
-        int _allCoins = this.GetPlayerCoins() + coins;
-        PlayerPrefs.SetInt("allCoins",_allCoins);
+        _playerCoins += coins;
+        PlayerPrefs.SetInt("allCoins",_playerCoins);
     }
     public void AddKilledEnemies(int killedEnemies)
     {
