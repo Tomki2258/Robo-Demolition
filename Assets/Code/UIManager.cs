@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     public GameObject _lockedSkinBaner;
     private void Awake()
     {
-        _hpNotyficationPosition = _hpNotyficationReference.position;
+        //_hpNotyficationPosition = _hpNotyficationReference.position;
         _questCanvas.SetActive(false);
         _questManager = FindFirstObjectByType<QuestManager>();
         _newEnemySpottedUI.SetActive(false);

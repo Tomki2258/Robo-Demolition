@@ -92,6 +92,10 @@ public class LevelUpUI : MonoBehaviour
             case PowerUpsEnum.FieldOfView:
                 _cameraController._offset *= 1 + _currentPowerUp.GetPlayerBonus();
                 break;
+            case PowerUpsEnum.Luck:
+                _playerAtributtes = _player.GetComponent<PlayerAtributtes>();
+                _playerAtributtes.IncreasePlayerLuck();
+                break;
         }
 
         if (_weaponUnlock.CheckForWeaponUnlock())

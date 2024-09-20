@@ -4940,12 +4940,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1581952686236268071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1156709586 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6524360049494093422, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
-    type: 3}
-  m_PrefabInstance: {fileID: 736955601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1160405204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1343908332770420200, guid: 2d60098f36497a0d8ad8c1f4554c3d7e,
@@ -6269,14 +6263,10 @@ MonoBehaviour:
   - {fileID: 979762275}
   _rotateSpeedScale: 25
   _garageEnabled: 0
-  _playerSkins:
-  - {fileID: 11400000, guid: 526716e5e67350244bb9c841c7b92bea, type: 2}
-  - {fileID: 11400000, guid: b2e1c54e4bfc505e883fa472d0abe54d, type: 2}
-  - {fileID: 11400000, guid: 06276d134bc66aacfac225ab66070839, type: 2}
-  _realPlayer: {fileID: 192795899}
-  _playerGarage: {fileID: 1156709586}
-  _currentSelectedSkin: {fileID: 11400000, guid: 526716e5e67350244bb9c841c7b92bea,
-    type: 2}
+  _playerSkins: []
+  _realPlayer: {fileID: 0}
+  _playerGarage: {fileID: 0}
+  _currentSelectedSkin: {fileID: 0}
 --- !u!1 &1543575605
 GameObject:
   m_ObjectHideFlags: 0
@@ -9883,7 +9873,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -9893,7 +9883,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -12876,6 +12866,11 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 4608
       objectReference: {fileID: 0}
+    - target: {fileID: 3917809111193361986, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _playerLuck
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4639911575013741245, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: m_Enabled
@@ -12975,6 +12970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524360049494093422, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7037655989293843448, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
