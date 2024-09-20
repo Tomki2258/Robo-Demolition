@@ -284,6 +284,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _xp += value;
         XpManagment();
+        _uiManager.ShowXPDifference(value,false);
     }
     private void XpManagment()
     {

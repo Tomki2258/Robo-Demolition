@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public GameObject _levelUpCanvas;
 
     [Header("Hp UI")] public Slider _hpSlider;
+    [SerializeField] private Transform _hpNotyficationReference;
+    private Vector3 _hpNotyficationPosition;
 
     [SerializeField] public TMP_Text _hpText;
 
@@ -42,6 +44,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _coinsText;
     private void Awake()
     {
+        _hpNotyficationPosition = _hpNotyficationReference.position;
         _questCanvas.SetActive(false);
         _questManager = FindFirstObjectByType<QuestManager>();
         _newEnemySpottedUI.SetActive(false);
@@ -94,13 +97,29 @@ public class UIManager : MonoBehaviour
         _startOverrided = true;
     }
 
+    public void ShowXPDifference(int _value,bool _isLucky)
+    {
+        var _xpDifference = Instantiate(_hpDifferenceText, _xpSlider.transform.position, Quaternion.identity);
+        _xpDifference.transform.SetParent(_mainUI.transform);
+        _xpDifference.transform.localScale = new Vector3(1.25f,1.25f,1.25f);
+        var _text = _xpDifference.GetComponent<TMP_Text>();
+        
+        _text.color = _isLucky ? Color.yellow : Color.cyan;
+
+        
+        string _valString = _value.ToString();
+        _text.text = _isLucky ? "Lucky " + _valString : _valString;
+        
+        Destroy(_xpDifference, 1.1f);
+
+    }
     public void ShowHpDifference(float _value)
     {
         var _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
         _hpDifference.transform.SetParent(_mainUI.transform);
-        var _randomPosition = new Vector3(transform.position.x + Random.Range(100, 200),
-            transform.position.y + Random.Range(100, 200),
-            transform.position.z);
+        var _randomPosition = new Vector3(_hpDifference.transform.position.x + Random.Range(-50, 50),
+            _hpDifference.transform.position.y + Random.Range(100, 200),
+            _hpDifference.transform.position.z);
         _hpDifference.transform.position = _randomPosition;
         _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         var _text = _hpDifference.GetComponent<TMP_Text>();
