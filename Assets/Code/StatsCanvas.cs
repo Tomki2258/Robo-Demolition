@@ -14,6 +14,7 @@ public class StatsCanvas : MonoBehaviour
     [SerializeField] private TMP_Text _bulletDodgeText;
     [SerializeField] private TMP_Text _fovText;
     [SerializeField] private TMP_Text _bonusHPText;
+    [SerializeField] private TMP_Text _luckyText;
     private PlayerMovement _player;
     private PlayerWeapons _playerWeapons;
     private PlayerAtributtes _playerAtributtes;
@@ -27,7 +28,7 @@ public class StatsCanvas : MonoBehaviour
     private float _startReloadSpeed;
     private float _startBulletDodge;
     private float _startFov;
-
+    private float _lucky;
     private void Start()
     {
         _player = _playerObject.GetComponent<PlayerMovement>();
@@ -45,6 +46,7 @@ public class StatsCanvas : MonoBehaviour
         _startReloadSpeed = _playerWeapons._reloadMultipler;
         _startBulletDodge = _playerAtributtes._dodgeChange;
         _startFov = _cameraController._offset.y;
+        _lucky = _playerAtributtes._playerLuck;
     }
 
     private double PercentageDifference(float start, float end)
@@ -67,5 +69,6 @@ public class StatsCanvas : MonoBehaviour
         _bulletDodgeText.text = $"Bullet dodge bonus {_player._playerAtributtes._dodgeChange} %";
         _fovText.text = $"Field of view bonus {PercentageDifference(_startFov, _cameraController._offset.y)} %";
         _bonusHPText.text = $"Bonus HP {_bonusHP}";
+        _luckyText.text = $"Luck {_playerAtributtes._playerLuck} %";
     }
 }
