@@ -44,7 +44,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _coinsText;
     private void Awake()
     {
-        _hpNotyficationPosition = _hpNotyficationReference.position;
         _questCanvas.SetActive(false);
         _questManager = FindFirstObjectByType<QuestManager>();
         _newEnemySpottedUI.SetActive(false);

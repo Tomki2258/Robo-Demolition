@@ -42,6 +42,10 @@ public class Enemy : MonoBehaviour
     public AudioClip _shootAudioClip;
     private bool _died;
     private QuestsMonitor _questsMonitor;
+    public float _resetColorTime;
+    public float _currentResetColorTime;
+    public List<Material> _childMaterials = new List<Material>();
+    public Transform[] _enemyChildrens;
     [Header("Flying enemy------")] 
     public float _wingsSpeed;
     
@@ -52,8 +56,10 @@ public class Enemy : MonoBehaviour
     public float _baseSpeed;
     public bool _isPoweredUp;
     public float _poweredUpMultipler;
-    public void SetUp()
+
+    protected void SetUp()
     {
+        _currentResetColorTime = _resetColorTime;
         _questsMonitor = FindFirstObjectByType<QuestsMonitor>();
         _gameManager = FindFirstObjectByType<GameManager>();
         int _poweredRandom = Random.Range(0, 100);
@@ -77,6 +83,15 @@ public class Enemy : MonoBehaviour
         _baseSpeed = _agent.speed;
         _attackDelayCurrent = _attackDelayMax;
         if (_enemyModel == null) Debug.LogWarning("EMPTY ENEMY MODEL");
+        
+        foreach (var _child in transform.GetComponentsInChildren<Transform>())
+             if (_child.GetComponent<MeshRenderer>())
+                {
+                    var _meshRenderer = _child.GetComponent<MeshRenderer>();
+                    var _renderer = _meshRenderer;
+                    _childMaterials.Add(_renderer.material);
+                }
+        _enemyChildrens = transform.GetComponentsInChildren<Transform>();
     } 
 
     public void EnemyDie()
@@ -116,14 +131,6 @@ public class Enemy : MonoBehaviour
         _questsMonitor._killedEnemies++;
         
         Destroy(gameObject);
-        /*
-        if (_gameManager._gameSettings._qualityOn)
-        {
-            GameObject _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-            //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());
-            Destroy(_explosion,5);
-        }
-        */
     }
 
     public void DestroyClone()
@@ -160,7 +167,6 @@ public class Enemy : MonoBehaviour
     private void ChangeMeshColors(Transform _parent, float _waitTime)
     {
         foreach (var _child in _parent.GetComponentsInChildren<Transform>())
-            //Debug.LogWarning(_child.name);
             if (_child.GetComponent<MeshRenderer>())
             {
                 var _meshRenderer = _child.GetComponent<MeshRenderer>();
@@ -168,22 +174,43 @@ public class Enemy : MonoBehaviour
             }
     }
 
+    protected void LookForColorChange()
+    {
+        _currentResetColorTime += Time.deltaTime;
+        if (_currentResetColorTime > _resetColorTime)
+        {
+            int _index = 0;
+            foreach (var _child in _enemyChildrens)
+                if (_child.GetComponent<MeshRenderer>())
+                {
+                    var _meshRenderer = _child.GetComponent<MeshRenderer>();
+                    var _renderer = _meshRenderer;
+                    _renderer.material = _childMaterials[_index];
+                    _index++;
+                }     
+        }
+        else
+        {
+            foreach (var _child in _enemyChildrens)
+                if (_child.GetComponent<MeshRenderer>())
+                {
+                    var _meshRenderer = _child.GetComponent<MeshRenderer>();
+                    var _renderer = _meshRenderer;
+                    _renderer.material = _hitMaterial;
+                }    
+        }
+        
+    }
     public bool CheckHealth(float _value)
     {
-        //Debug.LogWarning("Enemy hit");
         health -= _value;
-        if (health <= 0)
-        {
-            EnemyDie();
-            return false;
-        }
+        if (!(health <= 0)) return true;
+        EnemyDie();
+        return false;
 
-        ChangeMeshColors(transform, 0.05f);
-
-        return true;
     }
 
-    public void SwitchSpeed()
+    protected void SwitchSpeed()
     {
         if (PlayerDistance() < 60)
         {
@@ -194,12 +221,13 @@ public class Enemy : MonoBehaviour
             _agent.speed = _baseSpeed * 4;
         }
     }
-    public float PlayerDistance()
+
+    protected float PlayerDistance()
     {
         return Vector3.Distance(transform.position, _player.transform.position);
     }
 
-    public void CheckStunned()
+    protected void CheckStunned()
     {
         if(!_stunned) return;
         
@@ -213,8 +241,8 @@ public class Enemy : MonoBehaviour
             _maxStunTimer += Time.deltaTime;
         }
     }
-    
-    public void Attack(Transform _bulletSpawn)
+
+    protected void Attack(Transform _bulletSpawn)
     {
         _bulletSpawn.LookAt(_player.transform.position);
         var _bulletInstance = Instantiate(_bullet, _bulletSpawn.position,
@@ -238,7 +266,7 @@ public class Enemy : MonoBehaviour
         _renderer.material = _childOryginalMaterial;
     }
 
-    public void DoWings()
+    protected void DoWings()
     {
         foreach (Transform _wing in _wingsList)
         {
@@ -246,7 +274,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void SetPlayerTarget()
+    protected void SetPlayerTarget()
     {
         if(_gameManager._player._died) return;
         if (_refleshPlayerTargetcurrent < _reflashPlayerTargetMax)
