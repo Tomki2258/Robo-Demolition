@@ -18,6 +18,7 @@ public class Trash : MonoBehaviour
         _meshCollider.excludeLayers = PlayerLayer;
         GetComponent<Rigidbody>().excludeLayers = PlayerLayer;
         StartCoroutine(MoveTrash());
+        Destroy(gameObject,10);
     }
 
     private void FixedUpdate()

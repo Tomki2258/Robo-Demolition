@@ -759,7 +759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidGameId: 5589505
   _iOSGameId: 5589504
-  _testMode: 1
+  _testMode: 0
 --- !u!114 &258913721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9603,7 +9603,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -9613,7 +9613,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}

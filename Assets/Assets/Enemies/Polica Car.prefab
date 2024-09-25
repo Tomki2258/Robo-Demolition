@@ -106,7 +106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 0
   _agent: {fileID: 0}
-  _gameManager: {fileID: 0}
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
@@ -126,6 +125,10 @@ MonoBehaviour:
   _dieMesh: {fileID: 0}
   _audioSource: {fileID: 0}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
+  _resetColorTime: 0.05
+  _currentResetColorTime: 0
+  _childMaterials: []
+  _enemyChildrens: []
   _wingsSpeed: 0
   _wingsList: []
   _baseSpeed: 0

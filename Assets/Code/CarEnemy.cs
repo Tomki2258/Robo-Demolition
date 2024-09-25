@@ -21,6 +21,7 @@ public class CarEnemy : Enemy
 
     private void FixedUpdate()
     {
+        LookForColorChange();
         //SwitchLight();
         var _distance = PlayerDistance();
         SetPlayerTarget();

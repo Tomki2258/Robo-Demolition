@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour
                 var _enemy = other.GetComponent<Enemy>();
                 if (_enemy.CheckHealth(_bulletDamage))
                 {
+                    _enemy._currentResetColorTime = 0;
                 }
 
                 Destroy(gameObject);
