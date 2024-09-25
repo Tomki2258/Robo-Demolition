@@ -349,7 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 1
   _agent: {fileID: 1822932637142027826}
-  _gameManager: {fileID: 0}
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
@@ -369,11 +368,17 @@ MonoBehaviour:
   _dieMesh: {fileID: 0}
   _audioSource: {fileID: 4795026762475432317}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
+  _resetColorTime: 0
+  _currentResetColorTime: 0
+  _childMaterials: []
+  _enemyChildrens: []
   _wingsSpeed: 15
   _wingsList:
   - {fileID: 6993205206597633530}
   - {fileID: 4423249117979462800}
   _baseSpeed: 7
+  _isPoweredUp: 0
+  _poweredUpMultipler: 0
   _shootingPoint: {fileID: 5956903305426156799}
   _waypoint: {fileID: 0}
 --- !u!33 &5922888676198504622
@@ -444,7 +449,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 512
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
