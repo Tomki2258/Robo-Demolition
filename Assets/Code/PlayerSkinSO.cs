@@ -5,8 +5,17 @@ public class PlayerSkinSO : ScriptableObject
 {
     [SerializeField] private int _skinPrice;
     [SerializeField] private string _skinName;
-    [SerializeField] private Material _skinMaterial;
-
+    public Material _bodyMaterial;
+    public Material _circleGunmaterial;
+    public Material _handsMaterial;
+    public Material _headMaterial;
+    public Material _laserGunMaterial;
+    public Material _leftGunMaterial;
+    public Material _rightGunMaterial;
+    public Material _legsMaterial;
+    public Material _rocketGunMaterial;
+    public Material _spheareGunMaterial;
+    
     public int GetSkinPrice()
     {
         return _skinPrice;
@@ -14,9 +23,5 @@ public class PlayerSkinSO : ScriptableObject
     public string GetSkinName()
     {
         return _skinName;
-    }
-    public Material GetSkinMaterial()
-    {
-        return _skinMaterial;
     }
 }
