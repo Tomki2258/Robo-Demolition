@@ -104,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
         _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
         _playerWeapons._laserSpawner.gameObject.SetActive(false);
 
+        
+        if(_gameManager._godMode) return;
         foreach (GameObject _weaponObject in _weaponsModels)
         {
             _weaponObject.SetActive(false);
