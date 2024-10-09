@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.IO;
 using DefaultNamespace;
 using TMPro;
 using UnityEngine;
@@ -42,6 +43,9 @@ public class UIManager : MonoBehaviour
     public GameObject _questCanvas;
     private QuestManager _questManager;
     [SerializeField] private TMP_Text _coinsText;
+    [Header("CreditsCanvas")] 
+    public GameObject _creditsObject;
+    public TMP_Text _creditsText;
     private void Awake()
     {
         _questCanvas.SetActive(false);
@@ -56,13 +60,15 @@ public class UIManager : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         _gameManager = FindFirstObjectByType<GameManager>();
         _dieCanvas.SetActive(false);
-
+        _creditsObject.SetActive(false);
         _startTime = DateTime.Now;
     }
 
     private void Start()
     {
         StartGame(_startOverrided);
+
+        _creditsText.text = GetCreditsFromFile();
     }
 
     public void ShowSpottedUI()
@@ -237,7 +243,6 @@ public class UIManager : MonoBehaviour
 
     public void StartGame(bool state)
     {
-        //Debug.LogWarning("to sie robi ?");
         _gameStartUI.SetActive(!state);
         _mainUI.SetActive(state);
     }
@@ -247,10 +252,22 @@ public class UIManager : MonoBehaviour
         _player.DoJoystickInput(!_mode);
         _mainUI.SetActive(!_mode);
         _settingsUI.SetActive(_mode);
-        if (_mode) Time.timeScale = 0;
-        else Time.timeScale = 1;
+        if (_mode)
+        {
+            Time.timeScale = 0;
+            _creditsObject.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            _creditsObject.SetActive(false);
+        }
     }
 
+    public void EnableCreditsUI(bool _mode)
+    {
+        _creditsObject.SetActive(_mode);
+    }
     public void EnableQuestUI()
     {
         bool _questEnabled = _questCanvas.activeSelf;
@@ -266,5 +283,17 @@ public class UIManager : MonoBehaviour
             _questCanvas.SetActive(_questEnabled);
             //_questManager.CheckQuests();
         }
+    }
+
+    private String GetCreditsFromFile()
+    {
+        string _filePath = "Assets/Resources/credits.txt";
+        if(!File.Exists(_filePath))
+        {
+            Debug.Log("File do not exist");
+            return "READ CREDITS ERROR";
+        }
+
+        return File.ReadAllText(_filePath);
     }
 }
