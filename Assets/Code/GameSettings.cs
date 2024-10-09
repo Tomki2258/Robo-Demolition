@@ -20,6 +20,7 @@ public class GameSettings : MonoBehaviour
     [Header("Settings")] public string _twitterURL;
 
     public string _facebookURL;
+    public string _youtubeURL;
 
     private void Awake()
     {
@@ -113,6 +114,9 @@ public class GameSettings : MonoBehaviour
                 break;
             case 1:
                 Application.OpenURL(_facebookURL);
+                break;
+            case 2:
+                Application.OpenURL(_youtubeURL);
                 break;
         }
     }
