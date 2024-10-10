@@ -27,11 +27,9 @@ public class Enemy : MonoBehaviour
     public float _attackDelayMax;
     public float _attackDelayCurrent;
     public bool _stunned;
-    public Material _oryginalMaterial;
     public Material _hitMaterial;
     public bool _killedByManager;
     public Material _blackMaterial;
-    public Mesh _dieMesh;
     private readonly int _maxStunTime = 5;
     private CameraShake _cameraShake;
     private GameObject _enemyModel;
@@ -42,7 +40,7 @@ public class Enemy : MonoBehaviour
     public AudioClip _shootAudioClip;
     private bool _died;
     private QuestsMonitor _questsMonitor;
-    public float _resetColorTime;
+    private float _resetColorTime = 0.075f;
     public float _currentResetColorTime;
     public List<Material> _childMaterials = new List<Material>();
     public Transform[] _enemyChildrens;
@@ -74,7 +72,6 @@ public class Enemy : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _agent.stoppingDistance =_stoppingDistance;
         _audioSource = GetComponent<AudioSource>();
-        _oryginalMaterial = GetComponent<Renderer>().material;
         _cameraShake = FindFirstObjectByType<CameraShake>();
         _enemyModel = transform.GetChild(transform.childCount - 1).gameObject;
         //_explosionPrefab = _gameManager._explosion;
@@ -92,9 +89,9 @@ public class Enemy : MonoBehaviour
                     _childMaterials.Add(_renderer.material);
                 }
         _enemyChildrens = transform.GetComponentsInChildren<Transform>();
-    } 
+    }
 
-    public void EnemyDie()
+    private void EnemyDie()
     {
         if(_died) return;
         _died = true;

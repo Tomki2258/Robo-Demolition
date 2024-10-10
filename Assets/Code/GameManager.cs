@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
         _player._level = 100;
         _player._xpToNextLevel = 10000;
         _possibleEnemies = _enemiesCount;
+        _spawnTimeMax *= 0.5f;
         _godMode = true;
     }
     private void FixedUpdate()

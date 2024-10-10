@@ -13,7 +13,7 @@ CREATORS
 
 Programming and engine operation : me
 
-2D sprites na UI organization : <a href="https://github.com/FatPootis03">FatPootis03</a>
+2D sprites na UI organization : <a href="https://github.com/HushPix">HushPix</a>
 
 # Assets used in project
 

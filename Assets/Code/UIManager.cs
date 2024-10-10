@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     private GameManager _gameManager;
     private bool _startOverrided;
     public DateTime _startTime;
-    public UserData _userData;
+    private UserData _userData;
     private CameraShake _cameraShake;
     public GameObject _newEnemySpottedUI;
     [SerializeField] private GameObject _notyficationBaner;
@@ -48,9 +48,11 @@ public class UIManager : MonoBehaviour
     public TMP_Text _skinNameText;
     public TMP_Text _skinPriceText;
     public GameObject _lockedSkinBaner;
+    [Header("CreditsCanvas")]
+    public GameObject _creditsObject;
+    public TMP_Text _creditsText;
     private void Awake()
     {
-        //_hpNotyficationPosition = _hpNotyficationReference.position;
         _questCanvas.SetActive(false);
         _questManager = FindFirstObjectByType<QuestManager>();
         _newEnemySpottedUI.SetActive(false);
@@ -65,8 +67,6 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(false);
 
         _startTime = DateTime.Now;
-        _playerCustomizationCanvas.SetActive(false);
-        _playerGarage = FindFirstObjectByType<PlayerGarage>();
     }
 
     private void Start()
@@ -275,6 +275,18 @@ public class UIManager : MonoBehaviour
             _questCanvas.SetActive(_questEnabled);
             //_questManager.CheckQuests();
         }
+    }
+
+    private String GetCreditsFromFile()
+    {
+        string _filePath = "Assets/Resources/credits.txt";
+        if(!File.Exists(_filePath))
+        {
+            Debug.Log("File do not exist");
+            return "READ CREDITS ERROR";
+        }
+
+        return File.ReadAllText(_filePath);
     }
     public void EnablePlayerCustomizationCanvas(bool _mode)
     {

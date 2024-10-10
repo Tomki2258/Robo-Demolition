@@ -29,7 +29,7 @@ public class PowerUpsManagment : MonoBehaviour
         }
 
         _currentRestawnTime = 0;
-        int _randomSpawner = Random.Range(0, _spawnersList.Count);
+        int _randomSpawner = Random.Range(0, _spawnersList.Count - 1);
         Transform _selectedSpawner = _spawnersList[_randomSpawner];
         GameObject _currentPowerUp = Instantiate(_powerUpPrefab, _selectedSpawner.position, Quaternion.identity);
         _spawnedPowerUps.Add(_currentPowerUp);
