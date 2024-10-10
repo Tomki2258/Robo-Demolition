@@ -31,6 +31,7 @@ public class PlayerGarage : MonoBehaviour
     {
         _uiManager = FindObjectOfType<UIManager>();
         SetSkinChangeUI();
+        gameObject.SetActive(false);
     }
 
     void FixedUpdate()
@@ -78,8 +79,8 @@ public class PlayerGarage : MonoBehaviour
 
     private void SetSkinChangeUI()
     {
-        //_uiManager._skinNameText.text = _currentSelectedSkin.GetSkinName();
-        //_uiManager._skinPriceText.text = _currentSelectedSkin.GetSkinPrice().ToString();
+        _uiManager._skinNameText.text = _currentSelectedSkin.GetSkinName();
+        _uiManager._skinPriceText.text = _currentSelectedSkin.GetSkinPrice().ToString();
         
         int _currentPlayerCoins = _uiManager._userData.GetPlayerCoins();
         _garageBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
@@ -92,6 +93,10 @@ public class PlayerGarage : MonoBehaviour
         _garageLegs.GetComponent<SkinnedMeshRenderer>().material = _currentSelectedSkin._legsMaterial;
         _garageRocketGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._rocketGunMaterial;
         _sphereAttack.GetComponent<MeshRenderer>().material = _currentSelectedSkin._spheareGunMaterial;
-        
+    }
+
+    public void ApplySkinForPlayer()
+    {
+        throw new NotImplementedException();
     }
 }

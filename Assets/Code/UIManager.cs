@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.IO;
 using DefaultNamespace;
 using TMPro;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class UIManager : MonoBehaviour
     private GameManager _gameManager;
     private bool _startOverrided;
     public DateTime _startTime;
-    private UserData _userData;
+    public UserData _userData;
     private CameraShake _cameraShake;
     public GameObject _newEnemySpottedUI;
     [SerializeField] private GameObject _notyficationBaner;
@@ -65,7 +66,7 @@ public class UIManager : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         _gameManager = FindFirstObjectByType<GameManager>();
         _dieCanvas.SetActive(false);
-
+        _playerGarage = FindFirstObjectByType<PlayerGarage>();
         _startTime = DateTime.Now;
     }
 
