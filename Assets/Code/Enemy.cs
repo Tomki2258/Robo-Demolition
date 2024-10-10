@@ -204,7 +204,6 @@ public class Enemy : MonoBehaviour
         if (!(health <= 0)) return true;
         EnemyDie();
         return false;
-
     }
 
     protected void SwitchSpeed()

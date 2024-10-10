@@ -46,6 +46,11 @@ public class Bullet : MonoBehaviour
 
                 Destroy(gameObject);
             }
+            else if (other.gameObject.GetComponent<Turret>())
+            {
+                var _enemy = other.GetComponent<Turret>();
+                _enemy.ReceiveDamage((int)_bulletDamage);
+            }
             else
             {
                 Destroy(gameObject);
