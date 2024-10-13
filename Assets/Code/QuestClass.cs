@@ -98,6 +98,7 @@ public class QuestClass : ScriptableObject
 
     public void CompleteQuest()
     {
+        _currentValue = _targetValue + 1;
         _questDone = true;
     }
     public int GetQuestRewardAmount()

@@ -37,11 +37,10 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
  
         if (adUnitId.Equals(_adUnitId))
         {
+            _showAdButtons[0].onClick.AddListener(ShowAd);
+            _showAdButtons[1].onClick.AddListener(ShowAd);
             // Configure the button to call the ShowAd() method when clicked:
-            foreach (Button _button in _showAdButtons)
-            {
-                _button.onClick.AddListener(ShowAd);
-            }
+            
             // Enable the button for users to click:
             foreach (Button _button in _showAdButtons)
             {

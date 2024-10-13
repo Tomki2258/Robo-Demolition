@@ -30,6 +30,7 @@ public class QuestManager : MonoBehaviour
     private UserData _userData;
     private NotyficationBaner _notyficationBaner;
     [SerializeField] private Button _skipQuestTimeButton;
+    [SerializeField] private bool _completeAllQuests;
     private void Awake()
     {
         _notyficationBaner = FindObjectOfType<NotyficationBaner>();
@@ -39,6 +40,19 @@ public class QuestManager : MonoBehaviour
         //DoQuest();
         LoadSavedQuests();
         CheckQuests();
+        if(_completeAllQuests)
+        {
+            foreach (QuestClass _quest in _activeQuestsList)
+            {
+                _quest.CompleteQuest();
+                _completeAllQuests = false;
+            }
+        }
+    }
+
+    private void Start()
+    {
+        FindFirstObjectByType<RewardAd>().LoadAd();
     }
 
     private void FixedUpdate()

@@ -264,7 +264,7 @@ public class UIManager : MonoBehaviour
     public void EnableQuestUI()
     {
         bool _questEnabled = _questCanvas.activeSelf;
-
+        
         _coinsText.text = _userData.GetPlayerCoins().ToString();
         
         if (_questCanvas)
@@ -274,7 +274,6 @@ public class UIManager : MonoBehaviour
         else
         {
             _questCanvas.SetActive(_questEnabled);
-            FindFirstObjectByType<RewardAd>().LoadAd();
             //_questManager.CheckQuests();
         }
     }
