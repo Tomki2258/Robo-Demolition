@@ -274,6 +274,7 @@ public class UIManager : MonoBehaviour
         else
         {
             _questCanvas.SetActive(_questEnabled);
+            FindFirstObjectByType<RewardAd>().LoadAd();
             //_questManager.CheckQuests();
         }
     }

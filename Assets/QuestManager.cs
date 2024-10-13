@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Windows;
 using Object = System.Object;
 using Random = UnityEngine.Random;
@@ -28,6 +29,7 @@ public class QuestManager : MonoBehaviour
     private string _questDataPath; 
     private UserData _userData;
     private NotyficationBaner _notyficationBaner;
+    [SerializeField] private Button _skipQuestTimeButton;
     private void Awake()
     {
         _notyficationBaner = FindObjectOfType<NotyficationBaner>();
@@ -44,9 +46,11 @@ public class QuestManager : MonoBehaviour
         if(_gameManager._gameLaunched || _activeQuestsList.Count >= _maxActiveQuests)
         {
             _newQuestTime.gameObject.SetActive(false);
+            _skipQuestTimeButton.enabled = false;
         }
         else
         {
+            _skipQuestTimeButton.enabled = true;
             _newQuestTime.gameObject.SetActive(true);
             _newQuestTime.transform.SetSiblingIndex(_questPanelUI.childCount);
             DateTime _currentTime = DateTime.Now;
@@ -56,7 +60,6 @@ public class QuestManager : MonoBehaviour
             if (_currentTicks >= _targetTimeTicks)
             {
                 DoQuest();
-                SaveTime();
             }
             
             TimeSpan _timeLeast = new DateTime(_targetTimeTicks) - new DateTime(_currentTicks);
@@ -102,7 +105,7 @@ public class QuestManager : MonoBehaviour
             System.IO.File.WriteAllText(filePath, json);
         }
     }
-    private void DoQuest()
+    public void DoQuest()
     {
         if(_activeQuestsList.Count >= _maxActiveQuests) return;
         
@@ -142,6 +145,8 @@ public class QuestManager : MonoBehaviour
         _activeQuestsList.Add(_newQuest);
         
         ShowQuest(_newQuest);
+        
+        SaveTime();
     }
     private int GetRandomQuestValue(int _range)
     {
