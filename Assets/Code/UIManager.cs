@@ -287,13 +287,7 @@ public class UIManager : MonoBehaviour
 
     private String GetCreditsFromFile()
     {
-        string _filePath = "Assets/Resources/credits.txt";
-        if(!File.Exists(_filePath))
-        {
-            Debug.Log("File do not exist");
-            return "READ CREDITS ERROR";
-        }
-
-        return File.ReadAllText(_filePath);
+        string _creditsString = Resources.Load<TextAsset>("credits").text;
+        return _creditsString;
     }
 }
