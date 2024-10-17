@@ -54,9 +54,10 @@ public class Enemy : MonoBehaviour
     public float _baseSpeed;
     public bool _isPoweredUp;
     public float _poweredUpMultipler;
-
+    public Rigidbody _rigidbody;
     protected void SetUp()
     {
+        _rigidbody = GetComponent<Rigidbody>();
         _currentResetColorTime = _resetColorTime;
         _questsMonitor = FindFirstObjectByType<QuestsMonitor>();
         _gameManager = FindFirstObjectByType<GameManager>();
@@ -118,7 +119,7 @@ public class Enemy : MonoBehaviour
             _player.AddPlayerXP(_xpReward);
             //_player._xp += _xpReward;
             _cameraShake.DoShake(.15f, .2f);
-            DestroyClone();
+            DestroyClone(_rigidbody.angularVelocity);
             
             var _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
@@ -130,14 +131,14 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void DestroyClone()
+    public void DestroyClone(Vector3 _lastVelocity)
     {
         if (!_gameManager._gameSettings._qualityOn) return;
 
         var _meshFilter = GetComponent<MeshFilter>();
         var _mesh = _meshFilter.mesh;
         var _trash = Instantiate(_enemyModel, transform.position, transform.rotation);
-        ChangeMeshColors(_trash.transform, 0);
+        ChangeMeshColors(_trash.transform);
         _trash.name = $"{transform.name} :trash clone";
         _trash.AddComponent<Trash>();
         _trash.AddComponent<Rigidbody>();
@@ -149,6 +150,8 @@ public class Enemy : MonoBehaviour
             Vector3 _randomForceVector = new Vector3(Random.Range(-1, 1),
                 Random.Range(5, 8),
                 Random.Range(-1, 1));
+            //_randomForceVector += _lastVelocity * 10;            NEED TO FIX THIS IN UPDATE 
+            
             _trash.GetComponent<Rigidbody>().AddForce(_randomForceVector, ForceMode.Impulse);
             _trash.GetComponent<Rigidbody>().AddTorque(transform.up * _gameManager.GetTrashX());
             _trash.GetComponent<Rigidbody>().AddTorque(transform.right * _gameManager.GetTrashY());    
@@ -161,13 +164,13 @@ public class Enemy : MonoBehaviour
         _trash.tag = "Trash";
     }
 
-    private void ChangeMeshColors(Transform _parent, float _waitTime)
+    private void ChangeMeshColors(Transform _parent)
     {
         foreach (var _child in _parent.GetComponentsInChildren<Transform>())
             if (_child.GetComponent<MeshRenderer>())
             {
-                var _meshRenderer = _child.GetComponent<MeshRenderer>();
-                StartCoroutine(HitChangeMaterial(_meshRenderer, _waitTime));
+                MeshRenderer _meshRenderer = _child.GetComponent<MeshRenderer>();
+                HitChangeMaterial(_meshRenderer);
             }
     }
 
@@ -209,7 +212,7 @@ public class Enemy : MonoBehaviour
 
     protected void SwitchSpeed()
     {
-        if (PlayerDistance() < 60)
+        if (PlayerDistance() < 80)
         {
             _agent.speed = _baseSpeed;
         }
@@ -250,7 +253,7 @@ public class Enemy : MonoBehaviour
         _audioSource.PlayOneShot(_shootAudioClip);
         Destroy(_bulletInstance, 5);
     }
-
+    /*
     private IEnumerator HitChangeMaterial(Renderer _enemyPart, float _waitTime)
     {
         var _renderer = _enemyPart;
@@ -262,7 +265,12 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
         _renderer.material = _childOryginalMaterial;
     }
-
+    */
+    private void HitChangeMaterial(Renderer _enemyPart)
+    {
+        var _renderer = _enemyPart;
+        _renderer.material = _blackMaterial;
+    }
     protected void DoWings()
     {
         foreach (Transform _wing in _wingsList)

@@ -266,6 +266,7 @@ public class GameManager : MonoBehaviour
     {
         _spodek.SetActive(true);
         _uiManager._gameStartUI.SetActive(false);
+        _uiManager._questCanvas.SetActive(false);
         _gameStarted = true;
         _spodekAudioSource.Play();
         

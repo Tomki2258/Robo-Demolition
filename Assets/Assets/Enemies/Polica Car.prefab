@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2003031916744454399}
   - component: {fileID: -8734701051252472421}
   - component: {fileID: 6705608401987723988}
+  - component: {fileID: -8729216409984153981}
   m_Layer: 12
   m_Name: Polica Car
   m_TagString: Enemy
@@ -118,14 +119,11 @@ MonoBehaviour:
   _attackDelayMax: 1.25
   _attackDelayCurrent: 0
   _stunned: 0
-  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
-  _dieMesh: {fileID: 0}
   _audioSource: {fileID: 0}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
-  _resetColorTime: 0.05
   _currentResetColorTime: 0
   _childMaterials: []
   _enemyChildrens: []
@@ -134,6 +132,7 @@ MonoBehaviour:
   _baseSpeed: 0
   _isPoweredUp: 0
   _poweredUpMultipler: 1.5
+  _rigidbody: {fileID: 0}
   _currentState: 0
   _shootingPoints:
   - {fileID: 5652634464156369406}
@@ -278,6 +277,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &-8729216409984153981
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364406345628423798}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5346698066536454960
 GameObject:
   m_ObjectHideFlags: 0
