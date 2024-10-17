@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 #if UNITY_IOS
@@ -8,62 +9,39 @@ using Google.Play.Review;
 
 public class AppReview : MonoBehaviour
 {
-#if UNITY_ANDROID
     private ReviewManager _reviewManager;
     private PlayReviewInfo _playReviewInfo;
-    private Coroutine _coroutine;
-#endif
+
 
     private void Start()
     {
-#if UNITY_ANDROID
-        _coroutine = StartCoroutine(InitReview());
-#endif
+        //StartCoroutine(RequestReview());
     }
 
-    public void RateAndReview()
+    IEnumerator RequestReview()
     {
-#if UNITY_IOS
-        Device.RequestStoreReview();
-#elif UNITY_ANDROID
-        StartCoroutine(LaunchReview());
-#endif
-    }
-
-#if UNITY_ANDROID
-    private IEnumerator InitReview(bool force = false)
-    {
-        if (_reviewManager == null) _reviewManager = new ReviewManager();
-
+        _reviewManager = new ReviewManager(); 
+        
         var requestFlowOperation = _reviewManager.RequestReviewFlow();
         yield return requestFlowOperation;
         if (requestFlowOperation.Error != ReviewErrorCode.NoError)
         {
-            if (force) DirectlyOpen();
+            // Log error. For example, using requestFlowOperation.Error.ToString().
             yield break;
         }
-
         _playReviewInfo = requestFlowOperation.GetResult();
-    }
-
-    public IEnumerator LaunchReview()
-    {
-        if (_playReviewInfo == null)
-        {
-            if (_coroutine != null) StopCoroutine(_coroutine);
-            yield return StartCoroutine(InitReview(true));
-        }
-
+        
+        
         var launchFlowOperation = _reviewManager.LaunchReviewFlow(_playReviewInfo);
         yield return launchFlowOperation;
-        _playReviewInfo = null;
+        _playReviewInfo = null; // Reset the object
         if (launchFlowOperation.Error != ReviewErrorCode.NoError)
         {
-            DirectlyOpen();
+            // Log error. For example, using requestFlowOperation.Error.ToString().
             yield break;
         }
+// The flow has finished. The API does not indicate whether the user
+// reviewed or not, or even whether the review dialog was shown. Thus, no
+// matter the result, we continue our app flow.
     }
-#endif
-
-    private void DirectlyOpen() { Application.OpenURL($"https://play.google.com/store/apps/details?id={Application.identifier}"); }
 }
