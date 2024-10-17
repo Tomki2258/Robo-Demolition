@@ -56,7 +56,10 @@ public class QuestManager : MonoBehaviour
             if (_currentTicks >= _targetTimeTicks)
             {
                 DoQuest();
-                SaveTime();
+                if(_activeQuestsList.Count != _maxActiveQuests)
+                {
+                    SaveTime();
+                }
             }
             
             TimeSpan _timeLeast = new DateTime(_targetTimeTicks) - new DateTime(_currentTicks);
@@ -176,6 +179,7 @@ public class QuestManager : MonoBehaviour
                     _questReward.ToString() + " coins earned",
                     false,
                     true);
+                SaveTime();
             }
         }
     }

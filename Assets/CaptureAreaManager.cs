@@ -19,31 +19,31 @@ public class CaptureAreaManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        DoCaptureAreas();
+        if(_gameManager._gameLaunched)
+            DoCaptureAreas();
     }
     private void DoCaptureAreas()
     {
-        if (_currentCaptureArea == null)
+        if (_currentCaptureArea != null) return;
+        
+        if (_currentCaptureWaitTime > _maxCaptureWaitTime)
         {
-            if (_currentCaptureWaitTime > _maxCaptureWaitTime)
-            {
-                var _randomSpawn = Random.Range(0, _zonesRespawns.Count);
-                var _targetVector = new Vector3(_zonesRespawns[_randomSpawn].transform.position.x,
-                    _zonesRespawns[_randomSpawn].transform.position.y + 0.5f,
-                    _zonesRespawns[_randomSpawn].transform.position.z-10);
+            var _randomSpawn = Random.Range(0, _zonesRespawns.Count);
+            var _targetVector = new Vector3(_zonesRespawns[_randomSpawn].transform.position.x,
+                _zonesRespawns[_randomSpawn].transform.position.y + 0.5f,
+                _zonesRespawns[_randomSpawn].transform.position.z-10);
 
-                _currentCaptureArea = Instantiate(_captureAreaPrefab, _targetVector, Quaternion.identity);
-            }
-            else
-            {
-                _currentCaptureWaitTime += Time.deltaTime;
-            }
+            _currentCaptureArea = Instantiate(_captureAreaPrefab, _targetVector, Quaternion.identity);
+        }
+        else
+        {
+            _currentCaptureWaitTime += Time.deltaTime;
         }
     }
     public void GetCaptureAreaReward()
     {
         _player._health = _player._maxHealth;
-        _player._xp += _player._xpToNextLevel / 2;
+        _player._xp = _player._xpToNextLevel;
         _gameManager._notyficationBaner.ShotMessage("ZONE CAPTURED", 
             "Player boosted",false,true);
     }

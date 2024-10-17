@@ -287,7 +287,6 @@ public class UIManager : MonoBehaviour
 
     private String GetCreditsFromFile()
     {
-        string _creditsString = Resources.Load<TextAsset>("credits").text;
-        return _creditsString;
+        return Resources.Load<TextAsset>("credits").text;;
     }
 }

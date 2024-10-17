@@ -84,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
         _startPlayerQuaterions.Add(_hands.localRotation);
         _playerDemolition = GetComponent<PlayerDemolition>();
         _playerDemolition.UpdatePlayerSize();
-        
     }
 
     private void Start()
@@ -104,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         _cameraShake = _cameraController.gameObject.GetComponent<CameraShake>();
         _playerWeapons._laserSpawner.gameObject.SetActive(false);
 
-        
+        _inputCanvas.gameObject.SetActive(true);
         if(_gameManager._godMode) return;
         foreach (GameObject _weaponObject in _weaponsModels)
         {
@@ -299,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position.y + 0.05f,
             transform.position.z);
         DoJoystickInput(false);
-
+        
         _startPlayerY += 0.15f;
         _level++;
         _xp = 0;
@@ -336,7 +335,8 @@ public class PlayerMovement : MonoBehaviour
     public void DoJoystickInput(bool _mode)
     {
         _isJoystick = _mode;
-        _inputCanvas.gameObject.SetActive(_mode);
+        if(!_mode)
+            _inputCanvas.transform.GetChild(0).gameObject.SetActive(_mode);
     }
 
     private bool RaycastEnemy(Transform enemy)
