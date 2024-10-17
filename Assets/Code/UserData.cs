@@ -55,7 +55,7 @@ public class UserData : MonoBehaviour
     }
     public void AddDeathCount()
     {
-        _deathCount++;
+        _deathCount = GetDeathCount() + 1;
         PlayerPrefs.SetInt("DeathCount",_deathCount);
     }
     public int GetDeathCount()

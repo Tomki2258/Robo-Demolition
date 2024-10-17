@@ -412,6 +412,7 @@ public class PlayerMovement : MonoBehaviour
         UserData _userData = FindObjectOfType<UserData>();
         
         _userData.AddDeathCount();
+        Debug.LogWarning(_userData.GetDeathCount());
 
         if (_userData.GetDeathCount() % 5 == 0)
         {

@@ -64,6 +64,8 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(false);
         _creditsObject.SetActive(false);
         _startTime = DateTime.Now;
+        _appReview = GetComponent<AppReview>();
+        _rateAppCanvas.SetActive(false);
     }
 
     private void Start()
@@ -290,11 +292,6 @@ public class UIManager : MonoBehaviour
     private String GetCreditsFromFile()
     {
         return Resources.Load<TextAsset>("credits").text;;
-    }
-    public void LaunchAppReview()
-    {
-        _appReview = FindFirstObjectByType<AppReview>();
-        _appReview.DoReview();
     }
 
     public void CloseReview()
