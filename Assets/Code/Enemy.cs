@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody _rigidbody;
     protected void SetUp()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        //_rigidbody = GetComponent<Rigidbody>();
         _currentResetColorTime = _resetColorTime;
         _questsMonitor = FindFirstObjectByType<QuestsMonitor>();
         _gameManager = FindFirstObjectByType<GameManager>();
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
             _player.AddPlayerXP(_xpReward);
             //_player._xp += _xpReward;
             _cameraShake.DoShake(.15f, .2f);
-            DestroyClone(_rigidbody.angularVelocity);
+            DestroyClone(Vector3.zero);
             
             var _explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             //_gameManager._gameSettings._boomPartiles.Add(_explosion.GetComponent<ParticleSystem>());   
