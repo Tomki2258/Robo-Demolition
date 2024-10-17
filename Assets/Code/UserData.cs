@@ -7,6 +7,7 @@ public class UserData : MonoBehaviour
 {
     private int _allKilldedEnemies;
     [SerializeField] private int _playerCoins;
+    [SerializeField] private int _deathCount;
     public bool _IsOnline;
     private void Start()
     {
@@ -51,5 +52,14 @@ public class UserData : MonoBehaviour
             return;
         }
         _IsOnline = true;
+    }
+    public void AddDeathCount()
+    {
+        _deathCount++;
+        PlayerPrefs.SetInt("DeathCount",_deathCount);
+    }
+    public int GetDeathCount()
+    {
+        return PlayerPrefs.GetInt("DeathCount");
     }
 }

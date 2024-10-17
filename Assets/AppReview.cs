@@ -11,15 +11,22 @@ public class AppReview : MonoBehaviour
 {
     private ReviewManager _reviewManager;
     private PlayReviewInfo _playReviewInfo;
-
+    private bool _alreadyRated;
 
     private void Start()
     {
         //StartCoroutine(RequestReview());
     }
 
-    IEnumerator RequestReview()
+    public void DoReview()
     {
+        StartCoroutine(RequestReview());
+    }
+    private IEnumerator RequestReview()
+    {
+        _alreadyRated = true;
+        PlayerPrefs.SetInt("AlreadyRated",_alreadyRated ? 1 : 0);
+        
         _reviewManager = new ReviewManager(); 
         
         var requestFlowOperation = _reviewManager.RequestReviewFlow();

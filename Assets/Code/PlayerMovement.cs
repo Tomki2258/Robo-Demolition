@@ -409,6 +409,17 @@ public class PlayerMovement : MonoBehaviour
         _topAninmator.enabled = false;
         _shield = false;
         _shieldEffect.SetActive(false);
+        UserData _userData = FindObjectOfType<UserData>();
+        
+        _userData.AddDeathCount();
+
+        if (_userData.GetDeathCount() % 5 == 0)
+        {
+            if (PlayerPrefs.GetInt("AlreadyRated") == 0 && PlayerPrefs.GetInt("CanceledRate") < 3)
+            {
+                _uiManager._rateAppCanvas.SetActive(true);
+            }    
+        }
     }
 
     public void Revive()

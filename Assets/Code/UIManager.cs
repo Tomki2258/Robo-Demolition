@@ -46,6 +46,8 @@ public class UIManager : MonoBehaviour
     [Header("CreditsCanvas")] 
     public GameObject _creditsObject;
     public TMP_Text _creditsText;
+    [Header("RateApp")] public GameObject _rateAppCanvas;
+    private AppReview _appReview;
     private void Awake()
     {
         _questCanvas.SetActive(false);
@@ -288,5 +290,17 @@ public class UIManager : MonoBehaviour
     private String GetCreditsFromFile()
     {
         return Resources.Load<TextAsset>("credits").text;;
+    }
+    public void LaunchAppReview()
+    {
+        _appReview = FindFirstObjectByType<AppReview>();
+        _appReview.DoReview();
+    }
+
+    public void CloseReview()
+    {
+        _rateAppCanvas.SetActive(false);
+        int _canceledRate = PlayerPrefs.GetInt("CanceledRate");
+        PlayerPrefs.SetInt("CanceledRate",_canceledRate + 1);
     }
 }
