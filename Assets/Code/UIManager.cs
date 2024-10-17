@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
     public GameObject _creditsObject;
     public TMP_Text _creditsText;
     [Header("RateApp")] public GameObject _rateAppCanvas;
-    private AppReview _appReview;
+    [SerializeField] AppReview _appReview;
     private void Awake()
     {
         _questCanvas.SetActive(false);
@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(false);
         _creditsObject.SetActive(false);
         _startTime = DateTime.Now;
+        _rateAppCanvas.SetActive(false);
     }
 
     private void Start()
