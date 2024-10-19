@@ -54,7 +54,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 1
   _agent: {fileID: 1822932637142027826}
-  _gameManager: {fileID: 0}
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
@@ -63,22 +62,26 @@ MonoBehaviour:
   _xpReward: 200
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 50
-  health: 90
+  health: 130
   _attackDelayMax: 0.75
   _attackDelayCurrent: 0
   _stunned: 0
-  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
-  _dieMesh: {fileID: 0}
   _audioSource: {fileID: 4795026762475432317}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
+  _currentResetColorTime: 0
+  _childMaterials: []
+  _enemyChildrens: []
   _wingsSpeed: 20
   _wingsList:
   - {fileID: 8789408107085005838}
   - {fileID: 2707809808889564516}
   _baseSpeed: 0
+  _isPoweredUp: 0
+  _poweredUpMultipler: 0
+  _rigidbody: {fileID: 0}
   _rocketPrefab: {fileID: 6731008745918168869, guid: e7cd881819f4a39f094452f00141ea38,
     type: 3}
   _shootingPoint: {fileID: 5956903305426156799}

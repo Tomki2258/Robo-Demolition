@@ -3975,9 +3975,9 @@ RectTransform:
   - {fileID: 1504382233}
   m_Father: {fileID: 5460404079656424686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -90, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150281345
@@ -7443,9 +7443,9 @@ RectTransform:
   - {fileID: 8282121347157844853}
   m_Father: {fileID: 5460404079656424686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &765063004827494177
@@ -8244,7 +8244,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _spawnTimeMax
-      value: 2.5
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -10635,7 +10635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &5336057214332085525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10925,6 +10925,21 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1284098314}
+    - target: {fileID: 1462899861662184611, guid: bd16daebef9c55162bf51ed94cad7abe,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1581952686236268095}
+    - target: {fileID: 1462899861662184611, guid: bd16daebef9c55162bf51ed94cad7abe,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DoReview
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462899861662184611, guid: bd16daebef9c55162bf51ed94cad7abe,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AppReview, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2205552232941124048, guid: bd16daebef9c55162bf51ed94cad7abe,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10934,6 +10949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RateApp Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407200349729163451, guid: bd16daebef9c55162bf51ed94cad7abe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8329563023726053292, guid: bd16daebef9c55162bf51ed94cad7abe,
         type: 3}

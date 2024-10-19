@@ -242,12 +242,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected void Attack(Transform _bulletSpawn)
+    protected void Attack(Transform _bulletSpawn,int _bulletSpeed)
     {
         _bulletSpawn.LookAt(_player.transform.position);
         var _bulletInstance = Instantiate(_bullet, _bulletSpawn.position,
             _bulletSpawn.rotation);
         var _bulletScript = _bulletInstance.GetComponent<Bullet>();
+        if (_bulletSpeed != 0)
+        {
+            _bulletScript._bulletSpeed = _bulletSpeed;
+        }
         _bulletScript._enemyShoot = true;
         _bulletScript._bulletDamage = _bulletDamage;
         _audioSource.PlayOneShot(_shootAudioClip);

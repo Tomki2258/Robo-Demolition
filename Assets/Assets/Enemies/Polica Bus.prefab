@@ -119,14 +119,11 @@ MonoBehaviour:
   _attackDelayMax: 0.7
   _attackDelayCurrent: 0
   _stunned: 0
-  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
-  _dieMesh: {fileID: 0}
   _audioSource: {fileID: -2516378189511504486}
   _shootAudioClip: {fileID: 8300000, guid: 20564bdd850eeae63b9ccac62602f2c2, type: 3}
-  _resetColorTime: 0.05
   _currentResetColorTime: 0
   _childMaterials: []
   _enemyChildrens: []
@@ -135,6 +132,7 @@ MonoBehaviour:
   _baseSpeed: 0
   _isPoweredUp: 0
   _poweredUpMultipler: 0
+  _rigidbody: {fileID: 0}
   _currentState: 0
   _shootingPoints:
   - {fileID: 5652634464156369406}
@@ -420,6 +418,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bus
       objectReference: {fileID: 0}
+    - target: {fileID: 7071182760956848314, guid: b6f77acaa632d847e89f98ba5d7c4e47,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

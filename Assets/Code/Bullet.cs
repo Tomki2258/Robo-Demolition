@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     public Vector3 _flyVector = Vector3.forward;
     private void Start()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 6);
     }
     public void AddRecoil(float _recoil)
     {
