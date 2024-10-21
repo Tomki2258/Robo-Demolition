@@ -6,6 +6,6 @@ public class RateAppCanvas : MonoBehaviour
 {
     public void RateApp()
     {
-        Application.OpenURL ("market://details?id=" + Application.productName);
+        Application.OpenURL ("https://play.google.com/store/apps/details?id=com.tamus.RoboDemolition");
     }
 }

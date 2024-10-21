@@ -8229,12 +8229,12 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -10107,6 +10107,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5728232175402729360}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3259588481158337112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3574693052228384444, guid: bd16daebef9c55162bf51ed94cad7abe,
+    type: 3}
+  m_PrefabInstance: {fileID: 5728232175402729360}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993365179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9b77d09f028732599ff2a8b123685e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3384046831562947519 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1151896808628040988, guid: 4fe088204772cf55587f3614ddc4861b,
@@ -10737,7 +10749,12 @@ PrefabInstance:
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
       propertyPath: _xpToNextLevel
-      value: 70
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: _shieldMaxTimer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5637768631754808324, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
         type: 3}
@@ -10929,16 +10946,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1581952686236268095}
+      objectReference: {fileID: 3259588481158337112}
     - target: {fileID: 1462899861662184611, guid: bd16daebef9c55162bf51ed94cad7abe,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DoReview
+      value: RateApp
       objectReference: {fileID: 0}
     - target: {fileID: 1462899861662184611, guid: bd16daebef9c55162bf51ed94cad7abe,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AppReview, Assembly-CSharp
+      value: RateAppCanvas, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2205552232941124048, guid: bd16daebef9c55162bf51ed94cad7abe,
         type: 3}

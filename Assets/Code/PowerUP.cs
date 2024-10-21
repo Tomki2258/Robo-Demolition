@@ -48,8 +48,8 @@ public class PowerUP : MonoBehaviour
         {
             case PowerUpType.Health:
                 if (_player._health >= _player._maxHealth) return;
-                _player._health += Convert.ToInt32(_player._health * 0.33f);
-                _uiManager.ShowHpDifference(_player._health * 0.33f);
+                _player._health += Convert.ToInt32(_player._health * 0.5f);
+                _uiManager.ShowHpDifference(_player._health * 0.50f);
 
                 if (_player._health > _player._maxHealth)
                     _player._health = _player._maxHealth;

@@ -34,7 +34,7 @@ public class PowerUpsManagment : MonoBehaviour
         GameObject _currentPowerUp = Instantiate(_powerUpPrefab, _selectedSpawner.position, Quaternion.identity);
         _spawnedPowerUps.Add(_currentPowerUp);
 
-        if (_spawnedPowerUps.Count == _maxSpawnedPowerUps + 1)
+        if (_spawnedPowerUps.Count == _maxSpawnedPowerUps + 2)
         {
             Destroy(_spawnedPowerUps[0]);
             _spawnedPowerUps.RemoveAt(0);

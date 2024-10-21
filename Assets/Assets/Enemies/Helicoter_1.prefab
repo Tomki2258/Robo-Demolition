@@ -356,19 +356,16 @@ MonoBehaviour:
   _stoppingDistance: 10
   _xpReward: 40
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _bulletDamage: 15
+  _bulletDamage: 12
   health: 80
   _attackDelayMax: 1
   _attackDelayCurrent: 0
   _stunned: 0
-  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
-  _dieMesh: {fileID: 0}
   _audioSource: {fileID: 4795026762475432317}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
-  _resetColorTime: 0
   _currentResetColorTime: 0
   _childMaterials: []
   _enemyChildrens: []
@@ -379,6 +376,7 @@ MonoBehaviour:
   _baseSpeed: 7
   _isPoweredUp: 0
   _poweredUpMultipler: 0
+  _rigidbody: {fileID: 0}
   _shootingPoint: {fileID: 5956903305426156799}
   _waypoint: {fileID: 0}
 --- !u!33 &5922888676198504622
