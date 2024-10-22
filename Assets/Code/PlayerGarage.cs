@@ -16,6 +16,15 @@ public class PlayerGarage : MonoBehaviour
     [Header("Real Player")] [SerializeField]
     private GameObject _realBody;
     [SerializeField] private GameObject _realHead;
+    [SerializeField] private GameObject _realCircle;
+    [SerializeField] private GameObject _realHands;
+    [SerializeField] private GameObject _realLaserGun;
+    [SerializeField] private GameObject _realLeftGun;
+    [SerializeField] private GameObject _realRightGun;
+    [SerializeField] private GameObject _realLegs;
+    [SerializeField] private GameObject _realRocketGun;
+    [SerializeField] private GameObject _realSphereAttack;
+    
     [Header("Garage Player")] 
     [SerializeField] private GameObject _garageBody;
     [SerializeField] private GameObject _garageHead;
@@ -31,7 +40,8 @@ public class PlayerGarage : MonoBehaviour
     {
         _uiManager = FindObjectOfType<UIManager>();
         SetSkinChangeUI();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _playerGarage.SetActive(false);
     }
 
     void FixedUpdate()
@@ -83,6 +93,7 @@ public class PlayerGarage : MonoBehaviour
         _uiManager._skinPriceText.text = _currentSelectedSkin.GetSkinPrice().ToString();
         
         int _currentPlayerCoins = _uiManager._userData.GetPlayerCoins();
+        
         _garageBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
         _garageHead.GetComponent<MeshRenderer>().material = _currentSelectedSkin._headMaterial;
         _garageCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleGunmaterial;
@@ -97,6 +108,15 @@ public class PlayerGarage : MonoBehaviour
 
     public void ApplySkinForPlayer()
     {
-        throw new NotImplementedException();
+        _realBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
+        _realHead.GetComponent<MeshRenderer>().material = _currentSelectedSkin._headMaterial;
+        _realCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleGunmaterial;
+        _realHands.GetComponent<MeshRenderer>().material = _currentSelectedSkin._handsMaterial;
+        _realLaserGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._laserGunMaterial;
+        _realLeftGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._leftGunMaterial;
+        _realRightGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._rightGunMaterial;
+        _realLegs.GetComponent<SkinnedMeshRenderer>().material = _currentSelectedSkin._legsMaterial;
+        _realRocketGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._rocketGunMaterial;
+        _realSphereAttack.GetComponent<MeshRenderer>().material = _currentSelectedSkin._spheareGunMaterial;
     }
 }

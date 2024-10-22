@@ -72,6 +72,8 @@ public class UIManager : MonoBehaviour
         _startTime = DateTime.Now;
         _appReview = GetComponent<AppReview>();
         _rateAppCanvas.SetActive(false);
+        _gameStartUI.SetActive(true);
+        _playerCustomizationCanvas.SetActive(false);
     }
 
     private void Start()

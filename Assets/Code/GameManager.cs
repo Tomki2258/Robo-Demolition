@@ -332,6 +332,7 @@ public class GameManager : MonoBehaviour
         _garageCammera.enabled = _mode;
         _garageSpace.SetActive(_mode);
         _mainCamera.enabled = !_mode;
+        //_uiManager.EnablePlayerCustomizationCanvas(_mode);
     }
 
     public float GetTrashX()
