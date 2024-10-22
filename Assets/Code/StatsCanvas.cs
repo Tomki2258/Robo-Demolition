@@ -57,17 +57,21 @@ public class StatsCanvas : MonoBehaviour
         return Math.Round(_result, 1, MidpointRounding.ToEven);
     }
 
+    private double RoundedValues(double _value)
+    {
+        return Math.Round(_value, 2);
+    }
     public void SetStatsCanvas()
     {
         //_healthText.text = $"Health bonus {_player._maxHealth - _startHealth}";
-        _regenerationText.text = $"Regeneration bonus {_player._maxHealth * _player._hpRegenMultipler}/s";
-        _rangeText.text = $"Attack range bonus {PercentageDifference(_startRange, _player._attackRange)} %";
-        _damageText.text = $"Damage bonus {_playerWeapons._damageMultipler - 1} %";
+        _regenerationText.text = $"Regeneration bonus {RoundedValues(_player._maxHealth * _player._hpRegenMultipler)}/s";
+        _rangeText.text = $"Attack range bonus {RoundedValues(PercentageDifference(_startRange, _player._attackRange))} %";
+        _damageText.text = $"Damage bonus {RoundedValues(_playerWeapons._damageMultipler - 1)} %";
         //_damageText.text = $"Damage bonus {PercentageDifference(_startDamage, _playerWeapons._standardGunClass.GetDamage())} %";
         _reloadSpeedText.text =
-            $"Reload speed bonus {PercentageDifference(_startReloadSpeed,  _playerWeapons._reloadMultipler)} % ";
-        _bulletDodgeText.text = $"Bullet dodge bonus {_player._playerAtributtes._dodgeChange} %";
-        _fovText.text = $"Field of view bonus {PercentageDifference(_startFov, _cameraController._offset.y)} %";
+            $"Reload speed bonus {RoundedValues(PercentageDifference(_startReloadSpeed,  _playerWeapons._reloadMultipler))} % ";
+        _bulletDodgeText.text = $"Bullet dodge bonus {RoundedValues(_player._playerAtributtes._dodgeChange)} %";
+        _fovText.text = $"Field of view bonus {RoundedValues(_player._playerAtributtes._fovBonus * 100)} %";
         _bonusHPText.text = $"Bonus HP {_bonusHP}";
         _luckyText.text = $"Luck {_playerAtributtes._playerLuck} %";
     }

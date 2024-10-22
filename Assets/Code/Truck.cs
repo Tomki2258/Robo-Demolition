@@ -45,7 +45,7 @@ public class Truck : Enemy
         
         _player.CheckHealth(_bulletDamage);
         
-        DestroyClone();
+        DestroyClone(Vector3.zero);
         Destroy(gameObject);
     }
 

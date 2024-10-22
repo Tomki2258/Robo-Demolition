@@ -86,11 +86,12 @@ public class LevelUpUI : MonoBehaviour
                 }
                 else
                 {
-                    _player.GetComponent<PlayerAtributtes>()._dodgeChange *= 1 + _currentPowerUp.GetPlayerBonus();
+                    _playerAtributtes._dodgeChange *= 1 + _currentPowerUp.GetPlayerBonus();
                 }
                 break;
             case PowerUpsEnum.FieldOfView:
                 _cameraController._offset *= 1 + _currentPowerUp.GetPlayerBonus();
+                _player._playerAtributtes._fovBonus = _currentPowerUp.GetPlayerBonus();
                 break;
             case PowerUpsEnum.Luck:
                 _playerAtributtes = _player.GetComponent<PlayerAtributtes>();

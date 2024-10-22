@@ -15,6 +15,12 @@ Programming and engine operation : me
 
 2D sprites na UI organization : <a href="https://github.com/HushPix">HushPix</a>
 
+freesound.org users:
+-alegemaate
+-SuperPhat
+-michorvath
+-Artninja
+
 # Assets used in project
 
 <a href="https://assetstore.unity.com/packages/3d/environments/simplepoly-city-low-poly-assets-58899">SimplePoly City - Low Poly Assets</a> <br>

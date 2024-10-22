@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     public Vector3 _flyVector = Vector3.forward;
     private void Start()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 6);
     }
     public void AddRecoil(float _recoil)
     {
@@ -30,47 +30,41 @@ public class Bullet : MonoBehaviour
     private void HitFunction(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet")) return;
-
+        
+        //Is bullet shot by player
         if (!_enemyShoot)
         {
-            if (other.gameObject.CompareTag("Player"))
+            switch (other.gameObject.tag)
             {
-            }
-            else if (other.gameObject.CompareTag("Enemy"))
-            {
-                var _enemy = other.GetComponent<Enemy>();
-                if (_enemy.CheckHealth(_bulletDamage))
-                {
-                    _enemy._currentResetColorTime = 0;
-                }
-
-                Destroy(gameObject);
-            }
-            else if (other.gameObject.GetComponent<Turret>())
-            {
-                var _enemy = other.GetComponent<Turret>();
-                _enemy.ReceiveDamage((int)_bulletDamage);
-            }
-            else
-            {
-                Destroy(gameObject);
+                case "Player":
+                    break;
+                case "Enemy":
+                    var _enemy = other.GetComponent<Enemy>();
+                    if (_enemy.CheckHealth(_bulletDamage))
+                    {
+                        _enemy._currentResetColorTime = 0;
+                    }
+                    Destroy(gameObject);
+                    break;
+                default:
+                    Destroy(gameObject);
+                    break;
             }
         }
-        else
+        else //Is bullet shot by enemy
         {
-            if (other.gameObject.CompareTag("Player"))
+            switch (other.gameObject.tag)
             {
-                var _player = other.GetComponent<PlayerMovement>();
-                _player.CheckHealth(_bulletDamage);
-                Destroy(gameObject);
-            }
-            else if (other.gameObject.CompareTag("Enemy"))
-            {
-                //StartCoroutine(HitChangeMaterial(other.gameObject));
-            }
-            else
-            {
-                Destroy(gameObject);
+                case "Player":
+                    var _player = other.GetComponent<PlayerMovement>();
+                    _player.CheckHealth(_bulletDamage);
+                    Destroy(gameObject);
+                    break;
+                case "Enemy":
+                    break;
+                default:
+                    Destroy(gameObject);
+                    break;
             }
         }
     }

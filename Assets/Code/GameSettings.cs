@@ -93,12 +93,12 @@ public class GameSettings : MonoBehaviour
         _audioOn = !_audioOn;
         if (_audioOn)
         {
-            _audioListener.enabled = true;
+            AudioListener.volume = 1;
             _audioImage.sprite =_audioOnSprite;
         }
         else
         {
-            _audioListener.enabled = false;
+            AudioListener.volume = 0;
             _audioImage.sprite = _audioOffSprite;
         }
 

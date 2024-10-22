@@ -29,30 +29,14 @@ public class CarEnemy : Enemy
         if(_distance < _attackRange) Attacking();
         CheckStunned();
     }
-
-    /*
-    private void SwitchLight()
-    {
-        if (_lightsTimerMax > _lightsTimer)
-        {
-            _lightsTimer += Time.deltaTime;
-        }
-        else
-        {
-            _lightsTimer = 0;
-            _lights[0].SetActive(_lights[0].activeSelf);
-            _lights[1].SetActive(!_lights[1].activeSelf);
-        }
-    }
-    */
-    public void Attacking()
+    private void Attacking()
     {
         if (_stunned || _player._died) return;
 
         if (_attackDelayCurrent > _attackDelayMax)
         {
             _attackDelayCurrent = 0;
-            Attack(_shootingPoints[0]);
+            Attack(_shootingPoints[0],0);
             _shootingPoints[0].LookAt(_player.transform.position);
             //shoot
         }

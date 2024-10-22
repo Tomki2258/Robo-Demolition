@@ -180,7 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 0
   _agent: {fileID: 0}
-  _gameManager: {fileID: 0}
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
@@ -190,19 +189,23 @@ MonoBehaviour:
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 25
   health: 35
-  _attackDelayMax: 1.5
+  _attackDelayMax: 3
   _attackDelayCurrent: 0
   _stunned: 0
-  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
-  _dieMesh: {fileID: 0}
   _audioSource: {fileID: 1855958286251059625}
   _shootAudioClip: {fileID: 8300000, guid: 5f9d8cd49edd66a9d905c6dc8d13ede9, type: 3}
+  _currentResetColorTime: 0
+  _childMaterials: []
+  _enemyChildrens: []
   _wingsSpeed: 0
   _wingsList: []
   _baseSpeed: 0
+  _isPoweredUp: 0
+  _poweredUpMultipler: 0
+  _rigidbody: {fileID: 0}
   _shootingPoint: {fileID: 6097033507101572674}
   _topModel: {fileID: 0}
 --- !u!82 &1855958286251059625

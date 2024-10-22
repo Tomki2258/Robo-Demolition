@@ -8,8 +8,8 @@ public class PlayerAtributtes : MonoBehaviour
     public GameObject _standardBullet;
     public GameObject _explosiveBullet;
 
-    [Header("Bullet dodge")] 
-    public float _dodgeChange;
+    public float _fovBonus;
+    [Header("Bullet dodge")] public float _dodgeChange;
 
     [Header("Bullet Reflection")] 
     public float _bulletReflection;

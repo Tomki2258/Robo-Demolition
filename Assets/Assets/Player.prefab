@@ -839,7 +839,6 @@ MonoBehaviour:
   _currentEnemy: {fileID: 0}
   _attackRange: 12
   _currentAttackRange: 0
-  _damage: 5
   _maxHealth: 130
   _health: 100
   _hpRegenMultipler: 0.02
@@ -872,14 +871,8 @@ MonoBehaviour:
   _legsAudioSource: {fileID: 8042735535877390679}
   _footStepSounds:
   - {fileID: 8300000, guid: 2a003d83e8506b23fa90a05962554a0a, type: 3}
-  _footstepsTransforms:
-  - {fileID: 5315890489830088426}
-  - {fileID: 3540997941914217053}
-  _footStepEffect: {fileID: 4916640740343874935, guid: 53716f5f90ef48c3f89f21b3acda739c,
-    type: 3}
   _playerAtributtes: {fileID: 0}
   _idleLookTransform: {fileID: 8910536273972078061}
-  _mainCannonRotateElement: {fileID: 5731191009634395235}
   _levelUpPlayerScaler: 1.5
 --- !u!114 &5308632745959701585
 MonoBehaviour:
@@ -944,6 +937,7 @@ MonoBehaviour:
   _laserMaxDamage: 10
   _laserDamageMultiplier: 0.1
   _lastLaserEnemy: {fileID: 0}
+  _laserParticle: {fileID: 0}
   _rocketLauncherClass: {fileID: 11400000, guid: 2b7fc0d0dfd3c926f928dbf53f5aea9b,
     type: 2}
   _rocketPrefab: {fileID: 6731008745918168869, guid: e7cd881819f4a39f094452f00141ea38,
@@ -969,6 +963,7 @@ MonoBehaviour:
     type: 3}
   _granadeForce: 15
   _granadeSpawner: {fileID: 4993319605617858703}
+  _particleSystems: []
 --- !u!114 &3917809111193361986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,6 +979,7 @@ MonoBehaviour:
   _currentBulletType: {fileID: 0}
   _standardBullet: {fileID: 0}
   _explosiveBullet: {fileID: 0}
+  _fovBonus: 0
   _dodgeChange: 0
   _bulletReflection: 0
 --- !u!143 &8808520860718216945
@@ -1066,8 +1062,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1.5, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6438437, y: 1.5, z: 1.3079457}
+  m_Center: {x: -0.0062327385, y: 0, z: 0.09953284}
 --- !u!81 &6523104144524243060
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2031,12 +2027,6 @@ PrefabInstance:
 --- !u!1 &1736973983868523132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1209148534454489166, guid: 480afb6b1a173b58897e67bec4c4770e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8584640936891645390}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5731191009634395235 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4083501151425157549, guid: 480afb6b1a173b58897e67bec4c4770e,
     type: 3}
   m_PrefabInstance: {fileID: 8584640936891645390}
   m_PrefabAsset: {fileID: 0}

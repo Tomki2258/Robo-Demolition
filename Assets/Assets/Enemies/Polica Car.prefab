@@ -109,23 +109,20 @@ MonoBehaviour:
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
-  _attackRange: 11
+  _attackRange: 10
   _stoppingDistance: 6
   _xpReward: 5
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _bulletDamage: 5
+  _bulletDamage: 4
   health: 10
   _attackDelayMax: 1.25
   _attackDelayCurrent: 0
   _stunned: 0
-  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
-  _dieMesh: {fileID: 0}
   _audioSource: {fileID: 0}
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
-  _resetColorTime: 0.05
   _currentResetColorTime: 0
   _childMaterials: []
   _enemyChildrens: []
@@ -134,6 +131,7 @@ MonoBehaviour:
   _baseSpeed: 0
   _isPoweredUp: 0
   _poweredUpMultipler: 1.5
+  _rigidbody: {fileID: 0}
   _currentState: 0
   _shootingPoints:
   - {fileID: 5652634464156369406}
@@ -169,7 +167,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 7
   m_Acceleration: 6
   avoidancePriority: 50
   m_AngularSpeed: 120

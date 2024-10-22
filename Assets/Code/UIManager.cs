@@ -52,6 +52,8 @@ public class UIManager : MonoBehaviour
     [Header("CreditsCanvas")]
     public GameObject _creditsObject;
     public TMP_Text _creditsText;
+    [Header("RateApp")] public GameObject _rateAppCanvas;
+    private AppReview _appReview;
     private void Awake()
     {
         _questCanvas.SetActive(false);
@@ -68,6 +70,8 @@ public class UIManager : MonoBehaviour
         _dieCanvas.SetActive(false);
         _playerGarage = FindFirstObjectByType<PlayerGarage>();
         _startTime = DateTime.Now;
+        _appReview = GetComponent<AppReview>();
+        _rateAppCanvas.SetActive(false);
     }
 
     private void Start()
@@ -127,7 +131,7 @@ public class UIManager : MonoBehaviour
         var _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
         _hpDifference.transform.SetParent(_mainUI.transform);
         var _randomPosition = new Vector3(_hpDifference.transform.position.x + Random.Range(-50, 50),
-            _hpDifference.transform.position.y + Random.Range(100, 200),
+            _hpDifference.transform.position.y + Random.Range(100, 200), //100, 200
             _hpDifference.transform.position.z);
         _hpDifference.transform.position = _randomPosition;
         _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
@@ -280,14 +284,14 @@ public class UIManager : MonoBehaviour
 
     private String GetCreditsFromFile()
     {
-        string _filePath = "Assets/Resources/credits.txt";
-        if(!File.Exists(_filePath))
-        {
-            Debug.Log("File do not exist");
-            return "READ CREDITS ERROR";
-        }
+        return Resources.Load<TextAsset>("credits").text;;
+    }
 
-        return File.ReadAllText(_filePath);
+    public void CloseReview()
+    {
+        _rateAppCanvas.SetActive(false);
+        int _canceledRate = PlayerPrefs.GetInt("CanceledRate");
+        PlayerPrefs.SetInt("CanceledRate",_canceledRate + 1);
     }
     public void EnablePlayerCustomizationCanvas(bool _mode)
     {
