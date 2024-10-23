@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyType: 0
-  _agent: {fileID: 0}
+  _agent: {fileID: 108138969742869792}
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
@@ -76,6 +76,9 @@ MonoBehaviour:
   _isPoweredUp: 0
   _poweredUpMultipler: 0
   _rigidbody: {fileID: 0}
+  _turretPrefab: {fileID: 288913568505245208, guid: a63e2880dd34188db9c459a6b66a36ec,
+    type: 3}
+  _constructorState: 0
 --- !u!195 &108138969742869792
 NavMeshAgent:
   m_ObjectHideFlags: 0

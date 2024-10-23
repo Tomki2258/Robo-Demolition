@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public float _attackTimerMax;
     [SerializeField] private Transform _rotateTop;
     [SerializeField] private Transform _shootTransform;
+    public  Vector3 _offset;
     private float _rotateSpeed = 5f;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private int _damage;
@@ -49,10 +50,12 @@ public class Turret : MonoBehaviour
     }
     private void MoveTurret(Vector3 _target)
     {
-        var _direction = _target - transform.position;
-        _direction.Normalize();
-        _rotateTop.rotation = Quaternion.Slerp(_rotateTop.rotation, Quaternion.LookRotation(_direction),
-            _rotateSpeed * Time.deltaTime);
+        var _direction = (_target - transform.position).normalized;
+        var _lookRotation = Quaternion.LookRotation(_direction + _offset);
+        _rotateTop.rotation = Quaternion.Slerp(_rotateTop.rotation, _lookRotation, _rotateSpeed * Time.deltaTime);
+
+        // Debugging
+        Debug.DrawLine(transform.position, _target, Color.red);
     }
     public bool CheckHealth(float _value)
     {
@@ -62,7 +65,7 @@ public class Turret : MonoBehaviour
         return false;
     }
 
-    private void DestroyTurret()
+    public void DestroyTurret()
     {
         Destroy(gameObject);
     }
