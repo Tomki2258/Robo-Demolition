@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -7,16 +8,22 @@ public class Turret : MonoBehaviour
     private PlayerMovement _player;
     [SerializeField] private int _attackRange;
     private float _attackTimer;
-    private int _attackTimerMax;
+    public float _attackTimerMax;
     [SerializeField] private Transform _rotateTop;
+    [SerializeField] private Transform _shootTransform;
     private float _rotateSpeed = 5f;
+    [SerializeField] private GameObject _bullet;
     [SerializeField] private int _damage;
-    private float _health;
+    public float _health;
+    public float _maxHealth;
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _shootAudioClip;
     private void Start()
     {
         _player = FindObjectOfType<PlayerMovement>();
         _gameManager = FindObjectOfType<GameManager>();
         _gameManager._spawnedEnemies.Add(gameObject);
+        _maxHealth = _health;
     }
 
     private void FixedUpdate()
@@ -27,7 +34,6 @@ public class Turret : MonoBehaviour
         {
             Attack();
         }
-        //tamusUtils.MoveTurret(_player.transform.position, transform, _rotateTop,_rotateSpeed);
     }
     private void Attack()
     {
@@ -39,7 +45,7 @@ public class Turret : MonoBehaviour
         
         _attackTimer = 0;
         
-        // Attack logic
+        Attack(_shootTransform,25);
     }
     private void MoveTurret(Vector3 _target)
     {
@@ -48,20 +54,32 @@ public class Turret : MonoBehaviour
         _rotateTop.rotation = Quaternion.Slerp(_rotateTop.rotation, Quaternion.LookRotation(_direction),
             _rotateSpeed * Time.deltaTime);
     }
-    public float ReceiveDamage(int _damage)
+    public bool CheckHealth(float _value)
     {
-        _health -= _damage;
-        if (_health <= 0)
-        {
-            DestroyTurret();
-            return 0;
-        }
-        return _health;
+        _health -= _value;
+        if (!(_health <= 0)) return true;
+        DestroyTurret();
+        return false;
     }
 
     private void DestroyTurret()
     {
         Destroy(gameObject);
+    }
+    protected void Attack(Transform _bulletSpawn,int _bulletSpeed)
+    {
+        _bulletSpawn.LookAt(_player.transform.position);
+        var _bulletInstance = Instantiate(_bullet, _bulletSpawn.position,
+            _bulletSpawn.rotation);
+        var _bulletScript = _bulletInstance.GetComponent<Bullet>();
+        if (_bulletSpeed != 0)
+        {
+            _bulletScript._bulletSpeed = _bulletSpeed;
+        }
+        _bulletScript._enemyShoot = true;
+        _bulletScript._bulletDamage = _damage;
+        _audioSource.PlayOneShot(_shootAudioClip);
+        Destroy(_bulletInstance, 5);
     }
 }
 

@@ -357,6 +357,26 @@ public class PlayerMovement : MonoBehaviour
 
         return false;
     }
+
+    /*      ------------------- OLD -------------------------
+    private Transform GetNearestEnemy()
+    {
+        var lowestDist = Mathf.Infinity;
+        foreach (var _enemy in _gameManager._spawnedEnemies)
+        {
+            if (_enemy == null) continue;
+            var dist = Vector3.Distance(_enemy.transform.position, transform.position);
+
+            if (dist < lowestDist)
+            {
+                lowestDist = dist;
+                _currentEnemy = _enemy;
+            }
+        }
+
+        return _currentEnemy.transform;
+    }
+    */
     private Transform GetNearestEnemy()
     {
         var lowestDist = Mathf.Infinity;
@@ -374,7 +394,6 @@ public class PlayerMovement : MonoBehaviour
 
         return _currentEnemy.transform;
     }
-
     public void CheckHealth(float _value)
     {
         if (_died) return;

@@ -24,8 +24,9 @@ public class PlayerGarage : MonoBehaviour
     [SerializeField] private GameObject _realLegs;
     [SerializeField] private GameObject _realRocketGun;
     [SerializeField] private GameObject _realSphereAttack;
-    
-    [Header("Garage Player")] 
+
+    [Header("Garage Player")] [SerializeField]
+    private Animator _garageAnimator;
     [SerializeField] private GameObject _garageBody;
     [SerializeField] private GameObject _garageHead;
     [SerializeField] private GameObject _garageCircle;
@@ -61,27 +62,29 @@ public class PlayerGarage : MonoBehaviour
     public void SwitchSkinButton(bool _up)
     {
         int _currentIndex = _playerSkins.IndexOf(_currentSelectedSkin);
-        if (_up)
+        switch (_up)
         {
-            if (_currentIndex == _playerSkins.Count - 1)
-            {
-                _currentSelectedSkin = _playerSkins[0];
-            }
-            else
-            {
-                _currentSelectedSkin = _playerSkins[_currentIndex + 1];
-            }
-        }
-        else
-        {
-            if (_currentIndex == 0)
-            {
-                _currentSelectedSkin = _playerSkins[_playerSkins.Count - 1];
-            }
-            else
-            {
-                _currentSelectedSkin = _playerSkins[_currentIndex - 1];
-            }
+            case true:
+                if (_currentIndex == _playerSkins.Count - 1)
+                {
+                    _currentSelectedSkin = _playerSkins[0];
+                }
+                else
+                {
+                    _currentSelectedSkin = _playerSkins[_currentIndex + 1];
+                }
+                break;
+            case false:
+                if (_currentIndex == 0)
+                {
+                    _currentSelectedSkin = _playerSkins[_playerSkins.Count - 1];
+                }
+                else
+                {
+                    _currentSelectedSkin = _playerSkins[_currentIndex - 1];
+                }
+                break;
+                
         }
             
         SetSkinChangeUI();

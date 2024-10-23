@@ -246,7 +246,7 @@ public class GameManager : MonoBehaviour
         {
             Enemy _enemyScript = _enemy.GetComponent<Enemy>();
             _enemyScript._killedByManager = true;
-            _enemyScript.CheckHealth(_enemyScript.health + 1);
+            _enemyScript.CheckHealth(_enemyScript._health + 1);
         }
 
         _spawnedEnemies.Clear();

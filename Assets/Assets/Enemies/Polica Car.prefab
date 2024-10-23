@@ -114,7 +114,8 @@ MonoBehaviour:
   _xpReward: 5
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 4
-  health: 10
+  _health: 7
+  _maxHealth: 0
   _attackDelayMax: 1.25
   _attackDelayCurrent: 0
   _stunned: 0
