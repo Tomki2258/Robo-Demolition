@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _currentEnemy;
     public float _attackRange; //base
     public float _currentAttackRange;
+    public PlayerSkinSO _currentPlayerSkin;
     [Header("Player Stats")] public float _maxHealth;
 
     public float _health;

@@ -9,6 +9,7 @@ public class PlayerGarage : MonoBehaviour
     public bool _garageEnabled = false;
     [SerializeField] private List<PlayerSkinSO> _playerSkins;
     [SerializeField] private GameObject _realPlayer;
+    private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _playerGarage;
     [SerializeField] private PlayerSkinSO _currentSelectedSkin;
     private UIManager _uiManager;
@@ -43,6 +44,9 @@ public class PlayerGarage : MonoBehaviour
         SetSkinChangeUI();
         //gameObject.SetActive(false);
         _playerGarage.SetActive(false);
+        _playerMovement = _realPlayer.GetComponent<PlayerMovement>();
+        
+        LoadSavedSkin();
     }
 
     void FixedUpdate()
@@ -111,6 +115,9 @@ public class PlayerGarage : MonoBehaviour
 
     public void ApplySkinForPlayer()
     {
+        _playerMovement._currentPlayerSkin = _currentSelectedSkin;
+        SaveCurrentSkin();
+        
         _realBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
         _realHead.GetComponent<MeshRenderer>().material = _currentSelectedSkin._headMaterial;
         _realCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleGunmaterial;
@@ -121,5 +128,17 @@ public class PlayerGarage : MonoBehaviour
         _realLegs.GetComponent<SkinnedMeshRenderer>().material = _currentSelectedSkin._legsMaterial;
         _realRocketGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._rocketGunMaterial;
         _realSphereAttack.GetComponent<MeshRenderer>().material = _currentSelectedSkin._spheareGunMaterial;
+    }
+
+    private void LoadSavedSkin()
+    {
+        int _loadedSkinIndex = PlayerPrefs.GetInt("CurrentSkin");
+        _currentSelectedSkin = _playerSkins[_loadedSkinIndex];
+        SetSkinChangeUI();
+        ApplySkinForPlayer();
+    }
+    private void SaveCurrentSkin()
+    {
+        PlayerPrefs.SetInt("CurrentSkin",_playerSkins.IndexOf(_currentSelectedSkin));
     }
 }

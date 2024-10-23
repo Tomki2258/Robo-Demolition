@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3897710207586226578}
   - component: {fileID: 108138969742869792}
   - component: {fileID: 6983441892266736936}
+  - component: {fileID: 7252857126113512865}
   m_Layer: 0
   m_Name: ConstructorENemy
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
   _bulletDamage: 0
   _health: 15
   _maxHealth: 0
-  _attackDelayMax: 15
+  _attackDelayMax: 20
   _attackDelayCurrent: 0
   _stunned: 0
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
@@ -79,6 +80,8 @@ MonoBehaviour:
   _turretPrefab: {fileID: 288913568505245208, guid: a63e2880dd34188db9c459a6b66a36ec,
     type: 3}
   _constructorState: 0
+  _buildTimer: 0
+  _buildTimerMax: 20
 --- !u!195 &108138969742869792
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -198,6 +201,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7252857126113512865
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636138944024666979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3852468180390701501
 GameObject:
   m_ObjectHideFlags: 0

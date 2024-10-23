@@ -43,7 +43,7 @@ public class CaptureAreaManager : MonoBehaviour
     public void GetCaptureAreaReward()
     {
         _player._health = _player._maxHealth;
-        _player._xp = _player._xpToNextLevel;
+        _player.AddPlayerXP(_player._xpToNextLevel - _player._xp);
         _gameManager._notyficationBaner.ShotMessage("ZONE CAPTURED", 
             "Player boosted",false,true);
     }
