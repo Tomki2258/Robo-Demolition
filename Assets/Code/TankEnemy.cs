@@ -37,7 +37,7 @@ public class TankEnemy : Enemy
         if (_attackDelayCurrent > _attackDelayMax)
         {
             _attackDelayCurrent = 0;
-            Attack(_shootingPoint,6);
+            Attack(_shootingPoint,0);
             //shoot
         }
         else

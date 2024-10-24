@@ -127,7 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 0
   _agent: {fileID: 0}
-  _gameManager: {fileID: 0}
   _player: {fileID: 0}
   _explosionPrefab: {fileID: 1145776814827893691, guid: f86431ce192082cfaac1235ffec027be,
     type: 3}
@@ -136,20 +135,26 @@ MonoBehaviour:
   _xpReward: 80
   _bullet: {fileID: 0}
   _bulletDamage: 100
-  health: 30
+  _health: 0
+  _maxHealth: 15
   _attackDelayMax: 0
   _attackDelayCurrent: 0
   _stunned: 0
-  _oryginalMaterial: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
   _killedByManager: 0
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
-  _dieMesh: {fileID: 0}
   _audioSource: {fileID: 6705608401987723988}
   _shootAudioClip: {fileID: 8300000, guid: 0b3700b74a10f9e76864fd7cb99d291b, type: 3}
+  _currentResetColorTime: 0
+  _childMaterials: []
+  _enemyChildrens: []
   _wingsSpeed: 0
   _wingsList: []
   _baseSpeed: 10
+  _isPoweredUp: 0
+  _poweredUpMultipler: 0
+  _rigidbody: {fileID: 0}
+  _playerDistance: 0
   _maxPlayTime: 15
 --- !u!195 &-8734701051252472421
 NavMeshAgent:

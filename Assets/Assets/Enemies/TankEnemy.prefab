@@ -188,7 +188,8 @@ MonoBehaviour:
   _xpReward: 25
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 25
-  health: 35
+  _health: 0
+  _maxHealth: 30
   _attackDelayMax: 3
   _attackDelayCurrent: 0
   _stunned: 0
@@ -206,6 +207,7 @@ MonoBehaviour:
   _isPoweredUp: 0
   _poweredUpMultipler: 0
   _rigidbody: {fileID: 0}
+  _playerDistance: 0
   _shootingPoint: {fileID: 6097033507101572674}
   _topModel: {fileID: 0}
 --- !u!82 &1855958286251059625

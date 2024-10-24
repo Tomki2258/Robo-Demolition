@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour
         _enemyChildrens = transform.GetComponentsInChildren<Transform>();
 
         _refleshPlayerTargetcurrent = _reflashPlayerTargetMax;
-        _maxHealth = _health;
+        _health = _maxHealth;
     }
 
     private void EnemyDie()
