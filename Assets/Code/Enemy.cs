@@ -23,7 +23,8 @@ public class Enemy : MonoBehaviour
     public int _xpReward;
     public GameObject _bullet;
     public int _bulletDamage;
-    public float health;
+    public float _health;
+    public float _maxHealth;
     public float _attackDelayMax;
     public float _attackDelayCurrent;
     public bool _stunned;
@@ -48,13 +49,15 @@ public class Enemy : MonoBehaviour
     public float _wingsSpeed;
     
     [Header("------------------")] private float _refleshPlayerTargetcurrent;
-    private float _reflashPlayerTargetMax = 0.5f;
+    private float _reflashPlayerTargetMax = 1;
 
     public List<Transform> _wingsList = new List<Transform>(2);
     public float _baseSpeed;
     public bool _isPoweredUp;
     public float _poweredUpMultipler;
     public Rigidbody _rigidbody;
+    private List<MeshRenderer> _meshRenderers = new List<MeshRenderer>();
+    private bool _materialChanged = false;
     protected void SetUp()
     {
         //_rigidbody = GetComponent<Rigidbody>();
@@ -68,7 +71,7 @@ public class Enemy : MonoBehaviour
             transform.localScale *= _poweredUpMultipler;
             _attackRange = (int)Math.Round(_attackRange * _poweredUpMultipler);
             _bulletDamage = (int)Math.Round(_bulletDamage * _poweredUpMultipler);
-            health *= _poweredUpMultipler;
+            _health *= _poweredUpMultipler;
         }
         _agent = GetComponent<NavMeshAgent>();
         _agent.stoppingDistance =_stoppingDistance;
@@ -87,9 +90,13 @@ public class Enemy : MonoBehaviour
                 {
                     var _meshRenderer = _child.GetComponent<MeshRenderer>();
                     var _renderer = _meshRenderer;
+                    _meshRenderers.Add(_meshRenderer);
                     _childMaterials.Add(_renderer.material);
                 }
         _enemyChildrens = transform.GetComponentsInChildren<Transform>();
+
+        _refleshPlayerTargetcurrent = _reflashPlayerTargetMax;
+        _maxHealth = _health;
     }
 
     private void EnemyDie()
@@ -177,37 +184,38 @@ public class Enemy : MonoBehaviour
     protected void LookForColorChange()
     {
         _currentResetColorTime += Time.deltaTime;
+
         if (_currentResetColorTime > _resetColorTime)
         {
-            int _index = 0;
+            if (!_materialChanged) return;
+            short _index = 0;
             foreach (var _child in _enemyChildrens)
                 if (_child.GetComponent<MeshRenderer>())
                 {
-                    var _meshRenderer = _child.GetComponent<MeshRenderer>();
-                    var _renderer = _meshRenderer;
-                    _renderer.material = _childMaterials[_index];
+                    _meshRenderers[_index].material = _childMaterials[_index];
                     _index++;
-                }     
+                }
+            _materialChanged = false;
         }
         else
         {
+            if (_materialChanged) return;
+            short _index = 0;
             foreach (var _child in _enemyChildrens)
                 if (_child.GetComponent<MeshRenderer>())
                 {
-                    var _meshRenderer = _child.GetComponent<MeshRenderer>();
-                    var _renderer = _meshRenderer;
-                    _renderer.material = _hitMaterial;
-                }    
+                    _meshRenderers[_index].material = _hitMaterial;
+                    _index++;
+                }
+            _materialChanged = true;
         }
-        
     }
     public bool CheckHealth(float _value)
     {
-        health -= _value;
-        if (!(health <= 0)) return true;
+        _health -= _value;
+        if (!(_health <= 0)) return true;
         EnemyDie();
         return false;
-
     }
 
     protected void SwitchSpeed()
