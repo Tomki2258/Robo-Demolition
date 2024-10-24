@@ -169,9 +169,9 @@ public class GameManager : MonoBehaviour
 
         // Spawn enemy
         var _enemyIndex = Random.Range(0, _possibleEnemies);
-        var _randomSpawnVector = new Vector3(_spawnPoints[_point].position.x + Random.Range(-8, 8),
+        var _randomSpawnVector = new Vector3(_spawnPoints[_point].position.x + Random.Range(-10,10),
             _spawnPoints[_point].position.y,
-            _spawnPoints[_point].position.z + Random.Range(-8, 8));
+            _spawnPoints[_point].position.z + Random.Range(-10,10));
         var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
         _spawnTimeMax -= _spawnTimeMax * 0.002f;
 
