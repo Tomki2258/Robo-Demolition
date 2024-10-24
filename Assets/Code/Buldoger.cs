@@ -12,8 +12,9 @@ public class Buldoger : Enemy
     void FixedUpdate()
     {
         SetPlayerTarget();
+        PlayerDistance();
         if(_player._died) return;
-        if(Vector3.Distance(_player.transform.position, transform.position) < _attackRange)
+        if(_playerDistance < _attackRange)
         {
             Attacking();
         }

@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
     public float _levelUpPlayerScaler;
     private EquipmentCanvas _equipmentCanvas;
     private float _startPlayerY = 1.871f;
+    private float _currentEnemyDist = float.MaxValue;
     private void Awake()
     {
         _equipmentCanvas = FindAnyObjectByType<EquipmentCanvas>();
@@ -84,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         _startPlayerQuaterions.Add(_hands.localRotation);
         _playerDemolition = GetComponent<PlayerDemolition>();
         _playerDemolition.UpdatePlayerSize();
+        SetUiValues();
     }
 
     private void Start()
@@ -109,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _weaponObject.SetActive(false);
         }
+        
+        SetUiValues();
     }
 
     private void Update()
@@ -160,26 +164,27 @@ public class PlayerMovement : MonoBehaviour
         
         HpRegeneration();
         ShieldManagment();
-        SetUiValues();
-
+        //SetUiValues();
+        
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             var _nearestEnemy = GetNearestEnemy();
+            _currentEnemyDist = Vector3.Distance(transform.position, _nearestEnemy.position);
             if (_playerWeapons._sniperGunClass.CheckInUse())
             {
-                if (Vector3.Distance(transform.position, _nearestEnemy.position) < (GetRealAttackRange() * 1.75f)  
+                if (_currentEnemyDist < (GetRealAttackRange() * 1.75f)  
                     /*&& RaycastEnemy(_currentEnemy.transform) */)
                 {
-                    MoveTurret(GetNearestEnemy().position);
+                    MoveTurret(_nearestEnemy.position);
                     Battle();
                 }
             }
             else
             {
-                if (Vector3.Distance(transform.position, _nearestEnemy.position) < GetRealAttackRange()  
+                if (_currentEnemyDist < GetRealAttackRange()  
                     /*&& RaycastEnemy(_currentEnemy.transform) */)
                 {
-                    MoveTurret(GetNearestEnemy().position);
+                    MoveTurret(_nearestEnemy.position);
                     Battle();
                 }
                 else
@@ -254,10 +259,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerWeapons.WeaponsReloads();
         
-        var _enemyDist = Vector3.Distance(transform.position, _currentEnemy.transform.position);
         _currentAttackRange = _attackRange * transform.localScale.x;
 
-        if (_enemyDist < _currentAttackRange)
+        if (_currentEnemyDist < _currentAttackRange)
         {
             _playerWeapons.StandardGun();
             _playerWeapons.ShotgunGun();
@@ -274,7 +278,7 @@ public class PlayerMovement : MonoBehaviour
             _playerWeapons._laserSpawner.gameObject.SetActive(false);
         }
 
-        if (_enemyDist < _currentAttackRange * 1.75f)
+        if (_currentEnemyDist < _currentAttackRange * 1.75f)
         {
             _playerWeapons.Sniper();
         }
@@ -286,6 +290,7 @@ public class PlayerMovement : MonoBehaviour
         _xp += value;
         XpManagment();
         _uiManager.ShowXPDifference(value,false);
+        SetUiValues();
     }
     private void XpManagment()
     {
@@ -330,6 +335,7 @@ public class PlayerMovement : MonoBehaviour
         var _regenValue = _maxHealth * _hpRegenMultipler;
         _health += _regenValue;
         _uiManager.ShowHpDifference(_regenValue);
+        SetUiValues();
     }
 
     public void DoJoystickInput(bool _mode)
@@ -356,20 +362,26 @@ public class PlayerMovement : MonoBehaviour
     private Transform GetNearestEnemy()
     {
         var lowestDist = Mathf.Infinity;
-        foreach (var _enemy in _gameManager._spawnedEnemies)
+        var enemiesList = _gameManager._spawnedEnemies;
+        int enemyCount = enemiesList.Count;
+
+        if (enemyCount == 0) return null;
+
+        Vector3 currentPosition = transform.position;
+
+        for (int i = 0; i < enemyCount; i++)
         {
-            if (_enemy == null) continue;
-            var dist = Vector3.Distance(_enemy.transform.position, transform.position);
-            
+            var dist = (enemiesList[i].transform.position - currentPosition).sqrMagnitude;
+
             if (dist < lowestDist)
             {
                 lowestDist = dist;
-                _currentEnemy = _enemy;
+                _currentEnemy = enemiesList[i];
             }
         }
-
         return _currentEnemy.transform;
     }
+
 
     public void CheckHealth(float _value)
     {
@@ -394,6 +406,8 @@ public class PlayerMovement : MonoBehaviour
                 Die();
         }
         else _uiManager.ShowHpDifference(-1);
+        
+        SetUiValues();
     }
     private void Die()
     {

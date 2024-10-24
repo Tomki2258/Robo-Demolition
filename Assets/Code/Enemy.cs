@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody _rigidbody;
     private List<MeshRenderer> _meshRenderers = new List<MeshRenderer>();
     private bool _materialChanged = false;
+    public float _playerDistance;
     protected void SetUp()
     {
         //_rigidbody = GetComponent<Rigidbody>();
@@ -220,7 +221,7 @@ public class Enemy : MonoBehaviour
 
     protected void SwitchSpeed()
     {
-        if (PlayerDistance() < 80)
+        if (_playerDistance < 80)
         {
             _agent.speed = _baseSpeed;
         }
@@ -230,9 +231,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected float PlayerDistance()
+    protected void PlayerDistance()
     {
-        return Vector3.Distance(transform.position, _player.transform.position);
+        _playerDistance = (transform.position - _player.transform.position).magnitude;
     }
 
     protected void CheckStunned()

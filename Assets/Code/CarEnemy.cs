@@ -23,10 +23,10 @@ public class CarEnemy : Enemy
     {
         LookForColorChange();
         //SwitchLight();
-        var _distance = PlayerDistance();
+        PlayerDistance();
         SetPlayerTarget();
         SwitchSpeed();
-        if(_distance < _attackRange) Attacking();
+        if(_playerDistance < _attackRange) Attacking();
         CheckStunned();
     }
     private void Attacking()

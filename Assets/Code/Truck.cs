@@ -15,12 +15,12 @@ public class Truck : Enemy
     {
         if(_player._died) return;
         
-        var _distance = PlayerDistance();
         SetPlayerTarget();
         SwitchSpeed();
+        PlayerDistance();
         CheckStunned();
         ManageRandomAudio();
-        if (_distance < _attackRange)
+        if (_playerDistance < _attackRange)
         {
             Attacking();
         }

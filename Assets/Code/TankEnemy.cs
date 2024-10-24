@@ -15,6 +15,7 @@ public class TankEnemy : Enemy
         if (_player._died) return;
         SetPlayerTarget();
         Attacking();
+        PlayerDistance();
         CheckStunned();
         SwitchSpeed();
         //_topModel.LookAt(_player.transform.position);
@@ -30,9 +31,8 @@ public class TankEnemy : Enemy
     public void Attacking()
     {
         if (_stunned) return;
-
-        var _distance = PlayerDistance();
-        if (_distance > _attackRange) return;
+    
+        if (_playerDistance > _attackRange) return;
         Debug.Log("Attacking !");
         if (_attackDelayCurrent > _attackDelayMax)
         {

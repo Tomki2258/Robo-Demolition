@@ -125,12 +125,13 @@ public class UIManager : MonoBehaviour
     public void ShowHpDifference(float _value)
     {
         var _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
-        _hpDifference.transform.SetParent(_mainUI.transform);
+        var _hpDiffTransform = _hpDifference.transform;
+        _hpDiffTransform.SetParent(_mainUI.transform);
         var _randomPosition = new Vector3(_hpDifference.transform.position.x + Random.Range(-50, 50),
             _hpDifference.transform.position.y + Random.Range(100, 200), //100, 200
             _hpDifference.transform.position.z);
-        _hpDifference.transform.position = _randomPosition;
-        _hpDifference.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        _hpDiffTransform.position = _randomPosition;
+        _hpDiffTransform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         var _text = _hpDifference.GetComponent<TMP_Text>();
         if (_value != -1 && _value != -2)
         {
