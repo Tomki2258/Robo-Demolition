@@ -96,6 +96,10 @@ public class PlayerGarage : MonoBehaviour
 
     private void SetSkinChangeUI()
     {
+        _uiManager._lockedSkinBaner.SetActive(!_currentSelectedSkin.IsUnlocked());
+        _uiManager._buySkinButton.SetActive(!_currentSelectedSkin.IsUnlocked());
+        _uiManager._selectSkinButton.SetActive(_currentSelectedSkin.IsUnlocked());
+        
         _uiManager._skinNameText.text = _currentSelectedSkin.GetSkinName();
         _uiManager._skinPriceText.text = _currentSelectedSkin.GetSkinPrice().ToString();
         
@@ -140,5 +144,21 @@ public class PlayerGarage : MonoBehaviour
     private void SaveCurrentSkin()
     {
         PlayerPrefs.SetInt("CurrentSkin",_playerSkins.IndexOf(_currentSelectedSkin));
+    }
+
+    public void BuySkin()
+    {
+        int _skinPrice = _currentSelectedSkin.GetSkinPrice();
+        int _currentPlayerCoins = _uiManager._userData.GetPlayerCoins();
+        if (_currentPlayerCoins >= _skinPrice)
+        {
+            _uiManager._userData.AddPlayerCoins(-_skinPrice);
+            _currentSelectedSkin.UnlockSkin();
+            SetSkinChangeUI();
+        }
+        else
+        {
+            Debug.LogWarning("NOT ENOUGH COINS");
+        }
     }
 }

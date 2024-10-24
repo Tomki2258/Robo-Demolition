@@ -49,6 +49,8 @@ public class UIManager : MonoBehaviour
     public TMP_Text _skinNameText;
     public TMP_Text _skinPriceText;
     public GameObject _lockedSkinBaner;
+    public GameObject _selectSkinButton;
+    public GameObject _buySkinButton;
     [Header("CreditsCanvas")]
     public GameObject _creditsObject;
     public TMP_Text _creditsText;

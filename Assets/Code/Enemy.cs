@@ -49,13 +49,15 @@ public class Enemy : MonoBehaviour
     public float _wingsSpeed;
     
     [Header("------------------")] private float _refleshPlayerTargetcurrent;
-    private float _reflashPlayerTargetMax = 0.5f;
+    private float _reflashPlayerTargetMax = 1;
 
     public List<Transform> _wingsList = new List<Transform>(2);
     public float _baseSpeed;
     public bool _isPoweredUp;
     public float _poweredUpMultipler;
     public Rigidbody _rigidbody;
+    private List<MeshRenderer> _meshRenderers = new List<MeshRenderer>();
+    private bool _materialChanged = false;
     protected void SetUp()
     {
         //_rigidbody = GetComponent<Rigidbody>();
@@ -88,6 +90,7 @@ public class Enemy : MonoBehaviour
                 {
                     var _meshRenderer = _child.GetComponent<MeshRenderer>();
                     var _renderer = _meshRenderer;
+                    _meshRenderers.Add(_meshRenderer);
                     _childMaterials.Add(_renderer.material);
                 }
         _enemyChildrens = transform.GetComponentsInChildren<Transform>();
@@ -181,29 +184,35 @@ public class Enemy : MonoBehaviour
     protected void LookForColorChange()
     {
         _currentResetColorTime += Time.deltaTime;
+
         if (_currentResetColorTime > _resetColorTime)
         {
-            int _index = 0;
-            foreach (var _child in _enemyChildrens)
-                if (_child.GetComponent<MeshRenderer>())
-                {
-                    var _meshRenderer = _child.GetComponent<MeshRenderer>();
-                    var _renderer = _meshRenderer;
-                    _renderer.material = _childMaterials[_index];
-                    _index++;
-                }     
+            if (_materialChanged)
+            {
+                short _index = 0;
+                foreach (var _child in _enemyChildrens)
+                    if (_child.GetComponent<MeshRenderer>())
+                    {
+                        _meshRenderers[_index].material = _childMaterials[_index];
+                        _index++;
+                    }
+                _materialChanged = false;
+            }
         }
         else
         {
-            foreach (var _child in _enemyChildrens)
-                if (_child.GetComponent<MeshRenderer>())
-                {
-                    var _meshRenderer = _child.GetComponent<MeshRenderer>();
-                    var _renderer = _meshRenderer;
-                    _renderer.material = _hitMaterial;
-                }    
+            if (!_materialChanged)
+            {
+                short _index = 0;
+                foreach (var _child in _enemyChildrens)
+                    if (_child.GetComponent<MeshRenderer>())
+                    {
+                        _meshRenderers[_index].material = _hitMaterial;
+                        _index++;
+                    }
+                _materialChanged = true;
+            }
         }
-        
     }
     public bool CheckHealth(float _value)
     {

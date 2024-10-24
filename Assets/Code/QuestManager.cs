@@ -180,7 +180,7 @@ public class QuestManager : MonoBehaviour
         {
             if(_quest.IsQuestDone()) return;
          
-            Debug.LogWarning(_quest.GetQuestType());
+            //Debug.LogWarning(_quest.GetQuestType());
             if (_quest.IsQuestCompleted())
             {
                 _quest.CompleteQuest();
