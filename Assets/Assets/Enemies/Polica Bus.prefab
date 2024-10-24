@@ -115,7 +115,8 @@ MonoBehaviour:
   _xpReward: 12
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
   _bulletDamage: 7
-  health: 20
+  _health: 0
+  _maxHealth: 0
   _attackDelayMax: 0.7
   _attackDelayCurrent: 0
   _stunned: 0
@@ -153,7 +154,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 768
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -180,7 +181,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 3
+  m_ObstacleAvoidanceType: 2
 --- !u!82 &-2516378189511504486
 AudioSource:
   m_ObjectHideFlags: 0

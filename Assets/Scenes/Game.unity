@@ -9,7 +9,7 @@ OcclusionCullingSettings:
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: c850ee8c3b14cc8459e7e186857cf567
-  m_OcclusionCullingData: {fileID: 36300000, guid: 8c0cfaa9663ab3af2b0ea870095d23a9,
+  m_OcclusionCullingData: {fileID: 36300000, guid: 04346ad61ada16210aa0eec605809668,
     type: 2}
 --- !u!104 &2
 RenderSettings:
@@ -7304,7 +7304,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameStarted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -7314,7 +7314,7 @@ PrefabInstance:
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _gameLaunched
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
@@ -7361,61 +7361,61 @@ PrefabInstance:
         type: 3}
       propertyPath: '_enemies.Array.data[0]'
       value: 
-      objectReference: {fileID: 1636138944024666979, guid: 10efab3877fbaefdc9fee2ee4cc81e0e,
+      objectReference: {fileID: 2364406345628423798, guid: 0016d2a4dad9847d5a3d82a57ff121ce,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[1]'
       value: 
-      objectReference: {fileID: 2364406345628423798, guid: 0016d2a4dad9847d5a3d82a57ff121ce,
+      objectReference: {fileID: 2364406345628423798, guid: 46ff41c3c097b457ba823c787a1d4ffd,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[2]'
       value: 
-      objectReference: {fileID: 2364406345628423798, guid: 46ff41c3c097b457ba823c787a1d4ffd,
+      objectReference: {fileID: 5931495445033531497, guid: c8ac0ed6cc93d4c0cbee5c665280acab,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[3]'
       value: 
-      objectReference: {fileID: 5931495445033531497, guid: c8ac0ed6cc93d4c0cbee5c665280acab,
+      objectReference: {fileID: 4563359409024015839, guid: f488746c0acb9653db91f3fabc7f97cc,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[4]'
       value: 
-      objectReference: {fileID: 4563359409024015839, guid: f488746c0acb9653db91f3fabc7f97cc,
+      objectReference: {fileID: 3720050694364289240, guid: 57ae5f15adfb8ab30962caaf4e0c8fac,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[5]'
       value: 
-      objectReference: {fileID: 3720050694364289240, guid: 57ae5f15adfb8ab30962caaf4e0c8fac,
+      objectReference: {fileID: 2364406345628423798, guid: eddf139eb0afcae089bc3319845bf8e7,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[6]'
       value: 
-      objectReference: {fileID: 2364406345628423798, guid: eddf139eb0afcae089bc3319845bf8e7,
+      objectReference: {fileID: 7999560087031452913, guid: 83c3d13579af5101db959c252d746180,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[7]'
       value: 
-      objectReference: {fileID: 7999560087031452913, guid: 83c3d13579af5101db959c252d746180,
+      objectReference: {fileID: 2364406345628423798, guid: 7becb756078f85168904f275337970e9,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[8]'
       value: 
-      objectReference: {fileID: 2364406345628423798, guid: 7becb756078f85168904f275337970e9,
+      objectReference: {fileID: 4563359409024015839, guid: 5683e18a3a244b918bb1ac3a935dbc18,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: '_enemies.Array.data[9]'
       value: 
-      objectReference: {fileID: 4563359409024015839, guid: 5683e18a3a244b918bb1ac3a935dbc18,
+      objectReference: {fileID: 1636138944024666979, guid: 10efab3877fbaefdc9fee2ee4cc81e0e,
         type: 3}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}

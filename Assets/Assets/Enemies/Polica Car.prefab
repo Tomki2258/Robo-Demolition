@@ -152,7 +152,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 768
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -179,7 +179,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 3
+  m_ObstacleAvoidanceType: 2
 --- !u!82 &6705608401987723988
 AudioSource:
   m_ObjectHideFlags: 0
