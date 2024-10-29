@@ -46,6 +46,14 @@ public class Bullet : MonoBehaviour
                     }
                     Destroy(gameObject);
                     break;
+                case "Turret":
+                    var _turret = other.GetComponent<Turret>();
+                    if (_turret.CheckHealth(_bulletDamage))
+                    {
+                        //_enemy._currentResetColorTime = 0;
+                    }
+                    Destroy(gameObject);
+                    break;
                 default:
                     Destroy(gameObject);
                     break;

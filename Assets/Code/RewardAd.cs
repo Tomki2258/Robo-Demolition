@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
  
 public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] Button _showAdButton;
+    [SerializeField] List<Button> _showAdButtons;
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
@@ -18,8 +19,7 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
 #endif
-
-        _showAdButton.interactable = false;
+        
     }
  
     // Call this public method when you want to get an ad ready to show.
@@ -37,10 +37,15 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
  
         if (adUnitId.Equals(_adUnitId))
         {
+            _showAdButtons[0].onClick.AddListener(ShowAd);
+            _showAdButtons[1].onClick.AddListener(ShowAd);
             // Configure the button to call the ShowAd() method when clicked:
-            _showAdButton.onClick.AddListener(ShowAd);
+            
             // Enable the button for users to click:
-            _showAdButton.interactable = true;
+            foreach (Button _button in _showAdButtons)
+            {
+                _button.interactable = true;
+            }
         }
     }
  
@@ -48,7 +53,6 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
     public void ShowAd()
     {
         // Disable the button:
-        _showAdButton.interactable = false;
         // Then show the ad:
         Advertisement.Show(_adUnitId, this);
     }
@@ -58,8 +62,12 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
     {
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
-            _showAdButton.gameObject.SetActive(false);
-            
+            _showAdButtons[0].enabled = false;
+            if(FindFirstObjectByType<UIManager>()._questCanvas.activeSelf)
+            {
+                _showAdButtons[1].enabled = false;
+                FindFirstObjectByType<QuestManager>().DoQuest();
+            }
             FindFirstObjectByType<GameManager>().AdReward();
         }
     }
@@ -83,6 +91,10 @@ public class RewardAd: MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
     void OnDestroy()
     {
         // Clean up the button listeners:
-        _showAdButton.onClick.RemoveAllListeners();
+        foreach (Button _button in _showAdButtons)
+        {
+            _button.onClick.RemoveAllListeners();
+
+        }
     }
 }

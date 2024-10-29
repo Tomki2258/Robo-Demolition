@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     private GameManager _gameManager;
     private bool _startOverrided;
     public DateTime _startTime;
-    private UserData _userData;
+    public UserData _userData;
     private CameraShake _cameraShake;
     public GameObject _newEnemySpottedUI;
     [SerializeField] private GameObject _notyficationBaner;
@@ -43,7 +43,15 @@ public class UIManager : MonoBehaviour
     public GameObject _questCanvas;
     private QuestManager _questManager;
     [SerializeField] private TMP_Text _coinsText;
-    [Header("CreditsCanvas")] 
+    [Header("Player customization")]
+    [SerializeField] private GameObject _playerCustomizationCanvas;
+    private PlayerGarage _playerGarage;
+    public TMP_Text _skinNameText;
+    public TMP_Text _skinPriceText;
+    public GameObject _lockedSkinBaner;
+    public GameObject _selectSkinButton;
+    public GameObject _buySkinButton;
+    [Header("CreditsCanvas")]
     public GameObject _creditsObject;
     public TMP_Text _creditsText;
     [Header("RateApp")] public GameObject _rateAppCanvas;
@@ -62,17 +70,17 @@ public class UIManager : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         _gameManager = FindFirstObjectByType<GameManager>();
         _dieCanvas.SetActive(false);
-        _creditsObject.SetActive(false);
+        _playerGarage = FindFirstObjectByType<PlayerGarage>();
         _startTime = DateTime.Now;
         _appReview = GetComponent<AppReview>();
         _rateAppCanvas.SetActive(false);
+        _gameStartUI.SetActive(true);
+        _playerCustomizationCanvas.SetActive(false);
     }
 
     private void Start()
     {
         StartGame(_startOverrided);
-
-        _creditsText.text = GetCreditsFromFile();
     }
 
     public void ShowSpottedUI()
@@ -248,6 +256,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame(bool state)
     {
+        //Debug.LogWarning("to sie robi ?");
         _gameStartUI.SetActive(!state);
         _mainUI.SetActive(state);
     }
@@ -257,26 +266,14 @@ public class UIManager : MonoBehaviour
         _player.DoJoystickInput(!_mode);
         _mainUI.SetActive(!_mode);
         _settingsUI.SetActive(_mode);
-        if (_mode)
-        {
-            Time.timeScale = 0;
-            _creditsObject.SetActive(false);
-        }
-        else
-        {
-            Time.timeScale = 1;
-            _creditsObject.SetActive(false);
-        }
+        if (_mode) Time.timeScale = 0;
+        else Time.timeScale = 1;
     }
 
-    public void EnableCreditsUI(bool _mode)
-    {
-        _creditsObject.SetActive(_mode);
-    }
     public void EnableQuestUI()
     {
         bool _questEnabled = _questCanvas.activeSelf;
-
+        
         _coinsText.text = _userData.GetPlayerCoins().ToString();
         
         if (_questCanvas)
@@ -300,5 +297,12 @@ public class UIManager : MonoBehaviour
         _rateAppCanvas.SetActive(false);
         int _canceledRate = PlayerPrefs.GetInt("CanceledRate");
         PlayerPrefs.SetInt("CanceledRate",_canceledRate + 1);
+    }
+    public void EnablePlayerCustomizationCanvas(bool _mode)
+    {
+        _gameManager.EnablePlayerGarage(_mode);
+        _playerCustomizationCanvas.SetActive(_mode);
+        _playerGarage._garageEnabled = _mode;
+        _gameStartUI.SetActive(!_mode);
     }
 }

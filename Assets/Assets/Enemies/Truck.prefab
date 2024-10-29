@@ -107,7 +107,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 768
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -136,7 +136,7 @@ MonoBehaviour:
   _bullet: {fileID: 0}
   _bulletDamage: 100
   _health: 0
-  _maxHealth: 15
+  _maxHealth: 0
   _attackDelayMax: 0
   _attackDelayCurrent: 0
   _stunned: 0
@@ -154,7 +154,6 @@ MonoBehaviour:
   _isPoweredUp: 0
   _poweredUpMultipler: 0
   _rigidbody: {fileID: 0}
-  _playerDistance: 0
   _maxPlayTime: 15
 --- !u!195 &-8734701051252472421
 NavMeshAgent:

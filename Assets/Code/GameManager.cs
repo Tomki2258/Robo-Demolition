@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _poweredEnemyChance;
     private bool _playerWasRevived = false;
     [SerializeField] private Camera _garageCammera;
+    [SerializeField] private GameObject _garageSpace;
+    [SerializeField] private Camera _mainCamera;
     private void Awake()
     {
         _garageCammera.enabled = false;
@@ -323,6 +325,14 @@ public class GameManager : MonoBehaviour
         _gameLaunched = true;
         _player.transform.GetComponent<AudioListener>().enabled = true;
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = false;
+    }
+
+    public void EnablePlayerGarage(bool _mode)
+    {
+        _garageCammera.enabled = _mode;
+        _garageSpace.SetActive(_mode);
+        _mainCamera.enabled = !_mode;
+        //_uiManager.EnablePlayerCustomizationCanvas(_mode);
     }
 
     public float GetTrashX()

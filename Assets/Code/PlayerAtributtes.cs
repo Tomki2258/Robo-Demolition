@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class PlayerAtributtes : MonoBehaviour
 {
-    [Header("Bullet Types")] public GameObject _currentBulletType;
+    [Header("Bullet Types")] 
+    public GameObject _currentBulletType;
 
     public GameObject _standardBullet;
     public GameObject _explosiveBullet;
+
     public float _fovBonus;
     [Header("Bullet dodge")] public float _dodgeChange;
 
-    [Header("Bullet Reflection")] public float _bulletReflection;
+    [Header("Bullet Reflection")] 
+    public float _bulletReflection;
+    [Header("Player Luck")]
+    public float _playerLuck;
 
     public void SwitchBulletType(int _typeIndex)
     {
@@ -60,5 +65,20 @@ public class PlayerAtributtes : MonoBehaviour
         }
 
         _dodgeChange *= 1.1f;
+    }
+    public bool PlayerLuck()
+    {
+        var _randomValue = Random.Range(0, 100);
+        return _randomValue < _playerLuck;
+    }
+    public void IncreasePlayerLuck()
+    {
+        if (_playerLuck == 0)
+        {
+            _playerLuck = 2;
+            return;
+        }
+
+        _playerLuck *= 1.1f;
     }
 }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c3b8450b6f0c31a4f0f92cb6f8861, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  _skinPrice: 0
+  _skinName: 1
+  _bodyMaterial: {fileID: 2100000, guid: ca58d08830ae608ea86bdfe9b9616cf5, type: 2}
+  _circleGunmaterial: {fileID: 2100000, guid: 23803ba5893e93317a9ac082e2f229f8, type: 2}
+  _handsMaterial: {fileID: 2100000, guid: 378b6daeba8f2c89caa023eb8e7f7baf, type: 2}
+  _headMaterial: {fileID: 2100000, guid: c5ed07887bd541a218fdb6ce8bc77413, type: 2}
+  _laserGunMaterial: {fileID: 2100000, guid: 84a6e16a81a8adc13b33c5db981b1b4d, type: 2}
+  _leftGunMaterial: {fileID: 2100000, guid: 93f9e16fa09b1ea4e8b14a03a83f0d12, type: 2}
+  _rightGunMaterial: {fileID: 2100000, guid: 75158a4d02dfd6bfea4337d07f5e140c, type: 2}
+  _legsMaterial: {fileID: 2100000, guid: 991dbd2d0051ec66ebd8f18bbdbab2bc, type: 2}
+  _rocketGunMaterial: {fileID: 2100000, guid: 3d009a175a7812f91aa63787c97e88e2, type: 2}
+  _spheareGunMaterial: {fileID: 2100000, guid: 73b5d39fa83021408b92c49dca666473, type: 2}
+  _isUnlocked: 1

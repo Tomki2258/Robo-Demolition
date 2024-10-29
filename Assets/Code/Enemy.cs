@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     public float _wingsSpeed;
     
     [Header("------------------")] private float _refleshPlayerTargetcurrent;
-    private float _reflashPlayerTargetMax = 1;
+    private float _reflashPlayerTargetMax = 0.5f;
 
     public List<Transform> _wingsList = new List<Transform>(2);
     public float _baseSpeed;
@@ -210,6 +210,7 @@ public class Enemy : MonoBehaviour
                 }
             _materialChanged = true;
         }
+        
     }
     public bool CheckHealth(float _value)
     {

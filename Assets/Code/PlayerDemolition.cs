@@ -17,14 +17,12 @@ public class PlayerDemolition : MonoBehaviour
     {
         if (other.CompareTag("Destroyable"))
         {
-            Debug.Log("Destroyable object");
             if (!CheckDestroy(other.gameObject)) return;
-            if (!_destroyedObjects.Contains(other.gameObject))
-            {
-                other.tag = "Destroyed";
-                other.gameObject.isStatic = false;
-                _destroyedObjects.Add(other.gameObject);
-            }
+            if (_destroyedObjects.Contains(other.gameObject)) return;
+            
+            other.tag = "Destroyed";
+            other.gameObject.isStatic = false;
+            _destroyedObjects.Add(other.gameObject);
         }
     }
 

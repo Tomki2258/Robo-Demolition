@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Windows;
 using Object = System.Object;
 using Random = UnityEngine.Random;
@@ -28,6 +29,8 @@ public class QuestManager : MonoBehaviour
     private string _questDataPath; 
     private UserData _userData;
     private NotyficationBaner _notyficationBaner;
+    [SerializeField] private Button _skipQuestTimeButton;
+    [SerializeField] private bool _completeAllQuests;
     private void Awake()
     {
         _notyficationBaner = FindObjectOfType<NotyficationBaner>();
@@ -37,6 +40,19 @@ public class QuestManager : MonoBehaviour
         //DoQuest();
         LoadSavedQuests();
         CheckQuests();
+        if(_completeAllQuests)
+        {
+            foreach (QuestClass _quest in _activeQuestsList)
+            {
+                _quest.CompleteQuest();
+                _completeAllQuests = false;
+            }
+        }
+    }
+
+    private void Start()
+    {
+        FindFirstObjectByType<RewardAd>().LoadAd();
     }
 
     private void FixedUpdate()
@@ -105,7 +121,7 @@ public class QuestManager : MonoBehaviour
             System.IO.File.WriteAllText(filePath, json);
         }
     }
-    private void DoQuest()
+    public void DoQuest()
     {
         if(_activeQuestsList.Count >= _maxActiveQuests) return;
         
@@ -164,7 +180,7 @@ public class QuestManager : MonoBehaviour
         {
             if(_quest.IsQuestDone()) return;
          
-            Debug.LogWarning(_quest.GetQuestType());
+            //Debug.LogWarning(_quest.GetQuestType());
             if (_quest.IsQuestCompleted())
             {
                 _quest.CompleteQuest();

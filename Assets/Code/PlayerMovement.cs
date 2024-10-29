@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _currentEnemy;
     public float _attackRange; //base
     public float _currentAttackRange;
+    public PlayerSkinSO _currentPlayerSkin;
     [Header("Player Stats")] public float _maxHealth;
 
     public float _health;
@@ -287,10 +288,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddPlayerXP(int value)
     {
-        _xp += value;
+        int _finalValue = value;
+        bool _isLucky = _playerAtributtes.PlayerLuck();
+        if(_isLucky)
+            _finalValue *= 2;
+        _xp += _finalValue;
         XpManagment();
-        _uiManager.ShowXPDifference(value,false);
         SetUiValues();
+        _uiManager.ShowXPDifference(_finalValue,_isLucky);
     }
     private void XpManagment()
     {
@@ -379,6 +384,7 @@ public class PlayerMovement : MonoBehaviour
                 _currentEnemy = enemiesList[i];
             }
         }
+
         return _currentEnemy.transform;
     }
 
