@@ -32,7 +32,7 @@ public class ConstructorEnemy : Enemy
     private void FixedUpdate()
     {
         LookForColorChange();
-        var _distance = PlayerDistance();
+        PlayerDistance();
         switch (_constructorState)
         {
             case ConstructorState.Incoming:
