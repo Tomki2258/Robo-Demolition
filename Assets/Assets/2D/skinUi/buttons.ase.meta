@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e56d6df3d5a54ebc4a42c6a1a44fc536
+guid: bf521ca00a47ce94b96e44782c89f6f1
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: launchButton_Frame_0
+  - name: buttons
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 39
-      height: 21
-    spriteID: 75ab847b6a30f6f60ae2a5d3d46550eb
+      width: 32
+      height: 32
+    spriteID: 1f1f130f3f124a144a4e1ccef8b4183d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -143,58 +143,40 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: launchButton_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 33
-      width: 39
-      height: 21
-    spriteID: 8d9dd6c40c1980b5fa999c7b5e60ae32
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 33}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -480016485
-    name: launchButton
+    guid: 1669559277
+    name: buttons
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: buttons
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 39
-        height: 21
-      spriteId: 75ab847b6a30f6f60ae2a5d3d46550eb
-    - name: Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 39
-        height: 21
-      spriteId: 8d9dd6c40c1980b5fa999c7b5e60ae32
+        width: 32
+        height: 32
+      spriteId: 1f1f130f3f124a144a4e1ccef8b4183d
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: Default
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 39, y: 21}
+  canvasSize: {x: 32, y: 32}

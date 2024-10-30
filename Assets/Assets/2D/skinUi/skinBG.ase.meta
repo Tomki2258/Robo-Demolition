@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e56d6df3d5a54ebc4a42c6a1a44fc536
+guid: 86197474e41584b47885f0037983afc8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,9 +122,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: launchButton_Frame_0
+  - name: skinBG
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.04477612}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 39
-      height: 21
-    spriteID: 75ab847b6a30f6f60ae2a5d3d46550eb
+      width: 256
+      height: 134
+    spriteID: 00f75c8dd79762841994727023fdef24
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -143,58 +143,40 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: launchButton_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 33
-      width: 39
-      height: 21
-    spriteID: 8d9dd6c40c1980b5fa999c7b5e60ae32
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 33}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -480016485
-    name: launchButton
+    guid: 313197696
+    name: skinBG
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: skinBG
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 0
-        width: 39
-        height: 21
-      spriteId: 75ab847b6a30f6f60ae2a5d3d46550eb
-    - name: Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 39
-        height: 21
-      spriteId: 8d9dd6c40c1980b5fa999c7b5e60ae32
+        y: -6
+        width: 256
+        height: 134
+      spriteId: 00f75c8dd79762841994727023fdef24
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: Default
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 39, y: 21}
+  canvasSize: {x: 256, y: 128}
