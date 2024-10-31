@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
     public GameObject _questCanvas;
     private QuestManager _questManager;
     [SerializeField] private TMP_Text _coinsText;
+    public GameObject _shieldButton;
     [Header("Player customization")]
     [SerializeField] private GameObject _playerCustomizationCanvas;
     private PlayerGarage _playerGarage;
@@ -76,6 +77,8 @@ public class UIManager : MonoBehaviour
         _rateAppCanvas.SetActive(false);
         _gameStartUI.SetActive(true);
         _playerCustomizationCanvas.SetActive(false);
+        
+        ManageShieldButton();
     }
 
     private void Start()
@@ -304,5 +307,10 @@ public class UIManager : MonoBehaviour
         _playerCustomizationCanvas.SetActive(_mode);
         _playerGarage._garageEnabled = _mode;
         _gameStartUI.SetActive(!_mode);
+    }
+
+    public void ManageShieldButton()
+    {
+        _shieldButton.SetActive(_player._shieldCount > 0);
     }
 }

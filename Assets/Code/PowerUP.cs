@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 public enum PowerUpType
 {
     Health,
-    Shield
+    Shield,
+    Coin
 }
 
 public class PowerUP : MonoBehaviour
@@ -36,6 +37,10 @@ public class PowerUP : MonoBehaviour
                 _powerUpType = PowerUpType.Shield;
                 _meshesParent.GetChild(1).gameObject.SetActive(true);
                 break;
+            case 2:
+                _powerUpType = PowerUpType.Coin;
+                _meshesParent.GetChild(2).gameObject.SetActive(true);
+                break;
         }
     }
 
@@ -55,7 +60,13 @@ public class PowerUP : MonoBehaviour
                     _player._health = _player._maxHealth;
                 break;
             case PowerUpType.Shield:
-                _player._shield = true;
+                _player._shieldCount++;
+                _uiManager.ManageShieldButton();
+                break;
+            case PowerUpType.Coin:
+                FindFirstObjectByType<UserData>().AddPlayerCoins(1);
+                FindFirstObjectByType<NotyficationBaner>()
+                    .ShotMessage("Coint Collected", "You have 1 more coin", false, false);
                 break;
         }
 

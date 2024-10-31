@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public bool _shield;
     public float _shieldTimer;
     public float _shieldMaxTimer;
+    public int _shieldCount;
     public GameObject _shieldEffect;
     public PlayerWeapons _playerWeapons;
     public List<int> _weaponsUnlockStages;
@@ -230,13 +231,22 @@ public class PlayerMovement : MonoBehaviour
         int _xpToLevel = _xpToNextLevel - _xp;
         AddPlayerXP(_xpToLevel + 1);
     }
+
+    public void ActiveShield()
+    {
+        if(_shieldCount <= 0) return;
+        
+        if (_shield) return;
+        
+        _shieldCount--;
+        _shield = true;
+    }
     private void ShieldManagment()
     {
         if (!_shield) return;
 
         if (_shieldTimer < _shieldMaxTimer)
         {
-            _shield = true;
             _shieldEffect.SetActive(true);
             _shieldTimer += Time.deltaTime;
         }
@@ -245,6 +255,7 @@ public class PlayerMovement : MonoBehaviour
             _shieldTimer = 0;
             _shieldEffect.SetActive(false);
             _shield = false;
+            _uiManager.ManageShieldButton();
         }
     }
     
