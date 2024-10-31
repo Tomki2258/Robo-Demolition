@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     private List<MeshRenderer> _meshRenderers = new List<MeshRenderer>();
     private bool _materialChanged = false;
     public float _playerDistance;
+    private Transform _poweredEffect;
     protected void SetUp()
     {
         //_rigidbody = GetComponent<Rigidbody>();
@@ -73,6 +74,10 @@ public class Enemy : MonoBehaviour
             _attackRange = (int)Math.Round(_attackRange * _poweredUpMultipler);
             _bulletDamage = (int)Math.Round(_bulletDamage * _poweredUpMultipler);
             _health *= _poweredUpMultipler;
+            _poweredEffect = Instantiate(_gameManager._poweredEnemyEffect, 
+                new Vector3(transform.position.x,transform.position.y + 1,transform.position.z), 
+                Quaternion.identity).transform;
+            _poweredEffect.transform.parent = transform;
         }
         _agent = GetComponent<NavMeshAgent>();
         _agent.stoppingDistance =_stoppingDistance;
@@ -99,7 +104,7 @@ public class Enemy : MonoBehaviour
         _refleshPlayerTargetcurrent = _reflashPlayerTargetMax;
         _health = _maxHealth;
     }
-
+    
     private void EnemyDie()
     {
         if(_died) return;
@@ -184,6 +189,7 @@ public class Enemy : MonoBehaviour
 
     protected void LookForColorChange()
     {
+        
         _currentResetColorTime += Time.deltaTime;
 
         if (_currentResetColorTime > _resetColorTime)

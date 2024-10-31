@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera _garageCammera;
     [SerializeField] private GameObject _garageSpace;
     [SerializeField] private Camera _mainCamera;
+    public GameObject _poweredEnemyEffect;
     private void Awake()
     {
         _garageCammera.enabled = false;
