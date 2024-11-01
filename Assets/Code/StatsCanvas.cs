@@ -64,14 +64,14 @@ public class StatsCanvas : MonoBehaviour
     public void SetStatsCanvas()
     {
         //_healthText.text = $"Health bonus {_player._maxHealth - _startHealth}";
-        _regenerationText.text = $"Regeneration bonus {RoundedValues(_player._maxHealth * _player._hpRegenMultipler)}/s";
-        _rangeText.text = $"Attack range bonus {RoundedValues(PercentageDifference(_startRange, _player._attackRange))} %";
-        _damageText.text = $"Damage bonus {RoundedValues(_playerWeapons._damageMultipler - 1)} %";
+        _regenerationText.text = $"Regeneration {RoundedValues(_player._maxHealth * _player._hpRegenMultipler)}/s";
+        _rangeText.text = $"Attack range {RoundedValues(PercentageDifference(_startRange, _player._attackRange))} %";
+        _damageText.text = $"Damage {RoundedValues(_playerWeapons._damageMultipler - 1)} %";
         //_damageText.text = $"Damage bonus {PercentageDifference(_startDamage, _playerWeapons._standardGunClass.GetDamage())} %";
         _reloadSpeedText.text =
-            $"Reload speed bonus {RoundedValues(PercentageDifference(_startReloadSpeed,  _playerWeapons._reloadMultipler))} % ";
-        _bulletDodgeText.text = $"Bullet dodge bonus {RoundedValues(_player._playerAtributtes._dodgeChange)} %";
-        _fovText.text = $"Field of view bonus {RoundedValues(_player._playerAtributtes._fovBonus * 100)} %";
+            $"Reload speed {RoundedValues(PercentageDifference(_startReloadSpeed,  _playerWeapons._reloadMultipler))} % ";
+        _bulletDodgeText.text = $"Bullet dodge {RoundedValues(_player._playerAtributtes._dodgeChange)} %";
+        _fovText.text = $"Field of view {RoundedValues(_player._playerAtributtes._fovBonus * 100)} %";
         _bonusHPText.text = $"Bonus HP {_bonusHP}";
         _luckyText.text = $"Luck {_playerAtributtes._playerLuck} %";
     }
