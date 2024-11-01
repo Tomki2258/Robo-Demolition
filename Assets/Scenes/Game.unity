@@ -430,6 +430,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4011843437822699752}
     m_Modifications:
+    - target: {fileID: 2552061567419743325, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552061567419743325, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552061567419743325, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552061567419743325, guid: cd059fd18407bc6989c105114c571188,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_Pivot.x
@@ -443,32 +463,32 @@ PrefabInstance:
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -499.99994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
@@ -513,7 +533,7 @@ PrefabInstance:
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199881623273755902, guid: cd059fd18407bc6989c105114c571188,
         type: 3}
@@ -3850,9 +3870,19 @@ PrefabInstance:
       objectReference: {fileID: 926469220}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
+      propertyPath: _gameStarted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
       propertyPath: _garageSpace
       value: 
       objectReference: {fileID: 1538768725}
+    - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _gameLaunched
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 333214732684504716, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _secondSpodek
