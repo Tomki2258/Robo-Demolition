@@ -53,6 +53,7 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         FindFirstObjectByType<RewardAd>().LoadAd();
+        DoQuest();
     }
 
     private void FixedUpdate()
