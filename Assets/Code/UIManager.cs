@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
     public GameObject _lockedSkinBaner;
     public GameObject _selectSkinButton;
     public GameObject _buySkinButton;
+    public TMP_Text _garageCoins;
     [Header("CreditsCanvas")]
     public GameObject _creditsObject;
     public TMP_Text _creditsText;
@@ -307,6 +308,10 @@ public class UIManager : MonoBehaviour
         _playerCustomizationCanvas.SetActive(_mode);
         _playerGarage._garageEnabled = _mode;
         _gameStartUI.SetActive(!_mode);
+        if (_mode)
+        {
+            _garageCoins.text = _userData.GetPlayerCoins().ToString();
+        }
     }
 
     public void ManageShieldButton()

@@ -18,6 +18,7 @@ public class PlayerGarage : MonoBehaviour
     private GameObject _realBody;
     [SerializeField] private GameObject _realHead;
     [SerializeField] private GameObject _realCircle;
+    [SerializeField] private GameObject _beltCircle;
     [SerializeField] private GameObject _realHands;
     [SerializeField] private GameObject _realLaserGun;
     [SerializeField] private GameObject _realLeftGun;
@@ -31,6 +32,7 @@ public class PlayerGarage : MonoBehaviour
     [SerializeField] private GameObject _garageBody;
     [SerializeField] private GameObject _garageHead;
     [SerializeField] private GameObject _garageCircle;
+    [SerializeField] private GameObject _garageBeltCircle;
     [SerializeField] private GameObject _garageHands;
     [SerializeField] private GameObject _garageLaserGun;
     [SerializeField] private GameObject _garageLeftGun;
@@ -108,6 +110,7 @@ public class PlayerGarage : MonoBehaviour
         _garageBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
         _garageHead.GetComponent<MeshRenderer>().material = _currentSelectedSkin._headMaterial;
         _garageCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleGunmaterial;
+        _garageBeltCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleBeltMaterial;
         _garageHands.GetComponent<MeshRenderer>().material = _currentSelectedSkin._handsMaterial;
         _garageLaserGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._laserGunMaterial;
         _garageLeftGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._leftGunMaterial;
@@ -115,6 +118,7 @@ public class PlayerGarage : MonoBehaviour
         _garageLegs.GetComponent<SkinnedMeshRenderer>().material = _currentSelectedSkin._legsMaterial;
         _garageRocketGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._rocketGunMaterial;
         _sphereAttack.GetComponent<MeshRenderer>().material = _currentSelectedSkin._spheareGunMaterial;
+        
     }
 
     public void ApplySkinForPlayer()
@@ -125,6 +129,7 @@ public class PlayerGarage : MonoBehaviour
         _realBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
         _realHead.GetComponent<MeshRenderer>().material = _currentSelectedSkin._headMaterial;
         _realCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleGunmaterial;
+        _beltCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleBeltMaterial;
         _realHands.GetComponent<MeshRenderer>().material = _currentSelectedSkin._handsMaterial;
         _realLaserGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._laserGunMaterial;
         _realLeftGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._leftGunMaterial;
@@ -155,6 +160,8 @@ public class PlayerGarage : MonoBehaviour
             _uiManager._userData.AddPlayerCoins(-_skinPrice);
             _currentSelectedSkin.UnlockSkin();
             SetSkinChangeUI();
+            
+            _uiManager._garageCoins.text = _currentPlayerCoins.ToString();
         }
         else
         {

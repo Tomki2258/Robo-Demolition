@@ -10,6 +10,7 @@ public class SkinTestPlayer : MonoBehaviour
     [SerializeField] private GameObject _garageBody;
     [SerializeField] private GameObject _garageHead;
     [SerializeField] private GameObject _garageCircle;
+    [SerializeField] private GameObject _garageBeltCircle;
     [SerializeField] private GameObject _garageHands;
     [SerializeField] private GameObject _garageLaserGun;
     [SerializeField] private GameObject _garageLeftGun;
@@ -23,6 +24,7 @@ public class SkinTestPlayer : MonoBehaviour
         _garageBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
         _garageHead.GetComponent<MeshRenderer>().material = _currentSelectedSkin._headMaterial;
         _garageCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleGunmaterial;
+        _garageBeltCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleBeltMaterial;
         _garageHands.GetComponent<MeshRenderer>().material = _currentSelectedSkin._handsMaterial;
         _garageLaserGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._laserGunMaterial;
         _garageLeftGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._leftGunMaterial;

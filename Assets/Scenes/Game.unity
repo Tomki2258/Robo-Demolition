@@ -3306,6 +3306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkinSelectSpace
       objectReference: {fileID: 0}
+    - target: {fileID: 6466692539672312980, guid: 7327d3d6031439ef7b43fb26b0506a64,
+        type: 3}
+      propertyPath: m_Name
+      value: Belt
+      objectReference: {fileID: 0}
     - target: {fileID: 6808067716189147256, guid: 7327d3d6031439ef7b43fb26b0506a64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3361,6 +3366,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7327d3d6031439ef7b43fb26b0506a64, type: 3}
+--- !u!1 &482323916526380917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6466692539672312980, guid: 7327d3d6031439ef7b43fb26b0506a64,
+    type: 3}
+  m_PrefabInstance: {fileID: 482323916526380916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &572096073244748936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7908504765583430424, guid: 8d7bc175f7f001245a3435a4b70789d7,
@@ -4375,6 +4386,11 @@ PrefabInstance:
       objectReference: {fileID: 2139483154}
     - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
+      propertyPath: _beltCircle
+      value: 
+      objectReference: {fileID: 5336057214332085526}
+    - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
       propertyPath: _garageBody
       value: 
       objectReference: {fileID: 1120877562}
@@ -4463,6 +4479,11 @@ PrefabInstance:
       propertyPath: _garageRocketGun
       value: 
       objectReference: {fileID: 67590587}
+    - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: _garageBeltCircle
+      value: 
+      objectReference: {fileID: 482323916526380917}
     - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
       propertyPath: _realSphereAttack
@@ -6620,11 +6641,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8984301920163319722, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+        type: 3}
+      propertyPath: m_Name
+      value: Belt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581, type: 3}
+--- !u!1 &5336057214332085526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8984301920163319722, guid: 219ef8a8ec8c3b0e798b7c8f42cd6581,
+    type: 3}
+  m_PrefabInstance: {fileID: 5336057214332085525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5382634669166355974
 RectTransform:
   m_ObjectHideFlags: 0

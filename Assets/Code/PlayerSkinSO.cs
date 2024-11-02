@@ -8,6 +8,7 @@ public class PlayerSkinSO : ScriptableObject
     [SerializeField] private string _skinName;
     public Material _bodyMaterial;
     public Material _circleGunmaterial;
+    public Material _circleBeltMaterial;
     public Material _handsMaterial;
     public Material _headMaterial;
     public Material _laserGunMaterial;
