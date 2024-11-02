@@ -4491,6 +4491,23 @@ PrefabInstance:
       objectReference: {fileID: 2079896450}
     - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
         type: 3}
+      propertyPath: _playerSkins.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: '_playerSkins.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c9be44d4394be8e4bb32c42ad2bc1d3c,
+        type: 2}
+    - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
+      propertyPath: '_playerSkins.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c9be44d4394be8e4bb32c42ad2bc1d3c,
+        type: 2}
+    - target: {fileID: 638198517927586209, guid: 860dc31f6d096540d8bc123bfaac57e4,
+        type: 3}
       propertyPath: '_rotateElements.Array.data[0]'
       value: 
       objectReference: {fileID: 1082771995}
