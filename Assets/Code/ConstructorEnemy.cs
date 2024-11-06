@@ -60,7 +60,7 @@ public class ConstructorEnemy : Enemy
     {
         for (int i = 0; i < _handsTransforms.Count; i++)
         {
-            _handsTransforms[i].Rotate(1,0,0,Space.Self);
+            _handsTransforms[i].Rotate(10,0,0,Space.Self);
         }
     }
     private void Incoming()

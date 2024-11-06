@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _garageSpace;
     [SerializeField] private Camera _mainCamera;
     public GameObject _poweredEnemyEffect;
+    [SerializeField] private GameObject _mainLight;
     private void Awake()
     {
         _garageCammera.enabled = false;
@@ -333,7 +334,10 @@ public class GameManager : MonoBehaviour
         _garageCammera.enabled = _mode;
         _garageSpace.SetActive(_mode);
         _mainCamera.enabled = !_mode;
+        //_mainLight.SetActive(!_mode);
         //_uiManager.EnablePlayerCustomizationCanvas(_mode);
+
+        RenderSettings.fog = _mode ? true : false;
     }
 
     public float GetTrashX()
