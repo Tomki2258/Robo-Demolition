@@ -19,6 +19,8 @@ public class ConstructorEnemy : Enemy
     [SerializeField] float _buildTimerMax;
     private float _lastAgentSpeed;
     private Animator _animator;
+    [SerializeField] private List<Transform> _handsTransforms;
+    private Vector3 _startHandRotation;
     void Start()
     {
         SetUp();
@@ -27,6 +29,7 @@ public class ConstructorEnemy : Enemy
 
         _attackDelayCurrent = 0;
         _animator = GetComponent<Animator>();
+        _startHandRotation = _handsTransforms[0].localEulerAngles;
     }
 
     private void FixedUpdate()
@@ -49,6 +52,13 @@ public class ConstructorEnemy : Enemy
         }
     }
 
+    private void RotateHands()
+    {
+        for (int i = 0; i < _handsTransforms.Count; i++)
+        {
+            _handsTransforms[i].Rotate(1,0,0,Space.Self);
+        }
+    }
     private void Incoming()
     {
         if (_attackDelayCurrent > _attackDelayMax)
@@ -66,6 +76,7 @@ public class ConstructorEnemy : Enemy
     {
         if (_buildTimer < _buildTimerMax)
         {
+            RotateHands();
             _buildTimer += Time.deltaTime;
             _agent.speed = 0;
             return;
