@@ -19,6 +19,9 @@ public class ConstructorEnemy : Enemy
     [SerializeField] float _buildTimerMax;
     private float _lastAgentSpeed;
     private Animator _animator;
+    private float _switchBuildPositionTimer;
+    private float _switchBuildPositionTimerMax = 0.5f;
+    private Transform _child;
     void Start()
     {
         SetUp();
@@ -27,6 +30,7 @@ public class ConstructorEnemy : Enemy
 
         _attackDelayCurrent = 0;
         _animator = GetComponent<Animator>();
+        _child = transform.GetChild(0);
     }
 
     private void FixedUpdate()
@@ -66,6 +70,7 @@ public class ConstructorEnemy : Enemy
     {
         if (_buildTimer < _buildTimerMax)
         {
+            SetRandomBuildPosition();
             _buildTimer += Time.deltaTime;
             _agent.speed = 0;
             return;
@@ -76,12 +81,33 @@ public class ConstructorEnemy : Enemy
         _buildTimer = 0;
         GameObject _curentTurret = Instantiate(_turretPrefab, transform.position, Quaternion.identity);
         _placedTurrets.Add(_curentTurret);
-
+        
+        _child.transform.position = transform.position;
+        _child.LookAt(_player.transform.position);
+        _switchBuildPositionTimer = 0;
+        
         if (_placedTurrets.Count > _maxTurrets)
         {
             GameObject _firstTurret = _placedTurrets[0];
             _placedTurrets.Remove(_firstTurret);
             _firstTurret.GetComponent<Turret>().DestroyTurret();
         }
+    }
+
+    private void SetRandomBuildPosition()
+    {
+        if(_switchBuildPositionTimer < _switchBuildPositionTimerMax)
+        {
+            _switchBuildPositionTimer += Time.deltaTime;
+            return;
+        }
+        
+        Vector3 _randomPosition = new Vector3(transform.position.x + Random.Range(-2, 2),
+            transform.position.y  + 0,
+            transform.position.z + Random.Range(-2, 2));
+        _child.position = _randomPosition;
+        _child.LookAt(transform.position);
+        
+        _switchBuildPositionTimer = 0;
     }
 }
