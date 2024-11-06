@@ -3298,6 +3298,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkinSelectSpace
       objectReference: {fileID: 0}
+    - target: {fileID: 2143055454600134819, guid: 7327d3d6031439ef7b43fb26b0506a64,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6808067716189147256, guid: 7327d3d6031439ef7b43fb26b0506a64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3346,6 +3351,26 @@ PrefabInstance:
     - target: {fileID: 6808067716189147256, guid: 7327d3d6031439ef7b43fb26b0506a64,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192843691870725474, guid: 7327d3d6031439ef7b43fb26b0506a64,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192843691870725474, guid: 7327d3d6031439ef7b43fb26b0506a64,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192843691870725474, guid: 7327d3d6031439ef7b43fb26b0506a64,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192843691870725474, guid: 7327d3d6031439ef7b43fb26b0506a64,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

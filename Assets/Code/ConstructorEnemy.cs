@@ -22,6 +22,8 @@ public class ConstructorEnemy : Enemy
     private float _switchBuildPositionTimer;
     private float _switchBuildPositionTimerMax = 0.5f;
     private Transform _child;
+    [SerializeField] private List<Transform> _handsTransforms;
+    private Vector3 _startHandRotation;
     void Start()
     {
         SetUp();
@@ -30,6 +32,7 @@ public class ConstructorEnemy : Enemy
 
         _attackDelayCurrent = 0;
         _animator = GetComponent<Animator>();
+        _startHandRotation = _handsTransforms[0].localEulerAngles;
         _child = transform.GetChild(0);
     }
 
@@ -53,6 +56,13 @@ public class ConstructorEnemy : Enemy
         }
     }
 
+    private void RotateHands()
+    {
+        for (int i = 0; i < _handsTransforms.Count; i++)
+        {
+            _handsTransforms[i].Rotate(1,0,0,Space.Self);
+        }
+    }
     private void Incoming()
     {
         if (_attackDelayCurrent > _attackDelayMax)
@@ -71,6 +81,7 @@ public class ConstructorEnemy : Enemy
         if (_buildTimer < _buildTimerMax)
         {
             SetRandomBuildPosition();
+            RotateHands();
             _buildTimer += Time.deltaTime;
             _agent.speed = 0;
             return;
