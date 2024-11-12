@@ -82,15 +82,15 @@ public class QuestClass : ScriptableObject
         switch(_questType)
         {
             case QuestType.killEnemies:
-                return "Killed enemies";
+                return "Enemies killed";
             //case QuestType.walkDistance:
-            //    return "Walk distance";
+            //    return "Distance traveled";
             //case QuestType.surviveTime:
                 //return "Survive time";
             case QuestType.shootenBullets:
-                return "Shooten bullets";
+                return "Bullets shot";
             case QuestType.collectPowerUps:
-                return "Collect power ups";
+                return "Power ups collected";
             default:
                 return "No description";
         }

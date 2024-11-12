@@ -422,7 +422,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c413e87f25d3393795e101049a10883, type: 2}
+  - {fileID: 2100000, guid: 52f00fad257eb5d4dba5f4927c59db7b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2503,6 +2503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 480afb6b1a173b58897e67bec4c4770e,
+        type: 3}
+      propertyPath: m_Name
+      value: Belt
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 480afb6b1a173b58897e67bec4c4770e,
         type: 3}
