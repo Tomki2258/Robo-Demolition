@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c3b8450b6f0c31a4f0f92cb6f8861, type: 3}
+  m_Name: Pumpkin
+  m_EditorClassIdentifier: 
+  _skinPrice: 50
+  _skinName: Pumpkin Head
+  _bodyMaterial: {fileID: 2100000, guid: dd9a8d3f111c7604488205457c292dbd, type: 2}
+  _circleGunmaterial: {fileID: 2100000, guid: 24eb7aa0d5166f246992400b2c2a2100, type: 2}
+  _circleBeltMaterial: {fileID: 2100000, guid: e89afc3e2a782e949897b9713b94519e, type: 2}
+  _handsMaterial: {fileID: 2100000, guid: e49512477d6fa9145a965c312a61fd53, type: 2}
+  _headMaterial: {fileID: 2100000, guid: b8954177a5df71944bb776c22aa15e4b, type: 2}
+  _laserGunMaterial: {fileID: 2100000, guid: ab94426c5dd4f5f4987bb2fe8248ae6f, type: 2}
+  _leftGunMaterial: {fileID: 2100000, guid: b15c67ecaa0307f47814799883af627f, type: 2}
+  _rightGunMaterial: {fileID: 2100000, guid: eb977e17f2ba87d4f9f0e1ac7cd25823, type: 2}
+  _legsMaterial: {fileID: 2100000, guid: 382dda3880c731c4da2dad380c437cbd, type: 2}
+  _rocketGunMaterial: {fileID: 2100000, guid: 798f7e4c3ce583e49a99e40ff798782f, type: 2}
+  _spheareGunMaterial: {fileID: 2100000, guid: 283f1d92df4bbdd4b93866f183e20d54, type: 2}
+  _isUnlocked: 0
