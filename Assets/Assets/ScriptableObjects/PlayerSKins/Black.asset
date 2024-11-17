@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c3b8450b6f0c31a4f0f92cb6f8861, type: 3}
+  m_Name: Black
+  m_EditorClassIdentifier: 
+  _skinPrice: 25
+  _skinName: Obsidian
+  _bodyMaterial: {fileID: 2100000, guid: c18639efd799cc642aef04609cee7651, type: 2}
+  _circleGunmaterial: {fileID: 2100000, guid: 794894b3e32913140b1df9f135cf9c44, type: 2}
+  _circleBeltMaterial: {fileID: 2100000, guid: a3fd42202fed78c4ebbe68b4ed201b04, type: 2}
+  _handsMaterial: {fileID: 2100000, guid: 2fe304a67f969c44fa1bce6b15920435, type: 2}
+  _headMaterial: {fileID: 2100000, guid: c9bf7d13fb2d2834895e9b28ccb28905, type: 2}
+  _laserGunMaterial: {fileID: 2100000, guid: d361eebe89189a044a8d02a99a5db768, type: 2}
+  _leftGunMaterial: {fileID: 2100000, guid: 25b19149b6000834c8a8b435d7578d64, type: 2}
+  _rightGunMaterial: {fileID: 2100000, guid: 3d2beba9e7231cf458a9768519e72ed3, type: 2}
+  _legsMaterial: {fileID: 2100000, guid: 70a69bc10e19d1d4493799f4dee5cc7f, type: 2}
+  _rocketGunMaterial: {fileID: 2100000, guid: 547f132366252324280609395a244005, type: 2}
+  _spheareGunMaterial: {fileID: 2100000, guid: 22c686a0a8554be4fbfe022cafb7d00d, type: 2}
+  _isUnlocked: 0
