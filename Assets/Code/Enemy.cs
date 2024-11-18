@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
             transform.localScale *= _poweredUpMultipler;
             _attackRange = (int)Math.Round(_attackRange * _poweredUpMultipler);
             _bulletDamage = (int)Math.Round(_bulletDamage * _poweredUpMultipler);
-            _health *= _poweredUpMultipler;
+            _maxHealth *= _poweredUpMultipler;
             _poweredEffect = Instantiate(_gameManager._poweredEnemyEffect, 
                 new Vector3(transform.position.x,transform.position.y + 1,transform.position.z), 
                 Quaternion.identity).transform;

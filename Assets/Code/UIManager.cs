@@ -313,7 +313,11 @@ public class UIManager : MonoBehaviour
             _garageCoins.text = _userData.GetPlayerCoins().ToString();
         }
     }
-
+    public void EnableCreditsUI(bool _mode)
+    {
+        _creditsObject.SetActive(_mode);
+        _creditsText.text = GetCreditsFromFile();
+    }
     public void ManageShieldButton()
     {
         _shieldButton.SetActive(_player._shieldCount > 0);

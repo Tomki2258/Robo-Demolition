@@ -3,9 +3,10 @@ using UnityEditor;
 
 public class PNGToMaterials : MonoBehaviour
 {
-    [MenuItem("Tools/Convert PNG to Materials")]
+    //[MenuItem("Tools/Convert PNG to Materials")]
     static void ConvertPNGToMaterials()
     {
+        /*
         string path = EditorUtility.OpenFolderPanel("Select PNG Folder", "", "");
         if (path.Length != 0)
         {
@@ -25,5 +26,6 @@ public class PNGToMaterials : MonoBehaviour
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
+        */
     }
 }

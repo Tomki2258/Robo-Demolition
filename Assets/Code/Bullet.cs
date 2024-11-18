@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
                     break;
                 case "Enemy":
                     var _enemy = other.GetComponent<Enemy>();
+                    Debug.Log("Enemy hit");
                     if (_enemy.CheckHealth(_bulletDamage))
                     {
                         _enemy._currentResetColorTime = 0;

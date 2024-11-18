@@ -145,7 +145,7 @@ MonoBehaviour:
   _blackMaterial: {fileID: 2100000, guid: 023ec8ce0654610dca5b5d752c0fb0aa, type: 2}
   _audioSource: {fileID: 6705608401987723988}
   _shootAudioClip: {fileID: 8300000, guid: 0b3700b74a10f9e76864fd7cb99d291b, type: 3}
-  _currentResetColorTime: 0
+  _currentResetColorTime: 1.5
   _childMaterials: []
   _enemyChildrens: []
   _wingsSpeed: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   _isPoweredUp: 0
   _poweredUpMultipler: 0
   _rigidbody: {fileID: 0}
+  _playerDistance: 0
   _maxPlayTime: 15
 --- !u!195 &-8734701051252472421
 NavMeshAgent:

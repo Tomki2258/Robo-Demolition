@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6983441892266736936}
   - component: {fileID: 7252857126113512865}
   - component: {fileID: 6818452259075201029}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ConstructorENemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   _bullet: {fileID: 0}
   _bulletDamage: 0
   _health: 15
-  _maxHealth: 0
+  _maxHealth: 15
   _attackDelayMax: 20
   _attackDelayCurrent: 0
   _stunned: 0
@@ -96,7 +96,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -246,7 +246,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &6729110104012173317
 PrefabInstance:
@@ -306,6 +306,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 56384db2cdcfe5948b1733439bca8a14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 56384db2cdcfe5948b1733439bca8a14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: 56384db2cdcfe5948b1733439bca8a14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 56384db2cdcfe5948b1733439bca8a14,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -326,10 +341,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5fb36e0ead67ec447877717c7d11bda1, type: 2}
+    - target: {fileID: -516098083770646512, guid: 56384db2cdcfe5948b1733439bca8a14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 56384db2cdcfe5948b1733439bca8a14,
         type: 3}
       propertyPath: m_Name
       value: constructor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56384db2cdcfe5948b1733439bca8a14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 56384db2cdcfe5948b1733439bca8a14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
