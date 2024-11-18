@@ -295,7 +295,6 @@ MonoBehaviour:
   _mainAudioListener: {fileID: 0}
   _disableBuildObjects:
   - {fileID: 0}
-  - {fileID: 0}
   _playerPossibleSpawners:
   - {fileID: 1869327408755890210}
   - {fileID: 2498795466581951825}
@@ -305,7 +304,7 @@ MonoBehaviour:
   - {fileID: 7740918345181750602}
   - {fileID: 5765059540170560228}
   _spawnParticles: {fileID: 0}
-  _poweredEnemyChance: 3
+  _poweredEnemyChance: 0
   _garageCammera: {fileID: 0}
   _garageSpace: {fileID: 0}
   _mainCamera: {fileID: 0}
@@ -334,8 +333,8 @@ MonoBehaviour:
   _audioOnSprite: {fileID: 21300000, guid: 2946cb796091acbaa8a3039a9074c4a5, type: 3}
   _audioOffSprite: {fileID: 21300000, guid: c7a0723c64510ec3bb61f4a7287f33c6, type: 3}
   _audioImage: {fileID: 0}
-  _twitterURL: https://www.facebook.com/profile.php?id=61567069107847
-  _facebookURL: 'https://x.com/tamusdev '
+  _twitterURL: 'https://x.com/tamusdev '
+  _facebookURL: https://www.facebook.com/profile.php?id=61567069107847
   _youtubeURL: https://www.youtube.com/@_tamusdev-sh9dn
 --- !u!114 &3042383123432389850
 MonoBehaviour:
@@ -369,6 +368,8 @@ MonoBehaviour:
   _xpText: {fileID: 0}
   _xPProgressText: {fileID: 0}
   _xpSlider: {fileID: 0}
+  _playerHpUi: {fileID: 0}
+  _playerXpUi: {fileID: 0}
   _mainUI: {fileID: 0}
   _gameStartUI: {fileID: 0}
   _weaponUI: {fileID: 0}
@@ -504,7 +505,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _speed: 100
+  _speed: 3
   _blades: []
 --- !u!114 &5317437016612546682
 MonoBehaviour:

@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text _xPProgressText;
     public Slider _xpSlider;
+	public GameObject _playerHpUi;
+    public GameObject _playerXpUi;
     public GameObject _mainUI;
     public GameObject _gameStartUI;
     public GameObject _weaponUI;
@@ -120,9 +122,13 @@ public class UIManager : MonoBehaviour
 
     public void ShowXPDifference(int _value,bool _isLucky)
     {
-        var _xpDifference = Instantiate(_hpDifferenceText, _xpSlider.transform.position, Quaternion.identity);
-        _xpDifference.transform.SetParent(_mainUI.transform);
+        var _xpDifference = Instantiate(_hpDifferenceText, _xPProgressText.transform.position, Quaternion.identity);
+        var _xpDiffTransform = _xpDifference.transform;
+        _xpDiffTransform.SetParent(_playerXpUi.transform);
+        var newPosition = new Vector3(_xpDifference.transform.position.x, _xpDifference.transform.position.y + Random.Range(100,200), _xpDifference.transform.position.z); //przesuwam lekko w prawo
         _xpDifference.transform.localScale = new Vector3(1.25f,1.25f,1.25f);
+        _xpDifference.transform.position = newPosition;
+        
         var _text = _xpDifference.GetComponent<TMP_Text>();
         
         _text.color = _isLucky ? Color.yellow : Color.cyan;
@@ -138,8 +144,8 @@ public class UIManager : MonoBehaviour
     {
         var _hpDifference = Instantiate(_hpDifferenceText, _hpText.transform.position, Quaternion.identity);
         var _hpDiffTransform = _hpDifference.transform;
-        _hpDiffTransform.SetParent(_mainUI.transform);
-        var _randomPosition = new Vector3(_hpDifference.transform.position.x + Random.Range(-50, 50),
+        _hpDiffTransform.SetParent(_playerHpUi.transform);
+        var _randomPosition = new Vector3(_hpDifference.transform.position.x + Random.Range(350, 400), //tutaj tez
             _hpDifference.transform.position.y + Random.Range(100, 200), //100, 200
             _hpDifference.transform.position.z);
         _hpDiffTransform.position = _randomPosition;
