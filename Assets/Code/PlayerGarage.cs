@@ -49,12 +49,20 @@ public class PlayerGarage : MonoBehaviour
         _playerMovement = _realPlayer.GetComponent<PlayerMovement>();
         
         LoadSavedSkin();
+        
+        for(int i = 0; i < _playerSkins.Count; i++)
+        {
+            _playerSkins[i].CheckForUnlocked();
+        }
     }
 
     void FixedUpdate()
     {
         if(!_garageEnabled) return;
         RotateElements();
+        int _currentPlayerCoins = _uiManager._userData.GetPlayerCoins();
+        _uiManager._garageCoins.text = _currentPlayerCoins.ToString();
+        _uiManager._eqSkinInfo.SetActive(_currentSelectedSkin == _playerMovement._currentPlayerSkin);
     }
 
     private void RotateElements()
@@ -105,8 +113,6 @@ public class PlayerGarage : MonoBehaviour
         _uiManager._skinNameText.text = _currentSelectedSkin.GetSkinName();
         _uiManager._skinPriceText.text = _currentSelectedSkin.GetSkinPrice().ToString();
         
-        int _currentPlayerCoins = _uiManager._userData.GetPlayerCoins();
-        
         _garageBody.GetComponent<MeshRenderer>().material = _currentSelectedSkin._bodyMaterial;
         _garageHead.GetComponent<MeshRenderer>().material = _currentSelectedSkin._headMaterial;
         _garageCircle.GetComponent<MeshRenderer>().material = _currentSelectedSkin._circleGunmaterial;
@@ -118,7 +124,6 @@ public class PlayerGarage : MonoBehaviour
         _garageLegs.GetComponent<SkinnedMeshRenderer>().material = _currentSelectedSkin._legsMaterial;
         _garageRocketGun.GetComponent<MeshRenderer>().material = _currentSelectedSkin._rocketGunMaterial;
         _sphereAttack.GetComponent<MeshRenderer>().material = _currentSelectedSkin._spheareGunMaterial;
-        
     }
 
     public void ApplySkinForPlayer()
@@ -160,8 +165,6 @@ public class PlayerGarage : MonoBehaviour
             _uiManager._userData.AddPlayerCoins(-_skinPrice);
             _currentSelectedSkin.UnlockSkin();
             SetSkinChangeUI();
-            
-            _uiManager._garageCoins.text = _currentPlayerCoins.ToString();
         }
         else
         {

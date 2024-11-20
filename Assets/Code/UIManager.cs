@@ -46,6 +46,7 @@ public class UIManager : MonoBehaviour
     private QuestManager _questManager;
     [SerializeField] private TMP_Text _coinsText;
     public GameObject _shieldButton;
+    public Slider _shieldSlider;
     [Header("Player customization")]
     [SerializeField] private GameObject _playerCustomizationCanvas;
     private PlayerGarage _playerGarage;
@@ -55,6 +56,7 @@ public class UIManager : MonoBehaviour
     public GameObject _selectSkinButton;
     public GameObject _buySkinButton;
     public TMP_Text _garageCoins;
+    public GameObject _eqSkinInfo;
     [Header("CreditsCanvas")]
     public GameObject _creditsObject;
     public TMP_Text _creditsText;
@@ -80,7 +82,8 @@ public class UIManager : MonoBehaviour
         _rateAppCanvas.SetActive(false);
         _gameStartUI.SetActive(true);
         _playerCustomizationCanvas.SetActive(false);
-        
+        _shieldSlider.maxValue = _player._shieldMaxTimer;
+        _shieldSlider.gameObject.SetActive(false);
         ManageShieldButton();
     }
 

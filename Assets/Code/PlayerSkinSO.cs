@@ -44,5 +44,6 @@ public class PlayerSkinSO : ScriptableObject
     public void UnlockSkin()
     {
         PlayerPrefs.SetInt(_skinName, 1);
+        _isUnlocked = true;
     }
 }

@@ -114,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
             _weaponObject.SetActive(false);
         }
         
+        _uiManager._shieldSlider.enabled = false;
+        
         SetUiValues();
     }
 
@@ -240,6 +242,7 @@ public class PlayerMovement : MonoBehaviour
         
         _shieldCount--;
         _shield = true;
+        _uiManager._shieldSlider.gameObject.SetActive(true);
     }
     private void ShieldManagment()
     {
@@ -249,6 +252,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _shieldEffect.SetActive(true);
             _shieldTimer += Time.deltaTime;
+            
+            _uiManager._shieldSlider.value = (_shieldMaxTimer - _shieldTimer);
         }
         else
         {
@@ -256,6 +261,7 @@ public class PlayerMovement : MonoBehaviour
             _shieldEffect.SetActive(false);
             _shield = false;
             _uiManager.ManageShieldButton();
+            _uiManager._shieldSlider.gameObject.SetActive(false);
         }
     }
     
