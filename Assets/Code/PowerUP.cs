@@ -13,6 +13,10 @@ public enum PowerUpType
 public class PowerUP : MonoBehaviour
 {
     public PowerUpType _powerUpType;
+    public AudioSource powerupSound;
+    [SerializeField] private AudioClip coinSound;
+    [SerializeField] private AudioClip healSound;
+    [SerializeField] private AudioClip shieldSound;
     private UIManager _uiManager;
     private QuestsMonitor _questsMonitor;
     private Transform _meshesParent;
@@ -46,12 +50,15 @@ public class PowerUP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        transform.position = Vector3.down * 100f;
+        
         if (!other.gameObject.GetComponent<PlayerMovement>()) return;
         
         var _player = other.GetComponent<PlayerMovement>();
         switch (_powerUpType)
         {
             case PowerUpType.Health:
+                powerupSound.clip = healSound;
                 if (_player._health >= _player._maxHealth) return;
                 _player._health += Convert.ToInt32(_player._health * 0.5f);
                 _uiManager.ShowHpDifference(_player._health * 0.50f);
@@ -60,17 +67,21 @@ public class PowerUP : MonoBehaviour
                     _player._health = _player._maxHealth;
                 break;
             case PowerUpType.Shield:
+                powerupSound.clip = shieldSound;
                 _player._shieldCount++;
                 _uiManager.ManageShieldButton();
                 break;
             case PowerUpType.Coin:
+                powerupSound.clip = coinSound;
                 FindFirstObjectByType<UserData>().AddPlayerCoins(1);
                 FindFirstObjectByType<NotyficationBaner>()
                     .ShotMessage("Coint Collected", "You have 1 more coin", false, false);
                 break;
         }
 
+        powerupSound.Play();
+        
         _questsMonitor._colledtedPowerUps++;
-        Destroy(gameObject);
+        Destroy(gameObject, powerupSound.clip.length);
     }
 }
