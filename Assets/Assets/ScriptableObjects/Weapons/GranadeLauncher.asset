@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7742b6389c314a8aa860f609a86790de, type: 3}
   m_Name: GranadeLauncher
   m_EditorClassIdentifier: 
-  _name: Granade Launcher
-  _description: Scatter grenades that deal area damage
+  _name: Grenade Launcher
+  _description: Launches grenades that do splash damage
   _type: 10
   _sprite: {fileID: 21300000, guid: 15637d8be3e2c0a14ada09f5614510e0, type: 3}
-  _isUnlocked: 1
+  _isUnlocked: 0
   _isInUse: 0
   _damage: 25
   _reloadTimeMax: 3

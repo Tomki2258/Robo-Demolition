@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7742b6389c314a8aa860f609a86790de, type: 3}
   m_Name: MachineGun
   m_EditorClassIdentifier: 
-  _name: Machine GUn
-  _description: A fast rifle with a large spread
+  _name: Machine Gun
+  _description: Extremly fast rifle, but at the cost of accuracy
   _type: 1
   _sprite: {fileID: 5353008042490681745, guid: a0b7781fd8dc54c6cba4f06626c2e0af, type: 3}
   _isUnlocked: 1
-  _isInUse: 0
+  _isInUse: 1
   _damage: 3
   _reloadTimeMax: 0.3
   _attackRange: 0

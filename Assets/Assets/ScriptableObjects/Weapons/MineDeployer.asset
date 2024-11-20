@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7742b6389c314a8aa860f609a86790de, type: 3}
   m_Name: MineDeployer
   m_EditorClassIdentifier: 
-  _name: Mine deployer
+  _name: Mine Deployer
   _description: Scatters proximity mines around the player
   _type: 9
   _sprite: {fileID: 0}
-  _isUnlocked: 1
+  _isUnlocked: 0
   _isInUse: 0
   _damage: 15
   _reloadTimeMax: 5

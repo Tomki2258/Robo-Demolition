@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7742b6389c314a8aa860f609a86790de, type: 3}
   m_Name: OrbitalGun
   m_EditorClassIdentifier: 
-  _name: Orbital Gun
-  _description: A powerful cannon firing from orbit
+  _name: Orbital Canon
+  _description: A powerful cannon that fires from orbit
   _type: 5
   _sprite: {fileID: 6248463491730416798, guid: 2074b90393dc0f271b732be697b6455e, type: 3}
-  _isUnlocked: 1
+  _isUnlocked: 0
   _isInUse: 0
   _damage: 50
   _reloadTimeMax: 9
