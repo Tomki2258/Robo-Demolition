@@ -165,18 +165,20 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (_died) return;
-        
+
         HpRegeneration();
         ShieldManagment();
         //SetUiValues();
-        
+
         if (_gameManager._spawnedEnemies.Count > 0)
         {
             var _nearestEnemy = GetNearestEnemy();
+            if (_nearestEnemy == null) return; // Add this check
+
             _currentEnemyDist = Vector3.Distance(transform.position, _nearestEnemy.position);
             if (_playerWeapons._sniperGunClass.CheckInUse())
             {
-                if (_currentEnemyDist < (GetRealAttackRange() * 1.75f)  
+                if (_currentEnemyDist < (GetRealAttackRange() * 1.75f)
                     /*&& RaycastEnemy(_currentEnemy.transform) */)
                 {
                     MoveTurret(_nearestEnemy.position);
@@ -185,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (_currentEnemyDist < GetRealAttackRange()  
+                if (_currentEnemyDist < GetRealAttackRange()
                     /*&& RaycastEnemy(_currentEnemy.transform) */)
                 {
                     MoveTurret(_nearestEnemy.position);
@@ -195,10 +197,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     MoveTurret(_idleLookTransform.position);
                     _playerWeapons._laserSpawner.gameObject.SetActive(false);
-                }    
+                }
             }
-            if (_nearestEnemy == null)
-                return;
         }
         else
         {
@@ -393,6 +393,7 @@ public class PlayerMovement : MonoBehaviour
 
         for (int i = 0; i < enemyCount; i++)
         {
+            if(enemiesList[i] == null) continue;
             var dist = (enemiesList[i].transform.position - currentPosition).sqrMagnitude;
 
             if (dist < lowestDist)

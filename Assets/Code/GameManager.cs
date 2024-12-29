@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool _godMode;
     public bool _gameStarted;
     public bool _gameLaunched;
+    public bool _speededUpGame;
     public List<Transform> _spawnPoints;
     public float _spawnTimeMax;
     public PlayerMovement _player;
@@ -98,6 +99,10 @@ public class GameManager : MonoBehaviour
             _choosenSpawner.position.z);
         _spodek.transform.position = _spawnVector;
 
+        if (_speededUpGame)
+        {
+            Time.timeScale = 3;
+        }
     }
 
     private void DoAppLaunch()
@@ -107,7 +112,7 @@ public class GameManager : MonoBehaviour
             _godMode = false;
             _gameLaunched = false;
             _gameStarted = false;
-
+            _speededUpGame = false;
             foreach (GameObject _gameObject in _disableBuildObjects) 
             {
                 _gameObject.SetActive(false);

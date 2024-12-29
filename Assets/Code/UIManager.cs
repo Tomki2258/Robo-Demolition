@@ -208,7 +208,13 @@ public class UIManager : MonoBehaviour
             _cameraShake.SwitchShakeMode(true);
             _player.DoJoystickInput(true);
         }
+        
         Time.timeScale = !_mode ? 1 : 0;
+        if (_gameManager._speededUpGame)
+        {
+            Time.timeScale = 3;
+        }
+        
     }
 
     public void EnableDieCanvas(bool _mode)
