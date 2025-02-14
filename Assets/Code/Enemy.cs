@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     public AudioClip _shootAudioClip;
     private bool _died;
     private QuestsMonitor _questsMonitor;
-    private float _resetColorTime = 0.075f;
+    public float _resetColorTime = 0.075f;
     public float _currentResetColorTime;
     public List<Material> _childMaterials = new List<Material>();
     public Transform[] _enemyChildrens;
