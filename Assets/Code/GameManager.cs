@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     public GameObject _poweredEnemyEffect;
     [SerializeField] private GameObject _mainLight;
+    private float _cleanEnemiesListTimer = 0;
     private void Awake()
     {
         _garageCammera.enabled = false;
@@ -136,17 +137,27 @@ public class GameManager : MonoBehaviour
         {
             PauseGame();
         }
-
+        CleanList();
         if (_spawnTimeCurrent < _spawnTimeMax)
         {
             _spawnTimeCurrent += Time.deltaTime;
             return;
         }
-
+        
         SpawnEnemy();
         _spawnTimeCurrent = 0;
     }
 
+    private void CleanList()
+    {
+        _cleanEnemiesListTimer+=Time.deltaTime;
+
+        if (_cleanEnemiesListTimer > 10)
+        {
+            _spawnedEnemies.RemoveAll(item => item == null);
+            _cleanEnemiesListTimer = 0;
+        }
+    }
     private void DestroyTrash()
     {
         GameObject[] _trashArray;
@@ -182,6 +193,7 @@ public class GameManager : MonoBehaviour
         _spawnedEnemies.Add(_enemy);
         //_enemy.GetComponent<Enemy>()._gameManager = this;
         _enemy.GetComponent<Enemy>()._player = _player;
+        _enemy.GetComponent<Enemy>()._enemiesManager = transform.GetComponent<EnemiesManager>();
     }
 
     public void RemoveEnemy(GameObject _enemy)

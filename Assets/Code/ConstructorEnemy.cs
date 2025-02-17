@@ -12,7 +12,7 @@ public class ConstructorEnemy : Enemy
     [Header("Constructor Enemy")] [SerializeField]
     private GameObject _turretPrefab;
 
-    private List<GameObject> _placedTurrets = new List<GameObject>();
+    //private List<GameObject> _placedTurrets = new List<GameObject>();
     private int _maxTurrets = 3;
     public ConstructorState _constructorState;
     private float _buildTimer;
@@ -91,18 +91,21 @@ public class ConstructorEnemy : Enemy
         _agent.speed = _lastAgentSpeed;
         _buildTimer = 0;
         GameObject _curentTurret = Instantiate(_turretPrefab, transform.position, Quaternion.identity);
-        _placedTurrets.Add(_curentTurret);
-        
+        //_placedTurrets.Add(_curentTurret);
+        _enemiesManager.AddTurrte(_curentTurret);
         _child.transform.position = transform.position;
         _child.LookAt(_player.transform.position);
         _switchBuildPositionTimer = 0;
         
+        _enemiesManager.CheckTurrets();
+        /*
         if (_placedTurrets.Count > _maxTurrets)
         {
             GameObject _firstTurret = _placedTurrets[0];
             _placedTurrets.Remove(_firstTurret);
             _firstTurret.GetComponent<Turret>().DestroyTurret();
         }
+        */
     }
 
     private void SetRandomBuildPosition()

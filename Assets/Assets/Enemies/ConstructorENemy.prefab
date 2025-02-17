@@ -61,7 +61,7 @@ MonoBehaviour:
   _bulletDamage: 0
   _health: 15
   _maxHealth: 15
-  _attackDelayMax: 20
+  _attackDelayMax: 5
   _attackDelayCurrent: 0
   _stunned: 0
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
@@ -72,6 +72,7 @@ MonoBehaviour:
   _currentResetColorTime: 0
   _childMaterials: []
   _enemyChildrens: []
+  _enemiesManager: {fileID: 0}
   _wingsSpeed: 0
   _wingsList: []
   _baseSpeed: 0
@@ -82,7 +83,7 @@ MonoBehaviour:
   _turretPrefab: {fileID: 288913568505245208, guid: a63e2880dd34188db9c459a6b66a36ec,
     type: 3}
   _constructorState: 0
-  _buildTimerMax: 20
+  _buildTimerMax: 5
   _handsTransforms:
   - {fileID: 1420845233657688124}
   - {fileID: 3742958301927541733}
@@ -325,22 +326,22 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb36e0ead67ec447877717c7d11bda1, type: 2}
+      objectReference: {fileID: 2100000, guid: 24d565dedf7a1f57b948f5ab8050d4f7, type: 2}
     - target: {fileID: -1461304994638716399, guid: 56384db2cdcfe5948b1733439bca8a14,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb36e0ead67ec447877717c7d11bda1, type: 2}
+      objectReference: {fileID: 2100000, guid: 24d565dedf7a1f57b948f5ab8050d4f7, type: 2}
     - target: {fileID: -1439730007547781893, guid: 56384db2cdcfe5948b1733439bca8a14,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb36e0ead67ec447877717c7d11bda1, type: 2}
+      objectReference: {fileID: 2100000, guid: 24d565dedf7a1f57b948f5ab8050d4f7, type: 2}
     - target: {fileID: -804731622281664130, guid: 56384db2cdcfe5948b1733439bca8a14,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb36e0ead67ec447877717c7d11bda1, type: 2}
+      objectReference: {fileID: 2100000, guid: 24d565dedf7a1f57b948f5ab8050d4f7, type: 2}
     - target: {fileID: -516098083770646512, guid: 56384db2cdcfe5948b1733439bca8a14,
         type: 3}
       propertyPath: m_Layer

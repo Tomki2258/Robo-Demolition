@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
     public float _currentResetColorTime;
     public List<Material> _childMaterials = new List<Material>();
     public Transform[] _enemyChildrens;
+    public EnemiesManager _enemiesManager;
     [Header("Flying enemy------")] 
     public float _wingsSpeed;
     

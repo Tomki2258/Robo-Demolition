@@ -387,6 +387,7 @@ public class PlayerMovement : MonoBehaviour
 
         for (int i = 0; i < enemyCount; i++)
         {
+            if(enemiesList[i] == null) continue;
             var dist = (enemiesList[i].transform.position - currentPosition).sqrMagnitude;
 
             if (dist < lowestDist)

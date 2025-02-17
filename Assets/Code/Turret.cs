@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour
 {
     private GameManager _gameManager;
     private PlayerMovement _player;
+    public EnemiesManager _enemiesManager;
     [SerializeField] private int _attackRange;
     private float _attackTimer;
     public float _attackTimerMax;
