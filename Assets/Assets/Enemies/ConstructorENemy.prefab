@@ -61,7 +61,7 @@ MonoBehaviour:
   _bulletDamage: 0
   _health: 15
   _maxHealth: 15
-  _attackDelayMax: 5
+  _attackDelayMax: 10
   _attackDelayCurrent: 0
   _stunned: 0
   _hitMaterial: {fileID: 2100000, guid: f0c6fa5a90a17dfacaff74f225879166, type: 2}
@@ -83,7 +83,7 @@ MonoBehaviour:
   _turretPrefab: {fileID: 288913568505245208, guid: a63e2880dd34188db9c459a6b66a36ec,
     type: 3}
   _constructorState: 0
-  _buildTimerMax: 5
+  _buildTimerMax: 10
   _handsTransforms:
   - {fileID: 1420845233657688124}
   - {fileID: 3742958301927541733}
@@ -101,7 +101,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

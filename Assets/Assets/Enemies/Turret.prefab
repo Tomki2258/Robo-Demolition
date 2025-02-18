@@ -47,14 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea72d9a7f918c7fc0b301f72b222fd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemiesManager: {fileID: 0}
   _attackRange: 25
   _attackTimerMax: 0.5
   _rotateTop: {fileID: 80722192293715098}
   _shootTransform: {fileID: 5933511446737744823}
   _offset: {x: 0, y: 0, z: 0}
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _damage: 1
-  _health: 500
+  _damage: 5
+  _health: 25
   _maxHealth: 0
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
 --- !u!65 &5138817325756093286
