@@ -54,7 +54,7 @@ MonoBehaviour:
   _shootTransform: {fileID: 5933511446737744823}
   _offset: {x: 0, y: 0, z: 0}
   _bullet: {fileID: 6881128617358307309, guid: 465e1494073ed297c8e15cb94ac366e1, type: 3}
-  _damage: 5
+  _damage: 12
   _health: 25
   _maxHealth: 0
   _shootAudioClip: {fileID: 8300000, guid: b60663d0888c1c2739fb12a5ae25ed1e, type: 3}
@@ -213,6 +213,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: d5e1b0b20564b903e83d03c4a3bc5028,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e8ffc0b2af4cc31b987f4404ef5ec680, type: 2}
     - target: {fileID: -1253996098385199550, guid: d5e1b0b20564b903e83d03c4a3bc5028,
         type: 3}
       propertyPath: m_LocalRotation.w
