@@ -9,7 +9,7 @@ public class PlayerGarage : MonoBehaviour
     public bool _garageEnabled = false;
     [SerializeField] private List<PlayerSkinSO> _playerSkins;
     [SerializeField] private GameObject _realPlayer;
-    private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _playerGarage;
     [SerializeField] private PlayerSkinSO _currentSelectedSkin;
     private UIManager _uiManager;
@@ -46,7 +46,7 @@ public class PlayerGarage : MonoBehaviour
         SetSkinChangeUI();
         //gameObject.SetActive(false);
         _playerGarage.SetActive(false);
-        _playerMovement = _realPlayer.GetComponent<PlayerMovement>();
+        //_playerMovement = _realPlayer.GetComponent<PlayerMovement>();
         
         LoadSavedSkin();
         
