@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
         ShieldManagment();
         //SetUiValues();
 
-        if (_gameManager._spawnedEnemies.Count > 0)
+        if (_gameManager._enemyFactory._spawnedEnemies.Count > 0)
         {
             var _nearestEnemy = GetNearestEnemy();
             if (_nearestEnemy == null) return; // Add this check
@@ -384,7 +384,7 @@ public class PlayerMovement : MonoBehaviour
     private Transform GetNearestEnemy()
     {
         var lowestDist = Mathf.Infinity;
-        var enemiesList = _gameManager._spawnedEnemies;
+        var enemiesList = _gameManager._enemyFactory._spawnedEnemies;
         int enemyCount = enemiesList.Count;
 
         if (enemyCount == 0) return null;

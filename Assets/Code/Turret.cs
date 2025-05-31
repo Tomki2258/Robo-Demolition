@@ -23,7 +23,7 @@ public class Turret : MonoBehaviour
     {
         _player = FindObjectOfType<PlayerMovement>();
         _gameManager = FindObjectOfType<GameManager>();
-        _gameManager._spawnedEnemies.Add(gameObject);
+        _gameManager._enemyFactory._spawnedEnemies.Add(gameObject);
         _maxHealth = _health;
     }
 

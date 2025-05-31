@@ -12,14 +12,9 @@ public class GameManager : MonoBehaviour
     public bool _gameLaunched;
     public bool _speededUpGame;
     public List<Transform> _spawnPoints;
-    public float _spawnTimeMax;
     public PlayerMovement _player;
     public float _spawnOffset;
-    [Header("Enemies Section")]
-    public List<GameObject> _enemies;
-    public List<int> _enemiesStages;
-    public int _possibleEnemies;
-    public List<GameObject> _spawnedEnemies;
+    
     [Header("------------------")]
     public GameObject _pausedUI;
     public float _spawnTimeCurrent;
@@ -36,7 +31,6 @@ public class GameManager : MonoBehaviour
     private int _enemiesCount;
     private InterstitialAd _interstitialAd;
     private bool _paused;
-    private int _spawnsCount;
     private UIManager _uiManager;
     public AudioSource _spodekAudioSource;
     [SerializeField] [Range(0, 120)] private int _trashRotateX;
@@ -61,8 +55,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     public GameObject _poweredEnemyEffect;
     [SerializeField] private GameObject _mainLight;
+    public EnemyFactory _enemyFactory;
     private void Awake()
     {
+        _enemyFactory = GetComponent<EnemyFactory>();
         _garageCammera.enabled = false;
         DoAppLaunch();
         _userData = FindFirstObjectByType<UserData>();
@@ -78,8 +74,7 @@ public class GameManager : MonoBehaviour
         _cameraController.gameObject.GetComponent<AudioListener>().enabled = true;
         DestroyTrash();
         _spodek.SetActive(false);
-        _spawnsCount = _spawnPoints.Count;
-        _enemiesCount = _enemies.Count;
+        _enemiesCount = _enemyFactory._enemies.Count;
         foreach (var _obj in _spawnPoints) _obj.name = "Enemy Spawn Point";
         _pausedUI.SetActive(false);
         if (!_gameLaunched) _player.DoJoystickInput(false);
@@ -87,7 +82,7 @@ public class GameManager : MonoBehaviour
         _gameSettings = FindFirstObjectByType<GameSettings>();
         _uiManager = FindFirstObjectByType<UIManager>();
         _player.gameObject.SetActive(false);
-        _spawnTimeCurrent = _spawnTimeMax;
+        _spawnTimeCurrent = _enemyFactory._spawnTimeMax;
         if(_godMode) DoGodMode();
         if (_gameStarted && _gameLaunched) OverideStart();
         
@@ -124,8 +119,8 @@ public class GameManager : MonoBehaviour
         _player._maxHealth = 10000;
         _player._level = 100;
         _player._xpToNextLevel = 10000;
-        _possibleEnemies = _enemiesCount;
-        _spawnTimeMax *= 0.5f;
+        _enemyFactory._possibleEnemies = _enemiesCount;
+        _enemyFactory._spawnTimeMax *= 0.5f;
         _godMode = true;
     }
     private void FixedUpdate()
@@ -142,13 +137,13 @@ public class GameManager : MonoBehaviour
             PauseGame();
         }
 
-        if (_spawnTimeCurrent < _spawnTimeMax)
+        if (_spawnTimeCurrent < _enemyFactory._spawnTimeMax)
         {
             _spawnTimeCurrent += Time.deltaTime;
             return;
         }
 
-        SpawnEnemy();
+        _enemyFactory.SpawnEnemy();
         _spawnTimeCurrent = 0;
     }
 
@@ -161,37 +156,15 @@ public class GameManager : MonoBehaviour
     
     public void IncreaseEnemiesIndex()
     {
-        if (!_enemiesStages.Contains(_player._level)) return;
+        if (!_enemyFactory._enemiesStages.Contains(_player._level)) return;
         
-        _possibleEnemies++;
+        _enemyFactory._possibleEnemies++;
         _uiManager.ShowSpottedUI();
     }
-
-    private void SpawnEnemy()
-    {
-        var _point = Random.Range(0, _spawnsCount);
-        var _distance = Vector3.Distance(_spawnPoints[_point].position, _player.transform.position);
-        if (_distance < _spawnOffset) 
-            _point = Random.Range(0, _spawnsCount);
-
-        // Spawn enemy
-        var _enemyIndex = Random.Range(0, _possibleEnemies);
-        var _randomSpawnVector = new Vector3(_spawnPoints[_point].position.x + Random.Range(-10, 10),
-            _spawnPoints[_point].position.y,
-            _spawnPoints[_point].position.z + Random.Range(-10, 10));
-        var _enemy = Instantiate(_enemies[_enemyIndex], _randomSpawnVector, Quaternion.identity);
-        _spawnTimeMax -= _spawnTimeMax * 0.002f;
-
-        if (_enemy.GetComponent<BombardEnemy>()) return;
-
-        _spawnedEnemies.Add(_enemy);
-        //_enemy.GetComponent<Enemy>()._gameManager = this;
-        _enemy.GetComponent<Enemy>()._player = _player;
-    }
-
+    
     public void RemoveEnemy(GameObject _enemy)
     {
-        _spawnedEnemies.Remove(_enemy);
+        _enemyFactory._spawnedEnemies.Remove(_enemy);
     }
 
     public void EnableContinueCanvas(bool _mode)
@@ -249,14 +222,14 @@ public class GameManager : MonoBehaviour
         _player.Revive();
         EnableContinueCanvas(true);
         
-        foreach (var _enemy in _spawnedEnemies.ToList())
+        foreach (var _enemy in _enemyFactory._spawnedEnemies.ToList())
         {
             Enemy _enemyScript = _enemy.GetComponent<Enemy>();
             _enemyScript._killedByManager = true;
             _enemyScript.CheckHealth(_enemyScript._health + 1);
         }
 
-        _spawnedEnemies.Clear();
+        _enemyFactory._spawnedEnemies.Clear();
     }
 
     public IEnumerator ReloadLevel()

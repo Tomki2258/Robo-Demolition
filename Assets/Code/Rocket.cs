@@ -72,7 +72,7 @@ public class Rocket : MonoBehaviour
     {
         Transform _currentEnemy = null;
         var lowestDist = Mathf.Infinity;
-        foreach (var _enemy in _gameManager._spawnedEnemies)
+        foreach (var _enemy in _gameManager._enemyFactory._spawnedEnemies)
         {
             if (_enemy == null) continue;
             var dist = Vector3.Distance(_enemy.transform.position, transform.position);

@@ -23,7 +23,7 @@ public class ExplosiveMine : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(_gameManager._spawnedEnemies.Count == 0 || !_ready) return;
+        if(_gameManager._enemyFactory._spawnedEnemies.Count == 0 || !_ready) return;
         if(EnemyInRange())
             DoDamage();
     }
