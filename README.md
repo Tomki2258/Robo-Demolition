@@ -1,4 +1,4 @@
-# ROBO DEMOLITON
+## ROBO DEMOLITON
 
 Small mobile android game inspired by games like "Vampire Survivors" and "Survivor IO"
 
